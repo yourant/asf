@@ -1,0 +1,19 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/{url}",
+      "UpstreamHttpMethod": [ "Post", "Get" ],
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+       "AuthenticationOptions": {
+         "AuthenticationProviderKey": "Bearer"
+       },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "127.0.0.1",// 本地连接地址
+          "Port": 5001 //本地连接端口
+        }
+      ]
+    }
+  ]
+}
