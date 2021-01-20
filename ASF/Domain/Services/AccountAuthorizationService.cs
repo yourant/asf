@@ -82,7 +82,7 @@ namespace ASF.Domain.Services
       }
       // 账户角色是否被禁用以及对应的权限是否被禁用与否匹配
       if ((account.Department != null && account.Department.Role.Count != 0 && account.Department.Role.Any(f => (f.Enable != null && (EnabledType)f.Enable == EnabledType.Disabled) || f.Permission.Count(x => (x.Enable != null && (EnabledType)x.Enable == EnabledType.Enabled) && x.Id == api.PermissionId) == 0)) 
-          || 
+          && 
           (account.Role.Count != 0 && account.Role.Any(f => (f.Enable != null && (EnabledType)f.Enable == EnabledType.Disabled) || f.Permission.Count(x => (x.Enable != null && (EnabledType)x.Enable == EnabledType.Enabled) && x.Id == api.PermissionId) == 0)))
       {
         _logger.LogWarning($"Role {string.Join(",", account.Department.Role.Select(s => s.Name))} Is Disabled ");

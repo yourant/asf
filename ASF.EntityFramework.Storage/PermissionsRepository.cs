@@ -33,7 +33,7 @@ namespace ASF.EntityFramework.Repository
     {
       List<Permission> list = (from p in await base.GetDbContext().Permissions.Include("PermissionMenus").Include("Apis").ToListAsync()
         from l in ids
-        where (p.Id == l)
+        where (p.Id == l && (!p.Code.Equals("asf_openapi") && p.Type != 3))
         select p).ToList();
       return await Task.FromResult<List<Permission>>(list);
     }

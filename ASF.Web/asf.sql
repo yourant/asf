@@ -17,7 +17,7 @@ INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALU
 INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_post',1,'岗位管理权限',2,0);
 
 --  插入公共权限
-INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_openapi',1,'公共权限',1,1);
+INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_openapi',1,'公共权限',3,1);
 -- 插入权限菜单数据
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`description`) VALUES ('控制面板','控制面板菜单',1,'anticon-table','控制面板菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('账户管理','账户管理',2,'anticon-user','/control/account','账户管理菜单');
@@ -32,7 +32,6 @@ INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`me
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('租户管理','租户管理',11,'anticon-user-switch','/control/tenancy','租户管理菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('部门管理','部门管理',12,'anticon-hdd','/control/department','部门管理菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('岗位管理','岗位管理',13,'anticon-radar-chart','/control/post','岗位管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('公共api管理','公共api管理',14,'anticon-open','/control/openapi','公共api管理菜单');
 -- 插入api 权限数据
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (2, '获取账户列表',2,'/api/asf/account/getlist','get',1,'获取账户信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '添加账户',2,'/api/asf/account/create','post',1,'添加账户信息权限',1);
@@ -205,9 +204,9 @@ INSERT INTO `asf_post` (`tenancy_id`, `name`) VALUES (2, '经理');
 INSERT INTO `asf_post` (`tenancy_id`, `name`) VALUES (2, '主管');
 
 -- 插入用户数据
-INSERT INTO `asf_accounts` (`tenancy_id`,`department_id`,`name`,`username`,`password`,`password_salt`,`telphone`,`email`,`avatar`,`sex`,`Roles`) VALUES (1, 2, 'keep_wan', 'admin', '20V6MgmX8XVtiRz10AI4Ib5H16a9JyrNmSwmgJ2k0iI=', '8283e4c3-f87e-4d85-85fb-f5c0de063992', '86+13800000000', 'admin@qq.com', '/avatar.jpg', 1, '9999');
+INSERT INTO `asf_accounts` (`tenancy_id`,`department_id`,`name`,`username`,`password`,`password_salt`,`telphone`,`email`,`avatar`,`sex`) VALUES (1, 2, 'keep_wan', 'admin', '20V6MgmX8XVtiRz10AI4Ib5H16a9JyrNmSwmgJ2k0iI=', '8283e4c3-f87e-4d85-85fb-f5c0de063992', '86+13800000000', 'admin@qq.com', '/avatar.jpg', 1);
 -- 分配账户角色
-INSERT INTO `asf_account_role` (`account_id`,`role_id`) VALUES (1,1);
+-- INSERT INTO `asf_account_role` (`account_id`,`role_id`) VALUES (1,1);
 --  分配角色到部门
 INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (2,1);
 INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (3,1);
