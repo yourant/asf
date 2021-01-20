@@ -68,18 +68,13 @@ namespace ASF.Domain.Services
       
       long uid = context.User.UserId();
       //获取账户信息
-      Account account = await this._serviceProvider.GetRequiredService<IAccountsRepository>().GetAsync(uid);
+      Account account = await this._serviceProvider.GetRequiredService<IAccountsRepository>().GetAccountAndRoleAndPermissionAsync(uid);
       if (account == null)
       {
-        this._logger.LogWarning($"{uid} Super administrator does not exist");
+        this._logger.LogWarning($"{ uid } Account does not exist");
         return Result<Api>.ReFailure(ResultCodes.NotAcceptable);
       }
-      //判断是否为超级管理员
-      // if (account.IsSuperAdministrator())
-      // {
-      //     return Result<Permission>.ReSuccess(parmission);
-      // }
-      //
+      // 判断角色是否为空
       if (account.Role.Count == 0 && (account.Department != null && account.Department.Role.Count == 0))
       {
         this._logger.LogDebug("Access to Tokan needs to include roles");

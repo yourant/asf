@@ -30,7 +30,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }).AddNewtonsoftJson(opt =>
             {
                 opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                // opt.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; //是否移除空值
+                opt.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; //是否移除空值
                 opt.SerializerSettings.Converters.Add(new MyUnixDateTimeConverter()); //统一时间戳转换
             }).SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddASFCore(startupAction);

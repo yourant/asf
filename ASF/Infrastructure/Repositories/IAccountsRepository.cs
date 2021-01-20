@@ -8,11 +8,11 @@ namespace ASF.Infrastructure.Repositories
 	public interface IAccountsRepository: IRepositories<Account>
 	{
 		/// <summary>
-		/// 通过用户id获取用户
+		/// 通过用户id获取用户角色权限信息
 		/// </summary>
 		/// <param name="id"></param>
-		/// <returns></returns>
-		Task<Account> GetAsync(long id);
+		/// <returns>返回用户部门信息以及角色权限信息</returns>
+		Task<Account> GetAccountAndRoleAndPermissionAsync(long id);
 		/// <summary>
 		/// 通过用户名获取账户信息
 		/// </summary>

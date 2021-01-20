@@ -29,7 +29,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result<Account>> GetAccountInfo(long uid)
 		{
-			Account account = await _accountsRepository.GetAsync(uid);
+			Account account = await _accountsRepository.GetAccountAndRoleAndPermissionAsync(uid);
 			if (account == null)
 				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
 			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)

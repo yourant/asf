@@ -14,17 +14,17 @@ namespace ASF.EntityFramework.Repository
 		{
 		}
 		/// <summary>
-		/// 通过用户id获取用户
+		/// 通过用户id获取用户角色权限信息
 		/// </summary>
 		/// <param name="id"></param>
-		/// <returns></returns>
-		/// <exception cref="NotImplementedException"></exception>
-		public async Task<Account> GetAsync(long id)
+		/// <returns>返回用户部门信息以及角色权限信息</returns>
+		public async Task<Account> GetAccountAndRoleAndPermissionAsync(long id)
 		{
 			Account account = await base.GetDbContext().Accounts
 				.Include("Department.DepartmentRole.Role.PermissionRole.Permission")
 				.Include("AccountRole.Role.PermissionRole.Permission")
 				.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
+
 			return await Task.FromResult<Account>(account);
 		}
 
