@@ -1,12 +1,11 @@
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ASF.Domain.Entities
+namespace ASF.Application.DTO
 {
   /// <summary>
-  /// api表
+  /// 权限api响应
   /// </summary>
-  public class Api
+  public class PermissionApiResponseDto
   {
     /// <summary>
     /// 权限功能
@@ -15,7 +14,7 @@ namespace ASF.Domain.Entities
     /// <summary>
     /// 权限id
     /// </summary>
-    public long? PermissionId { get; set; }
+    public long PermissionId { get; set; }
 
     /// <summary>
     /// 名称
@@ -26,9 +25,18 @@ namespace ASF.Domain.Entities
     /// </summary>
     public uint Status { get; set; }
     /// <summary>
+    /// api功能状态名称
+    /// </summary>
+    public string StatusName { get; set; }
+    /// <summary>
     ///  api功能类型
     /// </summary>
     public uint Type { get; set; }
+    /// <summary>
+    /// api功能类型名
+    /// </summary>
+    public string TypeName { get; set; }
+
     /// <summary>
     /// api路径
     /// </summary>
@@ -53,10 +61,5 @@ namespace ASF.Domain.Entities
     /// 创建时间
     /// </summary>
     public DateTime CreateTime { get; set; }
-    /// <summary>
-    /// 对应权限
-    /// </summary>
-    [NotMapped] 
-    public Permission Permission { get; set; }
   }
 }

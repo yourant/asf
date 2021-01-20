@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using ASF.Application.DTO;
 using ASF.Domain.Entities;
+using ASF.Domain.Values;
 using AutoMapper;
 
 namespace ASF.Application.DtoMapper
@@ -10,6 +11,10 @@ namespace ASF.Application.DtoMapper
 	{
 		public PermissionMapper()
 		{
+			// 权限功能映射
+			this.CreateMap<Api, PermissionApiResponseDto>()
+				.ForMember(f => f.StatusName, s => s.MapFrom(o => (EnabledType) o.Status))
+				.ForMember(f => f.TypeName, s => s.MapFrom(o => (ApiType) o.Type));
 			// 权限菜单映射
 			this.CreateMap<Permission, PermissionMenuInfoResponseDto>()
 				.ForMember(f => f.Title, s => s.MapFrom(o => o.PermissionMenus.Title))

@@ -1,11 +1,17 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASF.Application.DTO;
 using ASF.DependencyInjection;
 using ASF.Domain.Entities;
+using ASF.Domain.Services;
 using ASF.Infrastructure.Repositories;
 using ASF.Internal.Results;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ASF.Application
 {
@@ -16,48 +22,26 @@ namespace ASF.Application
   [Route("[controller]/[action]")]
   public class ApiController: ControllerBase
   {
-    private readonly IApiRepository _apiRepository;
-    private readonly IPermissionsRepository _permissionsRepository;
-    public ApiController(IApiRepository apiRepository, IPermissionsRepository permissionsRepository)
+    private readonly IServiceProvider _serviceProvider;
+    private readonly IMapper _mapper;
+    public ApiController(IServiceProvider serviceProvider,IMapper mapper)
     {
-      _apiRepository = apiRepository;
-      _permissionsRepository = permissionsRepository;
+      _serviceProvider = serviceProvider;
+      _mapper = mapper;
     }
-    
-    [HttpPost]
-    public async Task<Result> Create()
+    /// <summary>
+    /// 获取权限功能分页
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<ResultPagedList<PermissionApiResponseDto>> GetList([FromQuery] PermissionApiRequestDto dto)
     {
-      // var a = await _apiRepository.Add(new Api()
-      // {
-      //   PermissionId = 2,
-      //   Name = "测试api",
-      //   Status = 1,
-      //   Type = 1,
-      //   Path = "/testa/sdasdas",
-      //   HttpMethods = "post",
-      //   IsLogger = true,
-      //   Description = "测试api",
-      //   IsSystem = false,
-      // });
-      // var data = new Permission()
-      // {
-      //   Name = "api",
-      //   Code = "asf_api",
-      //   ParentId = 1,
-      //   Type = 2,
-      //   IsSystem = true
-      // };
-      // data.PermissionMenus = new PermissionMenu()
-      // {
-      //   PermissionId = data.Id,
-      //   Title = "api权限管理",
-      //   Subtitle = "api权限管理"
-      // };
-      // var a = await _permissionsRepository.Add(data);
-      // var (list,total) = await _permissionsRepository.GetEntitiesForPaging(1,5,j=>j.Id != 0);
- 
-      var a = await _permissionsRepository.GetAsync(15);
-      return Result.ReSuccess();
+      var data = await _serviceProvider.GetRequiredService<ApiService>().GetList(dto.PageNo, dto.PageSize, dto.PermissionId,
+        dto.Type, dto.Status, dto.Name, dto.HttpMethod, dto.Path);
+      if (!data.Success)
+        return ResultPagedList<PermissionApiResponseDto>.ReFailure(data.Message, data.Status);
+      return ResultPagedList<PermissionApiResponseDto>.ReSuccess(_mapper.Map<List<PermissionApiResponseDto>>(data.Data),data.TotalCount);
     }
   }
 }

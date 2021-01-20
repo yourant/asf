@@ -39,7 +39,7 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 权限ID
         /// </summary>
-        public long PermissionId { get; set; }
+        public long? PermissionId { get; set; }
         /// <summary>
         /// 日志记录时间
         /// </summary>
@@ -94,7 +94,7 @@ namespace ASF.Domain.Entities
         /// <param name="request"></param>
         /// <param name="response"></param>
         /// <param name="ip"></param>
-        public void SetOperate(long accountId, string accountName, string subject, LoggingType type,long permissionId,string apiAddress,string request,string ip, string response)
+        public void SetOperate(long accountId, string accountName, string subject, LoggingType type,long? permissionId,string apiAddress,string request,string ip, string response)
         {
             this.AccountId = accountId;
             this.AccountName = accountName;
