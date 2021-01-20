@@ -43,5 +43,25 @@ namespace ASF.Application
         return ResultPagedList<PermissionApiResponseDto>.ReFailure(data.Message, data.Status);
       return ResultPagedList<PermissionApiResponseDto>.ReSuccess(_mapper.Map<List<PermissionApiResponseDto>>(data.Data),data.TotalCount);
     }
+    /// <summary>
+    /// 创建功能权限
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    [HttpPost]
+    public async Task<Result> Create([FromBody] PermissionApiCreateRequestDto dto)
+    {
+      return await _serviceProvider.GetRequiredService<ApiService>().Create(_mapper.Map<Api>(dto));
+    }
+    /// <summary>
+    /// 修改功能权限
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    [HttpPut]
+    public async Task<Result> Modify([FromBody] PermissionApiModifyRequestDto dto)
+    {
+      return await _serviceProvider.GetRequiredService<ApiService>().Modify(_mapper.Map<Api>(dto));
+    }
   }
 }

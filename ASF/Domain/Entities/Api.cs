@@ -24,11 +24,11 @@ namespace ASF.Domain.Entities
     /// <summary>
     /// api 功能 状态
     /// </summary>
-    public uint Status { get; set; }
+    public uint? Status { get; set; }
     /// <summary>
     ///  api功能类型
     /// </summary>
-    public uint Type { get; set; }
+    public uint? Type { get; set; }
     /// <summary>
     /// api路径
     /// </summary>

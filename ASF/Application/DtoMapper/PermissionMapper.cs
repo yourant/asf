@@ -15,6 +15,10 @@ namespace ASF.Application.DtoMapper
 			this.CreateMap<Api, PermissionApiResponseDto>()
 				.ForMember(f => f.StatusName, s => s.MapFrom(o => (EnabledType) o.Status))
 				.ForMember(f => f.TypeName, s => s.MapFrom(o => (ApiType) o.Type));
+			// 创建权限功能
+			this.CreateMap<PermissionApiCreateRequestDto, Api>();
+			// 修改权限功能
+			this.CreateMap<PermissionApiModifyRequestDto, Api>();
 			// 权限菜单映射
 			this.CreateMap<Permission, PermissionMenuInfoResponseDto>()
 				.ForMember(f => f.Title, s => s.MapFrom(o => o.PermissionMenus.Title))
