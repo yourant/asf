@@ -21,9 +21,10 @@ namespace ASF.EntityFramework.Repository
 		/// <exception cref="NotImplementedException"></exception>
 		public async Task<Account> GetAsync(long id)
 		{
-			Account account = await base.GetDbContext().Accounts.Include("Department.DepartmentRole.Role.PermissionRole.Permission").AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
-			if (account != null && account.Role.Count == 0)
-				account = await base.GetDbContext().Accounts.Include("AccountRole.Role.PermissionRole.Permission").AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
+			Account account = await base.GetDbContext().Accounts
+				.Include("Department.DepartmentRole.Role.PermissionRole.Permission")
+				.Include("AccountRole.Role.PermissionRole.Permission")
+				.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
 			return await Task.FromResult<Account>(account);
 		}
 
@@ -34,9 +35,7 @@ namespace ASF.EntityFramework.Repository
 		/// <returns></returns>
 		public async Task<Account>  GetByUsernameAsync(string username)
 		{
-			Account account = await base.GetDbContext().Accounts.Include("Department.DepartmentRole.Role.PermissionRole.Permission").AsSplitQuery().FirstOrDefaultAsync(f=>f.Username.Equals(username));
-			if (account != null && account.Role.Count == 0)
-				account = await base.GetDbContext().Accounts.Include("AccountRole.Role.PermissionRole.Permission").AsSplitQuery().FirstOrDefaultAsync(f=>f.Username.Equals(username));
+			Account account = await base.GetDbContext().Accounts.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").AsSplitQuery().FirstOrDefaultAsync(f=>f.Username.Equals(username));
 			
 			return await Task.FromResult<Account>(account);
 		}
@@ -47,9 +46,7 @@ namespace ASF.EntityFramework.Repository
 		/// <returns></returns>
 		public async Task<Account> GetByPhoneAsync(string phone)
 		{
-			Account account = await base.GetDbContext().Accounts.Include("Department.DepartmentRole.Role.PermissionRole.Permission").AsSplitQuery().FirstOrDefaultAsync(f=>f.Telephone.Equals(phone));
-			if(account != null && account.Role.Count == 0)
-				account = await base.GetDbContext().Accounts.Include("AccountRole.Role.PermissionRole.Permission").AsSplitQuery().FirstOrDefaultAsync(f=>f.Telephone.Equals(phone));
+			Account account = await base.GetDbContext().Accounts.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").AsSplitQuery().FirstOrDefaultAsync(f=>f.Telephone.Equals(phone));
 			return await Task.FromResult<Account>(account);
 		}
 		/// <summary>
@@ -59,9 +56,7 @@ namespace ASF.EntityFramework.Repository
 		/// <returns></returns>
 		public async Task<Account> GetByEamilAsync(string email)
 		{
-			Account account = await base.GetDbContext().Accounts.Include("Department.DepartmentRole.Role.PermissionRole.Permission").AsSplitQuery().FirstOrDefaultAsync(f=>f.Email.Equals(email));
-			if(account != null && account.Role.Count == 0)
-				account = await base.GetDbContext().Accounts.Include("AccountRole.Role.PermissionRole.Permission").AsSplitQuery().FirstOrDefaultAsync(f=>f.Email.Equals(email));
+			Account account = await base.GetDbContext().Accounts.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").AsSplitQuery().FirstOrDefaultAsync(f=>f.Email.Equals(email));
 			return await Task.FromResult<Account>(account);
 		}
 	}
