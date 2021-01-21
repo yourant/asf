@@ -36,7 +36,7 @@ namespace ASF.Application
     /// <param name="dto"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ResultPagedList<PermissionApiResponseDto>> GetList([FromQuery] PermissionApiRequestDto dto)
+    public async Task<ResultPagedList<PermissionApiResponseDto>> GetList([FromQuery] PermissionApiListRequestDto dto)
     {
       var data = await _serviceProvider.GetRequiredService<ApiService>().GetList(dto.PageNo, dto.PageSize, dto.PermissionId,
         dto.Type, dto.Status, dto.Name, dto.HttpMethod, dto.Path);
@@ -44,6 +44,20 @@ namespace ASF.Application
         return ResultPagedList<PermissionApiResponseDto>.ReFailure(data.Message, data.Status);
       return ResultPagedList<PermissionApiResponseDto>.ReSuccess(_mapper.Map<List<PermissionApiResponseDto>>(data.Data),data.TotalCount);
     }
+    /// <summary>
+    /// 获取权限功能api详情
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<Result<PermissionApiResponseDto>> Details([FromQuery] long id)
+    {
+      var result = await _serviceProvider.GetRequiredService<ApiService>().Get(id);
+      if(!result.Success)
+        return Result<PermissionApiResponseDto>.ReFailure(result.Message,result.Status);
+      return Result<PermissionApiResponseDto>.ReSuccess(_mapper.Map<PermissionApiResponseDto>(result.Data));
+    }
+
     /// <summary>
     /// 创建功能权限
     /// </summary>
@@ -62,7 +76,11 @@ namespace ASF.Application
     [HttpPut]
     public async Task<Result> Modify([FromBody] PermissionApiModifyRequestDto dto)
     {
-      return await _serviceProvider.GetRequiredService<ApiService>().Modify(_mapper.Map<Api>(dto));
+      var server = _serviceProvider.GetRequiredService<ApiService>();
+      var result = await server.Get(dto.Id);
+      if(!result.Success)
+        return Result.ReFailure(result.Message,result.Status);
+      return await _serviceProvider.GetRequiredService<ApiService>().Modify(_mapper.Map(dto,result.Data));
     }
     /// <summary>
     /// 删除单个api
@@ -81,7 +99,7 @@ namespace ASF.Application
     /// <summary>
     /// 批量删除权限功能api
     /// </summary>
-    /// <param name="ids"></param>
+    /// <param name="dto"></param>
     /// <returns></returns>
     public async Task<Result> BatchDelete([FromBody] IdArrayRequestDto<long> dto)
     {

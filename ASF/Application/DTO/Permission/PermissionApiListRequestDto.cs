@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ASF.Application.DTO
 {
-	public class PermissionApiRequestDto: PaginationRequestDto
+	public class PermissionApiListRequestDto: PaginationRequestDto
 	{
 		/// <summary>
 		/// 权限id
@@ -11,10 +11,12 @@ namespace ASF.Application.DTO
 		/// <summary>
 		/// 权限功能类型
 		/// </summary>
+		[Range(1,2,ErrorMessage = "功能api类型只能输入1-2数字")]
 		public uint? Type { get; set; }
 		/// <summary>
 		/// 权限功能状态
 		/// </summary>
+		[Range(0,1,ErrorMessage = "功能api状态只能输入0-1数字")]
 		public uint? Status { get; set; }
 		/// <summary>
 		/// 权限功能名称

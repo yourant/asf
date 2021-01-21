@@ -31,7 +31,7 @@ namespace ASF.Domain.Entities
     /// <summary>
     /// 菜单是否隐藏
     /// </summary>
-    public bool? MenuHidden { get; set; }
+    public uint? MenuHidden { get; set; }
     /// <summary>
     /// 菜单内部地址
     /// </summary>

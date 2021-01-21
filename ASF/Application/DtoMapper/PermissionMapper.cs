@@ -19,7 +19,11 @@ namespace ASF.Application.DtoMapper
 			this.CreateMap<PermissionApiCreateRequestDto, Api>();
 			// 修改权限功能
 			this.CreateMap<PermissionApiModifyRequestDto, Api>();
-			// 权限菜单映射
+			//权限菜单响应
+			this.CreateMap<PermissionMenu,PermissionMenuResponseDto>();
+			// 创建权限菜单
+			this.CreateMap<PermissionMenuCreateRequestDto, PermissionMenu>();
+			// 登录信息权限菜单映射
 			this.CreateMap<Permission, PermissionMenuInfoResponseDto>()
 				.ForMember(f => f.Title, s => s.MapFrom(o => o.PermissionMenus.Title))
 				.ForMember(f => f.Subtitle, s => s.MapFrom(o => o.PermissionMenus.Subtitle))
@@ -28,7 +32,7 @@ namespace ASF.Application.DtoMapper
 				.ForMember(f => f.MenuUrl, s => s.MapFrom(o => o.PermissionMenus.MenuUrl))
 				.ForMember(f => f.MenuRedirect, s => s.MapFrom(o => o.PermissionMenus.MenuRedirect))
 				.ForMember(f => f.ExternalLink, s => s.MapFrom(o => o.PermissionMenus.ExternalLink))
-				.ForMember(f => f.MenuDescription, s => s.MapFrom(o => o.PermissionMenus.Description))
+				.ForMember(f => f.PermissionDescription, s => s.MapFrom(o => o.Description))
 				.ForMember(f => f.Translate, s => s.MapFrom(o => o.PermissionMenus.Translate))
 				.ForMember(f => f.Actions, s => s.MapFrom(o => o.Apis.Select(a => new Regex("/").Replace(a.Path, "",1).Replace("api/asf/","").Replace("/",".")).ToList()));
 		}

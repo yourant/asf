@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ASF.Application.DTO
 {
 	/// <summary>

@@ -82,7 +82,7 @@ namespace ASF.Domain.Services
 			}
 			
 			var (data, totalCount) = await _menuRepositories.GetEntitiesForPaging(pageNo, pageSize,
-				f => f.MenuUrl.Equals(menuUrl));
+				f => f.Id != 0);
 			return ResultPagedList<PermissionMenu>.ReSuccess(data,totalCount);
 		}
 		/// <summary>
@@ -92,9 +92,10 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(PermissionMenu permissionMenu)
 		{
+			IEnumerable<PermissionMenu> list = await _menuRepositories.GetEntities(f =>
+				f.Title.Equals(permissionMenu.Title) || f.MenuUrl.Equals(permissionMenu.MenuUrl));
 			// 判断权限菜单标题或地址是否重复了
-			if (await _menuRepositories.GetEntities(f =>
-				f.Title.Equals(permissionMenu.Title) || f.MenuUrl.Equals(permissionMenu.MenuUrl)) != null)
+			if (list.Any())
 				return Result.ReFailure(ResultCodes.PermissionMenuTitleOrUrlExist);
 			// 添加权限菜单
 			bool isAdd = await _menuRepositories.Add(permissionMenu);

@@ -6,12 +6,8 @@ namespace ASF.Application.DTO
 	/// <summary>
 	/// 权限菜单响应数据
 	/// </summary>
-	public class PermissionMenuInfoResponseDto
+	public class PermissionMenuInfoResponseDto: PermissionMenuModifyRequestDto
 	{
-		/// <summary>
-		/// 唯一标示
-		/// </summary>
-		public long Id { get;  set; }
 		/// <summary>
 		/// 权限代码
 		/// </summary>
@@ -33,10 +29,6 @@ namespace ASF.Application.DTO
 		/// </summary>
 		public bool? IsSystem { get; set; }
 		/// <summary>
-		/// 描述
-		/// </summary>
-		public string Description { get; set; }
-		/// <summary>
 		/// 排序
 		/// </summary>
 		public int Sort { get; set; }
@@ -48,44 +40,10 @@ namespace ASF.Application.DTO
 		/// 添加时间
 		/// </summary>
 		public DateTime CreateTime { get; set; }
-		
 		/// <summary>
-		/// 菜单标题
+		/// 权限说明
 		/// </summary>
-		public string Title { get; set; }
-		/// <summary>
-		/// 副标题
-		/// </summary>
-		public string Subtitle { get; set; }
-		/// <summary>
-		/// 菜单图标
-		/// </summary>
-		public string Icon { get; set; }
-		/// <summary>
-		/// 菜单是否隐藏
-		/// </summary>
-		public bool? MenuHidden { get; set; }
-		/// <summary>
-		/// 菜单内部地址
-		/// </summary>
-		public string MenuUrl { get; set; }
-		/// <summary>
-		/// 外部链接
-		/// </summary>
-		public string ExternalLink { get; set; }
-
-		/// <summary>
-		/// 菜单重定向地址
-		/// </summary>
-		public string MenuRedirect { get; set; }
-		/// <summary>
-		/// 菜单说明
-		/// </summary>
-		public string MenuDescription { get; set; }
-		/// <summary>
-		/// 多语言
-		/// </summary>
-		public string Translate { get; set; }
+		public string PermissionDescription { get; set; }
 		/// <summary>
 		/// 权限功能
 		/// </summary>

@@ -116,7 +116,7 @@ namespace ASF.Application
 					MenuUrl = item.MenuUrl,
 					MenuRedirect = item.MenuRedirect,
 					ExternalLink = item.ExternalLink,
-					MenuDescription = item.MenuDescription,
+					PermissionDescription = item.PermissionDescription,
 					Translate = item.Translate,
 					Actions = item.Actions,
 					Children = TreeSortMultiLevelFormat(list, item.Id)

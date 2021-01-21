@@ -61,7 +61,7 @@ namespace ASF.Application.DTO
 		/// <summary>
 		/// 菜单是否隐藏
 		/// </summary>
-		public bool? MenuHidden { get; set; }
+		public uint? MenuHidden { get; set; }
 		/// <summary>
 		/// 菜单内部地址
 		/// </summary>
@@ -78,7 +78,7 @@ namespace ASF.Application.DTO
 		/// <summary>
 		/// 菜单说明
 		/// </summary>
-		public string MenuDescription { get; set; }
+		public string PermissionDescription { get; set; }
 		/// <summary>
 		/// 多语言
 		/// </summary>
