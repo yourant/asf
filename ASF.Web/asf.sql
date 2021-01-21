@@ -37,7 +37,7 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '添加账户',2,'/api/asf/account/create','post',1,'添加账户信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '修改账户',2,'/api/asf/account/modify','post,put',1,'修改账户信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (2, '获取账户详情',2,'/api/asf/account/details','get',1,'获取账户信息详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '删除账户',2,'/api/asf/account/delete','post,delete',1,'删除账户信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '删除账户',2,'/api/asf/account/delete/[0-9]{1,12}','post,delete',1,'删除账户信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '修改账户状态',2,'/api/asf/account/modifystatus','post,put',1,'修改账户状态权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '修改账户密码',2,'/api/asf/account/resetpassword','post,put',1,'修改账户密码权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '修改账户邮箱',2,'/api/asf/account/modifyemail','post,put',1,'修改账户邮箱权限',1);
@@ -50,7 +50,7 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (3, '添加权限',2,'/api/asf/permission/create','post',1,'添加权限信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (3, '修改权限',2,'/api/asf/permission/modify','post,put',1,'修改权限信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (3, '获取权限详情',2,'/api/asf/permission/details','get',1,'获取权限详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (3, '删除权限',2,'/api/asf/permission/delete','post,delete',1,'删除权限信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (3, '删除权限',2,'/api/asf/permission/delete/[0-9]{1,12}','post,delete',1,'删除权限信息权限',1);
 
 
 
@@ -58,56 +58,57 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (4, '添加菜单',2,'/api/asf/menu/create','post',1,'添加菜单信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (4, '修改菜单',2,'/api/asf/menu/modify','post,put',1,'修改菜单信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (4, '获取菜单详情',2,'/api/asf/menu/details','get',1,'获取菜单详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (4, '删除菜单',2,'/api/asf/menu/delete','post,delete',1,'删除菜单信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (4, '删除菜单',2,'/api/asf/menu/delete/[0-9]{1,12}','post,delete',1,'删除菜单信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (4, '修改菜单是否隐藏',2,'/api/asf/menu/modifyhidden','post,put',1,'修改菜单隐藏权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (5, '获取api列表',2,'/api/asf/api/getlist','get',1,'获取api信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (5, '添加api',2,'/api/asf/api/create','post',1,'添加api信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (5, '修改api',2,'/api/asf/api/modify','post,put',1,'修改api信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (5, '获取api详情',2,'/api/asf/api/details','get',1,'获取api详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (5, '删除api',2,'/api/asf/api/delete','post,delete',1,'删除api信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (5, '删除api',2,'/api/asf/api/delete/[0-9]{1,12}','post,delete',1,'删除api信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (5, '删除api',2,'/api/asf/api/batchdelete','post,delete',1,'批量删除api信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (5, '是否禁用api',2,'/api/asf/api/modifystatus','post,put',1,'是否禁用api',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (6, '获取角色列表',2,'/api/asf/role/getlist','get',1,'获取角色信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '添加角色',2,'/api/asf/role/create','post',1,'添加角色信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '修改角色',2,'/api/asf/role/modify','post,put',1,'修改角色信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (6, '获取角色详情',2,'/api/asf/role/details','get',1,'获取角色详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '删除角色',2,'/api/asf/role/delete','post,delete',1,'删除角色信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '删除角色',2,'/api/asf/role/delete/[0-9]{1,12}','post,delete',1,'删除角色信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '是否禁用角色',2,'/api/asf/role/modifystatus','post,put',1,'是否禁用角色',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '角色分配部门',2,'/api/asf/role/assigndepartment','post,put',1,'角色分配部门',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '角色分配权限',2,'/api/asf/role/assignpermission','post,put',1,'角色分配权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (8, '获取错误日志列表',2,'/api/asf/audioerror/getlist','get',1,'获取错误日志信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (8, '获取错误日志详情',2,'/api/asf/audioerror/details','get',1,'获取错误日志详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (8, '删除错误日志',2,'/api/asf/audioerror/delete','post,delete',1,'删除错误日志信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (8, '删除错误日志',2,'/api/asf/audioerror/delete/[0-9]{1,12}','post,delete',1,'删除错误日志信息权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (9, '获取操作日志列表',2,'/api/asf/audiolog/getlist','get',1,'获取操作日志信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (9, '获取操作日志详情',2,'/api/asf/audiolog/details','get',1,'获取操作日志详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (9, '删除操作日志',2,'/api/asf/audiolog/delete','post,delete',1,'删除操作日志信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (9, '删除操作日志',2,'/api/asf/audiolog/delete/[0-9]{1,12}','post,delete',1,'删除操作日志信息权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (10, '获取调度任务列表',2,'/api/asf/task/getlist','get',1,'获取调度任务信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (10, '添加调度任务',2,'/api/asf/task/create','post',1,'添加调度任务信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (10, '修改调度任务',2,'/api/asf/task/modify','post,put',1,'修改调度任务信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (10, '获取调度任务详情',2,'/api/asf/task/details','get',1,'获取调度任务详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (10, '删除调度任务',2,'/api/asf/task/delete','post,delete',1,'删除调度任务信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (10, '删除调度任务',2,'/api/asf/task/delete/[0-9]{1,12}','post,delete',1,'删除调度任务信息权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (11, '获取租户列表',2,'/api/asf/tenancy/getlist','get',1,'获取租户信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (11, '添加租户',2,'/api/asf/tenancy/create','post',1,'添加租户信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (11, '修改租户',2,'/api/asf/tenancy/modify','post,put',1,'修改租户信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (11, '获取租户详情',2,'/api/asf/tenancy/details','get',1,'获取租户详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (11, '删除租户',2,'/api/asf/tenancy/delete','post,delete',1,'删除租户信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (11, '删除租户',2,'/api/asf/tenancy/delete/[0-9]{1,12}','post,delete',1,'删除租户信息权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (12, '获取部门列表',2,'/api/asf/department/getlist','get',1,'获取部门信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '添加部门',2,'/api/asf/department/create','post',1,'添加部门信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '修改部门',2,'/api/asf/department/modify','post,put',1,'修改部门信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (12, '获取部门详情',2,'/api/asf/department/details','get',1,'获取部门详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '删除部门',2,'/api/asf/department/delete','post,delete',1,'删除部门信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '删除部门',2,'/api/asf/department/delete/[0-9]{1,12}','post,delete',1,'删除部门信息权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (13, '获取岗位列表',2,'/api/asf/post/getlist','get',1,'获取岗位信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (13, '添加岗位',2,'/api/asf/post/create','post',1,'添加岗位信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (13, '修改岗位',2,'/api/asf/post/modify','post,put',1,'修改岗位信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (13, '获取岗位详情',2,'/api/asf/post/details','get',1,'获取岗位详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (13, '删除岗位',2,'/api/asf/post/delete','post,delete',1,'删除岗位信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (13, '删除岗位',2,'/api/asf/post/delete/[0-9]{1,12}','post,delete',1,'删除岗位信息权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (14, '登录',1,'/api/asf/authorise/login','post',1,'登录账户权限',0);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (14, '登出',1,'/api/asf/authorise/logout','post',1,'登出账户权限',0);

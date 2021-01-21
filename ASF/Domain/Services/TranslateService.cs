@@ -13,12 +13,10 @@ namespace ASF.Domain.Services
 	public class TranslateService
 	{
 		private readonly ITranslateRepositories _translateRepositories;
-		private readonly IUnitOfWork _unitOfWork;
 
-		public TranslateService(ITranslateRepositories translateRepositories, IUnitOfWork unitOfWork)
+		public TranslateService(ITranslateRepositories translateRepositories)
 		{
 			_translateRepositories = translateRepositories;
-			_unitOfWork = unitOfWork;
 		}
 		/// <summary>
 		/// 获取多语言
@@ -75,7 +73,6 @@ namespace ASF.Domain.Services
 			bool isAdd = await _translateRepositories.Add(translate);
 			if (!isAdd)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.TranslateCreateError);
 			}
 
@@ -91,7 +88,6 @@ namespace ASF.Domain.Services
 			bool isUpdate = await _translateRepositories.Update(translate);
 			if (!isUpdate)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.TranslateUpdateError);
 			}
 			
@@ -107,7 +103,6 @@ namespace ASF.Domain.Services
 			bool isDelete = await _translateRepositories.Delete(translate);
 			if (!isDelete)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.TranslateDeleteError);
 			}
 			

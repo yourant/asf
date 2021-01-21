@@ -14,12 +14,10 @@ namespace ASF.Domain.Services
 	public class ApiService
 	{
 		private readonly IApiRepository _apiRepository;
-		private readonly IUnitOfWork _unitOfWork;
 
-		public ApiService(IApiRepository apiRepository, IUnitOfWork unitOfWork)
+		public ApiService(IApiRepository apiRepository)
 		{
 			_apiRepository = apiRepository;
-			_unitOfWork = unitOfWork;
 		}
 		/// <summary>
 		/// 获取权限api
@@ -37,12 +35,22 @@ namespace ASF.Domain.Services
 		/// 获取权限api集合
 		/// </summary>
 		/// <returns></returns>
-		public async Task<ResultList<Api>> GetList()
+		public async Task<ResultList<Api>> GetList(List<long> ids)
 		{
-			IEnumerable<Api> list = await _apiRepository.GetEntities(f => f.Id != 0);
-			if(list == null)
-				return ResultList<Api>.ReFailure(ResultCodes.PermissionApiNotExist);
-			return ResultList<Api>.ReSuccess(list.ToList());
+			if (!ids.Any())
+			{
+				IEnumerable<Api> list = await _apiRepository.GetEntities(f => f.Id != 0);
+				if(list == null)
+					return ResultList<Api>.ReFailure(ResultCodes.PermissionApiNotExist);
+				return ResultList<Api>.ReSuccess(list.ToList());
+			}
+			else
+			{
+				IEnumerable<Api> list = await _apiRepository.GetEntities(f => (f.IsSystem != null && (Status)f.IsSystem != Status.Yes) && ids.Any(x=> x == f.Id));
+				if(list == null)
+					return ResultList<Api>.ReFailure(ResultCodes.PermissionApiNotExist);
+				return ResultList<Api>.ReSuccess(list.ToList());
+			}
 		}
 		/// <summary>
 		/// api 分页
@@ -157,7 +165,6 @@ namespace ASF.Domain.Services
 			var isAdd = await _apiRepository.Add(api);
 			if (!isAdd)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.PermissionApiCreateError);
 			}
 			
@@ -175,7 +182,6 @@ namespace ASF.Domain.Services
 			bool isUpdate = await _apiRepository.Update(api);
 			if (!isUpdate)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.PermissionApiUpdateError);
 			}
 			return Result.ReSuccess();
@@ -192,10 +198,19 @@ namespace ASF.Domain.Services
 				return Result.ReFailure(ResultCodes.PermissionSysApiDeleteError);
 			bool isdDelete = await _apiRepository.Delete(api);
 			if (!isdDelete)
-			{
-				await _unitOfWork.CommitAsync(true);
-				return Result.ReFailure(ResultCodes.PermissionApiUpdateError);
-			}
+				return Result.ReFailure(ResultCodes.PermissionSysApiDeleteError);
+			return Result.ReSuccess();
+		}
+		/// <summary>
+		/// 批量删除授权api
+		/// </summary>
+		/// <param name="list"></param>
+		/// <returns></returns>
+		public async Task<Result> BatchDelete(List<Api> list)
+		{
+			bool isdDelete = await _apiRepository.BatchDeleteAsync(list);
+			if (!isdDelete)
+				return Result.ReFailure(ResultCodes.PermissionSysApiDeleteError);
 			return Result.ReSuccess();
 		}
 	}

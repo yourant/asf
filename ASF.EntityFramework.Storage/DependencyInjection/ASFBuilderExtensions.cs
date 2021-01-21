@@ -71,7 +71,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="builder"></param>
         private static void AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
             // 新仓储
             services.AddScoped<IAccountsRepository, AccountsRepository>();
             services.AddScoped<ITenancyRepository, TenancyRepository>();
@@ -88,7 +87,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="builder"></param>
         private static void AddRepositoriesCache(this ASFBuilder builder)
         {
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             // builder.AddAccountRepositoryCache<AccountRepository>();
         }
     }

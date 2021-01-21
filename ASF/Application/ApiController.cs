@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
 using ASF.DependencyInjection;
+using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Infrastructure.Repositories;
@@ -62,6 +63,36 @@ namespace ASF.Application
     public async Task<Result> Modify([FromBody] PermissionApiModifyRequestDto dto)
     {
       return await _serviceProvider.GetRequiredService<ApiService>().Modify(_mapper.Map<Api>(dto));
+    }
+    /// <summary>
+    /// 删除单个api
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpPost("{id}")]
+    public async Task<Result> Delete([FromRoute] long id)
+    {
+      var server = _serviceProvider.GetRequiredService<ApiService>();
+      var result = await server.Get(id);
+      if (!result.Success)
+        return result;
+      return await server.Delete(result.Data);
+    }
+    /// <summary>
+    /// 批量删除权限功能api
+    /// </summary>
+    /// <param name="ids"></param>
+    /// <returns></returns>
+    public async Task<Result> BatchDelete([FromBody] IdArrayRequestDto<long> dto)
+    {
+      var server = _serviceProvider.GetRequiredService<ApiService>();
+      var result = await server.GetList(dto.Ids);
+      if(!result.Success)
+        return Result.ReFailure(result.Message,result.Status);
+      // 当找到的是系统权限就不删除并返回错误
+      if(!result.Data.Any())
+        return Result.ReFailure(ResultCodes.PermissionSysApiDeleteError);
+      return await server.BatchDelete(result.Data.ToList());
     }
   }
 }

@@ -14,11 +14,9 @@ namespace ASF.Domain.Services
 	public class TenancyService
 	{
 		private readonly ITenancyRepository _repository;
-		private readonly IUnitOfWork _unitOfWork;
-		public TenancyService(ITenancyRepository repository,IUnitOfWork unitOfWork)
+		public TenancyService(ITenancyRepository repository)
 		{
 			_repository = repository;
-			_unitOfWork = unitOfWork;
 		}
 		/// <summary>
 		/// 获取租户详情
@@ -91,7 +89,6 @@ namespace ASF.Domain.Services
 			bool isAdd = await _repository.Add(request);
 			if (!isAdd)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.TenancyCreateFailure);
 			}
 			return Result.ReSuccess();
@@ -106,7 +103,6 @@ namespace ASF.Domain.Services
 			bool isUpdate = await _repository.Update(request);
 			if (!isUpdate)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.TenancyModifyFailure);
 			}
 			return Result.ReSuccess();

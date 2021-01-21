@@ -12,11 +12,9 @@ namespace ASF.Domain.Services
 	{
 		// 权限仓储
 		private readonly IPermissionsRepository _permissionsRepository;
-		private readonly IUnitOfWork _unitOfWork;
-		public PermissionService(IPermissionsRepository permissionsRepository, IUnitOfWork unitOfWork)
+		public PermissionService(IPermissionsRepository permissionsRepository)
 		{
 			_permissionsRepository = permissionsRepository;
-			_unitOfWork = unitOfWork;
 		}
 		/// <summary>
 		/// 获取权限详情
@@ -114,7 +112,6 @@ namespace ASF.Domain.Services
 			bool isAdd = await _permissionsRepository.Add(permission);
 			if (!isAdd)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.PermissionCreateError);
 			}
 
@@ -128,7 +125,6 @@ namespace ASF.Domain.Services
 			bool isUpdate = await _permissionsRepository.Update(permission);
 			if (!isUpdate)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.PermissionUpdateError);
 			}
 			return Result.ReSuccess();
@@ -145,7 +141,6 @@ namespace ASF.Domain.Services
 			bool isDelete = await _permissionsRepository.Delete(permission);
 			if (!isDelete)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.PermissionDeleteError);
 			}
 			return Result.ReSuccess();

@@ -13,11 +13,9 @@ namespace ASF.Domain.Services
 	public class LoggerService
 	{
 		private readonly ILoggingsRepository _loggingsRepository;
-		private readonly IUnitOfWork _unitOfWork;
-		public LoggerService(ILoggingsRepository loggingsRepository, IUnitOfWork unitOfWork)
+		public LoggerService(ILoggingsRepository loggingsRepository)
 		{
 			_loggingsRepository = loggingsRepository;
-			_unitOfWork = unitOfWork;
 		}
 		/// <summary>
 		/// 添加日志
@@ -26,10 +24,8 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task Create(LogInfo logInfo)
 		{
-			bool isAdd = await _loggingsRepository.Add(logInfo);
-			// 是否添加登录日志成功
-			if(!isAdd)
-				await _unitOfWork.CommitAsync(true);
+			await _loggingsRepository.Add(logInfo);
+
 			await Task.CompletedTask;
 		}
 		/// <summary>
@@ -81,7 +77,6 @@ namespace ASF.Domain.Services
 			bool isDelete = await _loggingsRepository.Delete(logInfo);
 			if (!isDelete)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.LogginDeletedError);
 			}
 			return Result.ReSuccess();

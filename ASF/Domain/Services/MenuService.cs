@@ -13,12 +13,10 @@ namespace ASF.Domain.Services
 	public class MenuService
 	{
 		private readonly IMenuRepositories _menuRepositories;
-		private readonly IUnitOfWork _unitOfWork;
 
-		public MenuService(IMenuRepositories menuRepositories, IUnitOfWork unitOfWork)
+		public MenuService(IMenuRepositories menuRepositories)
 		{
 			_menuRepositories = menuRepositories;
-			_unitOfWork = unitOfWork;
 		}
 		/// <summary>
 		/// 获取权限菜单
@@ -102,7 +100,6 @@ namespace ASF.Domain.Services
 			bool isAdd = await _menuRepositories.Add(permissionMenu);
 			if (!isAdd)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.PermissionMenuCreateError);
 			}
 
@@ -118,7 +115,6 @@ namespace ASF.Domain.Services
 			bool isUpdate = await _menuRepositories.Update(permissionMenu);
 			if (!isUpdate)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.PermissionMenuUpdateError);
 			}
 			
@@ -134,7 +130,6 @@ namespace ASF.Domain.Services
 			bool isDelete = await _menuRepositories.Delete(permissionMenu);
 			if (!isDelete)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.PermissionMenuDeleteError);
 			}
 			

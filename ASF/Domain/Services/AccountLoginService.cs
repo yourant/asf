@@ -28,19 +28,16 @@ namespace ASF.Domain.Services
         private IServiceProvider _serviceProvider;
         //new
         private readonly IAccountsRepository _accountsRepository;
-        private readonly IUnitOfWork _unitOfWork;
         public AccountLoginService(
             IAccessTokenGenerate tokenGenerate,
             IAccountsRepository accountsRepository,
             IMemoryCache memoryCache,
-            IServiceProvider serviceProvider,
-            IUnitOfWork unitOfWork)
+            IServiceProvider serviceProvider)
         {
             _tokenGenerate = tokenGenerate;
             _accountsRepository = accountsRepository;
             _memoryCache = memoryCache;
             _serviceProvider = serviceProvider;
-            _unitOfWork = unitOfWork;
         }
 
 
@@ -159,7 +156,6 @@ namespace ASF.Domain.Services
             bool isUpdate = await _accountsRepository.Update(account);
             if (!isUpdate)
             {
-                await _unitOfWork.CommitAsync(true);
                 return Result<AccessToken>.ReFailure(ResultCodes.AccountUpdateError);
             }
             //移除登录失败记录

@@ -14,12 +14,10 @@ namespace ASF.Domain.Services
 	public class DepartmentService
 	{
 		private readonly IDepartmentRepositories _departmentRepositories;
-		private readonly IUnitOfWork _unitOfWork;
 
-		public DepartmentService(IDepartmentRepositories departmentRepositories, IUnitOfWork unitOfWork)
+		public DepartmentService(IDepartmentRepositories departmentRepositories)
 		{
 			_departmentRepositories = departmentRepositories;
-			_unitOfWork = unitOfWork;
 		}
 		/// <summary>
 		/// 获取部门
@@ -137,7 +135,6 @@ namespace ASF.Domain.Services
 			bool isAdd = await _departmentRepositories.Add(department);
 			if (!isAdd)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.DepartmentCreateError);
 			}
 			
@@ -153,7 +150,6 @@ namespace ASF.Domain.Services
 			bool isUpdate = await _departmentRepositories.Update(department);
 			if (!isUpdate)
 			{
-				await _unitOfWork.CommitAsync(true);
 				return Result.ReFailure(ResultCodes.DepartmentUpdateError);
 			}
 
