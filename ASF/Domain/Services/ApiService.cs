@@ -158,9 +158,9 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(Api api)
 		{
-			IEnumerable<Api> list = await _apiRepository.GetEntities(f => f.Path.Equals(api.Path));
+			Api a = await _apiRepository.GetEntity(f => f.Path.Equals(api.Path));
 			// 判断是否有路径相同
-			if (list.Any())
+			if (a != null)
 				return Result.ReFailure(ResultCodes.PermissionApiPathExist);
 			
 			var isAdd = await _apiRepository.Add(api);

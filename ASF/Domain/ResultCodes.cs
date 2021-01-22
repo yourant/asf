@@ -58,7 +58,7 @@ namespace ASF.Domain
         public static ValueTuple<int, string> PermissionMenuCreateError = (12014, "权限菜单创建失败");
         public static ValueTuple<int, string> PermissionMenuUpdateError = (12015, "权限菜单修改失败");
         public static ValueTuple<int, string> PermissionMenuDeleteError = (12016, "权限菜单删除失败");
-        
+        public static ValueTuple<int, string> PermissionNameOrCodeExist = (12017, "权限名称或code 已经存在");
         //日志记录
         public static ValueTuple<int, string> LogginDeletedCannoBeWithinThreeMonths = (13000, "三个月之内的日志不能删除");
         public static ValueTuple<int, string> LogginDeletedError = (13001, "删除日志失败");

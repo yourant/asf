@@ -109,6 +109,10 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(Permission permission)
 		{
+			Permission p =
+				await _permissionsRepository.GetEntity(f => f.Code.Equals(permission.Code) || f.Name.Equals(permission.Name));
+			if (p != null)
+				return Result.ReFailure(ResultCodes.PermissionNameOrCodeExist);
 			bool isAdd = await _permissionsRepository.Add(permission);
 			if (!isAdd)
 			{
