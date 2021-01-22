@@ -87,7 +87,7 @@ namespace ASF.Application
 			return Result<AccountInfoResponseDto>.ReSuccess(accountInfo);
 		}
 		/// <summary>
-		/// 无限分级权限
+		/// 无限分级权限菜单
 		/// </summary>
 		/// <param name="list"></param>
 		/// <param name="pid"></param>

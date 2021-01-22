@@ -49,36 +49,6 @@ namespace ASF.Internal.Security
 				return ("未知");
 			}
 		}
-		/// <summary>
-		/// 无限分级
-		/// </summary>
-		/// <param name="collection"></param>
-		/// <param name="idSelector"></param>
-		/// <param name="parentIdSelector"></param>
-		/// <param name="rootId"></param>
-		/// <typeparam name="T"></typeparam>
-		/// <typeparam name="K"></typeparam>
-		/// <returns></returns>
-		public static IEnumerable<TreeItem<T>> GenerateTree<T, K>(
-			this IEnumerable<T> collection,
-			Func<T, K> idSelector,
-			Func<T, K> parentIdSelector,
-			K rootId = default(K))
-		{
-			foreach (var c in collection.Where(u =>
-			{
-				var selector = parentIdSelector(u);
-				return (rootId == null && selector == null)  
-				       || (rootId != null &&rootId.Equals(selector));
-			}))
-			{
-				yield return new TreeItem<T>
-				{
-					Data = c,
-					Children = collection.GenerateTree(idSelector, parentIdSelector, idSelector(c))
-				};
-			}
-		}
 		// 序列化为驼峰
 		public static string WriteFromObject<T>(this object obj) where T : class
 		{

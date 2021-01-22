@@ -33,7 +33,15 @@ namespace ASF.Application.DtoMapper
 			//修改权限菜单
 			this.CreateMap<PermissionMenuModifyRequestDto, PermissionMenu>();
 			#endregion
-			
+
+			#region permission
+			//权限响应数据
+			this.CreateMap<Permission, PermissionResponseDto>();
+			// 创建权限请求
+			this.CreateMap<PermissionCreateRequestDto, Permission>();
+			//修改权限
+			this.CreateMap<PermissionModifyRequestDto, Permission>();
+			#endregion
 			// 登录信息权限菜单映射
 			this.CreateMap<Permission, PermissionMenuInfoResponseDto>()
 				.ForMember(f => f.Title, s => s.MapFrom(o => o.PermissionMenus.Title))

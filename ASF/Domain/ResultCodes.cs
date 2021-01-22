@@ -45,19 +45,20 @@ namespace ASF.Domain
         public static ValueTuple<int, string> PermissionCreateError = (12001, "权限添加失败");
         public static ValueTuple<int, string> PermissionUpdateError = (12002, "权限修改失败");
         public static ValueTuple<int, string> PermissionDeleteError = (12003, "权限删除失败");
-        public static ValueTuple<int, string> PermissionSysDeleteError = (12003, "系统权限不允许删除");
-        public static ValueTuple<int, string> PermissionSystemNotModify = (12004, "{0}权限为系统权限无法修改");
-        public static ValueTuple<int, string> PermissionApiNotExist = (12005, "权限功能不存在");
-        public static ValueTuple<int, string> PermissionApiCreateError = (12006, "权限功能创建失败");
-        public static ValueTuple<int, string> PermissionApiUpdateError = (12007, "权限功能修改失败");
-        public static ValueTuple<int, string> PermissionSysApiUpdateError = (12008, "系统权限功能不允许修改");
-        public static ValueTuple<int, string> PermissionSysApiDeleteError = (12009, "系统权限功能不允许删除");
-        public static ValueTuple<int, string> PermissionApiPathExist = (12010, "存在相同的api地址");
-        public static ValueTuple<int, string> PermissionMenuNotExist = (12011, "权限菜单不存在");
-        public static ValueTuple<int, string> PermissionMenuTitleOrUrlExist = (12012, "存在相同的菜单标题或地址");
-        public static ValueTuple<int, string> PermissionMenuCreateError = (12013, "权限菜单创建失败");
-        public static ValueTuple<int, string> PermissionMenuUpdateError = (12014, "权限菜单修改失败");
-        public static ValueTuple<int, string> PermissionMenuDeleteError = (12015, "权限菜单删除失败");
+        public static ValueTuple<int, string> PermissionSysDeleteError = (12004, "系统权限不允许删除");
+        public static ValueTuple<int, string> PermissionSystemNotModify = (12005, "{0}权限为系统权限无法修改");
+        public static ValueTuple<int, string> PermissionApiNotExist = (12006, "权限功能不存在");
+        public static ValueTuple<int, string> PermissionApiCreateError = (12007, "权限功能创建失败");
+        public static ValueTuple<int, string> PermissionApiUpdateError = (12008, "权限功能修改失败");
+        public static ValueTuple<int, string> PermissionSysApiUpdateError = (12009, "系统权限功能不允许修改");
+        public static ValueTuple<int, string> PermissionSysApiDeleteError = (120010, "系统权限功能不允许删除");
+        public static ValueTuple<int, string> PermissionApiPathExist = (12011, "存在相同的api地址");
+        public static ValueTuple<int, string> PermissionMenuNotExist = (12012, "权限菜单不存在");
+        public static ValueTuple<int, string> PermissionMenuTitleOrUrlExist = (12013, "存在相同的菜单标题或地址");
+        public static ValueTuple<int, string> PermissionMenuCreateError = (12014, "权限菜单创建失败");
+        public static ValueTuple<int, string> PermissionMenuUpdateError = (12015, "权限菜单修改失败");
+        public static ValueTuple<int, string> PermissionMenuDeleteError = (12016, "权限菜单删除失败");
+        
         //日志记录
         public static ValueTuple<int, string> LogginDeletedCannoBeWithinThreeMonths = (13000, "三个月之内的日志不能删除");
         public static ValueTuple<int, string> LogginDeletedError = (13001, "删除日志失败");

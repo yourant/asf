@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ASF.Application.DTO
 {
@@ -11,5 +12,9 @@ namespace ASF.Application.DTO
 		/// 创建时间
 		/// </summary>
 		public DateTime CreateTime { get; set; }
+		/// <summary>
+		/// 子集合
+		/// </summary>
+		public IEnumerable<PermissionResponseDto> Children { get; set; }
 	}
 }
