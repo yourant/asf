@@ -25,7 +25,7 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 上级权限编号
         /// </summary>
-        public long ParentId { get; set; }
+        public long? ParentId { get; set; }
         /// <summary>
         /// 名称
         /// </summary>
@@ -42,12 +42,11 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 描述
         /// </summary>
-        [MaxLength(200)]
         public string Description { get; set; }
         /// <summary>
         /// 排序
         /// </summary>
-        public int Sort { get; set; }
+        public int? Sort { get; set; }
         /// <summary>
         /// 是否启用
         /// </summary>

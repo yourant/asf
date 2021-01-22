@@ -11,18 +11,29 @@ namespace ASF.Application.DtoMapper
 	{
 		public PermissionMapper()
 		{
+			#region api permission
+
 			// 权限功能映射
 			this.CreateMap<Api, PermissionApiResponseDto>()
-				.ForMember(f => f.StatusName, s => s.MapFrom(o => (EnabledType) o.Status))
-				.ForMember(f => f.TypeName, s => s.MapFrom(o => (ApiType) o.Type));
+				.ForMember(f => f.StatusName, s => s.MapFrom(o => o.Status == 0 ? "禁用":"启用"))
+				.ForMember(f => f.TypeName, s => s.MapFrom(o => o.Type == 1 ? "公开api" : "授权api"));
 			// 创建权限功能
 			this.CreateMap<PermissionApiCreateRequestDto, Api>();
 			// 修改权限功能
 			this.CreateMap<PermissionApiModifyRequestDto, Api>();
+
+			#endregion
+
+			#region menu permission
+
 			//权限菜单响应
 			this.CreateMap<PermissionMenu,PermissionMenuResponseDto>();
 			// 创建权限菜单
 			this.CreateMap<PermissionMenuCreateRequestDto, PermissionMenu>();
+			//修改权限菜单
+			this.CreateMap<PermissionMenuModifyRequestDto, PermissionMenu>();
+			#endregion
+			
 			// 登录信息权限菜单映射
 			this.CreateMap<Permission, PermissionMenuInfoResponseDto>()
 				.ForMember(f => f.Title, s => s.MapFrom(o => o.PermissionMenus.Title))
