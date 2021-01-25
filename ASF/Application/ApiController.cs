@@ -83,6 +83,22 @@ namespace ASF.Application
       return await _serviceProvider.GetRequiredService<ApiService>().Modify(_mapper.Map(dto,result.Data));
     }
     /// <summary>
+    /// 是否禁用功能权限
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    [HttpPut]
+    public async Task<Result> ModifyStatus([FromBody] ModifyStatusRequestDto dto)
+    {
+      var server = _serviceProvider.GetRequiredService<ApiService>();
+      var result = await server.Get(dto.Id);
+      if(!result.Success)
+        return Result.ReFailure(result.Message,result.Status);
+      
+      result.Data.Status = dto.Status;
+      return await _serviceProvider.GetRequiredService<ApiService>().Modify(result.Data);
+    }
+    /// <summary>
     /// 删除单个api
     /// </summary>
     /// <param name="id"></param>
