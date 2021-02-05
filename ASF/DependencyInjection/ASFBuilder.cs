@@ -15,10 +15,19 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ASF.DependencyInjection
 {
+    /// <summary>
+    /// asf 服务
+    /// </summary>
     public class ASFBuilder
     {
+        /// <summary>
+        /// 服务集合
+        /// </summary>
         public IServiceCollection Services { get; }
-
+        /// <summary>
+        /// asf 服务
+        /// </summary>
+        /// <param name="services"></param>
         public ASFBuilder(IServiceCollection services)
         {
             this.Services = services;

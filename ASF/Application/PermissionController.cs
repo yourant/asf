@@ -23,6 +23,11 @@ namespace ASF.Application
 	{
 		private readonly IServiceProvider _serviceProvider;
 		private readonly IMapper _mapper;
+		/// <summary>
+		/// 权限控制器
+		/// </summary>
+		/// <param name="serviceProvider"></param>
+		/// <param name="mapper"></param>
 		public PermissionController(IServiceProvider serviceProvider, IMapper mapper)
 		{
 			_serviceProvider = serviceProvider;

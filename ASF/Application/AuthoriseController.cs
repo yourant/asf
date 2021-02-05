@@ -19,7 +19,10 @@ namespace ASF.Application
     public class AuthoriseController : ControllerBase
     {
         private readonly IServiceProvider _serviceProvider;
-
+        /// <summary>
+        /// 授权控制器
+        /// </summary>
+        /// <param name="serviceProvider"></param>
         public AuthoriseController(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;

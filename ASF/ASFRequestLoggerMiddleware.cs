@@ -9,15 +9,25 @@ using ASF.Domain.Values;
 
 namespace ASF
 {
+    /// <summary>
+    /// 日志拦截中间件
+    /// </summary>
     public class ASFRequestLoggerMiddleware
     {
         private readonly RequestDelegate _next;
-
+        /// <summary>
+        /// 日志拦截中间件
+        /// </summary>
+        /// <param name="next"></param>
         public ASFRequestLoggerMiddleware(RequestDelegate next)
         {
             _next = next;
         }
-
+        /// <summary>
+        /// 日志事件
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public async Task InvokeAsync(HttpContext context)
         {       
                     

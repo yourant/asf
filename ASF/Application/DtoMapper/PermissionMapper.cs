@@ -7,8 +7,14 @@ using AutoMapper;
 
 namespace ASF.Application.DtoMapper
 {
+	/// <summary>
+	/// 权限映射
+	/// </summary>
 	public class PermissionMapper: Profile
 	{
+		/// <summary>
+		/// 权限映射
+		/// </summary>
 		public PermissionMapper()
 		{
 			#region api permission

@@ -21,7 +21,11 @@ namespace ASF.Application
 	{
 		private readonly IServiceProvider _serviceProvider;
 		private readonly IMapper _mapper;
-
+		/// <summary>
+		/// 菜单控制器
+		/// </summary>
+		/// <param name="serviceProvider"></param>
+		/// <param name="mapper"></param>
 		public MenuController(IServiceProvider serviceProvider, IMapper mapper)
 		{
 			_serviceProvider = serviceProvider;

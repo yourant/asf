@@ -2,6 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ASF.Application.DTO
 {
+	/// <summary>
+	/// api分页请求
+	/// </summary>
 	public class PermissionApiListRequestDto: PaginationRequestDto
 	{
 		/// <summary>

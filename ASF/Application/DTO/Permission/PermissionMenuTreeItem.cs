@@ -3,9 +3,13 @@ using System.Collections.Generic;
 
 namespace ASF.Application.DTO
 {
+	/// <summary>
+	/// 权限菜单树
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
 	public class PermissionMenuTreeItem<T>
 	{
-		// <summary>
+		/// <summary>
 		/// 唯一标示
 		/// </summary>
 		public long Id { get;  set; }
@@ -87,7 +91,9 @@ namespace ASF.Application.DTO
 		/// 权限功能
 		/// </summary>
 		public List<string> Actions { get; set; }
-		
+		/// <summary>
+		/// 权限菜单子集合
+		/// </summary>
 		public IEnumerable<PermissionMenuTreeItem<T>> Children { get; set; }
 	}
 }

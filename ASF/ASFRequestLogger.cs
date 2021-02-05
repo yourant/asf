@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASF
 {
+    /// <summary>
+    /// 处理日志请求
+    /// </summary>
     public class ASFRequestLogger
     {
         private readonly RequestDelegate _next;
@@ -42,7 +45,6 @@ namespace ASF
         /// <summary>
         /// 记录日志
         /// </summary>
-        /// <param name="httpContext"></param>
         public async Task Record()
         {
             HttpRequest request = httpContext.Request;

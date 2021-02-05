@@ -11,8 +11,14 @@ using Zop.AspNetCore.Authentication.JwtBearer;
 
 namespace ASF.Domain.Entities
 {
+    /// <summary>
+    /// 账户模型
+    /// </summary>
     public class Account
     {
+        /// <summary>
+        /// 账户模型
+        /// </summary>
         public Account()
         {
             Role = new JoinCollectionFacade<Role, Account, AccountRole>(this, AccountRole);
@@ -212,7 +218,11 @@ namespace ASF.Domain.Entities
                 return false;
             return true;
         }
-
+        /// <summary>
+        /// 设置登录信息
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="ip"></param>
         public void SetLoginInfo(AccessToken token, string ip)
         {
             if(!string.IsNullOrEmpty(token.Token))

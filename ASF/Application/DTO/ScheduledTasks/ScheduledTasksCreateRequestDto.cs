@@ -2,7 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ASF.Application.DTO.ScheduledTasks
 {
-    public class ScheduledTasksCreateRequestDto: IDto
+    /// <summary>
+    /// 创建定时任务
+    /// </summary>
+    public class ScheduledTasksCreateRequestDto
     {
         /// <summary>
         /// 计划任务名称

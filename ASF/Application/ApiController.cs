@@ -25,6 +25,11 @@ namespace ASF.Application
   {
     private readonly IServiceProvider _serviceProvider;
     private readonly IMapper _mapper;
+    /// <summary>
+    /// api 控制器
+    /// </summary>
+    /// <param name="serviceProvider"></param>
+    /// <param name="mapper"></param>
     public ApiController(IServiceProvider serviceProvider,IMapper mapper)
     {
       _serviceProvider = serviceProvider;

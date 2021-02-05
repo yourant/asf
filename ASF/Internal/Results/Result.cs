@@ -144,7 +144,7 @@ namespace ASF.Internal.Results
             return result;
         }
         /// <summary>
-        /// 转换为 <see cref="Task<Result>"/>
+        /// 转换为 task
         /// </summary>
         /// <returns></returns>
         public Task<Result> AsTask()

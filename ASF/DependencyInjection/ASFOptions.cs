@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ASF.DependencyInjection
 {
+    /// <summary>
+    /// asf 配置
+    /// </summary>
     public class ASFOptions
     {
         /// <summary>

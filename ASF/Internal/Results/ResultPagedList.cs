@@ -91,7 +91,7 @@ namespace ASF.Internal.Results
             return re;
         }
         /// <summary>
-        /// 转换为 <see cref="Task<PagedListResult<T>>"/>
+        /// 转换为 task
         /// </summary>
         /// <returns></returns>
         public new Task<ResultPagedList<T>> AsTask()

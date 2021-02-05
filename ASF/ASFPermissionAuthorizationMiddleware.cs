@@ -7,10 +7,16 @@ using ASF.Domain.Values;
 
 namespace ASF
 {
+    /// <summary>
+    /// api 鉴权中间件
+    /// </summary>
     public class ASFPermissionAuthorizationMiddleware
     {
         private readonly RequestDelegate _next;
-
+        /// <summary>
+        /// api 鉴权中间件
+        /// </summary>
+        /// <param name="next"></param>
         public ASFPermissionAuthorizationMiddleware(RequestDelegate next)
         {
             _next = next;
@@ -20,10 +26,10 @@ namespace ASF
         {
             var serviceProvider = httpContext.RequestServices;
             var logger = serviceProvider.GetRequiredService<ILogger<ASFPermissionAuthorizationMiddleware>>();
-            
+            var requestPath = httpContext.Request.PathBase + httpContext.Request.Path;
             //验证登陆用户是否有权限
             var result = await serviceProvider.GetRequiredService<AccountAuthorizationService>().Authentication();
-            var requestPath = httpContext.Request.PathBase + httpContext.Request.Path;
+           
             if (result.Success)
             {
                 if (result.Data.IsLogger != null && (Status)result.Data.IsLogger == Status.Yes)
