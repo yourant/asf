@@ -70,7 +70,12 @@ namespace ASF.Web
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                // app.UseDeveloperExceptionPage();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "asf API");
+                    //c.RoutePrefix = "";
+                });
             }
 
             app.UseStaticFiles();

@@ -15,12 +15,6 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IApplicationBuilder UseASFMiddleware(this IApplicationBuilder app)
         {
-            // app.UseDeveloperExceptionPage();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "asf API");
-                //c.RoutePrefix = "";
-            });
             #region 做外部请求身份验证
             app.UseAuthentication();
             app.UseAuthorization();
