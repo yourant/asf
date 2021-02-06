@@ -13,7 +13,10 @@ namespace ASF.Domain.Entities
     /// 多语言名称
     /// </summary>
     public string Name { get; set; }
-
+    /// <summary>
+    /// 租户id
+    /// </summary>
+    public long? TenancyId { get; set; }
     /// <summary>
     ///  key
     /// </summary>

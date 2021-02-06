@@ -851,6 +851,7 @@ namespace ASF.EntityFramework.Repository
                 //名称索引
                 e.HasIndex(x => x.Name).IsUnique();
                 
+                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint(20)").HasComment("租户id");
                 e.Property(x => x.Name)
                     .HasColumnName("name")
                     .HasColumnType("varchar(250)")

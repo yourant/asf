@@ -15,6 +15,7 @@ namespace ASF.Domain
         public static ValueTuple<int, string> TenancyCreateFailure = (10003, "创建租户失败");
         public static ValueTuple<int, string> TenancyModifyFailure = (10004, "创建租户失败");
         public static ValueTuple<int, string> TenancyDisabled = (10005, "租户被禁用");
+        public static ValueTuple<int, string> TenancyMatchExist = (10006, "不允许操作其他租户数据");
         //账户错误码
         public static ValueTuple<int, string> AccountUpdateError = (10001, "账户更新失败");
         public static ValueTuple<int, string> AccountPermissionEmpty = (10002, "账户为空");

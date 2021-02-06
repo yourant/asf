@@ -15,6 +15,7 @@ INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALU
 INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_tenancy',1,'租户管理权限',2,0);
 INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_department',1,'部门管理权限',2,0);
 INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_post',1,'岗位管理权限',2,0);
+INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_translate',1,'多语言管理权限',2,0);
 
 --  插入公共权限
 INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_openapi',1,'公共权限',3,1);
@@ -32,6 +33,7 @@ INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`me
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('租户管理','租户管理',11,'anticon-user-switch','/control/tenancy','租户管理菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('部门管理','部门管理',12,'anticon-hdd','/control/department','部门管理菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('岗位管理','岗位管理',13,'anticon-radar-chart','/control/post','岗位管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('多语言管理','多语言管理',14,'anticon-translate','/control/translate','多语言管理菜单');
 -- 插入api 权限数据
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (2, '获取账户列表',2,'/api/asf/account/getlist','get',1,'获取账户信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '添加账户',2,'/api/asf/account/create','post',1,'添加账户信息权限',1);
@@ -110,9 +112,15 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (13, '获取岗位详情',2,'/api/asf/post/details','get',1,'获取岗位详情权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (13, '删除岗位',2,'/api/asf/post/delete/[0-9]{1,12}','post,delete',1,'删除岗位信息权限',1);
 
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (14, '登录',1,'/api/asf/authorise/login','post',1,'登录账户权限',0);
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (14, '登出',1,'/api/asf/authorise/logout','post',1,'登出账户权限',0);
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (14, '获取登录账户信息',1,'/api/asf/account/accountinfo','get',1,'登出账户权限',0);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (14, '获取多语言列表',2,'/api/asf/translate/getlist','get',1,'获取多语言信息列表权限');
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (14, '添加多语言',2,'/api/asf/translate/create','post',1,'添加多语言信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (14, '修改多语言',2,'/api/asf/translate/modify','post,put',1,'修改多语言信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (14, '获取多语言详情',2,'/api/asf/translate/details','get',1,'获取多语言详情权限');
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (14, '删除多语言',2,'/api/asf/translate/delete/[0-9]{1,12}','post,delete',1,'删除多语言信息权限',1);
+
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (15, '登录',1,'/api/asf/authorise/login','post',1,'登录账户权限',0);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (15, '登出',1,'/api/asf/authorise/logout','post',1,'登出账户权限',0);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (15, '获取登录账户信息',1,'/api/asf/account/accountinfo','get',1,'登出账户权限',0);
 -- 插入角色数据
 INSERT INTO `asf_role` (`tenancy_id`,`name`,`description`) VALUES (1, 'superadmin', '总超级管理员拥有下属租户所有权限');
 INSERT INTO `asf_role` (`tenancy_id`,`name`,`description`) VALUES (1, 'admin', '普通管理员，拥有部分权限');
@@ -134,6 +142,7 @@ INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (1,11);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (1,12);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (1,13);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (1,14);
+INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (1,15);
 --  下属租户运维部权限
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,1);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,2);
@@ -145,9 +154,10 @@ INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,10);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,12);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,13);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,14);
+INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,15);
 -- 下属租户普通员工
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (3,1);
-INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (3,14);
+INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (3,15);
 -- 插入部门数据
 INSERT INTO `asf_department` (`tenancy_id`,`name`) VALUES(1,'开发部');
 INSERT INTO `asf_department` (`pid`,`tenancy_id`,`name`) VALUES(1,1,'.net 组');

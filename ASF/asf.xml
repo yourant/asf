@@ -1021,6 +1021,12 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.TranslateController.GetLists">
+            <summary>
+            获取多语言列表
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:ASF.Application.TranslateController.Details(System.Int64)">
             <summary>
             获取多语言详情
@@ -2177,6 +2183,11 @@
             多语言名称
             </summary>
         </member>
+        <member name="P:ASF.Domain.Entities.Translate.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
         <member name="P:ASF.Domain.Entities.Translate.Key">
             <summary>
              key
@@ -2663,26 +2674,29 @@
             </summary>
             <param name="translateRepositories"></param>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.Get(System.Int64)">
+        <member name="M:ASF.Domain.Services.TranslateService.Get(System.Int64,System.Nullable{System.Int64})">
             <summary>
             获取多语言
             </summary>
             <param name="id"></param>
+            <param name="tenancyId"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.GetList(System.Int32,System.Int32,System.String)">
+        <member name="M:ASF.Domain.Services.TranslateService.GetList(System.Int32,System.Int32,System.String,System.Nullable{System.Int64})">
             <summary>
             获取多语言分页
             </summary>
             <param name="pageNo"></param>
             <param name="pageSize"></param>
             <param name="name"></param>
+            <param name="tenancyId">租户id</param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.GetList">
+        <member name="M:ASF.Domain.Services.TranslateService.GetList(System.Nullable{System.Int64})">
             <summary>
             获取多语言列表
             </summary>
+            <param name="tenancyId"></param>
             <returns></returns>
         </member>
         <member name="M:ASF.Domain.Services.TranslateService.Create(ASF.Domain.Entities.Translate)">
@@ -3766,6 +3780,20 @@
         <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.NickName(System.Security.Claims.ClaimsPrincipal)">
             <summary>
             昵称
+            </summary>
+            <param name="principal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.TenancyId(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            租户id
+            </summary>
+            <param name="principal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.IsSuperRole(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            是否为超级管理员角色
             </summary>
             <param name="principal"></param>
             <returns></returns>
