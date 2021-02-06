@@ -146,7 +146,8 @@ namespace ASF.Domain.Services
                 new Claim("name", account.Username),
                 new Claim("nickname", HttpUtility.UrlEncode(account.Name)),
                 new Claim("sub", account.Id.ToString()),
-                new Claim("auth_mode", _loginType)
+                new Claim("auth_mode", _loginType),
+                new Claim("tenancy_id", ((long)account.TenancyId).ToString())
             });
 
 

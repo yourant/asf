@@ -1021,10 +1021,32 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Application.TranslateController.GetLists">
+        <member name="M:ASF.Application.TranslateController.Details(System.Int64)">
             <summary>
-            获取多语言列表
+            获取多语言详情
             </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.TranslateController.Create(ASF.Application.DTO.Translate.TranslateCreateRequestDto)">
+            <summary>
+            创建多语言
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.TranslateController.Modify(ASF.Application.DTO.Translate.TranslateModifyRequestDto)">
+            <summary>
+            修改多语言
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.TranslateController.Delete(System.Int64)">
+            <summary>
+            删除多语言
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.ASFPermissionAuthorizationMiddleware">

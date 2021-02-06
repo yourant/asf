@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ASF.Application.DTO.Translate;
+using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
 using AutoMapper;
@@ -42,17 +43,66 @@ namespace ASF.Application
 			return ResultPagedList<TranslateResponseDto>.ReSuccess(_mapper.Map<List<TranslateResponseDto>>(data.Data),
 				data.TotalCount);
 		}
+		// /// <summary>
+		// /// 获取多语言列表
+		// /// </summary>
+		// /// <returns></returns>
+		// [HttpGet]
+		// public async Task<ResultList<TranslateResponseDto>> GetLists()
+		// {
+		// 	var data = await _serviceProvider.GetRequiredService<TranslateService>().GetList();
+		// 	if(!data.Success)
+		// 		return ResultList<TranslateResponseDto>.ReFailure(data.Message,data.Status);
+		// 	return ResultList<TranslateResponseDto>.ReSuccess(_mapper.Map<List<TranslateResponseDto>>(data.Data));
+		// }
+		
 		/// <summary>
-		/// 获取多语言列表
+		/// 获取多语言详情
 		/// </summary>
+		/// <param name="id"></param>
 		/// <returns></returns>
 		[HttpGet]
-		public async Task<ResultList<TranslateResponseDto>> GetLists()
+		public async Task<Result<TranslateResponseDto>> Details([FromQuery] long id)
 		{
-			var data = await _serviceProvider.GetRequiredService<TranslateService>().GetList();
-			if(!data.Success)
-				return ResultList<TranslateResponseDto>.ReFailure(data.Message,data.Status);
-			return ResultList<TranslateResponseDto>.ReSuccess(_mapper.Map<List<TranslateResponseDto>>(data.Data));
+			var data = await _serviceProvider.GetRequiredService<TranslateService>().Get(id);
+			if (!data.Success)
+				return Result<TranslateResponseDto>.ReFailure(data.Message, data.Status);
+			return Result<TranslateResponseDto>.ReSuccess(_mapper.Map<TranslateResponseDto>(data.Data));
+		}
+
+		/// <summary>
+		/// 创建多语言
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public async Task<Result> Create([FromBody] TranslateCreateRequestDto dto)
+		{
+			return await _serviceProvider.GetRequiredService<TranslateService>().Create(_mapper.Map<Translate>(dto));
+		}
+		/// <summary>
+		/// 修改多语言
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> Modify([FromBody] TranslateModifyRequestDto dto)
+		{
+			return await _serviceProvider.GetRequiredService<TranslateService>().Modify(_mapper.Map<Translate>(dto));
+		}
+		/// <summary>
+		/// 删除多语言
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		[HttpPost("{id}")]
+		public async Task<Result> Delete([FromRoute] long id)
+		{
+			var service =  _serviceProvider.GetRequiredService<TranslateService>();
+			var result = await service.Get(id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			return await service.Delete(result.Data);
 		}
 	}
 }
