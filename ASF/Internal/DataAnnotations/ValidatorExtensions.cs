@@ -16,26 +16,6 @@ namespace System.ComponentModel.DataAnnotations
     public static class ValidatorExtensions
     {
         /// <summary>
-        /// 验证
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static Result Valid(this object obj)
-        {
-            return ValidationHelper.ValidResult(obj);
-        }
-        /// <summary>
-        /// 验证
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static Result<T> Valid<T>(this object obj)
-        {
-            var result = ValidationHelper.ValidResult(obj);
-            return Result<T>.ReSuccess((T)obj);
-        }
-        /// <summary>
         /// 获取验证返回信息集合
         /// </summary>
         /// <param name="dictionary"></param>

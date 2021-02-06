@@ -3711,95 +3711,10 @@
             <param name="validationContext"></param>
             <returns></returns>
         </member>
-        <member name="T:System.ComponentModel.DataAnnotations.EntityValidationResult">
-            <summary>
-            实体验证
-            </summary>
-        </member>
-        <member name="P:System.ComponentModel.DataAnnotations.EntityValidationResult.Errors">
-            <summary>
-            验证错误集合
-            </summary>
-        </member>
-        <member name="P:System.ComponentModel.DataAnnotations.EntityValidationResult.HasError">
-            <summary>
-            是否有错误
-            </summary>
-        </member>
-        <member name="M:System.ComponentModel.DataAnnotations.EntityValidationResult.#ctor(System.Collections.Generic.IList{System.ComponentModel.DataAnnotations.ValidationResult})">
-            <summary>
-            验证返回
-            </summary>
-            <param name="errors"></param>
-        </member>
-        <member name="T:System.ComponentModel.DataAnnotations.EntityValidator`1">
-            <summary>
-            实体验证
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:System.ComponentModel.DataAnnotations.EntityValidator`1.Validate(`0)">
-            <summary>
-            验证
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="T:System.ComponentModel.DataAnnotations.ValidationHelper">
-            <summary>
-            实体验证辅助方法
-            </summary>
-        </member>
-        <member name="M:System.ComponentModel.DataAnnotations.ValidationHelper.ValidateEntity``1(``0)">
-            <summary>
-            验证实体返回
-            </summary>
-            <param name="entity"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.ComponentModel.DataAnnotations.ValidationHelper.IsValid``1(``0)">
-            <summary>
-            验证是否成功
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.ComponentModel.DataAnnotations.ValidationHelper.IsValid``1(``0,Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)">
-            <summary>
-            验证是否成功
-            </summary>
-            <param name="entity">实体</param>
-            <param name="logger">日志记录</param>
-            <param name="logLevel">日志记录级别</param>
-            <returns></returns>
-        </member>
-        <member name="M:System.ComponentModel.DataAnnotations.ValidationHelper.ValidResult``1(``0)">
-            <summary>
-            验证是否成功
-            </summary>
-            <param name="entity">实体</param>
-            <returns></returns>
-        </member>
         <member name="T:System.ComponentModel.DataAnnotations.ValidatorExtensions">
             <summary>
             验证扩展
             </summary>
-        </member>
-        <member name="M:System.ComponentModel.DataAnnotations.ValidatorExtensions.Valid(System.Object)">
-            <summary>
-            验证
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.ComponentModel.DataAnnotations.ValidatorExtensions.Valid``1(System.Object)">
-            <summary>
-            验证
-            </summary>
-            <param name="obj"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
         </member>
         <member name="M:System.ComponentModel.DataAnnotations.ValidatorExtensions.GetErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
             <summary>
