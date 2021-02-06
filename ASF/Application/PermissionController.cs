@@ -102,7 +102,7 @@ namespace ASF.Application
 		}
 
 		/// <summary>
-		/// 无限分级权限菜单
+		/// 无限分级权限
 		/// </summary>
 		/// <param name="list"></param>
 		/// <param name="pid"></param>

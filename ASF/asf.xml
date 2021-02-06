@@ -115,6 +115,16 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:ASF.Application.DepartmentController">
+            <summary>
+            部门控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DepartmentController.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
+            <summary>
+            部门控制器
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.AccountInfoResponseDto">
             <summary>
             登录账户信息
@@ -762,6 +772,51 @@
             参数内容
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.Translate.TranslateCreateRequestDto">
+            <summary>
+            创建多语言
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Translate.TranslateCreateRequestDto.Name">
+            <summary>
+            多语言名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Translate.TranslateCreateRequestDto.Key">
+            <summary>
+            多语言key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Translate.TranslateCreateRequestDto.Value">
+            <summary>
+            多语言值
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Translate.TranslateListRequestDto">
+            <summary>
+            多语言分页请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Translate.TranslateListRequestDto.Name">
+            <summary>
+            多语言名称
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Translate.TranslateModifyRequestDto">
+            <summary>
+            修改多语言
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Translate.TranslateModifyRequestDto.Id">
+            <summary>
+            多语言id
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Translate.TranslateResponseDto">
+            <summary>
+            多语言响应
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.ListPagedAndSortedRequestDto">
             <summary>
             集合分页排序请求对象
@@ -823,6 +878,16 @@
         <member name="M:ASF.Application.DtoMapper.PermissionMapper.#ctor">
             <summary>
             权限映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.TranslateMapper">
+            <summary>
+            多语言映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.TranslateMapper.#ctor">
+            <summary>
+            多语言映射
             </summary>
         </member>
         <member name="T:ASF.Application.MenuController">
@@ -928,10 +993,38 @@
         </member>
         <member name="M:ASF.Application.PermissionController.TreeSortMultiLevelFormat(System.Collections.Generic.IEnumerable{ASF.Application.DTO.PermissionResponseDto},System.Int64)">
             <summary>
-            无限分级权限菜单
+            无限分级权限
             </summary>
             <param name="list"></param>
             <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ASF.Application.RoleController">
+            <summary>
+            角色控制器
+            </summary>
+        </member>
+        <member name="T:ASF.Application.TranslateController">
+            <summary>
+            多语言控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.TranslateController.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
+            <summary>
+            多语言控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.TranslateController.GetList(ASF.Application.DTO.Translate.TranslateListRequestDto)">
+            <summary>
+            获取多语言分页
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.TranslateController.GetLists">
+            <summary>
+            获取多语言列表
+            </summary>
             <returns></returns>
         </member>
         <member name="T:ASF.ASFPermissionAuthorizationMiddleware">
@@ -2548,14 +2641,14 @@
             </summary>
             <param name="translateRepositories"></param>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.GetTranslate(System.Int64)">
+        <member name="M:ASF.Domain.Services.TranslateService.Get(System.Int64)">
             <summary>
             获取多语言
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.GetTranslateList(System.Int32,System.Int32,System.String)">
+        <member name="M:ASF.Domain.Services.TranslateService.GetList(System.Int32,System.Int32,System.String)">
             <summary>
             获取多语言分页
             </summary>
@@ -2564,27 +2657,27 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.GetTranslateList">
+        <member name="M:ASF.Domain.Services.TranslateService.GetList">
             <summary>
             获取多语言列表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.AddTranslate(ASF.Domain.Entities.Translate)">
+        <member name="M:ASF.Domain.Services.TranslateService.Create(ASF.Domain.Entities.Translate)">
             <summary>
             添加多语言
             </summary>
             <param name="translate"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.ModifyTranslate(ASF.Domain.Entities.Translate)">
+        <member name="M:ASF.Domain.Services.TranslateService.Modify(ASF.Domain.Entities.Translate)">
             <summary>
             修改多语言
             </summary>
             <param name="translate"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.TranslateService.DeleteTranslate(ASF.Domain.Entities.Translate)">
+        <member name="M:ASF.Domain.Services.TranslateService.Delete(ASF.Domain.Entities.Translate)">
             <summary>
             硬 删除多语言
             </summary>

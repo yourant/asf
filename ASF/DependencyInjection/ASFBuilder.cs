@@ -70,6 +70,7 @@ namespace ASF.DependencyInjection
             Services.AddTransient<PermissionService>();
             Services.AddTransient<ApiService>();
             Services.AddTransient<MenuService>();
+            Services.AddTransient<TranslateService>();
         }
         // /// <summary>
         // /// 添加账户仓储缓存

@@ -26,7 +26,7 @@ namespace ASF.Domain.Services
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public async Task<Result<Translate>> GetTranslate(long id)
+		public async Task<Result<Translate>> Get(long id)
 		{
 			Translate translate = await _translateRepositories.GetEntity(f => f.Id == id);
 			if (translate == null)
@@ -40,7 +40,7 @@ namespace ASF.Domain.Services
 		/// <param name="pageSize"></param>
 		/// <param name="name"></param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<Translate>> GetTranslateList(int pageNo, int pageSize, string name)
+		public async Task<ResultPagedList<Translate>> GetList(int pageNo, int pageSize, string name)
 		{
 			if (!string.IsNullOrEmpty(name))
 			{
@@ -55,7 +55,7 @@ namespace ASF.Domain.Services
 		/// 获取多语言列表
 		/// </summary>
 		/// <returns></returns>
-		public async Task<ResultList<Translate>> GetTranslateList()
+		public async Task<ResultList<Translate>> GetList()
 		{
 			IEnumerable<Translate> list = await _translateRepositories.GetEntities(f => f.Id != 0);
 			if(list == null)
@@ -68,7 +68,7 @@ namespace ASF.Domain.Services
 		/// </summary>
 		/// <param name="translate"></param>
 		/// <returns></returns>
-		public async Task<Result> AddTranslate(Translate translate)
+		public async Task<Result> Create(Translate translate)
 		{
 			Translate data = await _translateRepositories.GetEntity(f => f.Name.Equals(translate.Name));
 			if (data != null)
@@ -86,7 +86,7 @@ namespace ASF.Domain.Services
 		/// </summary>
 		/// <param name="translate"></param>
 		/// <returns></returns>
-		public async Task<Result> ModifyTranslate(Translate translate)
+		public async Task<Result> Modify(Translate translate)
 		{
 			bool isUpdate = await _translateRepositories.Update(translate);
 			if (!isUpdate)
@@ -101,7 +101,7 @@ namespace ASF.Domain.Services
 		/// </summary>
 		/// <param name="translate"></param>
 		/// <returns></returns>
-		public async Task<Result> DeleteTranslate(Translate translate)
+		public async Task<Result> Delete(Translate translate)
 		{
 			bool isDelete = await _translateRepositories.Delete(translate);
 			if (!isDelete)
