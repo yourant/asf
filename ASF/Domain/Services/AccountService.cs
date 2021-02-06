@@ -18,6 +18,10 @@ namespace ASF.Domain.Services
 	{
 		//账户仓储
 		private readonly IAccountsRepository _accountsRepository;
+		/// <summary>
+		/// 账户服务
+		/// </summary>
+		/// <param name="accountsRepository"></param>
 		public AccountService(IAccountsRepository accountsRepository)
 		{
 			_accountsRepository = accountsRepository;

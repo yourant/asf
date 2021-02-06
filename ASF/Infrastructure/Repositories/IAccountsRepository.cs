@@ -5,6 +5,9 @@ using ASF.Domain.Entities;
 
 namespace ASF.Infrastructure.Repositories
 {
+	/// <summary>
+	/// 账户仓储
+	/// </summary>
 	public interface IAccountsRepository: IRepositories<Account>
 	{
 		/// <summary>

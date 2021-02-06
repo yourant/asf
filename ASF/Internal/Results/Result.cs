@@ -10,12 +10,24 @@ namespace ASF.Internal.Results
     /// </summary>
     public class Result
     {
+        /// <summary>
+        /// 返回结果对象
+        /// </summary>
         public Result() { }
+        /// <summary>
+        /// 返回结果对象
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="status"></param>
         public Result(string message, int status)
         {
             this.Status = status;
             this.Message = message;
         }
+        /// <summary>
+        /// 返回结果对象
+        /// </summary>
+        /// <param name="result"></param>
         public Result(ValueTuple<int, string> result)
         {
             this.Status = result.Item1;
@@ -55,7 +67,8 @@ namespace ASF.Internal.Results
         /// <summary>
         /// 转换实体
         /// </summary>
-        /// <param name="result"></param>
+        /// <param name="message"></param>
+        /// <param name="status"></param>
         protected void To(string message, int status)
         {
             this.Status = status;

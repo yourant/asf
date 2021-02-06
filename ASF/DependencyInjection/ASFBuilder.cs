@@ -32,6 +32,9 @@ namespace ASF.DependencyInjection
         {
             this.Services = services;
         }
+        /// <summary>
+        /// 编译服务
+        /// </summary>
         public void Build()
         {
             Services.AddMemoryCache();
@@ -67,13 +70,12 @@ namespace ASF.DependencyInjection
             Services.AddTransient<PermissionService>();
             Services.AddTransient<ApiService>();
             Services.AddTransient<MenuService>();
-
         }
-        /// <summary>
-        /// 添加账户仓储缓存
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        // /// <summary>
+        // /// 添加账户仓储缓存
+        // /// </summary>
+        // /// <typeparam name="T"></typeparam>
+        // /// <returns></returns>
         // public ASFBuilder AddAccountRepositoryCache<T>()
         //     where T : IAccountRepository
         // {

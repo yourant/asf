@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace ASF
 {
+    /// <summary>
+    /// 基仓储
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IRepositories<T> where T : class
     {
         /// <summary>

@@ -25,8 +25,9 @@ namespace ASF.Internal.Results
         /// <summary>
         /// 实体分页集合结果
         /// </summary>
-        /// <param name="data">实体集合</param>
-        /// <param name="result">结果状态</param>
+        /// <param name="data"></param>
+        /// <param name="totalCount"></param>
+        /// <param name="result"></param>
         public ResultPagedList(IList<T> data, int totalCount, ValueTuple<int, string> result) : base(data, result)
         {
             this.TotalCount = totalCount;

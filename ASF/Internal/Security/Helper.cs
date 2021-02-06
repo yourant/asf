@@ -6,6 +6,9 @@ using Newtonsoft.Json.Linq;
 
 namespace ASF.Internal.Security
 {
+	/// <summary>
+	/// 辅助方法
+	/// </summary>
 	public static class Helper
 	{
 		/// <summary>
@@ -49,7 +52,12 @@ namespace ASF.Internal.Security
 				return ("未知");
 			}
 		}
-		// 序列化为驼峰
+		/// <summary>
+		/// 序列化
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <typeparam name="T"></typeparam>
+		/// <returns></returns>
 		public static string WriteFromObject<T>(this object obj) where T : class
 		{
 			JsonSerializerSettings settings = new JsonSerializerSettings();
@@ -57,13 +65,22 @@ namespace ASF.Internal.Security
 			string dcjs =  (string)JsonConvert.SerializeObject(obj,settings);
 			return dcjs;
 		}
-		//反序列化
+		/// <summary>
+		/// 反序列化
+		/// </summary>
+		/// <param name="json"></param>
+		/// <returns></returns>
 		public static JObject ReadToObject(this string json)
 		{
 			JObject dcjs = (JObject)JsonConvert.DeserializeObject(json);
 			return dcjs;
 		}
-		//泛型反序列化
+		/// <summary>
+		/// 泛型反序列化
+		/// </summary>
+		/// <param name="json"></param>
+		/// <typeparam name="T"></typeparam>
+		/// <returns></returns>
 		public static T ReadToObject<T>(this string json) where T : class
 		{
 			T dcjs = JsonConvert.DeserializeObject<T>(json);

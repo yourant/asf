@@ -13,6 +13,10 @@ namespace ASF.Domain.Services
 	public class LoggerService
 	{
 		private readonly ILoggingsRepository _loggingsRepository;
+		/// <summary>
+		/// 日志服务
+		/// </summary>
+		/// <param name="loggingsRepository"></param>
 		public LoggerService(ILoggingsRepository loggingsRepository)
 		{
 			_loggingsRepository = loggingsRepository;

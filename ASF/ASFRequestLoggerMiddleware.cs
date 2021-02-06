@@ -36,36 +36,43 @@ namespace ASF
             {
                 return;                
             }
-
-            //开始记录日志
-            var serviceProvider = context.RequestServices;
-            var logger = serviceProvider.GetRequiredService<ILogger<ASFRequestLoggerMiddleware>>();
-            try
+            var requestPath = context.Request.PathBase + context.Request.Path;
+            if (requestPath.Value != null && requestPath.Value.Equals("/swagger/v1/swagger.json"))
             {
-                if (context.Items.ContainsKey("asf_api_parmission"))
-                {
-                    if (context.Items["asf_api_parmission"] is Api api)
-                    {
-                        //判断是否需要记录日志
-                        if (api.IsLogger != null && (Status)api.IsLogger == Status.Yes)                            
-                            await ASFRequestLogger.GetInstance(context, api,this._next).Record();
-                        else 
-                            await _next(context);
-                    }
-                    else
-                    {
-                        logger.LogError($"HttpContext.Items[\"asf_api_parmission\"] is not equal to {typeof(Api)}");
-                        await Task.CompletedTask;
-                        // return;
-                    }
-                }
-
-                await Task.CompletedTask;
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "ASF Logging");
                 await _next(context);
+            }
+            else
+            {
+                //开始记录日志
+                var serviceProvider = context.RequestServices;
+                var logger = serviceProvider.GetRequiredService<ILogger<ASFRequestLoggerMiddleware>>();
+                try
+                {
+                    if (context.Items.ContainsKey("asf_api_parmission"))
+                    {
+                        if (context.Items["asf_api_parmission"] is Api api)
+                        {
+                            //判断是否需要记录日志
+                            if (api.IsLogger != null && (Status)api.IsLogger == Status.Yes)                            
+                                await ASFRequestLogger.GetInstance(context, api,this._next).Record();
+                            else 
+                                await _next(context);
+                        }
+                        else
+                        {
+                            logger.LogError($"HttpContext.Items[\"asf_api_parmission\"] is not equal to {typeof(Api)}");
+                            await Task.CompletedTask;
+                            // return;
+                        }
+                    }
+
+                    await Task.CompletedTask;
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex, "ASF Logging");
+                    await _next(context);
+                }
             }
         }
 

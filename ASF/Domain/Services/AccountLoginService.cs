@@ -28,6 +28,13 @@ namespace ASF.Domain.Services
         private IServiceProvider _serviceProvider;
         //new
         private readonly IAccountsRepository _accountsRepository;
+        /// <summary>
+        /// 账户登入服务
+        /// </summary>
+        /// <param name="tokenGenerate"></param>
+        /// <param name="accountsRepository"></param>
+        /// <param name="memoryCache"></param>
+        /// <param name="serviceProvider"></param>
         public AccountLoginService(
             IAccessTokenGenerate tokenGenerate,
             IAccountsRepository accountsRepository,

@@ -7,8 +7,14 @@ using ASF.Internal;
 
 namespace ASF.Domain.Entities
 {
+    /// <summary>
+    /// 角色
+    /// </summary>
     public class Role
     {
+        /// <summary>
+        /// 角色
+        /// </summary>
         public Role()
         {
             Permission = new JoinCollectionFacade<Permission, Role, PermissionRole>(this,PermissionRole);

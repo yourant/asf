@@ -8,7 +8,8 @@ namespace ASF.Domain
     /// </summary>
     public class ResultCodes : BaseResultCodes
     {
-        //租户错误代码
+        #pragma warning disable 1591
+        
         public static ValueTuple<int, string> TenancyNameExist = (10001, "输入的租户名已经被使用，请重新输入");
         public static ValueTuple<int, string> TenancyNotExist = (10002, "没有这个租户");
         public static ValueTuple<int, string> TenancyCreateFailure = (10003, "创建租户失败");

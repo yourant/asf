@@ -9,6 +9,9 @@ using Zop.AspNetCore.Authentication.JwtBearer;
 
 namespace ASF.Domain.Services
 {
+    /// <summary>
+    /// 账户登录服务
+    /// </summary>
     public interface IAccountLoginService
     {
         /// <summary>

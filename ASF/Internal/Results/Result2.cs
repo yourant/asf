@@ -22,6 +22,11 @@ namespace ASF.Internal.Results
         {
             this.Data = data;
         }
+        /// <summary>
+        /// 返回结果对象
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="result"></param>
         public Result(T data, ValueTuple<int, string> result) : base(result)
         {
             this.Data = data;

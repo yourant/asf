@@ -36,6 +36,7 @@ namespace ASF.Application
 		/// </summary>
 		/// <param name="dto"></param>
 		/// <returns></returns>
+		[HttpGet]
 		public async Task<ResultPagedList<PermissionMenuResponseDto>> GetList(
 			[FromQuery] PermissionMenuListRequestDto dto)
 		{
@@ -50,6 +51,7 @@ namespace ASF.Application
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
+		[HttpGet]
 		public async Task<Result<PermissionMenuResponseDto>> Details([FromQuery] long id)
 		{
 			var result = await _serviceProvider.GetRequiredService<MenuService>().Get(id);

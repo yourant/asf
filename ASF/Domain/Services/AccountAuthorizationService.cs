@@ -24,6 +24,13 @@ namespace ASF.Domain.Services
     private readonly ILogger _logger;
     // new
     private readonly IApiRepository _apiRepository;
+    /// <summary>
+    /// 账户认证服务
+    /// </summary>
+    /// <param name="apiRepository"></param>
+    /// <param name="httpContextAccessor"></param>
+    /// <param name="serviceProvider"></param>
+    /// <param name="logger"></param>
     public AccountAuthorizationService(IApiRepository apiRepository, IHttpContextAccessor httpContextAccessor, IServiceProvider serviceProvider, ILogger<AccountAuthorizationService> logger)
     {
       _apiRepository = apiRepository;
@@ -31,7 +38,10 @@ namespace ASF.Domain.Services
       _serviceProvider = serviceProvider;
       _logger = logger;
     }
-
+    /// <summary>
+    /// 认证
+    /// </summary>
+    /// <returns></returns>
     public async Task<Result<Api>> Authentication()
     {
       HttpContext context = _httpContextAccessor.HttpContext;

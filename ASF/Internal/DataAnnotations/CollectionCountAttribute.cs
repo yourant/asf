@@ -26,7 +26,12 @@ namespace System.ComponentModel.DataAnnotations
         /// 最小数了
         /// </summary>
         public int MinCount { get; set; }
-
+        /// <summary>
+        /// 集合验证
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="validationContext"></param>
+        /// <returns></returns>
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value == null)

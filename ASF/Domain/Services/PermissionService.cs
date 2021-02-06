@@ -8,10 +8,17 @@ using ASF.Internal.Results;
 
 namespace ASF.Domain.Services
 {
+	/// <summary>
+	/// 权限服务
+	/// </summary>
 	public class PermissionService
 	{
 		// 权限仓储
 		private readonly IPermissionsRepository _permissionsRepository;
+		/// <summary>
+		/// 权限服务
+		/// </summary>
+		/// <param name="permissionsRepository"></param>
 		public PermissionService(IPermissionsRepository permissionsRepository)
 		{
 			_permissionsRepository = permissionsRepository;
@@ -118,10 +125,13 @@ namespace ASF.Domain.Services
 			{
 				return Result.ReFailure(ResultCodes.PermissionCreateError);
 			}
-
 			return Result.ReSuccess();
 		}
-
+		/// <summary>
+		/// 修改权限
+		/// </summary>
+		/// <param name="permission"></param>
+		/// <returns></returns>
 		public async Task<Result> Modify(Permission permission)
 		{
 			if(permission.IsSystem != null && (Status)permission.IsSystem == Status.Yes)

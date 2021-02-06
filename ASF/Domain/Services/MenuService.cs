@@ -13,7 +13,10 @@ namespace ASF.Domain.Services
 	public class MenuService
 	{
 		private readonly IMenuRepositories _menuRepositories;
-
+		/// <summary>
+		/// 权限菜单服务
+		/// </summary>
+		/// <param name="menuRepositories"></param>
 		public MenuService(IMenuRepositories menuRepositories)
 		{
 			_menuRepositories = menuRepositories;
@@ -41,7 +44,15 @@ namespace ASF.Domain.Services
 				return ResultList<PermissionMenu>.ReFailure(ResultCodes.PermissionMenuNotExist);
 			return ResultList<PermissionMenu>.ReSuccess(list.ToList());
 		}
-
+		/// <summary>
+		/// 获取权限菜单分页列表
+		/// </summary>
+		/// <param name="pageNo"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="permissionId"></param>
+		/// <param name="title"></param>
+		/// <param name="menuUrl"></param>
+		/// <returns></returns>
 		public async Task<ResultPagedList<PermissionMenu>> GetList(int pageNo, int pageSize, long? permissionId = null,
 			string title = "", string menuUrl = "")
 		{

@@ -13,7 +13,10 @@ namespace ASF.Domain.Services
 	public class TranslateService
 	{
 		private readonly ITranslateRepositories _translateRepositories;
-
+		/// <summary>
+		/// 多语言服务
+		/// </summary>
+		/// <param name="translateRepositories"></param>
 		public TranslateService(ITranslateRepositories translateRepositories)
 		{
 			_translateRepositories = translateRepositories;

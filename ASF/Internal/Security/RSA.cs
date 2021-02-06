@@ -6,6 +6,9 @@ using System.Text;
 
 namespace ASF.Internal.Security
 {
+    /// <summary>
+    /// rsa 辅助方法
+    /// </summary>
     public static class RSA
     {
         //encoded OID sequence for  PKCS #1 rsaEncryption szOID_RSA_RSA = "1.2.840.113549.1.1.1"
@@ -76,7 +79,13 @@ namespace ASF.Internal.Security
             var cipherBytes = rsa.Encrypt(plainTextBytes, RSAEncryptionPadding.Pkcs1);
             return Convert.ToBase64String(cipherBytes);
         }
-
+        /// <summary>
+        /// 解密公钥
+        /// </summary>
+        /// <param name="publicKey"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static RSAParameters DecodePkcsPublicKey(string publicKey)
         {
             if (string.IsNullOrEmpty(publicKey))
@@ -161,10 +170,13 @@ namespace ASF.Internal.Security
             }
             return rsaParams;
         }
-
-
-
-
+        /// <summary>
+        /// 私钥解密
+        /// </summary>
+        /// <param name="privateKey"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static RSAParameters DecodePkcsPrivateKey(string privateKey)
         {
 
@@ -346,12 +358,26 @@ namespace ASF.Internal.Security
         }
 
     }
-
+    /// <summary>
+    /// 密钥类型枚举
+    /// </summary>
     public enum PKCSType
     {
+        /// <summary>
+        /// 1024
+        /// </summary>
         PKCS_1_1024,
+        /// <summary>
+        /// 2048
+        /// </summary>
         PKCS_1_2048,
+        /// <summary>
+        /// 1023
+        /// </summary>
         PKCS_8_1024,
+        /// <summary>
+        /// 2048
+        /// </summary>
         PKCS_8_2048,
     }
 

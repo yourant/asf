@@ -122,6 +122,7 @@ namespace ASF.Application
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
+    [HttpPost]
     public async Task<Result> BatchDelete([FromBody] IdArrayRequestDto<long> dto)
     {
       var server = _serviceProvider.GetRequiredService<ApiService>();

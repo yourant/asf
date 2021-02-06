@@ -6,21 +6,42 @@ using ASF.Internal.Results;
 
 namespace System.ComponentModel.DataAnnotations
 {
+    /// <summary>
+    /// 实体验证
+    /// </summary>
     public class EntityValidationResult
     {
+        /// <summary>
+        /// 验证错误集合
+        /// </summary>
         public IList<ValidationResult> Errors { get; private set; }
+        /// <summary>
+        /// 是否有错误
+        /// </summary>
         public bool HasError
         {
             get { return Errors.Count > 0; }
         }
-
+        /// <summary>
+        /// 验证返回
+        /// </summary>
+        /// <param name="errors"></param>
         public EntityValidationResult(IList<ValidationResult> errors = null)
         {
             Errors = errors ?? new List<ValidationResult>();
         }
     }
+    /// <summary>
+    /// 实体验证
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class EntityValidator<T> where T : class
     {
+        /// <summary>
+        /// 验证
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public EntityValidationResult Validate(T entity)
         {
             var validationResults = new List<ValidationResult>();
@@ -31,8 +52,17 @@ namespace System.ComponentModel.DataAnnotations
             return new EntityValidationResult(validationResults);
         }
     }
+    /// <summary>
+    /// 实体验证辅助方法
+    /// </summary>
     public class ValidationHelper
     {
+        /// <summary>
+        /// 验证实体返回
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static EntityValidationResult ValidateEntity<T>(T entity)
             where T : class
         {

@@ -14,6 +14,10 @@ namespace ASF.Domain.Services
 	public class TenancyService
 	{
 		private readonly ITenancyRepository _repository;
+		/// <summary>
+		/// 租户服务
+		/// </summary>
+		/// <param name="repository"></param>
 		public TenancyService(ITenancyRepository repository)
 		{
 			_repository = repository;

@@ -7,8 +7,14 @@ using ASF.Internal;
 
 namespace ASF.Domain.Entities
 {
+    /// <summary>
+    /// 权限
+    /// </summary>
     public class Permission
     {
+        /// <summary>
+        /// 权限
+        /// </summary>
         public Permission()
         {
             Role = new JoinCollectionFacade<Role, Permission, PermissionRole>(this, PermissionRole);
@@ -56,12 +62,14 @@ namespace ASF.Domain.Entities
         /// 添加时间
         /// </summary>
         public DateTime CreateTime { get; set; }
-        
         /// <summary>
         /// 关联权限到角色
         /// </summary>
         [NotMapped]
         public ICollection<Role> Role { get; }
+        /// <summary>
+        /// 权限角色中间表
+        /// </summary>
         public ICollection<PermissionRole> PermissionRole { get; } = new List<PermissionRole>();
 
         /// <summary>

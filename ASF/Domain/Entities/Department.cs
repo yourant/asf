@@ -11,6 +11,9 @@ namespace ASF.Domain.Entities
   /// </summary>
   public class Department
   {
+    /// <summary>
+    /// 部门
+    /// </summary>
     public Department()
     {
       Role = new JoinCollectionFacade<Role, Department, DepartmentRole>(this, DepartmentRole);

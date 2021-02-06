@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ASF.Domain.Entities
 {
+    /// <summary>
+    /// 日志
+    /// </summary>
     public class LogInfo
     {
         

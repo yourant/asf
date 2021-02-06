@@ -14,7 +14,10 @@ namespace ASF.Domain.Services
 	public class ApiService
 	{
 		private readonly IApiRepository _apiRepository;
-
+		/// <summary>
+		/// 权限功能服务
+		/// </summary>
+		/// <param name="apiRepository"></param>
 		public ApiService(IApiRepository apiRepository)
 		{
 			_apiRepository = apiRepository;

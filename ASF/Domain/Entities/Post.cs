@@ -11,6 +11,9 @@ namespace ASF.Domain.Entities
   /// </summary>
   public class Post
   {
+    /// <summary>
+    /// 岗位
+    /// </summary>
     public Post()
     {
       Account = new JoinCollectionFacade<Account, Post, AccountPost>(this, AccountPost);

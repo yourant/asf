@@ -14,7 +14,10 @@ namespace ASF.Domain.Services
 	public class DepartmentService
 	{
 		private readonly IDepartmentRepositories _departmentRepositories;
-
+		/// <summary>
+		/// 部门服务
+		/// </summary>
+		/// <param name="departmentRepositories"></param>
 		public DepartmentService(IDepartmentRepositories departmentRepositories)
 		{
 			_departmentRepositories = departmentRepositories;

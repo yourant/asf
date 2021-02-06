@@ -38,6 +38,9 @@ namespace ASF.Internal.Results
 
         
     }
+    /// <summary>
+    /// 返回对象扩展
+    /// </summary>
     public static class BaseResultCodesExtension
     {
         /// <summary>
