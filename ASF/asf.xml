@@ -132,6 +132,40 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.DepartmentController.GetLists">
+            <summary>
+            获取部门列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DepartmentController.Details(System.Int64)">
+            <summary>
+            获取部门详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DepartmentController.Create(ASF.Application.DTO.Department.DepartmentCreateRequestDto)">
+            <summary>
+            创建部门
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DepartmentController.Modify(ASF.Application.DTO.Department.DepartmentModifyRequestDto)">
+            <summary>
+            修改部门
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DepartmentController.Assign(ASF.Application.DTO.AssignIdArrayRequestDto{System.Int64})">
+            <summary>
+            分配角色到部门
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.DTO.AccountInfoResponseDto">
             <summary>
             登录账户信息
@@ -212,6 +246,21 @@
             登录密码
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.AssignIdArrayRequestDto`1">
+            <summary>
+            批量分配
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AssignIdArrayRequestDto`1.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AssignIdArrayRequestDto`1.Ids">
+            <summary>
+            id 数组集合
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.Department.DepartmentCreateRequestDto">
             <summary>
             创建部门
@@ -235,6 +284,11 @@
         <member name="P:ASF.Application.DTO.Department.DepartmentCreateRequestDto.Sort">
             <summary>
             排序
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentCreateRequestDto.RoleIds">
+            <summary>
+            角色id 集合
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Department.DepartmentListRequestDto">
@@ -935,6 +989,16 @@
         <member name="M:ASF.Application.DtoMapper.AccountMapper.#ctor">
             <summary>
             账户映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.DepartmentMapper">
+            <summary>
+            部门映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.DepartmentMapper.#ctor">
+            <summary>
+            部门映射
             </summary>
         </member>
         <member name="T:ASF.Application.DtoMapper.LoggerMapper">
@@ -2471,7 +2535,7 @@
             </summary>
             <param name="departmentRepositories"></param>
         </member>
-        <member name="M:ASF.Domain.Services.DepartmentService.Get(System.Int64,System.Int64)">
+        <member name="M:ASF.Domain.Services.DepartmentService.Get(System.Int64,System.Nullable{System.Int64})">
             <summary>
             获取部门
             </summary>
@@ -3039,7 +3103,7 @@
             部门仓储
             </summary>
         </member>
-        <member name="M:ASF.Infrastructure.Repositories.IDepartmentRepositories.GetDepartmentAsync(System.Int64,System.Int64)">
+        <member name="M:ASF.Infrastructure.Repositories.IDepartmentRepositories.GetDepartmentAsync(System.Int64,System.Nullable{System.Int64})">
             <summary>
             获取部门及其关联信息
             </summary>

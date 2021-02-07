@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ASF.Application.DTO;
 using ASF.Application.DTO.Department;
 using ASF.Domain;
 using ASF.Domain.Entities;
@@ -102,6 +103,34 @@ namespace ASF.Application
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			return await _serviceProvider.GetRequiredService<DepartmentService>().Modify(_mapper.Map(dto,result.Data));
+		}
+		/// <summary>
+		/// 分配角色到部门
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> Assign([FromBody] AssignIdArrayRequestDto<long> dto)
+		{
+			var server = _serviceProvider.GetRequiredService<DepartmentService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			if (dto.Ids.Count == 0)
+				return Result.ReFailure(ResultCodes.RoleIdNotExist);
+			foreach (var item in dto.Ids)
+			{
+				result.Data.DepartmentRole.Add(new DepartmentRole()
+				{
+					RoleId = item,
+					DepartmentId = result.Data.Id
+				});
+			}
+			return await _serviceProvider.GetRequiredService<DepartmentService>().Modify(result.Data);
 		}
 	}
 }

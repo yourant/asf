@@ -100,7 +100,8 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (11, '获取租户详情',2,'/api/asf/tenancy/details','get',1,'获取租户详情权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (11, '删除租户',2,'/api/asf/tenancy/delete/[0-9]{1,12}','post,delete',1,'删除租户信息权限',1);
 
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (12, '获取部门列表',2,'/api/asf/department/getlist','get',1,'获取部门信息列表权限');
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (12, '获取部门分页列表',2,'/api/asf/department/getlist','get',1,'获取部门信息分页列表权限');
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (12, '获取部门列表',2,'/api/asf/department/getlists','get',1,'获取部门信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '添加部门',2,'/api/asf/department/create','post',1,'添加部门信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '修改部门',2,'/api/asf/department/modify','post,put',1,'修改部门信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (12, '获取部门详情',2,'/api/asf/department/details','get',1,'获取部门详情权限');
