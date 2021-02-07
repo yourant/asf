@@ -125,6 +125,13 @@
             部门控制器
             </summary>
         </member>
+        <member name="M:ASF.Application.DepartmentController.GetList(ASF.Application.DTO.Department.DepartmentListRequestDto)">
+            <summary>
+            获取部门分页列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.DTO.AccountInfoResponseDto">
             <summary>
             登录账户信息
@@ -203,6 +210,71 @@
         <member name="P:ASF.Application.DTO.AuthoriseByUsernameRequestDto.Password">
             <summary>
             登录密码
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Department.DepartmentCreateRequestDto">
+            <summary>
+            创建部门
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentCreateRequestDto.Pid">
+            <summary>
+            父id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentCreateRequestDto.Name">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentCreateRequestDto.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentCreateRequestDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Department.DepartmentListRequestDto">
+            <summary>
+            部门分页请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentListRequestDto.Name">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentListRequestDto.Status">
+            <summary>
+            部门状态
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Department.DepartmentModifyRequestDto">
+            <summary>
+            修改部门
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentModifyRequestDto.Id">
+            <summary>
+            部门id
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Department.DepartmentResponseDto">
+            <summary>
+            部门响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.CreateTime">
+            <summary>
+            创建时间
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.IdArrayRequestDto`1">
@@ -817,6 +889,11 @@
             多语言响应
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Translate.TranslateResponseDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.ListPagedAndSortedRequestDto">
             <summary>
             集合分页排序请求对象
@@ -1003,6 +1080,13 @@
             <summary>
             角色控制器
             </summary>
+        </member>
+        <member name="M:ASF.Application.RoleController.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
+            <summary>
+            角色控制器
+            </summary>
+            <param name="serviceProvider"></param>
+            <param name="mapper"></param>
         </member>
         <member name="T:ASF.Application.TranslateController">
             <summary>

@@ -104,7 +104,7 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '添加部门',2,'/api/asf/department/create','post',1,'添加部门信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '修改部门',2,'/api/asf/department/modify','post,put',1,'修改部门信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (12, '获取部门详情',2,'/api/asf/department/details','get',1,'获取部门详情权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '删除部门',2,'/api/asf/department/delete/[0-9]{1,12}','post,delete',1,'删除部门信息权限',1);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (12, '分配部门角色',2,'/api/asf/department/assign','post,put',1,'分配部门角色',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (13, '获取岗位列表',2,'/api/asf/post/getlist','get',1,'获取岗位信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (13, '添加岗位',2,'/api/asf/post/create','post',1,'添加岗位信息权限',1);

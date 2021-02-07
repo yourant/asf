@@ -14,6 +14,6 @@ namespace ASF.Infrastructure.Repositories
 		/// <param name="id"></param>
 		/// <param name="tenancyId"/>
 		/// <returns></returns>
-		Task<Department> GetDepartmentAsync(long id, long tenancyId);
+		Task<Department> GetDepartmentAsync(long id, long? tenancyId = null);
 	}
 }

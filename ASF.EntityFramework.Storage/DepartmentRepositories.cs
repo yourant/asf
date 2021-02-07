@@ -19,8 +19,16 @@ namespace ASF.EntityFramework.Repository
 		/// <param name="id"></param>
 		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		public async Task<Department> GetDepartmentAsync(long id,long tenancyId)
+		public async Task<Department> GetDepartmentAsync(long id,long? tenancyId = null)
 		{
+			if (tenancyId == null)
+			{
+				Department d = await base.GetDbContext().Departments
+					.Include("DepartmentRole.Role.PermissionRole.Permission").Include("Accounts")
+					.FirstOrDefaultAsync(f => f.Id == id);
+				return await Task.FromResult<Department>(d);
+			}
+
 			Department department = await base.GetDbContext().Departments
 				.Include("DepartmentRole.Role.PermissionRole.Permission").Include("Accounts")
 				.FirstOrDefaultAsync(f => f.Id == id && f.TenancyId == tenancyId);

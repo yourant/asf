@@ -28,7 +28,7 @@ namespace ASF.Domain.Services
 		/// <param name="id"></param>
 		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		public async Task<Result<Department>> Get(long id, long tenancyId)
+		public async Task<Result<Department>> Get(long id, long? tenancyId = null)
 		{
 			Department department = await _departmentRepositories.GetDepartmentAsync(id, tenancyId);
 			if (department == null)
