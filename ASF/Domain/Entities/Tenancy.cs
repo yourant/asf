@@ -21,11 +21,11 @@ namespace ASF.Domain.Entities
     /// <summary>
     /// 排序
     /// </summary>
-    public int Sort { get; set; }
+    public int? Sort { get; set; }
     /// <summary>
     /// 等级
     /// </summary>
-    public int Level { get; set; }
+    public int? Level { get; set; }
     /// <summary>
     /// 创建者id
     /// </summary>
@@ -33,11 +33,11 @@ namespace ASF.Domain.Entities
     /// <summary>
     /// 租户状态
     /// </summary>
-    public uint Status { get; set; }
+    public uint? Status { get; set; }
     /// <summary>
     /// 是否删除
     /// </summary>
-    public bool? IsDeleted { get; set; }
+    public uint? IsDeleted { get; set; }
 
     /// <summary>
     /// 创建时间

@@ -71,6 +71,7 @@ namespace ASF.DependencyInjection
             Services.AddTransient<ApiService>();
             Services.AddTransient<MenuService>();
             Services.AddTransient<TranslateService>();
+            Services.AddTransient<TenancyService>();
             Services.AddTransient<DepartmentService>();
             Services.AddTransient<RoleService>();
         }

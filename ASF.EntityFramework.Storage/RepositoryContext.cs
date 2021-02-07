@@ -603,14 +603,14 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("排序");
                 
                 e.Property(x => x.Status)
-                    .HasColumnType("int unsigned")
+                    .HasColumnType("tinyint unsigned")
                     .HasColumnName("status")
                     .HasDefaultValueSql("1")
                     .HasComment("租户状态 0禁用， 1启用");
                 
                 
                 e.Property(x => x.IsDeleted)
-                    .HasColumnType("int unsigned")
+                    .HasColumnType("tinyint unsigned")
                     .HasColumnName("is_deleted")
                     .HasDefaultValueSql("0")
                     .HasComment("是否删除, 0 否, 1是");

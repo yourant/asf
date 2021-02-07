@@ -848,6 +848,11 @@
             子集合
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.Role.RoleListRequestDto">
+            <summary>
+            角色分页请求
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.ScheduledTasks.ScheduledTasksCreateRequestDto">
             <summary>
             创建定时任务
@@ -896,6 +901,71 @@
         <member name="P:ASF.Application.DTO.ScheduledTasks.ScheduledTasksCreateRequestDto.ParamsContent">
             <summary>
             参数内容
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Tenancy.TenancyCreateRequestDto">
+            <summary>
+            创建租户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyCreateRequestDto.Name">
+            <summary>
+            租户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyCreateRequestDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyCreateRequestDto.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyCreateRequestDto.Status">
+            <summary>
+            租户状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyCreateRequestDto.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Tenancy.TenancyListRequestDto">
+            <summary>
+            租户分页请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyListRequestDto.Name">
+            <summary>
+            租户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyListRequestDto.Status">
+            <summary>
+            租户状态
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Tenancy.TenancyModifyRequestDto">
+            <summary>
+            修改租户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyModifyRequestDto.Id">
+            <summary>
+            租户id
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Tenancy.TenancyResponseDto">
+            <summary>
+            租户响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyResponseDto.CreateTime">
+            <summary>
+            创建时间
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Translate.TranslateCreateRequestDto">
@@ -1151,6 +1221,23 @@
             </summary>
             <param name="serviceProvider"></param>
             <param name="mapper"></param>
+        </member>
+        <member name="T:ASF.Application.TenancyController">
+            <summary>
+            租户控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.TenancyController.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
+            <summary>
+            租户控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.TenancyController.GetList(ASF.Application.DTO.Tenancy.TenancyListRequestDto)">
+            <summary>
+            获取租户分页列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
         </member>
         <member name="T:ASF.Application.TranslateController">
             <summary>
@@ -2763,6 +2850,11 @@
             <param name="permission"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Domain.Services.RoleService">
+            <summary>
+            角色领域服务
+            </summary>
+        </member>
         <member name="T:ASF.Domain.Services.TenancyService">
             <summary>
             租户服务
@@ -3145,6 +3237,19 @@
             根据权限id集合获取权限集合
             </summary>
             <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ASF.Infrastructure.Repositories.IRoleRepositories">
+            <summary>
+            角色仓储
+            </summary>
+        </member>
+        <member name="M:ASF.Infrastructure.Repositories.IRoleRepositories.GetRoleAsync(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取角色关联详情
+            </summary>
+            <param name="id"></param>
+            <param name="tenancyId"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.IScheduledTaskRepository">

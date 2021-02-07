@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using ASF.Domain.Entities;
 using ASF.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASF.EntityFramework.Repository
 {
@@ -15,9 +16,20 @@ namespace ASF.EntityFramework.Repository
 		/// <param name="id"></param>
 		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		public Task<Role> GetRoleAsync(long id, long? tenancyId = null)
+		public async Task<Role> GetRoleAsync(long id, long? tenancyId = null)
 		{
-			throw new System.NotImplementedException();
+			if (tenancyId == null)
+			{
+				Role r = await base.GetDbContext().Roles.Include("AccountRole.Account")
+					.Include("DepartmentRole.Department").Include("PermissionRole.Permission").AsSplitQuery()
+					.FirstOrDefaultAsync(f => f.Id == id);
+				return await Task.FromResult<Role>(r);
+			}
+			
+			Role role = await base.GetDbContext().Roles.Include("AccountRole.Account")
+				.Include("DepartmentRole.Department").Include("PermissionRole.Permission").AsSplitQuery()
+				.FirstOrDefaultAsync(f => f.Id == id && f.TenancyId == tenancyId);
+			return await Task.FromResult<Role>(role);
 		}
 	}
 }
