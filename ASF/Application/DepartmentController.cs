@@ -64,6 +64,7 @@ namespace ASF.Application
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
+		[HttpGet]
 		public async Task<Result<DepartmentResponseDto>> Details([FromQuery] long id)
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
@@ -84,6 +85,17 @@ namespace ASF.Application
 			long? tenancyId = Convert.ToInt64(HttpContext.User.TenancyId());
 			var data = _mapper.Map<Department>(dto);
 			data.TenancyId = tenancyId;
+			if (dto.RoleIds.Count != 0)
+			{
+				dto.RoleIds.ForEach(f =>
+				{
+					data.DepartmentRole.Add(new DepartmentRole()
+					{
+						RoleId = f,
+						DepartmentId = data.Id
+					});
+				});
+			}
 			return await _serviceProvider.GetRequiredService<DepartmentService>().Create(data);
 		}
 		/// <summary>
@@ -102,6 +114,17 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			if (dto.RoleIds.Count != 0)
+			{
+				dto.RoleIds.ForEach(f =>
+				{
+					result.Data.DepartmentRole.Add(new DepartmentRole()
+					{
+						RoleId = f,
+						DepartmentId = result.Data.Id
+					});
+				});
+			}
 			return await _serviceProvider.GetRequiredService<DepartmentService>().Modify(_mapper.Map(dto,result.Data));
 		}
 		/// <summary>

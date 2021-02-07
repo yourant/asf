@@ -19,7 +19,7 @@ namespace ASF.Application.DtoMapper
 			//修改
 			this.CreateMap<DepartmentModifyRequestDto, Department>();
 			//响应
-			this.CreateMap<DepartmentResponseDto, Department>();
+			this.CreateMap<Department,DepartmentResponseDto>();
 		}
 	}
 }
