@@ -13,7 +13,11 @@ namespace ASF.Application
 	{
 		private readonly IServiceProvider _serviceProvider;
 		private readonly IMapper _mapper;
-
+		/// <summary>
+		/// 角色控制器
+		/// </summary>
+		/// <param name="serviceProvider"></param>
+		/// <param name="mapper"></param>
 		public RoleController(IServiceProvider serviceProvider, IMapper mapper)
 		{
 			_serviceProvider = serviceProvider;
