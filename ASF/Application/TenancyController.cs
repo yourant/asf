@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ASF.Application.DTO;
 using ASF.Application.DTO.Department;
 using ASF.Application.DTO.Tenancy;
+using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
 using AutoMapper;
@@ -42,6 +44,58 @@ namespace ASF.Application
 				return ResultPagedList<TenancyResponseDto>.ReFailure(data.Message, data.Status);
 			return ResultPagedList<TenancyResponseDto>.ReSuccess(_mapper.Map<List<TenancyResponseDto>>(data.Data),
 				data.TotalCount);
+		}
+		/// <summary>
+		/// 获取租户详情
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		[HttpGet]
+		public async Task<Result<TenancyResponseDto>> Details([FromQuery] long id)
+		{
+			var data = await _serviceProvider.GetRequiredService<TenancyService>().Get(id);
+			if(!data.Success)
+				return Result<TenancyResponseDto>.ReFailure(data.Message,data.Status);
+			return Result<TenancyResponseDto>.ReSuccess(_mapper.Map<TenancyResponseDto>(data.Data));
+		}
+		/// <summary>
+		/// 创建租户
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public async Task<Result> Create([FromBody] TenancyCreateRequestDto dto)
+		{
+			return await _serviceProvider.GetRequiredService<TenancyService>().Create(_mapper.Map<Tenancy>(dto));
+		}
+		/// <summary>
+		/// 修改租户
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> Modify([FromBody] TenancyModifyRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<TenancyService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			return await _serviceProvider.GetRequiredService<TenancyService>().Modify(_mapper.Map(dto,result.Data));
+		}
+		/// <summary>
+		/// 软删除租户
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public async Task<Result> Delete([FromBody] ModifyStatusRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<TenancyService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			result.Data.IsDeleted = dto.Status;
+			return await _serviceProvider.GetRequiredService<TenancyService>().Modify(result.Data);
 		}
 	}
 }

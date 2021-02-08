@@ -1091,6 +1091,16 @@
             权限映射
             </summary>
         </member>
+        <member name="T:ASF.Application.DtoMapper.TenancyMapper">
+            <summary>
+            租户映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.TenancyMapper.#ctor">
+            <summary>
+            租户映射
+            </summary>
+        </member>
         <member name="T:ASF.Application.DtoMapper.TranslateMapper">
             <summary>
             多语言映射
@@ -1235,6 +1245,34 @@
         <member name="M:ASF.Application.TenancyController.GetList(ASF.Application.DTO.Tenancy.TenancyListRequestDto)">
             <summary>
             获取租户分页列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.TenancyController.Details(System.Int64)">
+            <summary>
+            获取租户详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.TenancyController.Create(ASF.Application.DTO.Tenancy.TenancyCreateRequestDto)">
+            <summary>
+            创建租户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.TenancyController.Modify(ASF.Application.DTO.Tenancy.TenancyModifyRequestDto)">
+            <summary>
+            修改租户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.TenancyController.Delete(ASF.Application.DTO.ModifyStatusRequestDto)">
+            <summary>
+            软删除租户
             </summary>
             <param name="dto"></param>
             <returns></returns>

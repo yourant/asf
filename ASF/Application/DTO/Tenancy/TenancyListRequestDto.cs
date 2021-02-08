@@ -10,7 +10,7 @@ namespace ASF.Application.DTO.Tenancy
 		/// <summary>
 		/// 租户名
 		/// </summary>
-		[Required(ErrorMessage = "租户名称不能为空"),MinLength(2,ErrorMessage = "最少输入两个字符的租户名"),MaxLength(50,ErrorMessage = "最多输入50个字符的租户名")]
+		[MinLength(2,ErrorMessage = "最少输入两个字符的租户名"),MaxLength(50,ErrorMessage = "最多输入50个字符的租户名")]
 		public string Name { get; set; }
 		/// <summary>
 		/// 租户状态
