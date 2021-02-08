@@ -21,7 +21,6 @@ namespace ASF.Application.DtoMapper
 			this.CreateMap<RoleModifyRequestDto, Role>();
 			//角色响应
 			this.CreateMap<Role, RoleResponseDto>()
-				.ForMember(f => f.AccountName, s => s.MapFrom(o => o.Account.Select(a => a.Username).ToList()))
 				.ForMember(f => f.Department, s => s.MapFrom(o => o.Department.Count != 0 ? o.Department.Select(a => new
 				{
 					Id = a.Id,

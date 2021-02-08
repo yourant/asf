@@ -933,11 +933,6 @@
             角色权限
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Role.RoleResponseDto.AccountName">
-            <summary>
-            角色关联账户名称
-            </summary>
-        </member>
         <member name="P:ASF.Application.DTO.Role.RoleResponseDto.Department">
             <summary>
             角色关联部门集合
