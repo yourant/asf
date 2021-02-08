@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ASF.Application.DTO.Role
@@ -22,6 +23,9 @@ namespace ASF.Application.DTO.Role
 		/// </summary>
 		[Range(0,1,ErrorMessage = "是否启用只能输入0-1之间的数字")]
 		public uint? Enable { get; set; }
-		
+		/// <summary>
+		/// 要分配的权限id集合
+		/// </summary>
+		public List<long> PermissionId { get; set; }
 	}
 }

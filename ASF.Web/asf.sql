@@ -77,7 +77,6 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (6, '获取角色详情',2,'/api/asf/role/details','get',1,'获取角色详情权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '删除角色',2,'/api/asf/role/delete/[0-9]{1,12}','post,delete',1,'删除角色信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '是否禁用角色',2,'/api/asf/role/modifystatus','post,put',1,'是否禁用角色',1);
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '角色分配部门',2,'/api/asf/role/assigndepartment','post,put',1,'角色分配部门',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '角色分配权限',2,'/api/asf/role/assignpermission','post,put',1,'角色分配权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (8, '获取错误日志列表',2,'/api/asf/audioerror/getlist','get',1,'获取错误日志信息列表权限');

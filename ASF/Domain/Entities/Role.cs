@@ -46,7 +46,7 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 创建用户
         /// </summary>
-        public int CreateId { get; private set; }
+        public long CreateId { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>

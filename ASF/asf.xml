@@ -878,9 +878,24 @@
             是否启用
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Role.RoleCreateRequestDto.PermissionId">
+            <summary>
+            要分配的权限id集合
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.Role.RoleListRequestDto">
             <summary>
             角色分页请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Role.RoleListRequestDto.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Role.RoleListRequestDto.Enable">
+            <summary>
+            是否启用
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Role.RoleModifyRequestDto">
@@ -1321,6 +1336,48 @@
             </summary>
             <param name="serviceProvider"></param>
             <param name="mapper"></param>
+        </member>
+        <member name="M:ASF.Application.RoleController.GetList(ASF.Application.DTO.Role.RoleListRequestDto)">
+            <summary>
+            获取角色分页信息
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.RoleController.Details(System.Int64)">
+            <summary>
+            获取角色详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.RoleController.Create(ASF.Application.DTO.Role.RoleCreateRequestDto)">
+            <summary>
+            创建角色 并分配角色
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.RoleController.Modify(ASF.Application.DTO.Role.RoleModifyRequestDto)">
+            <summary>
+            修改角色
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.RoleController.ModifyStatus(ASF.Application.DTO.ModifyStatusRequestDto)">
+            <summary>
+            修改角色状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.RoleController.AssignPermission(ASF.Application.DTO.AssignIdArrayRequestDto{System.Int64})">
+            <summary>
+            分配角色权限
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
         </member>
         <member name="T:ASF.Application.TenancyController">
             <summary>

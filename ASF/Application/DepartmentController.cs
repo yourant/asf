@@ -114,8 +114,9 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			if (dto.RoleIds.Count != 0)
+			if (dto.RoleIds.Count > 0)
 			{
+				result.Data.DepartmentRole.Clear();
 				dto.RoleIds.ForEach(f =>
 				{
 					result.Data.DepartmentRole.Add(new DepartmentRole()
