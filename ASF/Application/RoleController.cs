@@ -106,18 +106,18 @@ namespace ASF.Application
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			if (dto.PermissionId.Count > 0)
 			{
-				// result.Data.PermissionRole.Clear();
-				dto.PermissionId.ForEach(item =>
+				result.Data.PermissionRole.Clear();
+				foreach (long value in dto.PermissionId.ToList())
 				{
-					if (result.Data.PermissionRole.All(f => f.PermissionId != item))
+					if (result.Data.PermissionRole.Count(f => f.PermissionId == value) == 0)
 					{
 						result.Data.PermissionRole.Add(new PermissionRole()
 						{
-							PermissionId = item,
-							RoleId = result.Data.Id
+							PermissionId = value,
+							RoleId = dto.Id
 						});
 					}
-				});
+				}
 			}
 			return await _serviceProvider.GetRequiredService<RoleService>().Modify(_mapper.Map(dto,result.Data));
 		}
@@ -159,17 +159,17 @@ namespace ASF.Application
 			if (dto.Ids.Count > 0)
 			{
 				result.Data.PermissionRole.Clear();
-				dto.Ids.ForEach(item =>
+				foreach (long value in dto.Ids.ToList())
 				{
-					if (result.Data.PermissionRole.All(f => f.PermissionId != item))
+					if (result.Data.PermissionRole.Count(f => f.PermissionId == value) == 0)
 					{
 						result.Data.PermissionRole.Add(new PermissionRole()
 						{
-							PermissionId = item,
-							RoleId = result.Data.Id
+							PermissionId = value,
+							RoleId = dto.Id
 						});
-					}
-				});
+					}	
+				}
 			}
 			return await _serviceProvider.GetRequiredService<RoleService>().Modify(result.Data);
 		}
