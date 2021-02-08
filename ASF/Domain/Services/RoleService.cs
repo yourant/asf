@@ -30,9 +30,9 @@ namespace ASF.Domain.Services
 		public async Task<Result<Role>> Get(long id, long? tenancyId = null)
 		{
 			Role role = await _roleRepositories.GetRoleAsync(id, tenancyId);
-				if (role == null)
-					return Result<Role>.ReFailure(ResultCodes.RoleNotExist);
-				return Result<Role>.ReSuccess(role);
+			if (role == null)
+				return Result<Role>.ReFailure(ResultCodes.RoleNotExist);
+			return Result<Role>.ReSuccess(role);
 		}
 		/// <summary>
 		/// 获取角色分页列表

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
 using ASF.Application.DTO.Role;
@@ -105,14 +106,17 @@ namespace ASF.Application
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			if (dto.PermissionId.Count > 0)
 			{
-				result.Data.PermissionRole.Clear();
+				// result.Data.PermissionRole.Clear();
 				dto.PermissionId.ForEach(item =>
 				{
-					result.Data.PermissionRole.Add(new PermissionRole()
+					if (result.Data.PermissionRole.All(f => f.PermissionId != item))
 					{
-						PermissionId = item,
-						RoleId = result.Data.Id
-					});
+						result.Data.PermissionRole.Add(new PermissionRole()
+						{
+							PermissionId = item,
+							RoleId = result.Data.Id
+						});
+					}
 				});
 			}
 			return await _serviceProvider.GetRequiredService<RoleService>().Modify(_mapper.Map(dto,result.Data));
@@ -157,11 +161,14 @@ namespace ASF.Application
 				result.Data.PermissionRole.Clear();
 				dto.Ids.ForEach(item =>
 				{
-					result.Data.PermissionRole.Add(new PermissionRole()
+					if (result.Data.PermissionRole.All(f => f.PermissionId != item))
 					{
-						PermissionId = item,
-						RoleId = result.Data.Id
-					});
+						result.Data.PermissionRole.Add(new PermissionRole()
+						{
+							PermissionId = item,
+							RoleId = result.Data.Id
+						});
+					}
 				});
 			}
 			return await _serviceProvider.GetRequiredService<RoleService>().Modify(result.Data);

@@ -3048,6 +3048,14 @@
             <param name="tenancyId"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Domain.Services.RoleService.GetRoleAndClearPermissionAsync(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取并清除角色信息
+            </summary>
+            <param name="id"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
         <member name="M:ASF.Domain.Services.RoleService.GetList(System.Int32,System.Int32,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64})">
             <summary>
             获取角色分页列表
@@ -3472,6 +3480,14 @@
         <member name="M:ASF.Infrastructure.Repositories.IRoleRepositories.GetRoleAsync(System.Int64,System.Nullable{System.Int64})">
             <summary>
             获取角色关联详情
+            </summary>
+            <param name="id"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Infrastructure.Repositories.IRoleRepositories.GetRoleAndClearPermissionAsync(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取并清除角色信息
             </summary>
             <param name="id"></param>
             <param name="tenancyId"></param>
