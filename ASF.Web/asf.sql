@@ -1,6 +1,6 @@
 -- 插入租户
-INSERT INTO `asf_tenancy` (`name`) VALUES('总部集团');
-INSERT INTO `asf_tenancy` (`name`) VALUES('公司a');
+INSERT INTO `asf_tenancy` (`name`,`create_id`) VALUES('总部集团',1);
+INSERT INTO `asf_tenancy` (`name`,`create_id`) VALUES('公司a',1);
 -- 插入(控制面板)权限数据
 INSERT INTO `asf_permission` (`code`,`name`,`type`,`is_system`) VALUES ('asf','控制面板权限',1,1);
 INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_account',1,'账户管理权限',2,1);
@@ -94,7 +94,7 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (10, '获取调度任务详情',2,'/api/asf/task/details','get',1,'获取调度任务详情权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (10, '删除调度任务',2,'/api/asf/task/delete/[0-9]{1,12}','post,delete',1,'删除调度任务信息权限',1);
 
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (11, '获取租户列表',2,'/api/asf/tenancy/getlist','get',1,'获取租户信息列表权限');
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (11, '获取租户分页列表',2,'/api/asf/tenancy/getlist','get',1,'获取租户信息分页列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (11, '添加租户',2,'/api/asf/tenancy/create','post',1,'添加租户信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (11, '修改租户',2,'/api/asf/tenancy/modify','post,put',1,'修改租户信息权限',1);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (11, '获取租户详情',2,'/api/asf/tenancy/details','get',1,'获取租户详情权限');

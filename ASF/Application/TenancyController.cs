@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
-using ASF.Application.DTO.Department;
 using ASF.Application.DTO.Tenancy;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
@@ -66,7 +65,9 @@ namespace ASF.Application
 		[HttpPost]
 		public async Task<Result> Create([FromBody] TenancyCreateRequestDto dto)
 		{
-			return await _serviceProvider.GetRequiredService<TenancyService>().Create(_mapper.Map<Tenancy>(dto));
+			Tenancy tenancy = _mapper.Map<Tenancy>(dto);
+			tenancy.CreateId = this.User.UserId();
+			return await _serviceProvider.GetRequiredService<TenancyService>().Create(tenancy);
 		}
 		/// <summary>
 		/// 修改租户

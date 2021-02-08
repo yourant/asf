@@ -32,9 +32,11 @@ namespace ASF.Domain.Services
 			Tenancy tenancy = await _repository.GetEntity(f => f.Id == id);
 			if (tenancy == null)
 				return Result<Tenancy>.ReFailure(ResultCodes.TenancyNotExist);
+			if ((Status)tenancy.IsDeleted == Status.Yes)
+				return Result<Tenancy>.ReFailure(ResultCodes.TenancyIsDelete);
 			// 判断租户是否被禁用
-			if ((EnabledType)tenancy.Status == EnabledType.Disabled)
-				return Result<Tenancy>.ReFailure(ResultCodes.TenancyDisabled);
+			// if ((EnabledType)tenancy.Status == EnabledType.Disabled)
+			// 	return Result<Tenancy>.ReFailure(ResultCodes.TenancyDisabled);
 			return Result<Tenancy>.ReSuccess(tenancy);
 		}
 		/// <summary>
@@ -50,23 +52,23 @@ namespace ASF.Domain.Services
 
 			if (!string.IsNullOrEmpty(name) && status != null)
 			{
-				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name) && f.Status == status);
+				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name) && f.Status == status && (Status)f.IsDeleted == Status.No);
 				return  ResultPagedList<Tenancy>.ReSuccess(list,total);
 			}
 			
 			if (!string.IsNullOrEmpty(name))
 			{
-				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name));
+				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name)&& (Status)f.IsDeleted == Status.No);
 				return  ResultPagedList<Tenancy>.ReSuccess(list,total);
 			}
 
 			if (status != null)
 			{
-				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Status == status);
+				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Status == status&& (Status)f.IsDeleted == Status.No);
 				return  ResultPagedList<Tenancy>.ReSuccess(list,total);
 			}
 			
-			var (data,totalCount) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
+			var (data,totalCount) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0&& (Status)f.IsDeleted == Status.No);
 			return ResultPagedList<Tenancy>.ReSuccess(data,totalCount);
 		}
 		/// <summary>
@@ -75,7 +77,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<ResultList<Tenancy>> GetList()
 		{
-			IEnumerable<Tenancy> list = await _repository.GetEntities(f => f.Id != 0);
+			IEnumerable<Tenancy> list = await _repository.GetEntities(f => f.Id != 0 && (Status)f.IsDeleted == Status.No);
 			if(list == null)
 				return ResultList<Tenancy>.ReFailure(ResultCodes.TenancyNotExist);
 			return ResultList<Tenancy>.ReSuccess(list.ToList());

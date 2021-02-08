@@ -11,5 +11,9 @@ namespace ASF.Application.DTO.Tenancy
 		/// 创建时间
 		/// </summary>
 		public DateTime CreateTime { get; set; }
+		/// <summary>
+		/// 创建者id
+		/// </summary>
+		public long? CreateId { get; set; }
 	}
 }

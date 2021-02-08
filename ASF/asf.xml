@@ -968,6 +968,11 @@
             创建时间
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyResponseDto.CreateId">
+            <summary>
+            创建者id
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.Translate.TranslateCreateRequestDto">
             <summary>
             创建多语言
