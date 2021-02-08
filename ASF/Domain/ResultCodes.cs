@@ -43,7 +43,8 @@ namespace ASF.Domain
         public static ValueTuple<int, string> RoleCreateFailed = (11003, "创建角色失败");
         public static ValueTuple<int, string> RolePermissionAssignationFailed = (11004, "角色权限分配失败，请重试");
         public static ValueTuple<int, string> RoleIdNotExist = (11004, "角色id不能为空");
-
+        public static ValueTuple<int, string> RoleNameExist = (11005, "角色名已经存在");
+        public static ValueTuple<int, string> RoleModifyFailed = (11006, "角色修改失败");
         //权限错误码
         public static ValueTuple<int, string> PermissionNotExist = (12000, "权限不存在");
         public static ValueTuple<int, string> PermissionCreateError = (12001, "权限添加失败");

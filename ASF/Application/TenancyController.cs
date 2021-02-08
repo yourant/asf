@@ -81,6 +81,7 @@ namespace ASF.Application
 			var result = await server.Get(dto.Id);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
+			result.Data.CreateId = this.User.UserId();
 			return await _serviceProvider.GetRequiredService<TenancyService>().Modify(_mapper.Map(dto,result.Data));
 		}
 		/// <summary>

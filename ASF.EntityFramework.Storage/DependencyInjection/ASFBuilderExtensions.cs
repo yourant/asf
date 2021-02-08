@@ -80,6 +80,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<ITranslateRepositories, TranslateRepositories>();
             services.AddScoped<IDepartmentRepositories, DepartmentRepositories>();
             services.AddScoped<IMenuRepositories, MenuRepositories>();
+            services.AddScoped<IRoleRepositories,RoleRepositories>();
         }
         /// <summary>
         /// 注入缓存仓储层
