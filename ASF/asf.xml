@@ -331,6 +331,16 @@
             创建时间
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.Roles">
+            <summary>
+            部门对应的角色id与名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.Accounts">
+            <summary>
+            部门所属用户
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.IdArrayRequestDto`1">
             <summary>
             id 集合请求 
@@ -1159,6 +1169,16 @@
         <member name="M:ASF.Application.DtoMapper.PermissionMapper.#ctor">
             <summary>
             权限映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.RoleMapper">
+            <summary>
+            角色映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.RoleMapper.#ctor">
+            <summary>
+            角色映射
             </summary>
         </member>
         <member name="T:ASF.Application.DtoMapper.TenancyMapper">

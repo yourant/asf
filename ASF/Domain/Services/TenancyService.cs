@@ -106,6 +106,8 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Modify(Tenancy request)
 		{
+			if (await _repository.GetEntity(f => f.Id != request.Id && f.Name.Equals(request.Name)) != null)
+				return Result.ReFailure(ResultCodes.TenancyNameExist);
 			bool isUpdate = await _repository.Update(request);
 			if (!isUpdate)
 			{

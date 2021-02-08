@@ -26,13 +26,15 @@ namespace ASF.Application.DTO.Role
 		/// 角色权限
 		/// </summary>
 		public List<PermissionResponseDto> Permission { get; set; }
+
 		/// <summary>
 		/// 角色关联账户名称
 		/// </summary>
 		public List<string> AccountName { get; set; }
+
 		/// <summary>
 		/// 角色关联部门集合
 		/// </summary>
-		public List<DepartmentResponseDto> Department { get; set; }
+		public List<object> Department { get; set; }
 	}
 }

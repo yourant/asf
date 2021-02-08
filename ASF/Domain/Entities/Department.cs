@@ -63,7 +63,7 @@ namespace ASF.Domain.Entities
     /// 账户下面所属部门
     /// </summary>
     [NotMapped] 
-    public Account Accounts { get; set; }
+    public List<Account> Accounts { get; set; }
     
   }
 }

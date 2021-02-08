@@ -138,9 +138,9 @@ namespace ASF.EntityFramework.Repository
                     .HasForeignKey(f => f.TenancyId);
                 
                 
-                // 一个用户关联一部门
-                e.HasOne(l => l.Department).WithOne(w => w.Accounts)
-                    .HasForeignKey<Account>(f => f.DepartmentId);
+                // 一个部门关联多个用户
+                e.HasOne(l => l.Department).WithMany(w => w.Accounts)
+                    .HasForeignKey(f => f.DepartmentId);
                 
             });
             modelBuilder.Entity<LogInfo>(e =>
