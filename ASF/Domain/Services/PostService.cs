@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASF.Domain.Entities;
+using ASF.Domain.Values;
 using ASF.Infrastructure.Repositories;
 using ASF.Internal.Results;
 
@@ -33,6 +34,8 @@ namespace ASF.Domain.Services
 				Post p = await _postRepository.GetEntity(f => f.Id == id && f.TenancyId == tenancyId);
 				if(p == null)
 					return Result<Post>.ReFailure(ResultCodes.PostNotExist);
+				if (p.Enabled != null && (EnabledType) p.Enabled == EnabledType.Disabled)
+					return Result<Post>.ReFailure(ResultCodes.PostUnavailable);
 				return Result<Post>.ReSuccess(p);
 			}
 
@@ -73,12 +76,6 @@ namespace ASF.Domain.Services
 					f => f.Name.Equals(name) && f.Enabled == enable && f.TenancyId == tenancyId);
 				return ResultPagedList<Post>.ReSuccess(list,total);
 			}
-			if (!string.IsNullOrEmpty(name) && enable != null && tenancyId == null)
-			{
-				var (list, total) = await _postRepository.GetEntitiesForPaging(pageNo, pageSize,
-					f => f.Name.Equals(name) && f.Enabled == enable);
-				return ResultPagedList<Post>.ReSuccess(list,total);
-			}
 			if (!string.IsNullOrEmpty(name) && tenancyId != null)
 			{
 				var (list, total) = await _postRepository.GetEntitiesForPaging(pageNo, pageSize,
@@ -113,6 +110,20 @@ namespace ASF.Domain.Services
 			var (data, totalCount) = await _postRepository.GetEntitiesForPaging(pageNo, pageSize,
 				f => f.Id != 0);
 			return ResultPagedList<Post>.ReSuccess(data,totalCount);
+		}
+		/// <summary>
+		/// 添加岗位
+		/// </summary>
+		/// <param name="post"></param>
+		/// <returns></returns>
+		public async Task<Result> Create(Post post)
+		{
+			if(await _postRepository.GetEntity(f=>f.TenancyId==post.TenancyId && f.Name.Equals(post.Name)) != null)
+				return Result.ReFailure(ResultCodes.PostNameExist);
+			bool isAdd = await _postRepository.Add(post);
+			if(!isAdd)
+				return Result.ReFailure(ResultCodes.PostCreateError);
+			return Result.ReSuccess();
 		}
 	}
 }

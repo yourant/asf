@@ -52,18 +52,22 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<ResultPagedList<Translate>> GetList(int pageNo, int pageSize, string name,long? tenancyId = null )
 		{
+			if (!string.IsNullOrEmpty(name) && tenancyId != null)
+			{
+				var (list,total) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name) && f.TenancyId == tenancyId);
+				return  ResultPagedList<Translate>.ReSuccess(list,total);
+			}
+			if (tenancyId != null)
+			{
+				var (list,total) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId);
+				return  ResultPagedList<Translate>.ReSuccess(list,total);
+			}
 			if (!string.IsNullOrEmpty(name))
 			{
 				var (list,total) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name));
 				return  ResultPagedList<Translate>.ReSuccess(list,total);
 			}
 
-			if (tenancyId != null)
-			{
-				var (list,total) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId);
-				return  ResultPagedList<Translate>.ReSuccess(list,total);
-			}
-			
 			var (data,totalCount) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
 			return ResultPagedList<Translate>.ReSuccess(data,totalCount);
 		}

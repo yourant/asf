@@ -32,7 +32,9 @@ namespace ASF.Domain.Services
 			Tenancy tenancy = await _repository.GetEntity(f => f.Id == id);
 			if (tenancy == null)
 				return Result<Tenancy>.ReFailure(ResultCodes.TenancyNotExist);
-			if ((Status)tenancy.IsDeleted == Status.Yes)
+			if (tenancy.Status != null && (EnabledType) tenancy.Status == EnabledType.Disabled)
+				return Result<Tenancy>.ReFailure(ResultCodes.TenancyDisabled);
+			if (tenancy.IsDeleted != null && (Status)tenancy.IsDeleted == Status.Yes)
 				return Result<Tenancy>.ReFailure(ResultCodes.TenancyIsDelete);
 			// 判断租户是否被禁用
 			// if ((EnabledType)tenancy.Status == EnabledType.Disabled)

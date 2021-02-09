@@ -3030,6 +3030,49 @@
             <param name="permission"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Domain.Services.PostService">
+            <summary>
+            岗位领域服务
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.PostService.#ctor(ASF.Infrastructure.Repositories.IPostRepository)">
+            <summary>
+            岗位领域服务
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.PostService.Get(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取岗位详情
+            </summary>
+            <param name="id"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.PostService.GetList(System.Nullable{System.Int64})">
+            <summary>
+            获取岗位列表
+            </summary>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.PostService.GetList(System.Int32,System.Int32,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64})">
+            <summary>
+            获取岗位分页
+            </summary>
+            <param name="pageNo"></param>
+            <param name="pageSize"></param>
+            <param name="name"></param>
+            <param name="enable"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.PostService.Create(ASF.Domain.Entities.Post)">
+            <summary>
+            添加岗位
+            </summary>
+            <param name="post"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Domain.Services.RoleService">
             <summary>
             角色领域服务
@@ -3463,6 +3506,11 @@
             </summary>
             <param name="list"></param>
             <returns></returns>
+        </member>
+        <member name="T:ASF.Infrastructure.Repositories.IPostRepository">
+            <summary>
+            岗位仓储
+            </summary>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.IRoleRepositories">
             <summary>

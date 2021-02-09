@@ -83,5 +83,10 @@ namespace ASF.Domain
         public static ValueTuple<int, string> DepartmentUnavailable= (16004, "部门已被禁用");
         // 岗位
         public static ValueTuple<int, string> PostNotExist = (17000, "岗位不存在");
+        public static ValueTuple<int, string> PostNameExist = (17001, "岗位名已经存在");
+        public static ValueTuple<int, string> PostCreateError = (17002, "岗位添加失败");
+        public static ValueTuple<int, string> PostModifyError = (17003, "岗位修改失败");
+        public static ValueTuple<int, string> PostDeleteError = (17004, "岗位删除失败");
+        public static ValueTuple<int, string> PostUnavailable= (16004, "部门已被禁用");
     }
 }

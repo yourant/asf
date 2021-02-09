@@ -32,6 +32,8 @@ namespace ASF.Domain.Services
 			Role role = await _roleRepositories.GetRoleAsync(id, tenancyId);
 			if (role == null)
 				return Result<Role>.ReFailure(ResultCodes.RoleNotExist);
+			if (role.Enable != null && (EnabledType) role.Enable == EnabledType.Disabled)
+				return Result<Role>.ReFailure(ResultCodes.RoleUnavailable.ToFormat(role.Name));
 			return Result<Role>.ReSuccess(role);
 		}
 		/// <summary>
