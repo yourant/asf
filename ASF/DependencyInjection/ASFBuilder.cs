@@ -74,6 +74,7 @@ namespace ASF.DependencyInjection
             Services.AddTransient<TenancyService>();
             Services.AddTransient<DepartmentService>();
             Services.AddTransient<RoleService>();
+            Services.AddTransient<PostService>();
         }
         // /// <summary>
         // /// 添加账户仓储缓存
