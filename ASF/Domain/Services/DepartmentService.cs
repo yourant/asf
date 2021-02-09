@@ -150,6 +150,9 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Modify(Department department)
 		{
+			if (await _departmentRepositories.GetEntity(f =>
+				f.Id != department.Id && f.Name.Equals(department.Name)) != null)
+				return Result.ReFailure(ResultCodes.DepartmentNameExist);
 			bool isUpdate = await _departmentRepositories.Update(department);
 			if (!isUpdate)
 			{

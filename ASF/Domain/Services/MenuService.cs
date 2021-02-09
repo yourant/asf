@@ -103,18 +103,14 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(PermissionMenu permissionMenu)
 		{
-			IEnumerable<PermissionMenu> list = await _menuRepositories.GetEntities(f =>
-				f.Title.Equals(permissionMenu.Title) || f.MenuUrl.Equals(permissionMenu.MenuUrl));
 			// 判断权限菜单标题或地址是否重复了
-			if (list.Any())
+			if (await _menuRepositories.GetEntity(f =>
+				f.Title.Equals(permissionMenu.Title) || f.MenuUrl.Equals(permissionMenu.MenuUrl)) != null)
 				return Result.ReFailure(ResultCodes.PermissionMenuTitleOrUrlExist);
 			// 添加权限菜单
 			bool isAdd = await _menuRepositories.Add(permissionMenu);
 			if (!isAdd)
-			{
 				return Result.ReFailure(ResultCodes.PermissionMenuCreateError);
-			}
-
 			return Result.ReSuccess();
 		}
 		/// <summary>
@@ -124,6 +120,9 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Modify(PermissionMenu permissionMenu)
 		{
+			if (await _menuRepositories.GetEntity(f =>
+				(f.Id!= permissionMenu.Id && f.Title.Equals(permissionMenu.Title)) || (f.Id != permissionMenu.Id && f.MenuUrl.Equals(permissionMenu.MenuUrl))) != null)
+				return Result.ReFailure(ResultCodes.PermissionMenuTitleOrUrlExist);
 			bool isUpdate = await _menuRepositories.Update(permissionMenu);
 			if (!isUpdate)
 			{

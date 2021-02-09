@@ -118,11 +118,40 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(Post post)
 		{
-			if(await _postRepository.GetEntity(f=>f.TenancyId==post.TenancyId && f.Name.Equals(post.Name)) != null)
+			if(await _postRepository.GetEntity(f=> f.TenancyId==post.TenancyId && f.Name.Equals(post.Name)) != null)
 				return Result.ReFailure(ResultCodes.PostNameExist);
 			bool isAdd = await _postRepository.Add(post);
 			if(!isAdd)
 				return Result.ReFailure(ResultCodes.PostCreateError);
+			return Result.ReSuccess();
+		}
+		/// <summary>
+		/// 修改岗位
+		/// </summary>
+		/// <param name="post"></param>
+		/// <returns></returns>
+		public async Task<Result> Modify(Post post)
+		{
+			if (await _postRepository.GetEntity(f => f.Id != post.Id && f.Name.Equals(post.Name)) != null)
+				return Result.ReFailure(ResultCodes.RoleNameExist);
+			bool isUpdate = await _postRepository.Update(post);
+			if (!isUpdate)
+				return Result.ReFailure(ResultCodes.PostModifyError);
+			return Result.ReSuccess();
+		}
+		/// <summary>
+		/// 硬 删除岗位
+		/// </summary>
+		/// <param name="post"></param>
+		/// <returns></returns>
+		public async Task<Result> Delete(Post post)
+		{
+			bool isDelete = await _postRepository.Delete(post);
+			if (!isDelete)
+			{
+				return Result.ReFailure(ResultCodes.PostDeleteError);
+			}
+			
 			return Result.ReSuccess();
 		}
 	}

@@ -118,7 +118,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(Role role)
 		{
-			if (await _roleRepositories.GetEntity(f => f.Name.Equals(role.Name)) != null)
+			if (await _roleRepositories.GetEntity(f => f.TenancyId == role.TenancyId && f.Name.Equals(role.Name)) != null)
 				return Result.ReFailure(ResultCodes.RoleNameExist);
 			bool isAdd = await _roleRepositories.Add(role);
 			if (!isAdd)

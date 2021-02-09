@@ -116,9 +116,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(Permission permission)
 		{
-			Permission p =
-				await _permissionsRepository.GetEntity(f => f.Code.Equals(permission.Code) || f.Name.Equals(permission.Name));
-			if (p != null)
+			if (await _permissionsRepository.GetEntity(f => f.Code.Equals(permission.Code) || f.Name.Equals(permission.Name)) != null)
 				return Result.ReFailure(ResultCodes.PermissionNameOrCodeExist);
 			bool isAdd = await _permissionsRepository.Add(permission);
 			if (!isAdd)
@@ -136,6 +134,8 @@ namespace ASF.Domain.Services
 		{
 			if(permission.IsSystem != null && (Status)permission.IsSystem == Status.Yes)
 				return Result.ReFailure(ResultCodes.PermissionSystemNotModify);
+			if (await _permissionsRepository.GetEntity(f => (f.Id != permission.Id && f.Code.Equals(permission.Code)) || (f.Id != permission.Id &&f.Name.Equals(permission.Name))) != null)
+				return Result.ReFailure(ResultCodes.PermissionNameOrCodeExist);
 			bool isUpdate = await _permissionsRepository.Update(permission);
 			if (!isUpdate)
 			{

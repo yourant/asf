@@ -161,9 +161,8 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(Api api)
 		{
-			Api a = await _apiRepository.GetEntity(f => f.Path.Equals(api.Path));
 			// 判断是否有路径相同
-			if (a != null)
+			if (await _apiRepository.GetEntity(f => f.Path.Equals(api.Path)) != null)
 				return Result.ReFailure(ResultCodes.PermissionApiPathExist);
 			
 			var isAdd = await _apiRepository.Add(api);
@@ -183,6 +182,8 @@ namespace ASF.Domain.Services
 		{
 			if (api.IsSystem != null && (Status) api.IsSystem == Status.Yes)
 				return Result.ReFailure(ResultCodes.PermissionSysApiUpdateError);
+			if(await _apiRepository.GetEntity(f => f.Id != api.Id && f.Path.Equals(api.Path)) != null)
+				return Result.ReFailure(ResultCodes.PermissionApiPathExist);
 			bool isUpdate = await _apiRepository.Update(api);
 			if (!isUpdate)
 			{
