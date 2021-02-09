@@ -75,7 +75,7 @@ namespace ASF.Application
 			Role role = _mapper.Map<Role>(dto);
 			role.TenancyId = Convert.ToInt64(HttpContext.User.TenancyId());
 			role.CreateId = Convert.ToInt64(HttpContext.User.UserId());
-			if (dto.PermissionId.Count > 0)
+			if (dto.PermissionId!= null && dto.PermissionId.Count > 0)
 			{
 				dto.PermissionId.ForEach(item =>
 				{
@@ -104,7 +104,7 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			if (dto.PermissionId.Count > 0)
+			if (dto.PermissionId != null && dto.PermissionId.Count > 0)
 			{
 				result.Data.PermissionRole.Clear();
 				foreach (long value in dto.PermissionId.ToList())
@@ -156,7 +156,7 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			if (dto.Ids.Count > 0)
+			if (dto.Ids != null && dto.Ids.Count > 0)
 			{
 				result.Data.PermissionRole.Clear();
 				foreach (long value in dto.Ids.ToList())

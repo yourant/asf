@@ -20,7 +20,7 @@ namespace ASF.EntityFramework.Repository
 		/// <returns></returns>
 		public async Task<PermissionMenu> GetPermissionMenuAsync(long id)
 		{
-			PermissionMenu permissionMenu = await base.GetDbContext().PermissionMenus.Include(f => f.Permissions)
+			PermissionMenu permissionMenu = await base.GetDbContext().PermissionMenu.Include(f => f.Permissions)
 				.FirstOrDefaultAsync(f => f.Id == id);
 			return await Task.FromResult<PermissionMenu>(permissionMenu);
 		}

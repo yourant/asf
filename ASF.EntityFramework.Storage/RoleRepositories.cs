@@ -20,13 +20,13 @@ namespace ASF.EntityFramework.Repository
 		{
 			if (tenancyId == null)
 			{
-				Role r = await base.GetDbContext().Roles.Include("AccountRole.Account")
+				Role r = await base.GetDbContext().Role.Include("AccountRole.Account")
 					.Include("DepartmentRole.Department").Include("PermissionRole.Permission").AsSplitQuery()
 					.FirstOrDefaultAsync(f => f.Id == id);
 				return await Task.FromResult<Role>(r);
 			}
 			
-			Role role = await base.GetDbContext().Roles.Include("AccountRole.Account")
+			Role role = await base.GetDbContext().Role.Include("AccountRole.Account")
 				.Include("DepartmentRole.Department").Include("PermissionRole.Permission").AsSplitQuery()
 				.FirstOrDefaultAsync(f => f.Id == id && f.TenancyId == tenancyId);
 			return await Task.FromResult<Role>(role);

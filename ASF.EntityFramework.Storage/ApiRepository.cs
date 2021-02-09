@@ -24,7 +24,7 @@ namespace ASF.EntityFramework.Repository
     /// <returns></returns>
     public async Task<Api> GetApiAsync(long id)
     {
-      Api api = await base.GetDbContext().Apis.Include(f => f.Permission).FirstOrDefaultAsync(f => f.Id == id);
+      Api api = await base.GetDbContext().Api.Include(f => f.Permission).FirstOrDefaultAsync(f => f.Id == id);
       return await Task.FromResult<Api>(api);
     }
     /// <summary>

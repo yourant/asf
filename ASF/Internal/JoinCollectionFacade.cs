@@ -5,7 +5,7 @@ using System.Linq;
 namespace ASF.Internal
 {
   /// <summary>
-  /// ef core 连接操作工厂方法
+  /// ef core 连接工厂
   /// </summary>
   /// <typeparam name="TEntity"></typeparam>
   public interface IJoinEntity<TEntity>
@@ -16,7 +16,7 @@ namespace ASF.Internal
     TEntity Navigation { get; set; }
   }
   /// <summary>
-  /// ef core 连接操作工厂方法
+  /// ef core 连接工厂集合
   /// </summary>
   /// <typeparam name="TEntity"></typeparam>
   /// <typeparam name="TOtherEntity"></typeparam>
@@ -28,7 +28,7 @@ namespace ASF.Internal
     private readonly TOtherEntity _ownerEntity;
     private readonly ICollection<TJoinEntity> _collection;
     /// <summary>
-    /// ef core 连接操作工厂方法
+    /// 构造函数
     /// </summary>
     /// <param name="ownerEntity"></param>
     /// <param name="collection"></param>
@@ -40,12 +40,15 @@ namespace ASF.Internal
       _collection = collection;
     }
     /// <summary>
-    /// 获取枚举
+    /// 获取枚举集合
     /// </summary>
     /// <returns></returns>
     public IEnumerator<TEntity> GetEnumerator()
       => _collection.Select(e => ((IJoinEntity<TEntity>)e).Navigation).GetEnumerator();
-
+    /// <summary>
+    /// 获取枚举集合
+    /// </summary>
+    /// <returns></returns>
     IEnumerator IEnumerable.GetEnumerator()
       => GetEnumerator();
     /// <summary>
@@ -65,20 +68,20 @@ namespace ASF.Internal
     public void Clear()
       => _collection.Clear();
     /// <summary>
-    /// 是否包含
+    /// 包含
     /// </summary>
     /// <param name="item"></param>
     /// <returns></returns>
     public bool Contains(TEntity item)
       => _collection.Any(e => Equals(item, e));
+
+    // public void CopyTo(TEntity[] array, int arrayIndex)
+    //     => this.ToList().CopyTo(array, arrayIndex);
     /// <summary>
-    /// 复制
+    /// 此处我做出了修改，修正了堆栈溢出的问题
     /// </summary>
     /// <param name="array"></param>
     /// <param name="arrayIndex"></param>
-    // public void CopyTo(TEntity[] array, int arrayIndex)
-    //     => this.ToList().CopyTo(array, arrayIndex);
-    // 此处我做出了修改，修正了堆栈溢出的问题
     public void CopyTo(TEntity[] array, int arrayIndex)
       => _collection
         .Select(je => ((IJoinEntity<TEntity>)je).Navigation)

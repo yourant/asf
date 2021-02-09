@@ -23,13 +23,13 @@ namespace ASF.EntityFramework.Repository
 		{
 			if (tenancyId == null)
 			{
-				Department d = await base.GetDbContext().Departments
+				Department d = await base.GetDbContext().Department
 					.Include("DepartmentRole.Role.PermissionRole.Permission").Include("Accounts").AsSplitQuery()
 					.FirstOrDefaultAsync(f => f.Id == id);
 				return await Task.FromResult<Department>(d);
 			}
 
-			Department department = await base.GetDbContext().Departments
+			Department department = await base.GetDbContext().Department
 				.Include("DepartmentRole.Role.PermissionRole.Permission").Include("Accounts").AsSplitQuery()
 				.FirstOrDefaultAsync(f => f.Id == id && f.TenancyId == tenancyId);
 			return await Task.FromResult<Department>(department);

@@ -3580,7 +3580,7 @@
         </member>
         <member name="T:ASF.Internal.IJoinEntity`1">
             <summary>
-            ef core 连接操作工厂方法
+            ef core 连接工厂
             </summary>
             <typeparam name="TEntity"></typeparam>
         </member>
@@ -3591,7 +3591,7 @@
         </member>
         <member name="T:ASF.Internal.JoinCollectionFacade`3">
             <summary>
-            ef core 连接操作工厂方法
+            ef core 连接工厂集合
             </summary>
             <typeparam name="TEntity"></typeparam>
             <typeparam name="TOtherEntity"></typeparam>
@@ -3599,14 +3599,20 @@
         </member>
         <member name="M:ASF.Internal.JoinCollectionFacade`3.#ctor(`1,System.Collections.Generic.ICollection{`2})">
             <summary>
-            ef core 连接操作工厂方法
+            构造函数
             </summary>
             <param name="ownerEntity"></param>
             <param name="collection"></param>
         </member>
         <member name="M:ASF.Internal.JoinCollectionFacade`3.GetEnumerator">
             <summary>
-            获取枚举
+            获取枚举集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Internal.JoinCollectionFacade`3.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            获取枚举集合
             </summary>
             <returns></returns>
         </member>
@@ -3623,14 +3629,14 @@
         </member>
         <member name="M:ASF.Internal.JoinCollectionFacade`3.Contains(`0)">
             <summary>
-            是否包含
+            包含
             </summary>
             <param name="item"></param>
             <returns></returns>
         </member>
         <member name="M:ASF.Internal.JoinCollectionFacade`3.CopyTo(`0[],System.Int32)">
             <summary>
-            复制
+            此处我做出了修改，修正了堆栈溢出的问题
             </summary>
             <param name="array"></param>
             <param name="arrayIndex"></param>

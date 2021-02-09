@@ -52,6 +52,8 @@ namespace ASF.Web
                                 {
                                     builder.MigrationsAssembly("ASF.Web");
                                 });
+                            b.EnableSensitiveDataLogging();
+                            b.EnableDetailedErrors();
                             break;
                         case "sqlserver":
                             b.UseSqlServer(asfOptions.DBConnectionString);

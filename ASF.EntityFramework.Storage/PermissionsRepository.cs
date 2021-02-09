@@ -22,7 +22,7 @@ namespace ASF.EntityFramework.Repository
     public async Task<Permission> GetAsync(long id)
     {
       // var cc = base.GetDbContext().Accounts.Include("AccountPost.Post").Include("Department.DepartmentRole.Role.PermissionRole.Permission").ToList();
-      return await base.GetDbContext().Permissions.Include("PermissionMenus").Include("Apis").FirstOrDefaultAsync(x=> x.Id == id);
+      return await base.GetDbContext().Permission.Include("PermissionMenus").Include("Apis").FirstOrDefaultAsync(x=> x.Id == id);
     }
     /// <summary>
     /// 根据权限id集合获取权限集合
@@ -31,7 +31,7 @@ namespace ASF.EntityFramework.Repository
     /// <returns></returns>
     public async Task<List<Permission>> GetListAsync(List<long> ids)
     {
-      List<Permission> list = (from p in await base.GetDbContext().Permissions.Include("PermissionMenus").Include("Apis").ToListAsync()
+      List<Permission> list = (from p in await base.GetDbContext().Permission.Include("PermissionMenus").Include("Apis").ToListAsync()
         from l in ids
         where (p.Id == l && (!p.Code.Equals("asf_openapi") && p.Type != 3))
         select p).ToList();

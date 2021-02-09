@@ -9,10 +9,10 @@ namespace ASF.EntityFramework.Repository
         : base(options)
         {
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+        // }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -872,35 +872,35 @@ namespace ASF.EntityFramework.Repository
         }
 
         // 多租户
-        public virtual DbSet<Tenancy> Tenancys { get; set; }
+        public virtual DbSet<Tenancy> Tenancy { get; set; }
         //账户
-        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Account> Account { get; set; }
         // 登入日志
-        public virtual DbSet<LogInfo> LogInfos { get; set; }
+        public virtual DbSet<LogInfo> LogInfo { get; set; }
         // 权限
-        public virtual DbSet<Permission> Permissions { get; set; }
+        public virtual DbSet<Permission> Permission { get; set; }
         // api权限
-        public virtual DbSet<Api> Apis { get; set; }
+        public virtual DbSet<Api> Api { get; set; }
         // 角色
-        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         //调度任务
-        public virtual DbSet<ScheduledTasks> ScheduledTasks{ get; set;}
+        public virtual DbSet<ScheduledTasks> ScheduledTask{ get; set;}
         // 部门
-        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
         // 岗位
-        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Post> Post { get; set; }
         //账户角色中间表
-        public virtual DbSet<AccountRole> AccountRoles { get; set; }
+        public virtual DbSet<AccountRole> AccountRole { get; set; }
         // 账户岗位中间表
-        public virtual DbSet<AccountPost> AccountPosts { get; set; }
+        public virtual DbSet<AccountPost> AccountPost { get; set; }
         // 角色权限中间表
-        public virtual DbSet<PermissionRole> PermissionRoles { get; set; }
+        public virtual DbSet<PermissionRole> PermissionRole { get; set; }
         // 部门-角色中间表
-        public virtual DbSet<DepartmentRole> DepartmentRoles { get; set; }
+        public virtual DbSet<DepartmentRole> DepartmentRole { get; set; }
         // 菜单表
-        public virtual DbSet<PermissionMenu> PermissionMenus { get; set; }
+        public virtual DbSet<PermissionMenu> PermissionMenu { get; set; }
         // 多语言表
-        public virtual DbSet<Translate> Translates { get; set; }
+        public virtual DbSet<Translate> Translate { get; set; }
 
     }
 }
