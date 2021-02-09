@@ -1668,11 +1668,6 @@
             <param name="context"></param>
             <returns></returns>
         </member>
-        <member name="T:ASF.AuthorizationTokenSecurityPolicy">
-            <summary>
-            token 黑名单中间件
-            </summary>
-        </member>
         <member name="T:ASF.DependencyInjection.ASFBuilder">
             <summary>
             asf 服务
@@ -1879,11 +1874,6 @@
         <member name="P:ASF.Domain.Entities.Account.AccountPost">
             <summary>
             角色账户中间表
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Account.SecurityTokens">
-            <summary>
-            token 黑名单
             </summary>
         </member>
         <member name="P:ASF.Domain.Entities.Account.Tenancys">
@@ -2667,11 +2657,6 @@
         <member name="P:ASF.Domain.Entities.SecurityToken.CreateTime">
             <summary>
             创建时间
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.SecurityToken.Accounts">
-            <summary>
-            账户
             </summary>
         </member>
         <member name="T:ASF.Domain.Entities.Tenancy">

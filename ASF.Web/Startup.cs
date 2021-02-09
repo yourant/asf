@@ -82,7 +82,10 @@ namespace ASF.Web
 
             app.UseStaticFiles();
             // app.ASFInitDatabase();
+            //token 黑名单
+            app.UseMiddleware<AuthorizationTokenSecurityPolicy>();
             app.UseASF();
+            
             app.UseOcelot().Wait();
 
 
