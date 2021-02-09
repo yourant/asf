@@ -49,19 +49,31 @@ namespace ASF.Domain.Services
 			if (!string.IsNullOrEmpty(name) && enable != null && tenancyId != null)
 			{
 				var (list, total) = await _roleRepositories.GetEntitiesForPaging(pageNo, pageSize,
-					f => f.Name.Equals(name) && (EnabledType) f.Enable == EnabledType.Enabled && f.TenancyId == tenancyId);
+					f => f.Name.Equals(name) && f.Enable == enable && f.TenancyId == tenancyId);
+				return ResultPagedList<Role>.ReSuccess(list,total);
+			}
+			if (!string.IsNullOrEmpty(name) && enable != null && tenancyId == null)
+			{
+				var (list, total) = await _roleRepositories.GetEntitiesForPaging(pageNo, pageSize,
+					f => f.Name.Equals(name) && f.Enable == enable);
 				return ResultPagedList<Role>.ReSuccess(list,total);
 			}
 			if (enable != null && tenancyId != null)
 			{
 				var (list, total) = await _roleRepositories.GetEntitiesForPaging(pageNo, pageSize,
-					f => (EnabledType) f.Enable == EnabledType.Enabled && f.TenancyId == tenancyId);
+					f => f.Enable == enable && f.TenancyId == tenancyId);
 				return ResultPagedList<Role>.ReSuccess(list,total);
 			}
 			if (!string.IsNullOrEmpty(name) && tenancyId != null)
 			{
 				var (list, total) = await _roleRepositories.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.Name.Equals(name) && f.TenancyId == tenancyId);
+				return ResultPagedList<Role>.ReSuccess(list,total);
+			}
+			if (tenancyId != null)
+			{
+				var (list, total) = await _roleRepositories.GetEntitiesForPaging(pageNo, pageSize,
+					f => f.TenancyId == tenancyId);
 				return ResultPagedList<Role>.ReSuccess(list,total);
 			}
 			if (!string.IsNullOrEmpty(name))
@@ -73,15 +85,10 @@ namespace ASF.Domain.Services
 			if (enable != null)
 			{
 				var (list, total) = await _roleRepositories.GetEntitiesForPaging(pageNo, pageSize,
-					f => (EnabledType) f.Enable == EnabledType.Enabled );
+					f => f.Enable == enable );
 				return ResultPagedList<Role>.ReSuccess(list,total);
 			}
-			if (tenancyId != null)
-			{
-				var (list, total) = await _roleRepositories.GetEntitiesForPaging(pageNo, pageSize,
-					f => f.TenancyId == tenancyId);
-				return ResultPagedList<Role>.ReSuccess(list,total);
-			}
+			
 			var (data, totalCount) = await _roleRepositories.GetEntitiesForPaging(pageNo, pageSize,
 				f => f.Id != 0);
 			return ResultPagedList<Role>.ReSuccess(data,totalCount);

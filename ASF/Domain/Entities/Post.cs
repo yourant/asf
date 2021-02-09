@@ -47,7 +47,7 @@ namespace ASF.Domain.Entities
     /// <summary>
     /// 启用/禁用
     /// </summary>
-    public Status Enabled { get; set; }
+    public uint? Enabled { get; set; }
     /// <summary>
     /// 创建时间
     /// </summary>
