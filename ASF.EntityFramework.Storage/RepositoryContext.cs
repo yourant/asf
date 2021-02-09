@@ -232,7 +232,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.Token)
                     .HasColumnName("token")
-                    .HasColumnType("varchar(50)")
+                    .HasColumnType("varchar(500)")
                     .HasComment("黑名单token");
                 
                 e.Property(x => x.TokenExpired)
@@ -244,11 +244,6 @@ namespace ASF.EntityFramework.Repository
                     .HasColumnName("create_time")
                     .HasColumnType("timestamp")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                // 黑名单token关联到多个账户
-                e.HasOne(l => l.Accounts).WithMany(w => w.SecurityTokens)
-                    .HasForeignKey(f => f.AccountId);
-
             });
             
             modelBuilder.Entity<Permission>(e =>

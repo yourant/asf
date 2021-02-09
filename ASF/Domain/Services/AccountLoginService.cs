@@ -161,6 +161,12 @@ namespace ASF.Domain.Services
             };
             logInfo.SetLogin(account.Id,account.Username,_loginType,LoggingType.Login,account.LoginIp,account.LoginLocation);
             await _serviceProvider.GetRequiredService<LoggerService>().Create(logInfo);
+            await _serviceProvider.GetRequiredService<ISecurityTokenRepository>().Add(new SecurityToken()
+            {
+               AccountId = account.Id,
+               Token = accessToken.Token,
+               TokenExpired = accessToken.Expired
+            });
             bool isUpdate = await _accountsRepository.Update(account);
             if (!isUpdate)
             {

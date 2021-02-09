@@ -133,11 +133,6 @@ namespace ASF.Domain.Entities
         /// 角色账户中间表
         /// </summary>
         public ICollection<AccountPost> AccountPost { get; } = new List<AccountPost>();
-        /// <summary>
-        /// token 黑名单
-        /// </summary>
-        [NotMapped] 
-        public List<SecurityToken> SecurityTokens { get; set; }
 
         /// <summary>
         /// 多个用户关联一个租户

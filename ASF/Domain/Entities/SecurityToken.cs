@@ -29,10 +29,5 @@ namespace ASF.Domain.Entities
     /// 创建时间
     /// </summary>
     public DateTime CreateTime { get; set; }
-    /// <summary>
-    /// 账户
-    /// </summary>
-    [NotMapped] 
-    public Account Accounts { get; set; }
   }
 }
