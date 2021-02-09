@@ -858,6 +858,81 @@
             子集合
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.Post.PostCreateRequestDto">
+            <summary>
+            创建岗位请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostCreateRequestDto.Name">
+            <summary>
+            岗位名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostCreateRequestDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostCreateRequestDto.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostCreateRequestDto.Enabled">
+            <summary>
+            岗位状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostCreateRequestDto.Description">
+            <summary>
+            岗位描述
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Post.PostListRequestDto">
+            <summary>
+            岗位分页请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostListRequestDto.Name">
+            <summary>
+            岗位名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostListRequestDto.Status">
+            <summary>
+            岗位状态
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Post.PostModifyRequestDto">
+            <summary>
+            修改岗位
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostModifyRequestDto.Id">
+            <summary>
+            岗位id
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Post.PostResponseDto">
+            <summary>
+            岗位响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostResponseDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostResponseDto.CreateId">
+            <summary>
+            创建者id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Post.PostResponseDto.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.Role.RoleCreateRequestDto">
             <summary>
             创建角色
@@ -1181,6 +1256,16 @@
             权限映射
             </summary>
         </member>
+        <member name="T:ASF.Application.DtoMapper.PostMapper">
+            <summary>
+            岗位映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.PostMapper.#ctor">
+            <summary>
+            岗位映射
+            </summary>
+        </member>
         <member name="T:ASF.Application.DtoMapper.RoleMapper">
             <summary>
             角色映射
@@ -1318,6 +1403,57 @@
             </summary>
             <param name="list"></param>
             <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ASF.Application.PostController">
+            <summary>
+            岗位控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.PostController.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
+            <summary>
+            岗位控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.PostController.GetList(ASF.Application.DTO.Post.PostListRequestDto)">
+            <summary>
+            获取岗位分页列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.PostController.GetLists">
+            <summary>
+            获取岗位列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.PostController.Details(System.Int64)">
+            <summary>
+            获取岗位详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.PostController.Create(ASF.Application.DTO.Post.PostCreateRequestDto)">
+            <summary>
+            创建岗位
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.PostController.Modify(ASF.Application.DTO.Post.PostModifyRequestDto)">
+            <summary>
+            修改岗位
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.PostController.Delete(System.Int64)">
+            <summary>
+            删除岗位
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.Application.RoleController">
@@ -3069,6 +3205,20 @@
         <member name="M:ASF.Domain.Services.PostService.Create(ASF.Domain.Entities.Post)">
             <summary>
             添加岗位
+            </summary>
+            <param name="post"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.PostService.Modify(ASF.Domain.Entities.Post)">
+            <summary>
+            修改岗位
+            </summary>
+            <param name="post"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.PostService.Delete(ASF.Domain.Entities.Post)">
+            <summary>
+            硬 删除岗位
             </summary>
             <param name="post"></param>
             <returns></returns>
