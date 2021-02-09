@@ -114,7 +114,7 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			if (dto.RoleIds.Count > 0)
+			if (dto.RoleIds!= null && dto.RoleIds.Count > 0)
 			{
 				result.Data.DepartmentRole.Clear();
 				dto.RoleIds.ForEach(f =>
@@ -122,7 +122,7 @@ namespace ASF.Application
 					result.Data.DepartmentRole.Add(new DepartmentRole()
 					{
 						RoleId = f,
-						DepartmentId = result.Data.Id
+						DepartmentId = dto.Id
 					});
 				});
 			}
@@ -144,8 +144,10 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			if (dto.Ids.Count == 0)
+			if (dto.Ids == null || dto.Ids.Count == 0)
 				return Result.ReFailure(ResultCodes.RoleIdNotExist);
+			
+			result.Data.DepartmentRole.Clear();
 			foreach (var item in dto.Ids)
 			{
 				result.Data.DepartmentRole.Add(new DepartmentRole()

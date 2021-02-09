@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
 using ASF.Application.DTO.Role;
-using ASF.Application.DTO.Translate;
 using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
@@ -104,6 +103,8 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			if (dto.PermissionId != null && dto.PermissionId.Count > 0)
 			{
 				result.Data.PermissionRole.Clear();
@@ -156,20 +157,21 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			if (dto.Ids != null && dto.Ids.Count > 0)
+			if (dto.Ids == null || dto.Ids.Count == 0)
+				return Result.ReFailure(ResultCodes.PermissionIdNotExist);
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			
+			result.Data.PermissionRole.Clear();
+			foreach (long value in dto.Ids.ToList())
 			{
-				result.Data.PermissionRole.Clear();
-				foreach (long value in dto.Ids.ToList())
+				if (result.Data.PermissionRole.Count(f => f.PermissionId == value) == 0)
 				{
-					if (result.Data.PermissionRole.Count(f => f.PermissionId == value) == 0)
+					result.Data.PermissionRole.Add(new PermissionRole()
 					{
-						result.Data.PermissionRole.Add(new PermissionRole()
-						{
-							PermissionId = value,
-							RoleId = dto.Id
-						});
-					}	
-				}
+						PermissionId = value,
+						RoleId = dto.Id
+					});
+				}	
 			}
 			return await _serviceProvider.GetRequiredService<RoleService>().Modify(result.Data);
 		}
