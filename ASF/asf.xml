@@ -1668,6 +1668,11 @@
             <param name="context"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.AuthorizationTokenSecurityPolicy">
+            <summary>
+            token 黑名单中间件
+            </summary>
+        </member>
         <member name="T:ASF.DependencyInjection.ASFBuilder">
             <summary>
             asf 服务
@@ -3678,6 +3683,11 @@
         <member name="T:ASF.Infrastructure.Repositories.IScheduledTaskRepository">
             <summary>
             调度任务
+            </summary>
+        </member>
+        <member name="T:ASF.Infrastructure.Repositories.ISecurityTokenRepository">
+            <summary>
+            token 黑名单仓储
             </summary>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.ITenancyRepository">
