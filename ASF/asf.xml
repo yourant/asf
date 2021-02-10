@@ -1133,6 +1133,11 @@
             创建者id
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Tenancy.TenancyResponseDto.Accounts">
+            <summary>
+            对应租户下面账户
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.Translate.TranslateCreateRequestDto">
             <summary>
             创建多语言
@@ -2872,10 +2877,26 @@
         </member>
         <member name="M:ASF.Domain.Services.AccountService.GetAccountInfo(System.Int64,System.Nullable{System.Int64})">
             <summary>
-            获取账户登录信息
+            获取账户登录权限信息
             </summary>
             <param name="uid"></param>
             <param name="tenancyId">租户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.AccountService.Get(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取账户几本信息
+            </summary>
+            <param name="uid"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.AccountService.GetAccountByPostAsync(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取账户对应的岗位
+            </summary>
+            <param name="uid"></param>
+            <param name="tenancyId"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.Domain.Services.ApiService">
@@ -3611,6 +3632,14 @@
             <param name="tenancyId">租户id</param>
             <returns>返回用户部门信息以及角色权限信息</returns>
         </member>
+        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetAccountByPostAsync(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取账户对应岗位
+            </summary>
+            <param name="id"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
         <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetByUsernameAsync(System.String)">
             <summary>
             通过用户名获取账户信息
@@ -3732,6 +3761,13 @@
             <summary>
             租户仓储
             </summary>
+        </member>
+        <member name="M:ASF.Infrastructure.Repositories.ITenancyRepository.GetAsync(System.Int64)">
+            <summary>
+            获取对应租户下面的用户以及详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.ITranslateRepositories">
             <summary>
@@ -4348,23 +4384,6 @@
             用于验证的公钥
             </summary>
         </member>
-        <member name="M:ASF.Internal.Security.RSA.GetParameters(System.String,System.Boolean)">
-            <summary>
-            从json文件中获取生成key用的参数
-            </summary>
-            <param name="keyDir">json文件所在目录</param>
-            <param name="includePrivateParameters">是否包含私钥参数</param>
-            <returns>生成key用的参数</returns>
-        </member>
-        <member name="M:ASF.Internal.Security.RSA.ExportAndSaveParameters(System.String,System.Boolean,System.Security.Cryptography.RSACryptoServiceProvider)">
-            <summary>
-            生成key用的参数并将其保存到json文件中去
-            </summary>
-            <param name="keyDir">json文件所在目录</param>
-            <param name="includePrivateParameters">是否包含私钥参数</param>
-            <param name="rsa">RSA实例</param> 
-            <returns>生成key用的参数</returns>
-        </member>
         <member name="M:ASF.Internal.Security.RSA.Sign(System.String,System.String,System.Text.Encoding,System.Security.Cryptography.HashAlgorithmName)">
             <summary>
             签名
@@ -4441,20 +4460,6 @@
             获取私钥的类型
             </summary>
             <param name="privateKeyLength"></param>
-            <returns></returns>
-        </member>
-        <member name="T:ASF.Internal.Security.RsaKeyContractResolver">
-            <summary>
-            RsaKey序列化格式定义
-            参考资料 https://github.com/IdentityServer/IdentityServer4/blob/74827bc4df39c2234d9490ba5ce032ce806ab475/src/IdentityServer4/Configuration/DependencyInjection/BuilderExtensions/Crypto.cs
-            </summary>
-        </member>
-        <member name="M:ASF.Internal.Security.RsaKeyContractResolver.CreateProperty(System.Reflection.MemberInfo,Newtonsoft.Json.MemberSerialization)">
-            <summary>
-            创建序列化属性
-            </summary>
-            <param name="member"></param>
-            <param name="memberSerialization"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.Internal.Security.PKCSType">

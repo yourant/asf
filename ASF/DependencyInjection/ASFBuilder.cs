@@ -68,7 +68,7 @@ namespace ASF.DependencyInjection
                         IssuerSigningKey = RSA.RSAPublicKey,
                         ValidAudience = "asf",
                         ValidIssuer = "asf",
-
+                        RoleClaimType = ClaimsIdentity.DefaultRoleClaimType,
                         // When receiving a token, check that we've signed it.
                         ValidateIssuerSigningKey = true,
 

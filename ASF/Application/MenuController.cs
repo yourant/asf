@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
+using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
@@ -15,7 +16,7 @@ namespace ASF.Application
 	/// <summary>
 	/// 权限菜单控制器
 	/// </summary>
-	[Authorize(Roles="superadmin")]
+	[Authorize]
 	[Route("[controller]/[action]")]
 	public class MenuController: ControllerBase
 	{
@@ -40,6 +41,8 @@ namespace ASF.Application
 		public async Task<ResultPagedList<PermissionMenuResponseDto>> GetList(
 			[FromQuery] PermissionMenuListRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return ResultPagedList<PermissionMenuResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var result = await _serviceProvider.GetRequiredService<MenuService>()
 				.GetList(dto.PageNo, dto.PageSize, dto.PermissionId, dto.Title, dto.MenuUrl);
 			if(!result.Success)
@@ -54,6 +57,8 @@ namespace ASF.Application
 		[HttpGet]
 		public async Task<Result<PermissionMenuResponseDto>> Details([FromQuery] long id)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result<PermissionMenuResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var result = await _serviceProvider.GetRequiredService<MenuService>().Get(id);
 			if(!result.Success)
 				return Result<PermissionMenuResponseDto>.ReFailure(result.Message,result.Status);
@@ -67,6 +72,8 @@ namespace ASF.Application
 		[HttpPost]
 		public async Task<Result> Create([FromBody] PermissionMenuCreateRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			return await _serviceProvider.GetRequiredService<MenuService>().Create(_mapper.Map<PermissionMenu>(dto));
 		}
 		/// <summary>
@@ -77,6 +84,8 @@ namespace ASF.Application
 		[HttpPut]
 		public async Task<Result> Modify([FromBody] PermissionMenuModifyRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var server = _serviceProvider.GetRequiredService<MenuService>();
 			var result = await server.Get(dto.Id);
 			if(!result.Success)
@@ -91,6 +100,8 @@ namespace ASF.Application
 		[HttpPut]
 		public async Task<Result> ModifyHidden([FromBody] ModifyStatusRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var server = _serviceProvider.GetRequiredService<MenuService>();
 			var result = await server.Get(dto.Id);
 			if(!result.Success)
@@ -106,6 +117,8 @@ namespace ASF.Application
 		[HttpPost("{id}")]
 		public async Task<Result> Delete([FromRoute]long id)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var server = _serviceProvider.GetRequiredService<MenuService>();
 			var result = await server.Get(id);
 			if (!result.Success)

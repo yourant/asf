@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
 using ASF.Application.DTO.Tenancy;
+using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
@@ -16,7 +17,7 @@ namespace ASF.Application
 	/// <summary>
 	/// 租户控制器
 	/// </summary>
-	[Authorize(Roles = "superadmin")]
+	[Authorize]
 	[Route("[controller]/[action]")]
 	public class TenancyController: ControllerBase
 	{
@@ -38,6 +39,8 @@ namespace ASF.Application
 		[HttpGet]
 		public async Task<ResultPagedList<TenancyResponseDto>> GetList([FromQuery] TenancyListRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return ResultPagedList<TenancyResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var data = await _serviceProvider.GetRequiredService<TenancyService>().GetList(dto.PageNo,dto.PageSize,dto.Name,dto.Status);
 			if (!data.Success)
 				return ResultPagedList<TenancyResponseDto>.ReFailure(data.Message, data.Status);
@@ -52,6 +55,8 @@ namespace ASF.Application
 		[HttpGet]
 		public async Task<Result<TenancyResponseDto>> Details([FromQuery] long id)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result<TenancyResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var data = await _serviceProvider.GetRequiredService<TenancyService>().Get(id);
 			if(!data.Success)
 				return Result<TenancyResponseDto>.ReFailure(data.Message,data.Status);
@@ -65,6 +70,8 @@ namespace ASF.Application
 		[HttpPost]
 		public async Task<Result> Create([FromBody] TenancyCreateRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			Tenancy tenancy = _mapper.Map<Tenancy>(dto);
 			tenancy.CreateId = this.User.UserId();
 			return await _serviceProvider.GetRequiredService<TenancyService>().Create(tenancy);
@@ -77,6 +84,8 @@ namespace ASF.Application
 		[HttpPut]
 		public async Task<Result> Modify([FromBody] TenancyModifyRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var server = _serviceProvider.GetRequiredService<TenancyService>();
 			var result = await server.Get(dto.Id);
 			if(!result.Success)
@@ -92,6 +101,8 @@ namespace ASF.Application
 		[HttpPost]
 		public async Task<Result> Delete([FromBody] ModifyStatusRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var server = _serviceProvider.GetRequiredService<TenancyService>();
 			var result = await server.Get(dto.Id);
 			if(!result.Success)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
+using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
@@ -17,7 +18,7 @@ namespace ASF.Application
 	/// <summary>
 	/// 权限控制器 只有超级管理员才能有权限控制
 	/// </summary>
-	[Authorize(Roles = "superadmin")]
+	[Authorize]
 	[Route("[controller]/[action]")]
 	public class PermissionController: ControllerBase
 	{
@@ -42,6 +43,8 @@ namespace ASF.Application
 		public async Task<ResultPagedList<PermissionResponseDto>> GetList(
 			[FromQuery] PermissionListRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return ResultPagedList<PermissionResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var result = await _serviceProvider.GetRequiredService<PermissionService>().GetList(dto.PageNo, dto.PageSize, dto.Code,
 				dto.Name, dto.Type, dto.IsSys, dto.Status);
 			if (!result.Success)
@@ -57,6 +60,8 @@ namespace ASF.Application
 		[HttpGet]
 		public async Task<Result<PermissionResponseDto>> Details([FromQuery] long id)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result<PermissionResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var result = await _serviceProvider.GetRequiredService<PermissionService>().Get(id);
 			if (!result.Success)
 				return Result<PermissionResponseDto>.ReFailure(result.Message, result.Status);
@@ -70,6 +75,8 @@ namespace ASF.Application
 		[HttpPost]
 		public async Task<Result> Create([FromBody] PermissionCreateRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			return await _serviceProvider.GetRequiredService<PermissionService>().Create(_mapper.Map<Permission>(dto));
 		}
 		/// <summary>
@@ -80,6 +87,8 @@ namespace ASF.Application
 		[HttpPut]
 		public async Task<Result> Modify([FromBody] PermissionModifyRequestDto dto)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var server = _serviceProvider.GetRequiredService<PermissionService>();
 			var result = await server.Get(dto.Id);
 			if(!result.Success)
@@ -94,6 +103,8 @@ namespace ASF.Application
 		[HttpPost("{id}")]
 		public async Task<Result> Delete([FromRoute] long id)
 		{
+			if(!HttpContext.User.IsSuperRole())
+				return Result.ReFailure(ResultCodes.RoleNotSuperFailed);
 			var server = _serviceProvider.GetRequiredService<PermissionService>();
 			var result = await server.Get(id);
 			if(!result.Success)

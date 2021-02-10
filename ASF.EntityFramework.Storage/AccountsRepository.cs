@@ -36,6 +36,25 @@ namespace ASF.EntityFramework.Repository
 				.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
 			return await Task.FromResult<Account>(account);
 		}
+		/// <summary>
+		/// 获取账户对应岗位
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="tenancyId"></param>
+		/// <returns></returns>
+		public async Task<Account> GetAccountByPostAsync(long id, long? tenancyId = null)
+		{
+			if (tenancyId != null)
+			{
+				Account a = await base.GetDbContext().Account.Include("AccountPost.Post").OrderBy(f => f.Id)
+					.FirstOrDefaultAsync(f => f.Id == id && f.TenancyId == tenancyId);
+				return await Task.FromResult<Account>(a);
+			}
+
+			Account account = await base.GetDbContext().Account.Include("AccountPost.Post").OrderBy(f => f.Id)
+				.FirstOrDefaultAsync(f => f.Id == id);
+			return await Task.FromResult<Account>(account);
+		}
 
 		/// <summary>
 		/// 通过用户名获取账户信息

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ASF.Application.DTO.Tenancy
 {
@@ -15,5 +16,9 @@ namespace ASF.Application.DTO.Tenancy
 		/// 创建者id
 		/// </summary>
 		public long? CreateId { get; set; }
+		/// <summary>
+		/// 对应租户下面账户
+		/// </summary>
+		public List<object> Accounts { get; set; }
 	}
 }

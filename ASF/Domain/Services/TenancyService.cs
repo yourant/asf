@@ -29,7 +29,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result<Tenancy>> Get(long id)
 		{
-			Tenancy tenancy = await _repository.GetEntity(f => f.Id == id);
+			Tenancy tenancy = await _repository.GetAsync(id);
 			if (tenancy == null)
 				return Result<Tenancy>.ReFailure(ResultCodes.TenancyNotExist);
 			if (tenancy.Status != null && (EnabledType) tenancy.Status == EnabledType.Disabled)
