@@ -116,7 +116,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Modify(Translate translate)
 		{
-			if (await _translateRepositories.GetEntity(f =>f.Id !=translate.Id &&f.Name.Equals(translate.Name)) != null)
+			if (await _translateRepositories.GetEntity(f =>f.Id !=translate.Id && f.TenancyId == translate.TenancyId &&f.Name.Equals(translate.Name)) != null)
 				return Result.ReFailure(ResultCodes.TranslateNameExist);
 			bool isUpdate = await _translateRepositories.Update(translate);
 			if (!isUpdate)

@@ -35,8 +35,8 @@ namespace ASF.Domain
         public static ValueTuple<int, string> AccountSuperAdminNoAllowedModify = (11014, "超级管理员不能修改");
         public static ValueTuple<int, string> AccountSuperAdminNoAllowedDelete = (11015, "超级管理员不能删除");
         public static ValueTuple<int, string> AccountLoginExpired = (11016, "登录状态已过期，请重新登录");
-
-
+        public static ValueTuple<int, string> AccountExist = (11017, "输入的账户名或手机号码或邮箱地址已经被人使用了");
+        public static ValueTuple<int, string> AccountCreate = (11018, "账户创建失败");
         //角色错误码
         public static ValueTuple<int, string> RoleNotExist = (12000, "角色不存在");
         public static ValueTuple<int, string> RoleUnavailable = (12001, "{0}角色已禁止使用");

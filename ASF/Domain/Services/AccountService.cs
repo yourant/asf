@@ -81,5 +81,80 @@ namespace ASF.Domain.Services
 				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 			return Result<Account>.ReSuccess(account);
 		}
+		/// <summary>
+		/// 获取账户分页列表
+		/// </summary>
+		/// <param name="pageNo"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="username"></param>
+		/// <param name="telPhone"></param>
+		/// <param name="email"></param>
+		/// <param name="sex"></param>
+		/// <param name="status"></param>
+		/// <param name="tenancyId"></param>
+		/// <returns></returns>
+		public async Task<ResultPagedList<Account>> GetList(int pageNo, int pageSize, string username,string telPhone,string email,int? sex,uint? status,long? tenancyId = null)
+		{
+			if (tenancyId != null)
+			{
+				if (!string.IsNullOrEmpty(username) || !string.IsNullOrEmpty(telPhone) || !string.IsNullOrEmpty(email) ||
+				    sex != null || status != null)
+				{
+					var (list, total) =
+						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => (f.TenancyId == tenancyId) && (f.Username.Equals(username) || f.Telephone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status));
+					return ResultPagedList<Account>.ReSuccess(list,total);
+				}
+				else
+				{
+					var (list, total) =
+						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId);
+					return ResultPagedList<Account>.ReSuccess(list,total);
+				}
+			}
+			else
+			{
+				if (!string.IsNullOrEmpty(username) || !string.IsNullOrEmpty(telPhone) || !string.IsNullOrEmpty(email) ||
+				    sex != null || status != null)
+				{
+					var (list, total) =
+						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Username.Equals(username) || f.Telephone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status);
+					return ResultPagedList<Account>.ReSuccess(list,total);
+				}
+				else
+				{
+					var (list, total) =
+						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
+					return ResultPagedList<Account>.ReSuccess(list,total);
+				}
+			}
+		}
+		/// <summary>
+		/// 创建账户
+		/// </summary>
+		/// <param name="account"></param>
+		/// <returns></returns>
+		public async Task<Result> Create(Account account)
+		{
+			if (await _accountsRepository.GetEntity(f => f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.Telephone.Equals(account.Telephone))) != null)
+				return Result.ReFailure(ResultCodes.AccountExist);
+			bool isAdd = await _accountsRepository.Add(account);
+			if(!isAdd)
+				return Result.ReFailure(ResultCodes.AccountCreate);
+			return Result.ReSuccess();
+		}
+		/// <summary>
+		/// 修改账户
+		/// </summary>
+		/// <param name="account"></param>
+		/// <returns></returns>
+		public async Task<Result> Modify(Account account)
+		{
+			if (await _accountsRepository.GetEntity(f => f.Id != account.Id && f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.Telephone.Equals(account.Telephone))) != null)
+				return Result.ReFailure(ResultCodes.AccountExist);
+			bool isUpdate = await _accountsRepository.Update(account);
+			if(!isUpdate)
+				return Result.ReFailure(ResultCodes.AccountUpdateError);
+			return Result.ReSuccess();
+		}
 	}
 }

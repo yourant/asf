@@ -132,7 +132,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Modify(Role role)
 		{
-			if (await _roleRepositories.GetEntity(f => f.Id != role.Id && f.Name.Equals(role.Name)) != null)
+			if (await _roleRepositories.GetEntity(f => f.Id != role.Id && f.TenancyId == role.TenancyId && f.Name.Equals(role.Name)) != null)
 				return Result.ReFailure(ResultCodes.RoleNameExist);
 			bool isUpdate = await _roleRepositories.Update(role);
 			if (!isUpdate)

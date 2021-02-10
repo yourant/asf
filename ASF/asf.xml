@@ -2899,6 +2899,34 @@
             <param name="tenancyId"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Domain.Services.AccountService.GetList(System.Int32,System.Int32,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.UInt32},System.Nullable{System.Int64})">
+            <summary>
+            获取账户分页列表
+            </summary>
+            <param name="pageNo"></param>
+            <param name="pageSize"></param>
+            <param name="username"></param>
+            <param name="telPhone"></param>
+            <param name="email"></param>
+            <param name="sex"></param>
+            <param name="status"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.AccountService.Create(ASF.Domain.Entities.Account)">
+            <summary>
+            创建账户
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.AccountService.Modify(ASF.Domain.Entities.Account)">
+            <summary>
+            修改账户
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Domain.Services.ApiService">
             <summary>
             权限功能

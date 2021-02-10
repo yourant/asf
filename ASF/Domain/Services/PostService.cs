@@ -132,7 +132,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Modify(Post post)
 		{
-			if (await _postRepository.GetEntity(f => f.Id != post.Id && f.Name.Equals(post.Name)) != null)
+			if (await _postRepository.GetEntity(f => f.Id != post.Id&& f.TenancyId == post.TenancyId && f.Name.Equals(post.Name)) != null)
 				return Result.ReFailure(ResultCodes.RoleNameExist);
 			bool isUpdate = await _postRepository.Update(post);
 			if (!isUpdate)
