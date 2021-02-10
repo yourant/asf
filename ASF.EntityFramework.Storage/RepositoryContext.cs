@@ -119,12 +119,12 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.Token)
                     .HasColumnName("token")
-                    .HasColumnType("varchar(500)")
+                    .HasColumnType("varchar(1000)")
                     .HasComment("token");
                 
                 e.Property(x => x.RefreshToken)
                     .HasColumnName("refresh_token")
-                    .HasColumnType("varchar(500)")
+                    .HasColumnType("varchar(1000)")
                     .HasComment("刷新token");
                 
                 e.Property(x => x.Expired)
@@ -232,7 +232,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.Token)
                     .HasColumnName("token")
-                    .HasColumnType("varchar(500)")
+                    .HasColumnType("varchar(1000)")
                     .HasComment("黑名单token");
                 
                 e.Property(x => x.TokenExpired)

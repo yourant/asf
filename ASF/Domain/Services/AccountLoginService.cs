@@ -4,14 +4,19 @@ using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Web;
 using ASF.Domain.Entities;
-using Zop.AspNetCore.Authentication.JwtBearer;
 using ASF.Internal.Results;
 using ASF.Internal.Security;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using AccessToken = ASF.Domain.Values.AccessToken;
+using RSA = ASF.Internal.Security.RSA;
+using SecurityToken = ASF.Domain.Entities.SecurityToken;
 
 namespace ASF.Domain.Services
 {
@@ -20,7 +25,6 @@ namespace ASF.Domain.Services
     /// </summary>
     public class AccountLoginService : IAccountLoginService
     {
-        private readonly IAccessTokenGenerate _tokenGenerate;
         private readonly IMemoryCache _memoryCache;
         private string _loginType = string.Empty;
         private int maxLoginFailedCount = 5;
@@ -36,12 +40,10 @@ namespace ASF.Domain.Services
         /// <param name="memoryCache"></param>
         /// <param name="serviceProvider"></param>
         public AccountLoginService(
-            IAccessTokenGenerate tokenGenerate,
             IAccountsRepository accountsRepository,
             IMemoryCache memoryCache,
             IServiceProvider serviceProvider)
         {
-            _tokenGenerate = tokenGenerate;
             _accountsRepository = accountsRepository;
             _memoryCache = memoryCache;
             _serviceProvider = serviceProvider;
@@ -136,6 +138,7 @@ namespace ASF.Domain.Services
             {
                 role.AddRange(account.Role.Select(f => f.Name));
             }
+            var identity = new ClaimsIdentity(new GenericIdentity(HttpUtility.UrlEncode(account.Name), "AccessToken"));
             //生成访问Token
             List<Claim> claims = new List<Claim>();
             //去重复之后添加多角色
@@ -144,14 +147,39 @@ namespace ASF.Domain.Services
             claims.AddRange(new[] {
                 // new Claim(ClaimTypes.Role, role.Count > 0 ? string.Join(",",role.Distinct()) : "user"),
                 new Claim("name", account.Username),
-                new Claim("nickname", HttpUtility.UrlEncode(account.Name)),
+                // new Claim("nickname", HttpUtility.UrlEncode(account.Name)),
                 new Claim("sub", account.Id.ToString()),
                 new Claim("auth_mode", _loginType),
                 new Claim("tenancy_id", ((long)account.TenancyId).ToString())
             });
-
-
-            var accessToken = _tokenGenerate.Generate(claims);
+            identity.AddClaims(claims);
+            
+            AccessToken accessToken =  new AccessToken()
+            {
+                Token = await GenerateTokenAsync(identity,86400),
+                RefreshToken = await GenerateTokenAsync(identity,129600),
+                Expired = DateTime.Now.AddSeconds(86400)
+            };
+            // 判断是否存在已经拉黑的授权token
+            if (!string.IsNullOrEmpty(account.Token))
+            {
+                await _serviceProvider.GetRequiredService<ISecurityTokenRepository>().Add(new SecurityToken()
+                {
+                    AccountId = account.Id,
+                    Token = account.Token,
+                    TokenExpired = account.Expired
+                });
+            }
+            // 判断是否存在已经拉黑的刷新token
+            if (!string.IsNullOrEmpty(account.RefreshToken))
+            {
+                await _serviceProvider.GetRequiredService<ISecurityTokenRepository>().Add(new SecurityToken()
+                {
+                    AccountId = account.Id,
+                    Token = account.RefreshToken,
+                    TokenExpired = account.Expired
+                });
+            }
             // 设置登录信息
             account.SetLoginInfo(accessToken,ip);
             // 登录日志
@@ -161,12 +189,8 @@ namespace ASF.Domain.Services
             };
             logInfo.SetLogin(account.Id,account.Username,_loginType,LoggingType.Login,account.LoginIp,account.LoginLocation);
             await _serviceProvider.GetRequiredService<LoggerService>().Create(logInfo);
-            await _serviceProvider.GetRequiredService<ISecurityTokenRepository>().Add(new SecurityToken()
-            {
-               AccountId = account.Id,
-               Token = accessToken.Token,
-               TokenExpired = accessToken.Expired
-            });
+            
+
             bool isUpdate = await _accountsRepository.Update(account);
             if (!isUpdate)
             {
@@ -177,6 +201,34 @@ namespace ASF.Domain.Services
             return Result<AccessToken>.ReSuccess(accessToken);
         }
 
+        /// <summary>
+        /// 生成一个新的 Token
+        /// </summary>
+        /// <param name="identity">认证信息</param>
+        /// <param name="time">过期时间</param>
+        /// <returns>表示生成新的Token的任务</returns>        
+        private async Task<string> GenerateTokenAsync(ClaimsIdentity identity,long time)
+        {
+            return await Task.Run(() =>
+            {
+                var handler = new JwtSecurityTokenHandler();
+
+                // 签发时间
+                DateTime issuedAt = DateTime.Now;
+
+                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+                {
+                    IssuedAt = issuedAt,
+                    Issuer = "asf",
+                    Audience = "asf",
+                    SigningCredentials = new SigningCredentials(RSA.RSAPrivateKey, SecurityAlgorithms.RsaSha256Signature),
+                    Subject = identity,
+                    // 到期时间
+                    Expires = issuedAt.AddSeconds(time)
+                });
+                return handler.WriteToken(securityToken);
+            });
+        }
 
         /// <summary>
         /// 获取登录失败信息

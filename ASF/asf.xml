@@ -1668,6 +1668,25 @@
             <param name="context"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.AuthorizationTokenSecurityPolicy">
+            <summary>
+            token 黑名单中间件
+            </summary>
+        </member>
+        <member name="M:ASF.AuthorizationTokenSecurityPolicy.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            token黑名单中间件
+            </summary>
+            <param name="next"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:ASF.AuthorizationTokenSecurityPolicy.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            事件
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.DependencyInjection.ASFBuilder">
             <summary>
             asf 服务
@@ -1907,7 +1926,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Entities.Account.SetLoginInfo(Zop.AspNetCore.Authentication.JwtBearer.AccessToken,System.String)">
+        <member name="M:ASF.Domain.Entities.Account.SetLoginInfo(ASF.Domain.Values.AccessToken,System.String)">
             <summary>
             设置登录信息
             </summary>
@@ -2781,7 +2800,7 @@
             账户登录服务
             </summary>
         </member>
-        <member name="M:ASF.Domain.Services.AccountLoginService.#ctor(Zop.AspNetCore.Authentication.JwtBearer.IAccessTokenGenerate,ASF.Infrastructure.Repositories.IAccountsRepository,Microsoft.Extensions.Caching.Memory.IMemoryCache,System.IServiceProvider)">
+        <member name="M:ASF.Domain.Services.AccountLoginService.#ctor(ASF.Infrastructure.Repositories.IAccountsRepository,Microsoft.Extensions.Caching.Memory.IMemoryCache,System.IServiceProvider)">
             <summary>
             账户登入服务
             </summary>
@@ -2825,6 +2844,14 @@
             <param name="password">账户密码</param>
             <param name="ip">登录ip</param>
             <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.AccountLoginService.GenerateTokenAsync(System.Security.Claims.ClaimsIdentity,System.Int64)">
+            <summary>
+            生成一个新的 Token
+            </summary>
+            <param name="identity">认证信息</param>
+            <param name="time">过期时间</param>
+            <returns>表示生成新的Token的任务</returns>        
         </member>
         <member name="M:ASF.Domain.Services.AccountLoginService.GetLoginFailedInfo(System.String)">
             <summary>
@@ -3367,6 +3394,31 @@
             </summary>
             <param name="translate"></param>
             <returns></returns>
+        </member>
+        <member name="T:ASF.Domain.Values.AccessToken">
+            <summary>
+            授权token
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.AccessToken.Token">
+            <summary>
+            授权token
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.AccessToken.TokenType">
+            <summary>
+            token头标识
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.AccessToken.RefreshToken">
+            <summary>
+            刷新token
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.AccessToken.Expired">
+            <summary>
+            过期时间
+            </summary>
         </member>
         <member name="T:ASF.Domain.Values.ApiType">
             <summary>
@@ -4285,6 +4337,33 @@
             rsa 辅助方法
             </summary>
         </member>
+        <member name="P:ASF.Internal.Security.RSA.RSAPrivateKey">
+            <summary>
+            用于签名的私钥
+            </summary>
+        </member>
+        <member name="P:ASF.Internal.Security.RSA.RSAPublicKey">
+            <summary>
+            用于验证的公钥
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Security.RSA.GetParameters(System.String,System.Boolean)">
+            <summary>
+            从json文件中获取生成key用的参数
+            </summary>
+            <param name="keyDir">json文件所在目录</param>
+            <param name="includePrivateParameters">是否包含私钥参数</param>
+            <returns>生成key用的参数</returns>
+        </member>
+        <member name="M:ASF.Internal.Security.RSA.ExportAndSaveParameters(System.String,System.Boolean,System.Security.Cryptography.RSACryptoServiceProvider)">
+            <summary>
+            生成key用的参数并将其保存到json文件中去
+            </summary>
+            <param name="keyDir">json文件所在目录</param>
+            <param name="includePrivateParameters">是否包含私钥参数</param>
+            <param name="rsa">RSA实例</param> 
+            <returns>生成key用的参数</returns>
+        </member>
         <member name="M:ASF.Internal.Security.RSA.Sign(System.String,System.String,System.Text.Encoding,System.Security.Cryptography.HashAlgorithmName)">
             <summary>
             签名
@@ -4361,6 +4440,20 @@
             获取私钥的类型
             </summary>
             <param name="privateKeyLength"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ASF.Internal.Security.RsaKeyContractResolver">
+            <summary>
+            RsaKey序列化格式定义
+            参考资料 https://github.com/IdentityServer/IdentityServer4/blob/74827bc4df39c2234d9490ba5ce032ce806ab475/src/IdentityServer4/Configuration/DependencyInjection/BuilderExtensions/Crypto.cs
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Security.RsaKeyContractResolver.CreateProperty(System.Reflection.MemberInfo,Newtonsoft.Json.MemberSerialization)">
+            <summary>
+            创建序列化属性
+            </summary>
+            <param name="member"></param>
+            <param name="memberSerialization"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.Internal.Security.PKCSType">

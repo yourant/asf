@@ -1,13 +1,12 @@
 ﻿using ASF.Domain.Values;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
 using ASF.Internal;
 using ASF.Internal.Results;
 using ASF.Internal.Security;
-using Zop.AspNetCore.Authentication.JwtBearer;
+using AccessToken = ASF.Domain.Values.AccessToken;
 
 namespace ASF.Domain.Entities
 {

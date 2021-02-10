@@ -10,8 +10,10 @@ using System.Security.Claims;
 using System.Text;
 using ASF.Application.DtoMapper;
 using ASF;
+using ASF.Internal.Security;
 using Coravel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ASF.DependencyInjection
 {
@@ -56,7 +58,30 @@ namespace ASF.DependencyInjection
                     .RequireAuthenticatedUser()
                     .Build());
                 // opt.DefaultPolicy = new AuthorizationPolicyBuilder().AddRequirements(new OperationAuthorizationRequirement()).Build();
-            });
+            }).AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(jwtBearerOptions =>
+                {
+                    jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        // 签收者用公钥对JWT进行认证，如果直接给一个私钥，则框架会生成相应的公钥去认证
+                        // 参考资料https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
+                        IssuerSigningKey = RSA.RSAPublicKey,
+                        ValidAudience = "asf",
+                        ValidIssuer = "asf",
+
+                        // When receiving a token, check that we've signed it.
+                        ValidateIssuerSigningKey = true,
+
+                        // When receiving a token, check that it is still valid.
+                        ValidateLifetime = true,
+
+                        // This defines the maximum allowable clock skew - i.e. provides a tolerance on the token expiry time 
+                        // when validating the lifetime. As we're creating the tokens locally and validating them on the same 
+                        // machines which should have synchronised time, this can be set to zero. Where external tokens are
+                        // used, some leeway here could be useful.
+                        ClockSkew = TimeSpan.FromMinutes(0)
+                    };
+                });;
         }
         /// <summary>
         /// 添加领域服务

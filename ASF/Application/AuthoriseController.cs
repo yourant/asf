@@ -1,14 +1,12 @@
 ﻿using ASF.Application.DTO;
 using ASF.Domain.Services;
 using ASF.Domain.Values;
-using ASF.Infrastructure.Repositories;
 using ASF.Internal.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Zop.AspNetCore.Authentication.JwtBearer;
 
 namespace ASF.Application
 {

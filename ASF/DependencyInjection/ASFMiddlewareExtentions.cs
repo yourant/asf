@@ -22,6 +22,7 @@ namespace Microsoft.Extensions.DependencyInjection
             
             app.UseMiddleware<ASFPermissionAuthorizationMiddleware>();
             app.UseMiddleware<ASFRequestLoggerMiddleware>();
+            app.UseMiddleware<AuthorizationTokenSecurityPolicy>();
             //统一全局错误拦截
             app.UseMiddleware<ErrorHandlingMiddleware>();
             

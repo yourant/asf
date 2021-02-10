@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Zop.AspNetCore.Authentication.JwtBearer;
 using AutoMapper;
 using ASF.Application.DtoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,10 +28,10 @@ namespace ASF.Web
         {
             // services.AddRazorPages();
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer((AccessTokenOptions opt) =>
-            {
-                opt.SecurityType = SecurityType.RsaSha512;
-            });
+            // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer((AccessTokenOptions opt) =>
+            // {
+            //     opt.SecurityType = SecurityType.RsaSha512;
+            // });
             //automapper
             services.AddAutoMapper(typeof(LoggerMapper).Assembly);
             
@@ -82,8 +81,6 @@ namespace ASF.Web
 
             app.UseStaticFiles();
             // app.ASFInitDatabase();
-            //token 黑名单
-            app.UseMiddleware<AuthorizationTokenSecurityPolicy>();
             app.UseASF();
             
             app.UseOcelot().Wait();

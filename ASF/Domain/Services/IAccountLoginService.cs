@@ -1,11 +1,6 @@
 ﻿using ASF.Domain.Values;
 using ASF.Internal.Results;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using ASF.Domain.Entities;
-using Zop.AspNetCore.Authentication.JwtBearer;
 
 namespace ASF.Domain.Services
 {
