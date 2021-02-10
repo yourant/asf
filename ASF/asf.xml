@@ -2870,11 +2870,12 @@
             </summary>
             <param name="accountsRepository"></param>
         </member>
-        <member name="M:ASF.Domain.Services.AccountService.GetAccountInfo(System.Int64)">
+        <member name="M:ASF.Domain.Services.AccountService.GetAccountInfo(System.Int64,System.Nullable{System.Int64})">
             <summary>
             获取账户登录信息
             </summary>
             <param name="uid"></param>
+            <param name="tenancyId">租户id</param>
             <returns></returns>
         </member>
         <member name="T:ASF.Domain.Services.ApiService">
@@ -3602,11 +3603,12 @@
             账户仓储
             </summary>
         </member>
-        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetAccountAndRoleAndPermissionAsync(System.Int64)">
+        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetAccountAndRoleAndPermissionAsync(System.Int64,System.Nullable{System.Int64})">
             <summary>
             通过用户id获取用户角色权限信息
             </summary>
             <param name="id"></param>
+            <param name="tenancyId">租户id</param>
             <returns>返回用户部门信息以及角色权限信息</returns>
         </member>
         <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetByUsernameAsync(System.String)">

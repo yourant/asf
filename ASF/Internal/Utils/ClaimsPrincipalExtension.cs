@@ -56,10 +56,10 @@ namespace Microsoft.AspNetCore.Mvc
         /// <returns></returns>
         public static bool IsSuperRole(this ClaimsPrincipal principal)
         {
-            string role = principal.FindFirst("http://schemas.microsoft.com/ws/2008/06/identity/claims/role")?.Value;
+            string role = principal.FindFirst("role")?.Value;
             if (string.IsNullOrEmpty(role))
                 return false;
-            return role.Contains("superadmin") ? true : false;
+            return role.Contains("superadmin");
         }
     }
 }

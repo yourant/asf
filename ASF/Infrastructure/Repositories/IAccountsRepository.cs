@@ -14,8 +14,9 @@ namespace ASF.Infrastructure.Repositories
 		/// 通过用户id获取用户角色权限信息
 		/// </summary>
 		/// <param name="id"></param>
+		/// <param name="tenancyId">租户id</param>
 		/// <returns>返回用户部门信息以及角色权限信息</returns>
-		Task<Account> GetAccountAndRoleAndPermissionAsync(long id);
+		Task<Account> GetAccountAndRoleAndPermissionAsync(long id,long? tenancyId = null);
 		/// <summary>
 		/// 通过用户名获取账户信息
 		/// </summary>

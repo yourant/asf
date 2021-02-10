@@ -40,7 +40,9 @@ namespace ASF.Application
 		[HttpGet]
 		public async Task<Result<AccountInfoResponseDto>> AccountInfo()
 		{
+			
 			long uid = HttpContext.User.UserId(); 
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			var account = await _serviceProvider.GetRequiredService<AccountService>().GetAccountInfo(uid);
 			if (!account.Success)
 				return Result<AccountInfoResponseDto>.ReFailure(account.Message, account.Status);

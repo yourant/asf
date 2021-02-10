@@ -30,10 +30,11 @@ namespace ASF.Domain.Services
 		/// 获取账户登录信息
 		/// </summary>
 		/// <param name="uid"></param>
+		/// <param name="tenancyId">租户id</param>
 		/// <returns></returns>
-		public async Task<Result<Account>> GetAccountInfo(long uid)
+		public async Task<Result<Account>> GetAccountInfo(long uid,long? tenancyId = null)
 		{
-			Account account = await _accountsRepository.GetAccountAndRoleAndPermissionAsync(uid);
+			Account account = await _accountsRepository.GetAccountAndRoleAndPermissionAsync(uid,tenancyId);
 			if (account == null)
 				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
 			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)

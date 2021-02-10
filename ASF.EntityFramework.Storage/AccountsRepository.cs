@@ -17,14 +17,23 @@ namespace ASF.EntityFramework.Repository
 		/// 通过用户id获取用户角色权限信息
 		/// </summary>
 		/// <param name="id"></param>
+		/// <param name="tenancyId">租户id</param>
 		/// <returns>返回用户部门信息以及角色权限信息</returns>
-		public async Task<Account> GetAccountAndRoleAndPermissionAsync(long id)
+		public async Task<Account> GetAccountAndRoleAndPermissionAsync(long id, long? tenancyId = null)
 		{
+			if (tenancyId != null)
+			{
+				Account a = await base.GetDbContext().Account
+					.Include("Department.DepartmentRole.Role.PermissionRole.Permission")
+					.Include("AccountRole.Role.PermissionRole.Permission").OrderBy(f=> f.Id)
+					.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id && f.TenancyId == tenancyId);
+				return await Task.FromResult<Account>(a);
+			}
+
 			Account account = await base.GetDbContext().Account
 				.Include("Department.DepartmentRole.Role.PermissionRole.Permission")
 				.Include("AccountRole.Role.PermissionRole.Permission").OrderBy(f=> f.Id)
 				.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
-
 			return await Task.FromResult<Account>(account);
 		}
 
