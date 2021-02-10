@@ -17,6 +17,8 @@ namespace ASF.Application.DtoMapper
         /// </summary>
         public AccountMapper()
         {
+            // 账户权限菜单等响应
+            this.CreateMap<Account, AccountInfoResponseDto>();
         }
     }
 }

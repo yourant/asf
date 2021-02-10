@@ -74,21 +74,24 @@ namespace ASF.Application
 				return Result<AccountInfoResponseDto>.ReFailure(permissionList.Message,permissionList.Status);
 			// 权限菜单分级
 			List<PermissionMenuTreeItem<PermissionMenuInfoResponseDto>> permissionMenuTreeItems = TreeSortMultiLevelFormat(_mapper.Map<List<PermissionMenuInfoResponseDto>>(permissionList.Data)).ToList();
-			AccountInfoResponseDto accountInfo = new AccountInfoResponseDto()
-			{
-				Id = account.Data.Id,
-				TenancyId = account.Data.TenancyId,
-				DepartmentId = account.Data.DepartmentId,
-				Name = account.Data.Name,
-				Username = account.Data.Username,
-				Telephone = account.Data.Telephone,
-				Email = account.Data.Email,
-				Sex = account.Data.Sex,
-				Avatar = account.Data.Avatar,
-				Status = (uint)account.Status,
-				RoleName = string.Join(",",role),
-				PermissionMenu = permissionMenuTreeItems
-			};
+			AccountInfoResponseDto accountInfo = _mapper.Map<AccountInfoResponseDto>(account.Data);
+			accountInfo.RoleName = string.Join(",", role);
+			accountInfo.PermissionMenu = permissionMenuTreeItems;
+			// AccountInfoResponseDto accountInfo = new AccountInfoResponseDto()
+			// {
+			// 	Id = account.Data.Id,
+			// 	TenancyId = account.Data.TenancyId,
+			// 	DepartmentId = account.Data.DepartmentId,
+			// 	Name = account.Data.Name,
+			// 	Username = account.Data.Username,
+			// 	Telephone = account.Data.Telephone,
+			// 	Email = account.Data.Email,
+			// 	Sex = account.Data.Sex,
+			// 	Avatar = account.Data.Avatar,
+			// 	Status = account.Data.Status,
+			// 	RoleName = string.Join(",",role),
+			// 	PermissionMenu = permissionMenuTreeItems
+			// };
 			return Result<AccountInfoResponseDto>.ReSuccess(accountInfo);
 		}
 		/// <summary>

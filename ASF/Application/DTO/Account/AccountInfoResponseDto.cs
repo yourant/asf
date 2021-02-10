@@ -46,7 +46,7 @@ namespace ASF.Application.DTO
 		/// <summary>
 		/// 账户状态
 		/// </summary>
-		public uint Status { get; set; }
+		public uint? Status { get; set; }
 		/// <summary>
 		/// 账户角色名
 		/// </summary>
