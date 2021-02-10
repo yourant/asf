@@ -1,4 +1,5 @@
 using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using ASF.Domain.Entities;
 using ASF.Infrastructure.Repositories;
@@ -54,7 +55,7 @@ namespace ASF
         IServiceProvider serviceProvider = context.RequestServices;
 
         // this.LoadBlacklistToken(securityTokenService,uid);
-        if (_cache.TryGetValue(token, out string warnInfo))
+        if (_cache.TryGetValue("blacklist_"+context.User.FindFirstValue("sub"), out string warnInfo))
         {
           context.Response.Headers.Add("blacklist", "error");
           context.Response.StatusCode = 403;
@@ -68,7 +69,7 @@ namespace ASF
           SecurityToken securityToken = await serviceProvider.GetRequiredService<ISecurityTokenRepository>().GetEntity(f=>f.Token.Equals(token));
           if (securityToken != null)
           {
-            _cache.Set(securityToken.Token, securityToken.AccountId, new MemoryCacheEntryOptions()
+            _cache.Set($"blacklist_{securityToken.AccountId}", securityToken.Token, new MemoryCacheEntryOptions()
             {
               AbsoluteExpiration = securityToken.TokenExpired
             });
