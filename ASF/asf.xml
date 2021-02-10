@@ -166,6 +166,56 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Application.DTO.AccountCreateRequestDto">
+            <summary>
+            创建账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.DepartmentId">
+            <summary>
+            部门id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Name">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Telephone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Email">
+            <summary>
+            邮箱地址
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.AccountInfoResponseDto">
             <summary>
             登录账户信息
@@ -229,6 +279,16 @@
         <member name="P:ASF.Application.DTO.AccountInfoResponseDto.PermissionMenu">
             <summary>
             权限菜单
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AccountModifyRequestDto">
+            <summary>
+            账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyRequestDto.IsDeleted">
+            <summary>
+            是否删除
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.AuthoriseByUsernameRequestDto">
@@ -2885,7 +2945,7 @@
         </member>
         <member name="M:ASF.Domain.Services.AccountService.Get(System.Int64,System.Nullable{System.Int64})">
             <summary>
-            获取账户几本信息
+            获取账户基本信息
             </summary>
             <param name="uid"></param>
             <param name="tenancyId"></param>
@@ -2893,7 +2953,15 @@
         </member>
         <member name="M:ASF.Domain.Services.AccountService.GetAccountByPostAsync(System.Int64,System.Nullable{System.Int64})">
             <summary>
-            获取账户对应的岗位
+            获取账户对应岗位和部门
+            </summary>
+            <param name="uid"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.AccountService.GetAccountByRole(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取账户对应角色
             </summary>
             <param name="uid"></param>
             <param name="tenancyId"></param>
@@ -3663,6 +3731,14 @@
         <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetAccountByPostAsync(System.Int64,System.Nullable{System.Int64})">
             <summary>
             获取账户对应岗位
+            </summary>
+            <param name="id"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetAccountByRole(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取账户对应角色
             </summary>
             <param name="id"></param>
             <param name="tenancyId"></param>

@@ -42,7 +42,7 @@ namespace ASF.Domain.Services
 			return Result<Account>.ReSuccess(account);
 		}
 		/// <summary>
-		/// 获取账户几本信息
+		/// 获取账户基本信息
 		/// </summary>
 		/// <param name="uid"></param>
 		/// <param name="tenancyId"></param>
@@ -67,7 +67,7 @@ namespace ASF.Domain.Services
 			return Result<Account>.ReSuccess(account);
 		}
 		/// <summary>
-		/// 获取账户对应的岗位
+		/// 获取账户对应岗位和部门
 		/// </summary>
 		/// <param name="uid"></param>
 		/// <param name="tenancyId"></param>
@@ -81,6 +81,22 @@ namespace ASF.Domain.Services
 				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 			return Result<Account>.ReSuccess(account);
 		}
+		/// <summary>
+		/// 获取账户对应角色
+		/// </summary>
+		/// <param name="uid"></param>
+		/// <param name="tenancyId"></param>
+		/// <returns></returns>
+		public async Task<Result<Account>> GetAccountByRole(long uid, long? tenancyId = null)
+		{
+			Account account = await _accountsRepository.GetAccountByRole(uid,tenancyId);
+			if (account == null)
+				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
+			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)
+				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
+			return Result<Account>.ReSuccess(account);
+		}
+
 		/// <summary>
 		/// 获取账户分页列表
 		/// </summary>

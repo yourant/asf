@@ -37,7 +37,7 @@ namespace ASF.EntityFramework.Repository
 			return await Task.FromResult<Account>(account);
 		}
 		/// <summary>
-		/// 获取账户对应岗位
+		/// 获取账户对应岗位和部门
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="tenancyId"></param>
@@ -46,13 +46,34 @@ namespace ASF.EntityFramework.Repository
 		{
 			if (tenancyId != null)
 			{
-				Account a = await base.GetDbContext().Account.Include("AccountPost.Post").OrderBy(f => f.Id)
+				Account a = await base.GetDbContext().Account.Include("Department").Include("AccountPost.Post").AsSplitQuery().OrderBy(f => f.Id)
 					.FirstOrDefaultAsync(f => f.Id == id && f.TenancyId == tenancyId);
 				return await Task.FromResult<Account>(a);
 			}
 
-			Account account = await base.GetDbContext().Account.Include("AccountPost.Post").OrderBy(f => f.Id)
+			Account account = await base.GetDbContext().Account.Include("Department").Include("AccountPost.Post").AsSplitQuery().OrderBy(f => f.Id)
 				.FirstOrDefaultAsync(f => f.Id == id);
+			return await Task.FromResult<Account>(account);
+		}
+		/// <summary>
+		/// 获取账户对应角色
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="tenancyId"></param>
+		/// <returns></returns>
+		public async Task<Account> GetAccountByRole(long id, long? tenancyId = null)
+		{
+			if (tenancyId != null)
+			{
+				Account a = await base.GetDbContext().Account
+					.Include("AccountRole.Role.PermissionRole.Permission").OrderBy(f=> f.Id)
+					.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id && f.TenancyId == tenancyId);
+				return await Task.FromResult<Account>(a);
+			}
+
+			Account account = await base.GetDbContext().Account
+				.Include("AccountRole.Role.PermissionRole.Permission").OrderBy(f=> f.Id)
+				.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
 			return await Task.FromResult<Account>(account);
 		}
 

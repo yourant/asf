@@ -25,6 +25,13 @@ namespace ASF.Infrastructure.Repositories
 		/// <returns></returns>
 		Task<Account> GetAccountByPostAsync(long id, long? tenancyId = null);
 		/// <summary>
+		/// 获取账户对应角色
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="tenancyId"></param>
+		/// <returns></returns>
+		Task<Account> GetAccountByRole(long id, long? tenancyId = null);
+		/// <summary>
 		/// 通过用户名获取账户信息
 		/// </summary>
 		/// <param name="username"></param>

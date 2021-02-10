@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
-using ASF.Domain;
-using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
 using AutoMapper;
@@ -43,7 +41,7 @@ namespace ASF.Application
 			
 			long uid = HttpContext.User.UserId(); 
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var account = await _serviceProvider.GetRequiredService<AccountService>().GetAccountInfo(uid);
+			var account = await _serviceProvider.GetRequiredService<AccountService>().GetAccountInfo(uid,tenancyId);
 			if (!account.Success)
 				return Result<AccountInfoResponseDto>.ReFailure(account.Message, account.Status);
 			// 权限id 集合
