@@ -30,6 +30,13 @@
             <param name="pid"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.AccountController.GetList(ASF.Application.DTO.AccountListRequestDto)">
+            <summary>
+            获取账户列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.ApiController">
             <summary>
             api 控制器 只有超级管理员才有权限控制
@@ -281,6 +288,36 @@
             权限菜单
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.AccountListRequestDto">
+            <summary>
+            账户分页请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountListRequestDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountListRequestDto.Telephone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountListRequestDto.Email">
+            <summary>
+            邮箱地址
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountListRequestDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountListRequestDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.AccountModifyRequestDto">
             <summary>
             账户
@@ -289,6 +326,36 @@
         <member name="P:ASF.Application.DTO.AccountModifyRequestDto.IsDeleted">
             <summary>
             是否删除
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AccountResponseDto">
+            <summary>
+            账户响应数据
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Accounts">
+            <summary>
+            账户集合
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Roles">
+            <summary>
+            账户角色
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Department">
+            <summary>
+            账户对应部门
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Posts">
+            <summary>
+            账户对应岗位
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Tenancys">
+            <summary>
+            账户对应租户
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.AuthoriseByUsernameRequestDto">

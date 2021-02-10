@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ASF.Application.DTO
 {
@@ -36,7 +37,7 @@ namespace ASF.Application.DTO
 		/// 邮箱地址
 		/// </summary>
 		[RegularExpression(@"^[-\w\+]+(?:\.[-\w]+)*@[-a-z0-9]+(?:\.[a-z0-9]+)*(?:\.[a-z]{2,})$",ErrorMessage = "邮箱格式不正确")]
-		public string Email { get; private set; }
+		public string Email { get; set; }
 		/// <summary>
 		/// 头像
 		/// </summary>

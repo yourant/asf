@@ -131,5 +131,20 @@ namespace ASF.Application
 				};
 			}
 		}
+		/// <summary>
+		/// 获取账户列表
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpGet]
+		public async Task<ResultPagedList<AccountResponseDto>> GetList([FromQuery] AccountListRequestDto dto)
+		{
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var data = await _serviceProvider.GetRequiredService<AccountService>().GetList(dto.PageNo,dto.PageSize,dto.Username,dto.Telephone,dto.Email,dto.Sex,dto.Status,tenancyId);
+			if (!data.Success)
+				return ResultPagedList<AccountResponseDto>.ReFailure(data.Message, data.Status);
+			return ResultPagedList<AccountResponseDto>.ReSuccess(_mapper.Map<List<AccountResponseDto>>(data.Data),
+				data.TotalCount);
+		}
 	}
 }

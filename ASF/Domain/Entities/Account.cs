@@ -75,7 +75,7 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 是否删除
         /// </summary>
-        public bool? IsDeleted { get;  set; }
+        public uint? IsDeleted { get;  set; }
         /// <summary>
         /// 性别
         /// </summary>
@@ -206,7 +206,7 @@ namespace ASF.Domain.Entities
         public bool IsAllowLogin()
         {
             var isDeleted = this.IsDeleted;
-            if (isDeleted != null && (bool)isDeleted)
+            if (isDeleted != null && (Status)isDeleted == Values.Status.Yes)
                 return false;
             if (this.Status != null && (EnabledType)this.Status != EnabledType.Enabled)
                 return false;
@@ -244,7 +244,7 @@ namespace ASF.Domain.Entities
         /// </summary>
         public void Delete()
         {
-            this.IsDeleted = true;
+            this.IsDeleted = (uint)Values.Status.Yes;
         }
         #endregion
     }

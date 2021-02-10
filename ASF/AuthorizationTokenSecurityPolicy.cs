@@ -10,12 +10,12 @@ using Newtonsoft.Json;
 
 namespace ASF
 {
-	/// <summary>
-	/// token 黑名单中间件
-	/// </summary>
-	public class AuthorizationTokenSecurityPolicy
-	{
-		private readonly RequestDelegate _next;
+  /// <summary>
+  /// token 黑名单中间件
+  /// </summary>
+  public class AuthorizationTokenSecurityPolicy
+  {
+    private readonly RequestDelegate _next;
     private readonly IMemoryCache _cache;
     private DateTime _refreshTime = DateTime.Now.AddYears(-5);
     // private int _isProcessing = 0;
@@ -25,7 +25,7 @@ namespace ASF
     /// </summary>
     /// <param name="next"></param>
     /// <param name="cache"></param>
-    public AuthorizationTokenSecurityPolicy(RequestDelegate next,  IMemoryCache cache)
+    public AuthorizationTokenSecurityPolicy(RequestDelegate next, IMemoryCache cache)
     {
       _next = next;
       _cache = cache;
@@ -54,9 +54,14 @@ namespace ASF
         }
         IServiceProvider serviceProvider = context.RequestServices;
 
-        // this.LoadBlacklistToken(securityTokenService,uid);
-        if (_cache.TryGetValue("blacklist_"+context.User.FindFirstValue("sub"), out string warnInfo))
+
+        SecurityToken securityToken = await serviceProvider.GetRequiredService<ISecurityTokenRepository>().GetEntity(f => f.Token.Equals(token));
+        if (securityToken != null)
         {
+          _cache.Set($"blacklist_{securityToken.AccountId}", securityToken.Token, new MemoryCacheEntryOptions()
+          {
+            AbsoluteExpiration = securityToken.TokenExpired
+          });
           context.Response.Headers.Add("blacklist", "error");
           context.Response.StatusCode = 403;
           var result = JsonConvert.SerializeObject(new { status = 403, result = string.Empty, message = "无效的token" });
@@ -64,23 +69,7 @@ namespace ASF
           await context.Response.WriteAsync(result);
           return;
         }
-        else
-        {
-          SecurityToken securityToken = await serviceProvider.GetRequiredService<ISecurityTokenRepository>().GetEntity(f=>f.Token.Equals(token));
-          if (securityToken != null)
-          {
-            _cache.Set($"blacklist_{securityToken.AccountId}", securityToken.Token, new MemoryCacheEntryOptions()
-            {
-              AbsoluteExpiration = securityToken.TokenExpired
-            });
-            context.Response.Headers.Add("blacklist", "error");
-            context.Response.StatusCode = 403;
-            var result = JsonConvert.SerializeObject(new { status = 403, result = string.Empty, message = "无效的token" });
-            context.Response.ContentType = "application/json;charset=utf-8";
-            await context.Response.WriteAsync(result);
-            return;
-          }
-        }
+
 
         await _next(context);
       }
