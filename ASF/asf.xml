@@ -2804,7 +2804,6 @@
             <summary>
             账户登入服务
             </summary>
-            <param name="tokenGenerate"></param>
             <param name="accountsRepository"></param>
             <param name="memoryCache"></param>
             <param name="serviceProvider"></param>

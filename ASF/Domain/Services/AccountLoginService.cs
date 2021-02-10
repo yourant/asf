@@ -14,7 +14,6 @@ using ASF.Internal.Results;
 using ASF.Internal.Security;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using AccessToken = ASF.Domain.Values.AccessToken;
 using RSA = ASF.Internal.Security.RSA;
 using SecurityToken = ASF.Domain.Entities.SecurityToken;
 
@@ -35,7 +34,6 @@ namespace ASF.Domain.Services
         /// <summary>
         /// 账户登入服务
         /// </summary>
-        /// <param name="tokenGenerate"></param>
         /// <param name="accountsRepository"></param>
         /// <param name="memoryCache"></param>
         /// <param name="serviceProvider"></param>
