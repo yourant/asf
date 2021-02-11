@@ -146,7 +146,6 @@ namespace ASF.Application
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			if (dto.Ids == null || dto.Ids.Count == 0)
 				return Result.ReFailure(ResultCodes.RoleIdNotExist);
-			
 			result.Data.DepartmentRole.Clear();
 			foreach (var item in dto.Ids)
 			{

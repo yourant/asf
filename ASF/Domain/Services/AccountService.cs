@@ -96,6 +96,21 @@ namespace ASF.Domain.Services
 				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 			return Result<Account>.ReSuccess(account);
 		}
+		/// <summary>
+		/// 获取账户对应 角色权限以及部门。租户，岗位信息
+		/// </summary>
+		/// <param name="uid"></param>
+		/// <param name="tenancyId"></param>
+		/// <returns></returns>
+		public async Task<Result<Account>> GetDetails(long uid, long? tenancyId = null)
+		{
+			Account account = await _accountsRepository.GetAccountByPostAndRoleAsync(uid,tenancyId);
+			if (account == null)
+				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
+			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)
+				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
+			return Result<Account>.ReSuccess(account);
+		}
 
 		/// <summary>
 		/// 获取账户分页列表

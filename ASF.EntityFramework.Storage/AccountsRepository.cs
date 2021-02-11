@@ -56,6 +56,34 @@ namespace ASF.EntityFramework.Repository
 			return await Task.FromResult<Account>(account);
 		}
 		/// <summary>
+		/// 获取账户对应岗位与部门以及角色权限
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="tenancyId"></param>
+		/// <returns></returns>
+		public async Task<Account> GetAccountByPostAndRoleAsync(long id, long? tenancyId = null)
+		{
+			if (tenancyId != null)
+			{
+				Account a = await base.GetDbContext().Account
+					.Include("Department.DepartmentRole.Role.PermissionRole.Permission")
+					.Include("AccountRole.Role.PermissionRole.Permission")
+					.Include("AccountPost.Post")
+					.Include("Tenancys").OrderBy(f=> f.Id)
+					.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id && f.TenancyId == tenancyId);
+				return await Task.FromResult<Account>(a);
+			}
+
+			Account account = await base.GetDbContext().Account
+				.Include("Department.DepartmentRole.Role")
+				.Include("AccountRole.Role").OrderBy(f=> f.Id)
+				.Include("AccountPost.Post")
+				.Include("Tenancys")
+				.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
+			return await Task.FromResult<Account>(account);
+		}
+
+		/// <summary>
 		/// 获取账户对应角色
 		/// </summary>
 		/// <param name="id"></param>

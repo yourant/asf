@@ -146,5 +146,55 @@ namespace ASF.Application
 			return ResultPagedList<AccountResponseDto>.ReSuccess(_mapper.Map<List<AccountResponseDto>>(data.Data),
 				data.TotalCount);
 		}
+		/// <summary>
+		/// 获取账户详情
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		[HttpGet]
+		public async Task<Result<AccountResponseDto>> Details([FromQuery] long id)
+		{
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await _serviceProvider.GetRequiredService<AccountService>().GetDetails(id,tenancyId);
+			if (!result.Success)
+				return Result<AccountResponseDto>.ReFailure(result.Message, result.Status);
+			List<object> roles = new List<object>();
+			if (result.Data.Department.Role != null && result.Data.Department.Role.Count > 0)
+			{
+				foreach (var value in result.Data.Department.Role.ToList())
+				{
+					roles.Add(new
+					{
+						Id = value.Id,
+						Nmae = value.Name,
+						Enable = value.Enable,
+						Description = value.Description,
+						CreateId = value.CreateId,
+						CreateTime = value.CreateTime,
+						TenancyId = value.TenancyId
+					});
+				}
+			}
+
+			if (result.Data.Role != null && result.Data.Role.Count > 0)
+			{
+				foreach (var value in result.Data.Role.ToList())
+				{
+					roles.Add(new
+					{
+						Id = value.Id,
+						Nmae = value.Name,
+						Enable = value.Enable,
+						Description = value.Description,
+						CreateId = value.CreateId,
+						CreateTime = value.CreateTime,
+						TenancyId = value.TenancyId
+					});
+				}
+			}
+			AccountResponseDto data = _mapper.Map<AccountResponseDto>(result.Data);
+			data.Roles = roles;
+			return Result<AccountResponseDto>.ReSuccess(data);
+		}
 	}
 }

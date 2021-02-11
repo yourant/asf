@@ -37,6 +37,13 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.AccountController.Details(System.Int64)">
+            <summary>
+            获取账户详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.ApiController">
             <summary>
             api 控制器 只有超级管理员才有权限控制
@@ -3034,6 +3041,14 @@
             <param name="tenancyId"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Domain.Services.AccountService.GetDetails(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取账户对应 角色权限以及部门。租户，岗位信息
+            </summary>
+            <param name="uid"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
         <member name="M:ASF.Domain.Services.AccountService.GetList(System.Int32,System.Int32,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.UInt32},System.Nullable{System.Int64})">
             <summary>
             获取账户分页列表
@@ -3797,7 +3812,15 @@
         </member>
         <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetAccountByPostAsync(System.Int64,System.Nullable{System.Int64})">
             <summary>
-            获取账户对应岗位
+            获取账户对应岗位与部门
+            </summary>
+            <param name="id"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetAccountByPostAndRoleAsync(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取账户对应岗位与部门以及角色权限
             </summary>
             <param name="id"></param>
             <param name="tenancyId"></param>

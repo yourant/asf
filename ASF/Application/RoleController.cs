@@ -64,6 +64,18 @@ namespace ASF.Application
 			return Result<RoleResponseDto>.ReSuccess(_mapper.Map<RoleResponseDto>(data.Data));
 		}
 		/// <summary>
+		/// 获取角色列表
+		/// </summary>
+		/// <returns></returns>
+		public async Task<ResultList<RoleResponseDto>> GetLists()
+		{
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var data = await _serviceProvider.GetRequiredService<RoleService>().GetList(tenancyId);
+			if(!data.Success)
+				return ResultList<RoleResponseDto>.ReFailure(data.Message,data.Status);
+			return ResultList<RoleResponseDto>.ReSuccess(_mapper.Map<List<RoleResponseDto>>(data.Data));
+		}
+		/// <summary>
 		/// 创建角色 并分配角色
 		/// </summary>
 		/// <param name="dto"></param>

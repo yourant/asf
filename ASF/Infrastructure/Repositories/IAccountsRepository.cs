@@ -1,5 +1,3 @@
-using System;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ASF.Domain.Entities;
 
@@ -18,12 +16,19 @@ namespace ASF.Infrastructure.Repositories
 		/// <returns>返回用户部门信息以及角色权限信息</returns>
 		Task<Account> GetAccountAndRoleAndPermissionAsync(long id,long? tenancyId = null);
 		/// <summary>
-		/// 获取账户对应岗位
+		/// 获取账户对应岗位与部门
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="tenancyId"></param>
 		/// <returns></returns>
 		Task<Account> GetAccountByPostAsync(long id, long? tenancyId = null);
+		/// <summary>
+		/// 获取账户对应岗位与部门以及角色权限
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="tenancyId"></param>
+		/// <returns></returns>
+		Task<Account> GetAccountByPostAndRoleAsync(long id, long? tenancyId = null);
 		/// <summary>
 		/// 获取账户对应角色
 		/// </summary>
