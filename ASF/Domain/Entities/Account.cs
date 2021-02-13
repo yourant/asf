@@ -155,49 +155,23 @@ namespace ASF.Domain.Entities
             this.PasswordSalt = Guid.NewGuid().ToString();
             string newPassword = PasswordHelper.GeneratePasswordHash(passsword, this.PasswordSalt);
             if(newPassword == this.Password)
-                return Result.ReFailure("新密码与旧密码相同", 1000);
+                return Result.ReFailure(ResultCodes.AccountOldPasswordAndNewPasswordSame);
             this.Password = newPassword;
             return Result.ReSuccess();
         }
         /// <summary>
         /// 设置用户手机号码
         /// </summary>
-        public Result SetPhone(string phone)
+        public void SetPhone(string phone)
         {
-            if(!string.IsNullOrEmpty(phone))
-            {
-                if (!Regex.IsMatch(phone,"^1[0-9]{10}$"))
-                {
-                    return Result.ReFailure("手机号码格式不正确，只能为11位数字", 1004);
-                }else
-                {
-                    this.Telephone = phone;
-                    return Result.ReSuccess();
-                }
-            }else
-            {
-                return Result.ReFailure("手机号码不能为空", 1003);
-            }
+            this.Telephone = phone;
         }
         /// <summary>
         /// 设置用户邮箱
         /// </summary>
-        public Result SetEmail(string email)
+        public void SetEmail(string email)
         {
-            if(!string.IsNullOrEmpty(email))
-            {
-                if(!Regex.IsMatch(email, @"^[-\w\+]+(?:\.[-\w]+)*@[-a-z0-9]+(?:\.[a-z0-9]+)*(?:\.[a-z]{2,})$"))
-                {
-                    return Result.ReFailure("邮箱格式不正确", 1007);
-                }else
-                {
-                    this.Email = email;
-                    return Result.ReSuccess();
-                }
-            }else
-            {
-                return Result.ReFailure("用户邮箱不能为空", 1006);
-            }
+            this.Email = email;
         }
         /// <summary>
         /// 是否允许登录

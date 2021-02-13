@@ -210,6 +210,7 @@ namespace ASF.Application
 			long? tenancyId = HttpContext.User.IsSuperRole() ? dto.TenancyId : Convert.ToInt64(HttpContext.User.TenancyId());
 			var data = _mapper.Map<Account>(dto);
 			data.TenancyId = tenancyId;
+			data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			return await _serviceProvider.GetRequiredService<AccountService>().Create(data);
 		}
 		/// <summary>
@@ -248,6 +249,7 @@ namespace ASF.Application
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			result.Data.IsDeleted = dto.Status;
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			return await server.Modify(result.Data);
 		}
 		/// <summary>
@@ -255,7 +257,7 @@ namespace ASF.Application
 		/// </summary>
 		/// <param name="dto"></param>
 		/// <returns></returns>
-		[HttpPost]
+		[HttpPut]
 		public async Task<Result> ModifyStatus([FromBody] ModifyStatusRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
@@ -267,6 +269,93 @@ namespace ASF.Application
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			result.Data.Status = dto.Status;
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			return await server.Modify(result.Data);
+		}
+		/// <summary>
+		/// 修改账户密码
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> ModifyPassword([FromBody] AccountModifyPasswordRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			var isPassword = result.Data.SetPassword(dto.Password);
+			if (!isPassword.Success)
+				return isPassword;
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			return await server.Modify(result.Data);
+		}
+		/// <summary>
+		/// 修改账户邮箱
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> ModifyEmail([FromBody] AccountModifyEmailRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			if (!result.Data.Email.Equals(dto.OldEmail))
+				return Result.ReFailure(ResultCodes.AccountOldEmailError);
+			result.Data.SetEmail(dto.NewEmail);
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			return await server.Modify(result.Data);
+		}
+		/// <summary>
+		/// 修改账户手机
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> ModifyTelPhone([FromBody] AccountModifyTelPhoneRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			if (!result.Data.Email.Equals(dto.OldTelephone))
+				return Result.ReFailure(ResultCodes.AccountOldTelPhoneError);
+			result.Data.SetPhone(dto.NewTelephone);
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			return await server.Modify(result.Data,"telphone");
+		}
+		/// <summary>
+		/// 修改账户头像
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> ModifyAvatar([FromBody] AccountModifyAvatarRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			result.Data.Avatar = dto.Avatar;
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			return await server.Modify(result.Data);
 		}
 	}

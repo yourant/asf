@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -132,7 +133,7 @@ namespace ASF.Domain.Services
 				    sex != null || status != null)
 				{
 					var (list, total) =
-						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => (f.TenancyId == tenancyId) && (f.Username.Equals(username) || f.Telephone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status));
+						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId && (f.Username.Equals(username) || f.Telephone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status));
 					return ResultPagedList<Account>.ReSuccess(list,total);
 				}
 				else
@@ -177,11 +178,21 @@ namespace ASF.Domain.Services
 		/// 修改账户
 		/// </summary>
 		/// <param name="account"></param>
+		/// <param name="dic">返回值字典</param>
 		/// <returns></returns>
-		public async Task<Result> Modify(Account account)
+		public async Task<Result> Modify(Account account,string dic = "default")
 		{
-			if (await _accountsRepository.GetEntity(f => f.Id != account.Id && f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.Telephone.Equals(account.Telephone))) != null)
+			if (dic.Equals("default") && await _accountsRepository.GetEntity(f => f.Id != account.Id && f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.Telephone.Equals(account.Telephone))) != null)
 				return Result.ReFailure(ResultCodes.AccountExist);
+			if (dic.Equals("telphone") && await _accountsRepository.GetEntity(f =>
+				f.Id != account.Id && f.TenancyId == account.TenancyId && f.Telephone.Equals(account.Telephone)) != null)
+				return Result.ReFailure(ResultCodes.AccountExistTelPhoneError);
+			if (dic.Equals("email") && await _accountsRepository.GetEntity(f =>
+				f.Id != account.Id && f.TenancyId == account.TenancyId && f.Email.Equals(account.Email)) != null)
+				return Result.ReFailure(ResultCodes.AccountExistEmailError);
+			if (dic.Equals("username") && await _accountsRepository.GetEntity(f =>
+				f.Id != account.Id && f.TenancyId == account.TenancyId && f.Username.Equals(account.Username)) != null)
+				return Result.ReFailure(ResultCodes.AccountExistUserNameError);
 			bool isUpdate = await _accountsRepository.Update(account);
 			if(!isUpdate)
 				return Result.ReFailure(ResultCodes.AccountUpdateError);
