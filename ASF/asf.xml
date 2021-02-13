@@ -44,6 +44,69 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.AccountController.Create(ASF.Application.DTO.AccountCreateRequestDto)">
+            <summary>
+            /创建账户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.Modify(ASF.Application.DTO.AccountModifyRequestDto)">
+            <summary>
+            修改账户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.Delete(ASF.Application.DTO.ModifyStatusRequestDto)">
+            <summary>
+            软删除账户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.ModifyStatus(ASF.Application.DTO.ModifyStatusRequestDto)">
+            <summary>
+            修改账户状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.ModifyPassword(ASF.Application.DTO.AccountModifyPasswordRequestDto)">
+            <summary>
+            修改账户密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.ModifyEmail(ASF.Application.DTO.AccountModifyEmailRequestDto)">
+            <summary>
+            修改账户邮箱
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.ModifyTelPhone(ASF.Application.DTO.AccountModifyTelPhoneRequestDto)">
+            <summary>
+            修改账户手机
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.ModifyAvatar(ASF.Application.DTO.AccountModifyAvatarRequestDto)">
+            <summary>
+            修改账户头像
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.AssignRole(ASF.Application.DTO.AssignIdArrayRequestDto{System.Int64})">
+            <summary>
+            分配账户角色
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.ApiController">
             <summary>
             api 控制器 只有超级管理员才有权限控制
@@ -190,6 +253,11 @@
             部门id
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Name">
             <summary>
             昵称
@@ -325,14 +393,89 @@
             性别
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.AccountModifyAvatarRequestDto">
+            <summary>
+            修改账户头像
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyAvatarRequestDto.Id">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyAvatarRequestDto.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AccountModifyEmailRequestDto">
+            <summary>
+            修改账户邮箱
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyEmailRequestDto.Id">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyEmailRequestDto.OldEmail">
+            <summary>
+            旧邮箱地址
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyEmailRequestDto.NewEmail">
+            <summary>
+            新邮箱地址
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AccountModifyPasswordRequestDto">
+            <summary>
+            修改账户密码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyPasswordRequestDto.Id">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyPasswordRequestDto.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.AccountModifyRequestDto">
             <summary>
             账户
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.AccountModifyRequestDto.Id">
+            <summary>
+            账户id
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.AccountModifyRequestDto.IsDeleted">
             <summary>
             是否删除
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AccountModifyTelPhoneRequestDto">
+            <summary>
+            修改账户手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyTelPhoneRequestDto.Id">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyTelPhoneRequestDto.OldTelephone">
+            <summary>
+            旧手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyTelPhoneRequestDto.NewTelephone">
+            <summary>
+            新手机号码
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.AccountResponseDto">
@@ -400,6 +543,11 @@
             创建部门
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentCreateRequestDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.Department.DepartmentCreateRequestDto.Pid">
             <summary>
             父id
@@ -453,11 +601,6 @@
         <member name="T:ASF.Application.DTO.Department.DepartmentResponseDto">
             <summary>
             部门响应
-            </summary>
-        </member>
-        <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.TenancyId">
-            <summary>
-            租户id
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.CreateTime">
@@ -997,6 +1140,11 @@
             创建岗位请求
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Post.PostCreateRequestDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.Post.PostCreateRequestDto.Name">
             <summary>
             岗位名
@@ -1052,11 +1200,6 @@
             岗位响应
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Post.PostResponseDto.TenancyId">
-            <summary>
-            租户id
-            </summary>
-        </member>
         <member name="P:ASF.Application.DTO.Post.PostResponseDto.CreateId">
             <summary>
             创建者id
@@ -1070,6 +1213,11 @@
         <member name="T:ASF.Application.DTO.Role.RoleCreateRequestDto">
             <summary>
             创建角色
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Role.RoleCreateRequestDto.TenancyId">
+            <summary>
+            租户id
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.Role.RoleCreateRequestDto.Name">
@@ -1120,11 +1268,6 @@
         <member name="T:ASF.Application.DTO.Role.RoleResponseDto">
             <summary>
             角色响应
-            </summary>
-        </member>
-        <member name="P:ASF.Application.DTO.Role.RoleResponseDto.TenancyId">
-            <summary>
-            租户id
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.Role.RoleResponseDto.CreateId">
@@ -1277,6 +1420,11 @@
             创建多语言
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Translate.TranslateCreateRequestDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.Translate.TranslateCreateRequestDto.Name">
             <summary>
             多语言名称
@@ -1315,11 +1463,6 @@
         <member name="T:ASF.Application.DTO.Translate.TranslateResponseDto">
             <summary>
             多语言响应
-            </summary>
-        </member>
-        <member name="P:ASF.Application.DTO.Translate.TranslateResponseDto.TenancyId">
-            <summary>
-            租户id
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.ListPagedAndSortedRequestDto">
@@ -1619,6 +1762,12 @@
             获取角色详情
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.RoleController.GetLists">
+            <summary>
+            获取角色列表
+            </summary>
             <returns></returns>
         </member>
         <member name="M:ASF.Application.RoleController.Create(ASF.Application.DTO.Role.RoleCreateRequestDto)">
@@ -3070,11 +3219,12 @@
             <param name="account"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.AccountService.Modify(ASF.Domain.Entities.Account)">
+        <member name="M:ASF.Domain.Services.AccountService.Modify(ASF.Domain.Entities.Account,System.String)">
             <summary>
             修改账户
             </summary>
             <param name="account"></param>
+            <param name="dic">返回值字典</param>
             <returns></returns>
         </member>
         <member name="T:ASF.Domain.Services.ApiService">

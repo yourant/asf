@@ -222,10 +222,10 @@ namespace ASF.Application
 		public async Task<Result> Modify([FromBody] AccountModifyRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			var result = await server.Get(dto.Id);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -241,10 +241,10 @@ namespace ASF.Application
 		public async Task<Result> Delete([FromBody] ModifyStatusRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			var result = await server.Get(dto.Id);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -261,10 +261,10 @@ namespace ASF.Application
 		public async Task<Result> ModifyStatus([FromBody] ModifyStatusRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -281,10 +281,10 @@ namespace ASF.Application
 		public async Task<Result> ModifyPassword([FromBody] AccountModifyPasswordRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -303,10 +303,10 @@ namespace ASF.Application
 		public async Task<Result> ModifyEmail([FromBody] AccountModifyEmailRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -325,10 +325,10 @@ namespace ASF.Application
 		public async Task<Result> ModifyTelPhone([FromBody] AccountModifyTelPhoneRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -347,15 +347,60 @@ namespace ASF.Application
 		public async Task<Result> ModifyAvatar([FromBody] AccountModifyAvatarRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			result.Data.Avatar = dto.Avatar;
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			return await server.Modify(result.Data);
+		}
+		/// <summary>
+		/// 分配账户角色
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> AssignRole([FromBody] AssignIdArrayRequestDto<long> dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.GetAccountByRole(dto.Id,tenancyId);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			if (dto.Ids == null || dto.Ids.Count == 0)
+				return Result.ReFailure(ResultCodes.RoleIdNotExist);
+			
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			// 判断是否存在想用的角色。如果存在就忽略分配相同的
+			result.Data.AccountRole.Clear();
+			foreach (var item in dto.Ids)
+			{
+				// 判断部门不为空。并且部门角色不包含相同角色添加。 否则直接添加
+				if (result.Data.Department != null)
+				{
+					if(result.Data.Department.Role.Any(f => f.Id != item))
+						result.Data.AccountRole.Add(new AccountRole()
+						{
+							RoleId = item,
+							AccountId = result.Data.Id
+						});	
+				}
+				else
+				{
+					result.Data.AccountRole.Add(new AccountRole()
+					{
+						RoleId = item,
+						AccountId = result.Data.Id
+					});	
+				}
+			}
 			return await server.Modify(result.Data);
 		}
 	}

@@ -8,10 +8,6 @@ namespace ASF.Application.DTO.Post
 	public class PostResponseDto: PostModifyRequestDto
 	{
 		/// <summary>
-		/// 租户id
-		/// </summary>
-		public long? TenancyId { get; set; }
-		/// <summary>
 		/// 创建者id
 		/// </summary>
 		public long? CreateId { get; set; }

@@ -91,7 +91,7 @@ namespace ASF.Application
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
 			result.Data.CreateId = this.User.UserId();
-			return await _serviceProvider.GetRequiredService<TenancyService>().Modify(_mapper.Map(dto,result.Data));
+			return await server.Modify(_mapper.Map(dto,result.Data));
 		}
 		/// <summary>
 		/// 软删除租户
@@ -108,7 +108,7 @@ namespace ASF.Application
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
 			result.Data.IsDeleted = dto.Status;
-			return await _serviceProvider.GetRequiredService<TenancyService>().Modify(result.Data);
+			return await server.Modify(result.Data);
 		}
 	}
 }

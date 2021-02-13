@@ -110,14 +110,13 @@ namespace ASF.Application
 		public async Task<Result> Modify([FromBody] RoleModifyRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<RoleService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			if (dto.PermissionId != null && dto.PermissionId.Count > 0)
 			{
@@ -145,15 +144,15 @@ namespace ASF.Application
 		public async Task<Result> ModifyStatus([FromBody] ModifyStatusRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<RoleService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			result.Data.Enable = dto.Status;
-			return await _serviceProvider.GetRequiredService<RoleService>().Modify(result.Data);
+			return await server.Modify(result.Data);
 		}
 		/// <summary>
 		/// 分配角色权限
@@ -164,10 +163,10 @@ namespace ASF.Application
 		public async Task<Result> AssignPermission([FromBody] AssignIdArrayRequestDto<long> dto)
 		{
 			var server = _serviceProvider.GetRequiredService<RoleService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -187,7 +186,7 @@ namespace ASF.Application
 					});
 				}	
 			}
-			return await _serviceProvider.GetRequiredService<RoleService>().Modify(result.Data);
+			return await server.Modify(result.Data);
 		}
 	}
 }

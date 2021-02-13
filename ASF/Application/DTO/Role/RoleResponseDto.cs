@@ -10,10 +10,6 @@ namespace ASF.Application.DTO.Role
 	public class RoleResponseDto: RoleModifyRequestDto
 	{
 		/// <summary>
-		/// 租户id
-		/// </summary>
-		public long? TenancyId { get; set; }
-		/// <summary>
 		/// 创建者id
 		/// </summary>
 		public long? CreateId { get; set; }

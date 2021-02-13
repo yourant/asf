@@ -97,10 +97,10 @@ namespace ASF.Application
 		public async Task<Result> Modify([FromBody] TranslateModifyRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<TranslateService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -115,10 +115,10 @@ namespace ASF.Application
 		public async Task<Result> Delete([FromRoute] long id)
 		{
 			var server = _serviceProvider.GetRequiredService<TranslateService>();
-			var result = await server.Get(id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);

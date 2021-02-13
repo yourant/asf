@@ -108,10 +108,10 @@ namespace ASF.Application
 		public async Task<Result> Modify([FromBody] DepartmentModifyRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<DepartmentService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -127,7 +127,7 @@ namespace ASF.Application
 					});
 				});
 			}
-			return await _serviceProvider.GetRequiredService<DepartmentService>().Modify(_mapper.Map(dto,result.Data));
+			return await server.Modify(_mapper.Map(dto,result.Data));
 		}
 		/// <summary>
 		/// 分配角色到部门
@@ -138,10 +138,10 @@ namespace ASF.Application
 		public async Task<Result> Assign([FromBody] AssignIdArrayRequestDto<long> dto)
 		{
 			var server = _serviceProvider.GetRequiredService<DepartmentService>();
-			var result = await server.Get(dto.Id);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
-			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
@@ -156,7 +156,7 @@ namespace ASF.Application
 					DepartmentId = result.Data.Id
 				});
 			}
-			return await _serviceProvider.GetRequiredService<DepartmentService>().Modify(result.Data);
+			return await server.Modify(result.Data);
 		}
 	}
 }
