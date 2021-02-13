@@ -231,5 +231,43 @@ namespace ASF.Application
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			return await server.Modify(_mapper.Map(dto,result.Data));
 		}
+		/// <summary>
+		/// 软删除账户
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public async Task<Result> Delete([FromBody] ModifyStatusRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			result.Data.IsDeleted = dto.Status;
+			return await server.Modify(result.Data);
+		}
+		/// <summary>
+		/// 修改账户状态
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public async Task<Result> ModifyStatus([FromBody] ModifyStatusRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			result.Data.Status = dto.Status;
+			return await server.Modify(result.Data);
+		}
 	}
 }

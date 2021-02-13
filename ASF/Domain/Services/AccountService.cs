@@ -37,7 +37,7 @@ namespace ASF.Domain.Services
 			Account account = await _accountsRepository.GetAccountAndRoleAndPermissionAsync(uid,tenancyId);
 			if (account == null)
 				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
-			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)
+			if(!account.IsAllowLogin())
 				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 			return Result<Account>.ReSuccess(account);
 		}
@@ -54,7 +54,7 @@ namespace ASF.Domain.Services
 				Account a = await _accountsRepository.GetEntity(f => f.Id == uid && f.TenancyId == tenancyId);
 				if (a == null)
 					return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
-				if (a.Status != null && (EnabledType)a.Status == EnabledType.Disabled)
+				if(!a.IsAllowLogin())
 					return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 				return Result<Account>.ReSuccess(a);
 			}
@@ -62,7 +62,7 @@ namespace ASF.Domain.Services
 			Account account = await _accountsRepository.GetEntity(f => f.Id == uid);
 			if (account == null)
 				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
-			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)
+			if(!account.IsAllowLogin())
 				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 			return Result<Account>.ReSuccess(account);
 		}
@@ -77,7 +77,7 @@ namespace ASF.Domain.Services
 			Account account = await _accountsRepository.GetAccountByPostAsync(uid,tenancyId);
 			if (account == null)
 				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
-			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)
+			if(!account.IsAllowLogin())
 				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 			return Result<Account>.ReSuccess(account);
 		}
@@ -92,7 +92,7 @@ namespace ASF.Domain.Services
 			Account account = await _accountsRepository.GetAccountByRole(uid,tenancyId);
 			if (account == null)
 				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
-			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)
+			if(!account.IsAllowLogin())
 				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 			return Result<Account>.ReSuccess(account);
 		}
@@ -107,7 +107,7 @@ namespace ASF.Domain.Services
 			Account account = await _accountsRepository.GetAccountByPostAndRoleAsync(uid,tenancyId);
 			if (account == null)
 				return Result<Account>.ReFailure(ResultCodes.AccountNotExist);
-			if (account.Status != null && (EnabledType)account.Status == EnabledType.Disabled)
+			if(!account.IsAllowLogin())
 				return Result<Account>.ReFailure(ResultCodes.AccountUnavailable);
 			return Result<Account>.ReSuccess(account);
 		}
