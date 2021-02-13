@@ -67,6 +67,7 @@ namespace ASF.Application
 		/// 获取角色列表
 		/// </summary>
 		/// <returns></returns>
+		[HttpGet]
 		public async Task<ResultList<RoleResponseDto>> GetLists()
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
