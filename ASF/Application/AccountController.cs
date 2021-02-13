@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
+using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
@@ -198,10 +199,11 @@ namespace ASF.Application
 			return Result<AccountResponseDto>.ReSuccess(data);
 		}
 		/// <summary>
-		/// /c创建账户
+		/// /创建账户
 		/// </summary>
 		/// <param name="dto"></param>
 		/// <returns></returns>
+		[HttpPost]
 		public async Task<Result> Create([FromBody] AccountCreateRequestDto dto)
 		{
 			// 只有超级管理员才能选择租户创建
@@ -209,6 +211,25 @@ namespace ASF.Application
 			var data = _mapper.Map<Account>(dto);
 			data.TenancyId = tenancyId;
 			return await _serviceProvider.GetRequiredService<AccountService>().Create(data);
+		}
+		/// <summary>
+		/// 修改账户
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> Modify([FromBody] AccountModifyRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			var result = await server.Get(dto.Id);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			return await server.Modify(_mapper.Map(dto,result.Data));
 		}
 	}
 }

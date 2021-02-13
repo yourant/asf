@@ -7,7 +7,11 @@ namespace ASF.Application.DTO
 	/// </summary>
 	public class AccountModifyRequestDto: AccountCreateRequestDto
 	{
-		
+		/// <summary>
+		/// 账户id
+		/// </summary>
+		public long Id { get; set; }
+
 		/// <summary>
 		/// 是否删除
 		/// </summary>

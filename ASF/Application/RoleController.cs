@@ -134,7 +134,7 @@ namespace ASF.Application
 					}
 				}
 			}
-			return await _serviceProvider.GetRequiredService<RoleService>().Modify(_mapper.Map(dto,result.Data));
+			return await server.Modify(_mapper.Map(dto,result.Data));
 		}
 		/// <summary>
 		/// 修改角色状态
