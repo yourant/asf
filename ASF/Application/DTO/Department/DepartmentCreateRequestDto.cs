@@ -10,6 +10,10 @@ namespace ASF.Application.DTO.Department
 	public class DepartmentCreateRequestDto
 	{
 		/// <summary>
+		/// 租户id
+		/// </summary>
+		public long? TenancyId { get; set; }
+		/// <summary>
 		/// 父id
 		/// </summary>
 		public long Pid { get; set; }

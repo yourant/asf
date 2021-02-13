@@ -80,8 +80,10 @@ namespace ASF.Application
 		[HttpPost]
 		public async Task<Result> Create([FromBody] PostCreateRequestDto dto)
 		{
+			// 只有超级管理员才能选择租户创建
+			long? tenancyId = HttpContext.User.IsSuperRole() ? dto.TenancyId : Convert.ToInt64(HttpContext.User.TenancyId());
 			Post post = _mapper.Map<Post>(dto);
-			post.TenancyId = Convert.ToInt64(HttpContext.User.TenancyId());
+			post.TenancyId = tenancyId;
 			return await _serviceProvider.GetRequiredService<PostService>().Create(post);
 		}
 		/// <summary>

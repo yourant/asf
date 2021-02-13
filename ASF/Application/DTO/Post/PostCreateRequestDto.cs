@@ -8,6 +8,10 @@ namespace ASF.Application.DTO.Post
 	public class PostCreateRequestDto
 	{
 		/// <summary>
+		/// 租户id
+		/// </summary>
+		public long? TenancyId { get; set; }
+		/// <summary>
 		/// 岗位名
 		/// </summary>
 		[Required(ErrorMessage = "岗位名称不能为空"),MinLength(2,ErrorMessage = "最少输入两个字符的岗位名"),MaxLength(50,ErrorMessage = "最多输入50个字符的岗位名")]

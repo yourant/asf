@@ -10,6 +10,10 @@ namespace ASF.Application.DTO.Role
 	public class RoleCreateRequestDto
 	{
 		/// <summary>
+		/// 租户id
+		/// </summary>
+		public long? TenancyId { get; set; }
+		/// <summary>
 		/// 角色名称
 		/// </summary>
 		[Required(ErrorMessage = "角色名称不能为空"),MinLength(2,ErrorMessage = "最少输入2个字符的角色名称"), MaxLength(50,ErrorMessage = "最多输入50个字符的角色名称")]

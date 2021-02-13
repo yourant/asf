@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
+using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
 using AutoMapper;
@@ -195,6 +196,19 @@ namespace ASF.Application
 			AccountResponseDto data = _mapper.Map<AccountResponseDto>(result.Data);
 			data.Roles = roles;
 			return Result<AccountResponseDto>.ReSuccess(data);
+		}
+		/// <summary>
+		/// /c创建账户
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		public async Task<Result> Create([FromBody] AccountCreateRequestDto dto)
+		{
+			// 只有超级管理员才能选择租户创建
+			long? tenancyId = HttpContext.User.IsSuperRole() ? dto.TenancyId : Convert.ToInt64(HttpContext.User.TenancyId());
+			var data = _mapper.Map<Account>(dto);
+			data.TenancyId = tenancyId;
+			return await _serviceProvider.GetRequiredService<AccountService>().Create(data);
 		}
 	}
 }

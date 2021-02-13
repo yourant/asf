@@ -13,6 +13,11 @@ namespace ASF.Application.DTO
 		/// </summary>
 		public long? DepartmentId { get; set; }
 		/// <summary>
+		/// 租户id
+		/// </summary>
+		public long? TenancyId { get; set; }
+
+		/// <summary>
 		/// 昵称
 		/// </summary>
 		[MinLength(2,ErrorMessage = "账户昵称最少输入2个字符"),MaxLength(50,ErrorMessage = "账户昵称最多输入50个字符")]

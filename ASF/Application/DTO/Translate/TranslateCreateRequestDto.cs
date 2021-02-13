@@ -8,6 +8,10 @@ namespace ASF.Application.DTO.Translate
 	public class TranslateCreateRequestDto
 	{
 		/// <summary>
+		/// 租户id
+		/// </summary>
+		public long? TenancyId { get; set; }
+		/// <summary>
 		/// 多语言名称
 		/// </summary>
 		[Required(ErrorMessage = "多语言名称不能为空"),MinLength(2,ErrorMessage = "多语言名称最少输入2个字符"),MaxLength(50,ErrorMessage = "多语言名字最多输入50个字符")]
