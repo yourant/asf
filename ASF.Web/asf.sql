@@ -159,7 +159,7 @@ INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,13);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,14);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (2,15);
 -- 下属租户普通员工
-INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (3,1);
+-- INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (3,1);
 INSERT INTO `asf_role_permission` (`role_id`,`permission_id`) VALUES (3,15);
 -- 插入部门数据
 INSERT INTO `asf_department` (`tenancy_id`,`name`) VALUES(1,'开发部');
@@ -220,8 +220,9 @@ INSERT INTO `asf_post` (`tenancy_id`, `name`) VALUES (2, '主管');
 -- 插入用户数据
 INSERT INTO `asf_accounts` (`tenancy_id`,`department_id`,`name`,`username`,`password`,`password_salt`,`telphone`,`email`,`avatar`,`sex`) VALUES (1, 2, 'keep_wan', 'admin', '20V6MgmX8XVtiRz10AI4Ib5H16a9JyrNmSwmgJ2k0iI=', '8283e4c3-f87e-4d85-85fb-f5c0de063992', '86+13800000000', 'admin@qq.com', '/avatar.jpg', 1);
 -- 分配账户角色
--- INSERT INTO `asf_account_role` (`account_id`,`role_id`) VALUES (1,1);
+INSERT INTO `asf_account_role` (`account_id`,`role_id`) VALUES (1,3);
 --  分配角色到部门
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (1,3);
 INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (2,1);
 INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (3,1);
 INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (4,1);
@@ -229,6 +230,30 @@ INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (5,1);
 INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (6,1);
 INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (7,1);
 INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (8,2);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (9,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (10,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (11,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (12,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (13,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (14,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (15,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (16,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (17,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (18,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (19,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (20,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (21,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (22,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (23,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (24,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (25,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (26,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (27,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (28,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (29,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (30,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (31,3);
+INSERT INTO `asf_department_role` (`department_id`,`role_id`) VALUES (32,3);
 --  分配账户岗位
 INSERT INTO `asf_account_post` (`account_id`,`post_id`) VALUES (1,3);
 INSERT INTO `asf_account_post` (`account_id`,`post_id`) VALUES (1,7);
