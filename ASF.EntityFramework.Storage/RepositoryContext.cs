@@ -23,10 +23,12 @@ namespace ASF.EntityFramework.Repository
                 
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                // 账户索引
+                e.HasIndex(x => x.Username).IsUnique();
                 // 手机索引
-                e.HasIndex(x => x.Telephone).IsUnique();
-                
-                e.HasIndex(x => x.Email).IsUnique();
+                // e.HasIndex(x => x.Username).IsUnique();
+                //
+                // e.HasIndex(x => x.Email).IsUnique();
                 
                 e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint(20)").HasComment("租户id");
 

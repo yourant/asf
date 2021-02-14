@@ -342,6 +342,11 @@
             性别
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.PostId">
+            <summary>
+            岗位id
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.AccountInfoResponseDto">
             <summary>
             登录账户信息

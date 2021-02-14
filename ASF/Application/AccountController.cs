@@ -212,6 +212,18 @@ namespace ASF.Application
 			data.TenancyId = tenancyId;
 			data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			data.SetPassword(dto.Password);
+			// 如果有岗位id 就分配岗位
+			if (dto.PostId != null && dto.PostId.Count > 0)
+			{
+				foreach (var pid in dto.PostId)
+				{
+					data.AccountPost.Add(new AccountPost()
+					{
+						AccountId =  data.Id,
+						PostId = pid
+					});
+				}
+			}
 			return await _serviceProvider.GetRequiredService<AccountService>().Create(data);
 		}
 		/// <summary>
@@ -247,7 +259,18 @@ namespace ASF.Application
 					}
 				}
 			}
-
+			// 如果有岗位id 就分配岗位
+			if (dto.PostId != null && dto.PostId.Count > 0)
+			{
+				foreach (var pid in dto.PostId)
+				{
+					result.Data.AccountPost.Add(new AccountPost()
+					{
+						AccountId =  dto.Id,
+						PostId = pid
+					});
+				}
+			}
 			Account data = _mapper.Map(dto, result.Data);
 			data.SetPassword(dto.Password);
 			return await server.Modify(data);

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -64,5 +65,9 @@ namespace ASF.Application.DTO
 		/// </summary>
 		[Range(0,2,ErrorMessage="性别只能输入0-2之间的数字")]
 		public int? Sex { get; set; }
+		/// <summary>
+		/// 岗位id
+		/// </summary>
+		public List<long> PostId { get; set; }
 	}
 }
