@@ -223,7 +223,7 @@ namespace ASF.Application
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var result = await server.Get(dto.Id);
+			var result = await server.GetDetails(dto.Id);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
 			// 除总超级管理员之外其他不允许操作其他租户信息
@@ -233,20 +233,16 @@ namespace ASF.Application
 			// 判断是否存在相同的角色。如果存在就移除角色相同的部分
 			if (result.Data.Role != null)
 			{
-				if (dto.DepartmentId != null)
+				foreach (Role value in result.Data.Role.ToList())
 				{
-					var dp = await _serviceProvider.GetRequiredService<DepartmentService>().Get((long) dto.DepartmentId);
-					foreach (Role value in result.Data.Role.ToList())
+					if (result.Data.Department != null && result.Data.Department.Role.Any(f => f.Id == value.Id))
 					{
-						if (dp.Data.Role.Any(f => f.Id == value.Id))
+						result.Data.AccountRole.Clear();
+						result.Data.AccountRole.Remove(new AccountRole()
 						{
-							result.Data.AccountRole.Clear();
-							result.Data.AccountRole.Remove(new AccountRole()
-							{
-								AccountId = dto.Id,
-								RoleId = value.Id
-							});
-						}
+							AccountId = dto.Id,
+							RoleId = value.Id
+						});
 					}
 				}
 			}
@@ -405,12 +401,14 @@ namespace ASF.Application
 				// 判断部门不为空。并且部门角色不包含相同角色添加。 否则直接添加
 				if (result.Data.Department != null)
 				{
-					if(result.Data.Department.Role.Any(f => f.Id != item))
+					if (result.Data.Department.Role.Any(f => f.Id != item))
+					{
 						result.Data.AccountRole.Add(new AccountRole()
 						{
 							RoleId = item,
 							AccountId = result.Data.Id
 						});	
+					}
 				}
 				else
 				{
