@@ -246,11 +246,11 @@ namespace ASF.Application
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			// 判断是否存在相同的角色。如果存在就移除角色相同的部分
-			if (result.Data.Role != null)
+			if (result.Data.Role != null && result.Data.Role.Count > 0)
 			{
 				foreach (Role value in result.Data.Role.ToList())
 				{
-					if (result.Data.Department != null && result.Data.Department.Role.Any(f => f.Id == value.Id))
+					if (result.Data.Department != null && result.Data.Department.Role.Count > 0 && result.Data.Department.Role.Any(f => f.Id == value.Id))
 					{
 						result.Data.AccountRole.Clear();
 						result.Data.AccountRole.Remove(new AccountRole()
@@ -429,7 +429,7 @@ namespace ASF.Application
 			foreach (var item in dto.Ids)
 			{
 				// 判断部门不为空。并且部门角色不包含相同角色添加。 否则直接添加
-				if (result.Data.Department != null)
+				if (result.Data.Department != null && result.Data.Department.Role.Count > 0)
 				{
 					if (result.Data.Department.Role.Any(f => f.Id != item))
 					{

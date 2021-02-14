@@ -46,12 +46,12 @@ namespace ASF.EntityFramework.Repository
 		{
 			if (tenancyId != null)
 			{
-				Account a = await base.GetDbContext().Account.Include("Department").Include("AccountPost.Post").AsSplitQuery().OrderBy(f => f.Id)
+				Account a = await base.GetDbContext().Account.Include("AccountPost.Post").AsSplitQuery().OrderBy(f => f.Id)
 					.FirstOrDefaultAsync(f => f.Id == id && f.TenancyId == tenancyId);
 				return await Task.FromResult<Account>(a);
 			}
 
-			Account account = await base.GetDbContext().Account.Include("Department").Include("AccountPost.Post").AsSplitQuery().OrderBy(f => f.Id)
+			Account account = await base.GetDbContext().Account.Include("AccountPost.Post").AsSplitQuery().OrderBy(f => f.Id)
 				.FirstOrDefaultAsync(f => f.Id == id);
 			return await Task.FromResult<Account>(account);
 		}
@@ -94,13 +94,13 @@ namespace ASF.EntityFramework.Repository
 			if (tenancyId != null)
 			{
 				Account a = await base.GetDbContext().Account
-					.Include("AccountRole.Role").OrderBy(f=> f.Id)
+					.Include("AccountRole.Role").Include("Department.DepartmentRole.Role").OrderBy(f=> f.Id)
 					.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id && f.TenancyId == tenancyId);
 				return await Task.FromResult<Account>(a);
 			}
 
 			Account account = await base.GetDbContext().Account
-				.Include("AccountRole.Role").OrderBy(f=> f.Id)
+				.Include("AccountRole.Role").Include("Department.DepartmentRole.Role").OrderBy(f=> f.Id)
 				.AsSplitQuery().FirstOrDefaultAsync(f=>f.Id == id);
 			return await Task.FromResult<Account>(account);
 		}
