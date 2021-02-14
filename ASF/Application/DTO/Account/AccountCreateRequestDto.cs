@@ -39,6 +39,11 @@ namespace ASF.Application.DTO
 		[RegularExpression(@"^1[0-9]{10}$",ErrorMessage = "手机号码不正确")]
 		public string Telephone { get;set; }
 		/// <summary>
+		/// 手机区号。默认 86
+		/// </summary>
+		public int Area { get; set; } = 86;
+
+		/// <summary>
 		/// 邮箱地址
 		/// </summary>
 		[RegularExpression(@"^[-\w\+]+(?:\.[-\w]+)*@[-a-z0-9]+(?:\.[a-z0-9]+)*(?:\.[a-z]{2,})$",ErrorMessage = "邮箱格式不正确")]

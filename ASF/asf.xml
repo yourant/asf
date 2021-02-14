@@ -182,6 +182,16 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Application.AudioController">
+            <summary>
+            审计控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.AudioController.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
+            <summary>
+            审计控制器
+            </summary>
+        </member>
         <member name="T:ASF.Application.AuthoriseController">
             <summary>
             管理员账户验证
@@ -305,6 +315,11 @@
         <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Telephone">
             <summary>
             手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Area">
+            <summary>
+            手机区号。默认 86
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Email">

@@ -211,6 +211,7 @@ namespace ASF.Application
 			var data = _mapper.Map<Account>(dto);
 			data.TenancyId = tenancyId;
 			data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			data.SetPassword(dto.Password);
 			return await _serviceProvider.GetRequiredService<AccountService>().Create(data);
 		}
 		/// <summary>
@@ -246,7 +247,10 @@ namespace ASF.Application
 					}
 				}
 			}
-			return await server.Modify(_mapper.Map(dto,result.Data));
+
+			Account data = _mapper.Map(dto, result.Data);
+			data.SetPassword(dto.Password);
+			return await server.Modify(data);
 		}
 		/// <summary>
 		/// 软删除账户

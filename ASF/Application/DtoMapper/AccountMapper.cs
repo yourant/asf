@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using ASF.Application.DTO;
 using ASF.Domain.Entities;
+using ASF.Domain.Values;
 using AutoMapper;
 
 namespace ASF.Application.DtoMapper
@@ -20,9 +21,11 @@ namespace ASF.Application.DtoMapper
             // 账户权限菜单等响应
             this.CreateMap<Account, AccountInfoResponseDto>();
             //创建账户
-            this.CreateMap<AccountCreateRequestDto, Account>();
+            this.CreateMap<AccountCreateRequestDto, Account>()
+                .ForMember(f => f.Telephone, s => s.MapFrom(o=>new PhoneNumber(o.Telephone,o.Area)));
             // 修改账户
-            this.CreateMap<AccountModifyRequestDto, Account>();
+            this.CreateMap<AccountModifyRequestDto, Account>()
+                .ForMember(f => f.Telephone, s => s.MapFrom(o=>new PhoneNumber(o.Telephone,o.Area)));
             // 账户响应数据
             this.CreateMap<Account, AccountResponseDto>()
                 .ForMember(f=>f.Accounts,s=>s.MapFrom(o=>new
