@@ -167,13 +167,13 @@ namespace ASF.Application
 				{
 					roles.Add(new
 					{
-						Id = value.Id,
-						Nmae = value.Name,
-						Enable = value.Enable,
-						Description = value.Description,
-						CreateId = value.CreateId,
-						CreateTime = value.CreateTime,
-						TenancyId = value.TenancyId
+						value.Id,
+						value.Name,
+						value.Enable,
+						value.Description,
+						value.CreateId,
+						value.CreateTime,
+						value.TenancyId
 					});
 				}
 			}
@@ -184,13 +184,13 @@ namespace ASF.Application
 				{
 					roles.Add(new
 					{
-						Id = value.Id,
+						value.Id,
 						Nmae = value.Name,
-						Enable = value.Enable,
-						Description = value.Description,
-						CreateId = value.CreateId,
-						CreateTime = value.CreateTime,
-						TenancyId = value.TenancyId
+						value.Enable,
+						value.Description,
+						value.CreateId,
+						value.CreateTime,
+						value.TenancyId
 					});
 				}
 			}
@@ -230,6 +230,26 @@ namespace ASF.Application
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			// 判断是否存在相同的角色。如果存在就移除角色相同的部分
+			if (result.Data.Role != null)
+			{
+				if (dto.DepartmentId != null)
+				{
+					var dp = await _serviceProvider.GetRequiredService<DepartmentService>().Get((long) dto.DepartmentId);
+					foreach (Role value in result.Data.Role.ToList())
+					{
+						if (dp.Data.Role.Any(f => f.Id == value.Id))
+						{
+							result.Data.AccountRole.Clear();
+							result.Data.AccountRole.Remove(new AccountRole()
+							{
+								AccountId = dto.Id,
+								RoleId = value.Id
+							});
+						}
+					}
+				}
+			}
 			return await server.Modify(_mapper.Map(dto,result.Data));
 		}
 		/// <summary>
@@ -400,6 +420,72 @@ namespace ASF.Application
 						AccountId = result.Data.Id
 					});	
 				}
+			}
+			return await server.Modify(result.Data);
+		}
+		/// <summary>
+		/// 分配账户部门
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> AssignDepartment([FromBody] AccountAssignDepartmentRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.GetDetails(dto.Id,tenancyId);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			// 判断是否存在相同的角色。如果存在就移除角色相同的部分
+			if (result.Data.Role != null)
+			{
+				foreach (Role value in result.Data.Role.ToList())
+				{
+					if (result.Data.Department != null && result.Data.Department.Role.Any(f => f.Id == value.Id))
+					{
+						result.Data.AccountRole.Clear();
+						result.Data.AccountRole.Remove(new AccountRole()
+						{
+							AccountId = dto.Id,
+							RoleId = value.Id
+						});
+					}
+				}
+			}
+			// 分配部门id
+			result.Data.DepartmentId = dto.DepartmentId;
+			return await server.Modify(result.Data);
+		}
+		/// <summary>
+		/// 分配账户岗位
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> AssignPost([FromBody] AssignIdArrayRequestDto<long> dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.GetAccountByPostAsync(dto.Id,tenancyId);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			if (dto.Ids == null || dto.Ids.Count == 0)
+				return Result.ReFailure(ResultCodes.PostNotExist);
+			result.Data.AccountPost.Clear();
+			foreach (var item in dto.Ids)
+			{
+				result.Data.AccountPost.Add(new AccountPost()
+				{
+					PostId = item,
+					AccountId = dto.Id
+				});
 			}
 			return await server.Modify(result.Data);
 		}

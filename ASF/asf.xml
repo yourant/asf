@@ -107,6 +107,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.AccountController.AssignDepartment(ASF.Application.DTO.AccountAssignDepartmentRequestDto)">
+            <summary>
+            分配账户部门
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AccountController.AssignPost(ASF.Application.DTO.AssignIdArrayRequestDto{System.Int64})">
+            <summary>
+            分配账户岗位
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.ApiController">
             <summary>
             api 控制器 只有超级管理员才有权限控制
@@ -242,6 +256,21 @@
             </summary>
             <param name="dto"></param>
             <returns></returns>
+        </member>
+        <member name="T:ASF.Application.DTO.AccountAssignDepartmentRequestDto">
+            <summary>
+            账户分配部门
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountAssignDepartmentRequestDto.Id">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountAssignDepartmentRequestDto.DepartmentId">
+            <summary>
+            部门id
+            </summary>
         </member>
         <member name="T:ASF.Application.DTO.AccountCreateRequestDto">
             <summary>

@@ -153,7 +153,7 @@ namespace ASF.Application
 				result.Data.DepartmentRole.Add(new DepartmentRole()
 				{
 					RoleId = item,
-					DepartmentId = result.Data.Id
+					DepartmentId = dto.Id
 				});
 			}
 			return await server.Modify(result.Data);
