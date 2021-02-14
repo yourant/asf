@@ -58,11 +58,11 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Application.AccountController.Delete(ASF.Application.DTO.ModifyStatusRequestDto)">
+        <member name="M:ASF.Application.AccountController.Delete(System.Int64)">
             <summary>
             软删除账户
             </summary>
-            <param name="dto"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:ASF.Application.AccountController.ModifyStatus(ASF.Application.DTO.ModifyStatusRequestDto)">
@@ -72,9 +72,9 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Application.AccountController.ModifyPassword(ASF.Application.DTO.AccountModifyPasswordRequestDto)">
+        <member name="M:ASF.Application.AccountController.ResetPassword(ASF.Application.DTO.AccountModifyPasswordRequestDto)">
             <summary>
-            修改账户密码
+            重置账户密码
             </summary>
             <param name="dto"></param>
             <returns></returns>
@@ -312,7 +312,7 @@
             登录密码
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.Telephone">
+        <member name="P:ASF.Application.DTO.AccountCreateRequestDto.TelPhone">
             <summary>
             手机号码
             </summary>
@@ -517,12 +517,17 @@
             账户id
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.AccountModifyTelPhoneRequestDto.OldTelephone">
+        <member name="P:ASF.Application.DTO.AccountModifyTelPhoneRequestDto.Area">
+            <summary>
+            手机区号 默认 86
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyTelPhoneRequestDto.OldTelPhone">
             <summary>
             旧手机号码
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.AccountModifyTelPhoneRequestDto.NewTelephone">
+        <member name="P:ASF.Application.DTO.AccountModifyTelPhoneRequestDto.NewTelPhone">
             <summary>
             新手机号码
             </summary>
@@ -2247,7 +2252,7 @@
             设置用户密码
             </summary>
         </member>
-        <member name="M:ASF.Domain.Entities.Account.SetPhone(System.String)">
+        <member name="M:ASF.Domain.Entities.Account.SetPhone(System.String,System.Int32)">
             <summary>
             设置用户手机号码
             </summary>

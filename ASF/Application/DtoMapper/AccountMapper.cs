@@ -22,10 +22,10 @@ namespace ASF.Application.DtoMapper
             this.CreateMap<Account, AccountInfoResponseDto>();
             //创建账户
             this.CreateMap<AccountCreateRequestDto, Account>()
-                .ForMember(f => f.Telephone, s => s.MapFrom(o=>new PhoneNumber(o.Telephone,o.Area)));
+                .ForMember(f => f.Telephone, s => s.MapFrom(o=>new PhoneNumber(o.TelPhone,o.Area)));
             // 修改账户
             this.CreateMap<AccountModifyRequestDto, Account>()
-                .ForMember(f => f.Telephone, s => s.MapFrom(o=>new PhoneNumber(o.Telephone,o.Area)));
+                .ForMember(f => f.Telephone, s => s.MapFrom(o=>new PhoneNumber(o.TelPhone,o.Area)));
             // 账户响应数据
             this.CreateMap<Account, AccountResponseDto>()
                 .ForMember(f=>f.Accounts,s=>s.MapFrom(o=>new

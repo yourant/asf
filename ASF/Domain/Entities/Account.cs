@@ -54,7 +54,7 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 密码加盐
         /// </summary>
-        public string PasswordSalt { get; set; }
+        public string PasswordSalt { get; set; } = Guid.NewGuid().ToString();
 
         /// <summary>
         /// 手机号码
@@ -152,7 +152,7 @@ namespace ASF.Domain.Entities
         /// </summary>
         public Result SetPassword(string passsword)
         {
-            this.PasswordSalt = Guid.NewGuid().ToString();
+            // this.PasswordSalt = Guid.NewGuid().ToString();
             string newPassword = PasswordHelper.GeneratePasswordHash(passsword, this.PasswordSalt);
             if(newPassword == this.Password)
                 return Result.ReFailure(ResultCodes.AccountOldPasswordAndNewPasswordSame);
@@ -162,9 +162,9 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 设置用户手机号码
         /// </summary>
-        public void SetPhone(string phone)
+        public void SetPhone(string phone, int area)
         {
-            this.Telephone = phone;
+            this.Telephone = new PhoneNumber(phone,area).ToString();
         }
         /// <summary>
         /// 设置用户邮箱

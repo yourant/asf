@@ -12,14 +12,19 @@ namespace ASF.Application.DTO
 		/// </summary>
 		public long Id { get; set; }
 		/// <summary>
+		/// 手机区号 默认 86
+		/// </summary>
+		public int Area { get; set; } = 86;
+
+		/// <summary>
 		/// 旧手机号码
 		/// </summary>
 		[RegularExpression(@"^1[0-9]{10}$",ErrorMessage = "手机号码不正确")]
-		public string OldTelephone { get;set; }
+		public string OldTelPhone { get;set; }
 		/// <summary>
 		/// 新手机号码
 		/// </summary>
 		[RegularExpression(@"^1[0-9]{10}$",ErrorMessage = "手机号码不正确")]
-		public string NewTelephone { get;set; }
+		public string NewTelPhone { get;set; }
 	}
 }

@@ -6,6 +6,7 @@ using ASF.Application.DTO;
 using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
+using ASF.Domain.Values;
 using ASF.Internal.Results;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -215,6 +216,7 @@ namespace ASF.Application
 			// 如果有岗位id 就分配岗位
 			if (dto.PostId != null && dto.PostId.Count > 0)
 			{
+				data.AccountPost.Clear();
 				foreach (var pid in dto.PostId)
 				{
 					data.AccountPost.Add(new AccountPost()
@@ -262,6 +264,7 @@ namespace ASF.Application
 			// 如果有岗位id 就分配岗位
 			if (dto.PostId != null && dto.PostId.Count > 0)
 			{
+				result.Data.AccountPost.Clear();
 				foreach (var pid in dto.PostId)
 				{
 					result.Data.AccountPost.Add(new AccountPost()
@@ -278,20 +281,20 @@ namespace ASF.Application
 		/// <summary>
 		/// 软删除账户
 		/// </summary>
-		/// <param name="dto"></param>
+		/// <param name="id"></param>
 		/// <returns></returns>
-		[HttpPost]
-		public async Task<Result> Delete([FromBody] ModifyStatusRequestDto dto)
+		[HttpPost("{id}")]
+		public async Task<Result> Delete([FromRoute] long id)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var result = await server.Get(dto.Id);
+			var result = await server.Get(id);
 			if(!result.Success)
 				return Result.ReFailure(result.Message,result.Status);
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			result.Data.IsDeleted = dto.Status;
+			result.Data.IsDeleted = (uint) Status.Yes;
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			return await server.Modify(result.Data);
 		}
@@ -316,12 +319,12 @@ namespace ASF.Application
 			return await server.Modify(result.Data);
 		}
 		/// <summary>
-		/// 修改账户密码
+		/// 重置账户密码
 		/// </summary>
 		/// <param name="dto"></param>
 		/// <returns></returns>
 		[HttpPut]
-		public async Task<Result> ModifyPassword([FromBody] AccountModifyPasswordRequestDto dto)
+		public async Task<Result> ResetPassword([FromBody] AccountModifyPasswordRequestDto dto)
 		{
 			var server = _serviceProvider.GetRequiredService<AccountService>();
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
@@ -375,9 +378,9 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			if (!result.Data.Email.Equals(dto.OldTelephone))
+			if (!result.Data.Telephone.Equals(new PhoneNumber(dto.OldTelPhone,dto.Area).ToString()))
 				return Result.ReFailure(ResultCodes.AccountOldTelPhoneError);
-			result.Data.SetPhone(dto.NewTelephone);
+			result.Data.SetPhone(dto.NewTelPhone,dto.Area);
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
 			return await server.Modify(result.Data,"telphone");
 		}
