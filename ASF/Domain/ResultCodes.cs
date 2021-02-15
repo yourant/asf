@@ -67,6 +67,7 @@ namespace ASF.Domain
         //日志记录
         public static ValueTuple<int, string> LogginDeletedCannoBeWithinThreeMonths = (14000, "三个月之内的日志不能删除");
         public static ValueTuple<int, string> LogginDeletedError = (14001, "删除日志失败");
+        public static ValueTuple<int, string> LoggingNotExist = (14002, "没有这个日志");
         // 多语言
         public static ValueTuple<int, string> TranslateNotExist = (15000, "多语言不存在");
         public static ValueTuple<int, string> TranslateNameExist = (15001, "多语言名称已经存在");

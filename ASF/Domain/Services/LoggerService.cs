@@ -69,6 +69,19 @@ namespace ASF.Domain.Services
 			return ResultPagedList<LogInfo>.ReSuccess(data,totalCount);
 		}
 		/// <summary>
+		/// 获取审计日志
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public async Task<Result<LogInfo>> Get(long id)
+		{
+			LogInfo logInfo = await _loggingsRepository.GetEntity(f => f.Id == id);
+			if(logInfo == null)
+				return Result<LogInfo>.ReFailure(ResultCodes.LoggingNotExist);
+			return Result<LogInfo>.ReSuccess(logInfo);
+		}
+
+		/// <summary>
 		/// 删除日志
 		/// </summary>
 		/// <param name="logInfo"></param>

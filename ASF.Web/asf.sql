@@ -81,11 +81,9 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (6, '角色分配权限',2,'/api/asf/role/assignpermission','post,put',1,'角色分配权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (8, '获取错误日志列表',2,'/api/asf/audio/geterrorlist','get',1,'获取错误日志信息列表权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (8, '获取错误日志详情',2,'/api/asf/audio/errordetails','get',1,'获取错误日志详情权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (8, '删除错误日志',2,'/api/asf/audio/deleteerror/[0-9]{1,12}','post,delete',1,'删除错误日志信息权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (9, '获取操作日志列表',2,'/api/asf/audio/getloglist','get',1,'获取操作日志信息列表权限');
-INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (9, '获取操作日志详情',2,'/api/asf/audio/detailslog','get',1,'获取操作日志详情权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (9, '删除操作日志',2,'/api/asf/audio/deletelog/[0-9]{1,12}','post,delete',1,'删除操作日志信息权限',1);
 
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (10, '获取调度任务列表',2,'/api/asf/task/getlist','get',1,'获取调度任务信息列表权限');

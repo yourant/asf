@@ -192,6 +192,34 @@
             审计控制器
             </summary>
         </member>
+        <member name="M:ASF.Application.AudioController.GetErrorList(ASF.Application.DTO.Audio.AudioListRequestDto)">
+            <summary>
+            获取错误日志列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AudioController.DeleteError(System.Int64)">
+            <summary>
+            删除错误日志
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AudioController.GetLogList(ASF.Application.DTO.Audio.AudioListRequestDto)">
+            <summary>
+            获取操作日志列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.AudioController.DeleteLog(System.Int64)">
+            <summary>
+            删除操作日志
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.AuthoriseController">
             <summary>
             管理员账户验证
@@ -590,6 +618,86 @@
         <member name="P:ASF.Application.DTO.AssignIdArrayRequestDto`1.Ids">
             <summary>
             id 数组集合
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Audio.AudioListRequestDto">
+            <summary>
+            审计分页请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioListRequestDto.AccountName">
+            <summary>
+            操作账户名
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Audio.AudioResponseDto">
+            <summary>
+            审计日志响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.Id">
+            <summary>
+            日志编号
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.AccountId">
+            <summary>
+            操作账号编号
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.AccountName">
+            <summary>
+            操作账户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.Type">
+            <summary>
+            日志类型
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.Subject">
+            <summary>
+            登录方式
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.ClientIp">
+            <summary>
+            客户端IP
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.ClientLocation">
+            <summary>
+            客户端位置
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.PermissionId">
+            <summary>
+            权限ID
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.AddTime">
+            <summary>
+            日志记录时间
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.ApiAddress">
+            <summary>
+            请求地址
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.ApiRequest">
+            <summary>
+            API请求数据
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.ApiResponse">
+            <summary>
+            响应数据
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.Remark">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Department.DepartmentCreateRequestDto">
@@ -1560,6 +1668,16 @@
         <member name="M:ASF.Application.DtoMapper.AccountMapper.#ctor">
             <summary>
             账户映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.AudioMapper">
+            <summary>
+            审计日志映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.AudioMapper.#ctor">
+            <summary>
+            审计日志映射
             </summary>
         </member>
         <member name="T:ASF.Application.DtoMapper.DepartmentMapper">
@@ -3456,6 +3574,13 @@
             <param name="pageSize"></param>
             <param name="type"></param>
             <param name="accountName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.LoggerService.Get(System.Int64)">
+            <summary>
+            获取审计日志
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:ASF.Domain.Services.LoggerService.Delete(ASF.Domain.Entities.LogInfo)">
