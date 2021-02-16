@@ -48,6 +48,19 @@ namespace ASF.Application
 				data.TotalCount);
 		}
 		/// <summary>
+		/// 获取租户列表集合
+		/// </summary>
+		/// <returns></returns>
+		[HttpGet]
+		[AllowAnonymous]
+		public async Task<ResultList<TenancyResponseDto>> GetLists()
+		{
+			var data = await _serviceProvider.GetRequiredService<TenancyService>().GetList();
+			if (!data.Success)
+				return ResultList<TenancyResponseDto>.ReFailure(data.Message, data.Status);
+			return ResultList<TenancyResponseDto>.ReSuccess(_mapper.Map<List<TenancyResponseDto>>(data.Data));
+		}
+		/// <summary>
 		/// 获取租户详情
 		/// </summary>
 		/// <param name="id"></param>

@@ -122,6 +122,7 @@ INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (15, '登录',1,'/api/asf/authorise/login','post',1,'登录账户权限',0);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (15, '登出',1,'/api/asf/authorise/logout','post',1,'登出账户权限',0);
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (15, '获取登录账户信息',1,'/api/asf/account/accountinfo','get',1,'登出账户权限',0);
+INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (15, '获取租户列表集合',1,'/api/asf/tenancy/getlists','get',1,'获取租户列表集合',0);
 -- 插入角色数据
 INSERT INTO `asf_role` (`tenancy_id`,`name`,`description`,`create_id`) VALUES (1, 'superadmin', '总超级管理员拥有下属租户所有权限',1);
 INSERT INTO `asf_role` (`tenancy_id`,`name`,`description`,`create_id`) VALUES (1, 'admin', '普通管理员，拥有部分权限',1);

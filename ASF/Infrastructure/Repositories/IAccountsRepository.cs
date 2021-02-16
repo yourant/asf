@@ -40,19 +40,22 @@ namespace ASF.Infrastructure.Repositories
 		/// 通过用户名获取账户信息
 		/// </summary>
 		/// <param name="username"></param>
+		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		Task<Account> GetByUsernameAsync(string username);
+		Task<Account> GetByUsernameAsync(string username,long tenancyId);
 		/// <summary>
 		/// 通过手机号码找到账号
 		/// </summary>
 		/// <param name="phone"></param>
+		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		Task<Account> GetByPhoneAsync(string phone);
+		Task<Account> GetByPhoneAsync(string phone,long tenancyId);
 		/// <summary>
 		/// 通过邮箱找到账号
 		/// </summary>
 		/// <param name="email"></param>
+		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		Task<Account> GetByEamilAsync(string email);
+		Task<Account> GetByEamilAsync(string email,long tenancyId);
 	}
 }

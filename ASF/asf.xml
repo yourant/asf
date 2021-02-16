@@ -595,6 +595,16 @@
             管理员身份验证请求
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.AuthoriseByUsernameRequestDto.LoginType">
+            <summary>
+            登录类型
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AuthoriseByUsernameRequestDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.AuthoriseByUsernameRequestDto.Username">
             <summary>
             用户名
@@ -1987,6 +1997,12 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.TenancyController.GetLists">
+            <summary>
+            获取租户列表集合
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:ASF.Application.TenancyController.Details(System.Int64)">
             <summary>
             获取租户详情
@@ -3268,29 +3284,32 @@
             <param name="memoryCache"></param>
             <param name="serviceProvider"></param>
         </member>
-        <member name="M:ASF.Domain.Services.AccountLoginService.LoginByUsername(System.String,System.String,System.String)">
+        <member name="M:ASF.Domain.Services.AccountLoginService.LoginByUsername(System.String,System.Int64,System.String,System.String)">
             <summary>
             使用用户名登录
             </summary>
             <param name="username">账户账号</param>
+            <param name="tenancyId">租户id</param>
             <param name="password">账户密码</param>
             <param name="ip">登录IP</param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.AccountLoginService.LoginByEmail(System.String,System.String,System.String)">
+        <member name="M:ASF.Domain.Services.AccountLoginService.LoginByEmail(System.String,System.Int64,System.String,System.String)">
             <summary>
             使用邮箱登录账户
             </summary>
             <param name="email">邮箱地址</param>
+            <param name="tenancyId"></param>
             <param name="password">账户密码</param>
             <param name="ip">登录IP</param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.AccountLoginService.LoginByTelephone(ASF.Domain.Values.PhoneNumber,System.String,System.String)">
+        <member name="M:ASF.Domain.Services.AccountLoginService.LoginByTelephone(ASF.Domain.Values.PhoneNumber,System.Int64,System.String,System.String)">
             <summary>
             使用手机登录账户
             </summary>
             <param name="telephone">手机号码</param>
+            <param name="tenancyId">租户id</param>
             <param name="password">账户密码</param>
             <param name="ip">登录IP</param>
             <returns></returns>
@@ -3521,29 +3540,32 @@
             账户登录服务
             </summary>
         </member>
-        <member name="M:ASF.Domain.Services.IAccountLoginService.LoginByUsername(System.String,System.String,System.String)">
+        <member name="M:ASF.Domain.Services.IAccountLoginService.LoginByUsername(System.String,System.Int64,System.String,System.String)">
             <summary>
             使用用户名登录
             </summary>
             <param name="username">账户账号</param>
+            <param name="tenancyId">租户id</param>
             <param name="password">账户密码</param>
             <param name="ip">登录IP</param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.IAccountLoginService.LoginByEmail(System.String,System.String,System.String)">
+        <member name="M:ASF.Domain.Services.IAccountLoginService.LoginByEmail(System.String,System.Int64,System.String,System.String)">
             <summary>
             使用邮箱登录账户
             </summary>
             <param name="email">邮箱地址</param>
+            <param name="tenancyId"></param>
             <param name="password">账户密码</param>
             <param name="ip">登录IP</param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.IAccountLoginService.LoginByTelephone(ASF.Domain.Values.PhoneNumber,System.String,System.String)">
+        <member name="M:ASF.Domain.Services.IAccountLoginService.LoginByTelephone(ASF.Domain.Values.PhoneNumber,System.Int64,System.String,System.String)">
             <summary>
             使用手机登录账户
             </summary>
             <param name="telephone">手机号码</param>
+            <param name="tenancyId">租户id</param>
             <param name="password">账户密码</param>
             <param name="ip">登录IP</param>
             <returns></returns>
@@ -4029,6 +4051,26 @@
             累计失败次数
             </summary>
         </member>
+        <member name="T:ASF.Domain.Values.LoginTypeValue">
+            <summary>
+            登录类型枚举
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.LoginTypeValue.Account">
+            <summary>
+            账户名登录
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.LoginTypeValue.Mobile">
+            <summary>
+            手机号码登录
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.LoginTypeValue.Email">
+            <summary>
+            邮箱地址登录
+            </summary>
+        </member>
         <member name="T:ASF.Domain.Values.PermissionType">
             <summary>
             权限类型
@@ -4163,25 +4205,28 @@
             <param name="tenancyId"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetByUsernameAsync(System.String)">
+        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetByUsernameAsync(System.String,System.Int64)">
             <summary>
             通过用户名获取账户信息
             </summary>
             <param name="username"></param>
+            <param name="tenancyId"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetByPhoneAsync(System.String)">
+        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetByPhoneAsync(System.String,System.Int64)">
             <summary>
             通过手机号码找到账号
             </summary>
             <param name="phone"></param>
+            <param name="tenancyId"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetByEamilAsync(System.String)">
+        <member name="M:ASF.Infrastructure.Repositories.IAccountsRepository.GetByEamilAsync(System.String,System.Int64)">
             <summary>
             通过邮箱找到账号
             </summary>
             <param name="email"></param>
+            <param name="tenancyId"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.IApiRepository">

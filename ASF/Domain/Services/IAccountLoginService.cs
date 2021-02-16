@@ -13,25 +13,28 @@ namespace ASF.Domain.Services
         /// 使用用户名登录
         /// </summary>
         /// <param name="username">账户账号</param>
+        /// <param name="tenancyId">租户id</param>
         /// <param name="password">账户密码</param>
         /// <param name="ip">登录IP</param>
         /// <returns></returns>
-        Task<Result<AccessToken>> LoginByUsername(string username, string password, string ip);
+        Task<Result<AccessToken>> LoginByUsername(string username,  long tenancyId, string password, string ip);
         /// <summary>
         /// 使用邮箱登录账户
         /// </summary>
         /// <param name="email">邮箱地址</param>
+        /// <param name="tenancyId"></param>
         /// <param name="password">账户密码</param>
         /// <param name="ip">登录IP</param>
         /// <returns></returns>
-        Task<Result<AccessToken>> LoginByEmail(string email, string password, string ip);
+        Task<Result<AccessToken>> LoginByEmail(string email, long tenancyId, string password, string ip);
         /// <summary>
         /// 使用手机登录账户
         /// </summary>
         /// <param name="telephone">手机号码</param>
+        /// <param name="tenancyId">租户id</param>
         /// <param name="password">账户密码</param>
         /// <param name="ip">登录IP</param>
         /// <returns></returns>
-        Task<Result<AccessToken>> LoginByTelephone(PhoneNumber telephone, string password, string ip);
+        Task<Result<AccessToken>> LoginByTelephone(PhoneNumber telephone,  long tenancyId, string password, string ip);
     }
 }

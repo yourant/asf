@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using ASF.Domain;
 
 namespace ASF.Application
 {
@@ -43,13 +44,15 @@ namespace ASF.Application
             if(ip.Equals("::1"))
                 ip = "127.0.0.1";
             // 如果为手机号码就试用手机号码/密码登录
-            if (Regex.IsMatch(dto.Username, @"^1[0-9]{10}$"))
-                return await service.LoginByTelephone(new PhoneNumber(dto.Username,86), dto.Password, ip);
+            if (Regex.IsMatch(dto.Username, @"^1[0-9]{10}$") && dto.LoginType.Equals(LoginTypeValue.Account.ToString().ToLower()))
+                return await service.LoginByTelephone(new PhoneNumber(dto.Username,86), dto.TenancyId,dto.Password, ip);
             // 如果为有限就使用邮箱/密码登录
-            if (Regex.IsMatch(dto.Username, @"^[-\w\+]+(?:\.[-\w]+)*@[-a-z0-9]+(?:\.[a-z0-9]+)*(?:\.[a-z]{2,})$"))
-                return await service.LoginByEmail(dto.Username, dto.Password, ip);
-            // 否则使用账户密码
-            return await service.LoginByUsername(dto.Username, dto.Password, ip);
+            if (Regex.IsMatch(dto.Username, @"^[-\w\+]+(?:\.[-\w]+)*@[-a-z0-9]+(?:\.[a-z0-9]+)*(?:\.[a-z]{2,})$") && dto.LoginType.Equals(LoginTypeValue.Email.ToString().ToLower()))
+                return await service.LoginByEmail(dto.Username, dto.TenancyId,dto.Password, ip);
+            if(dto.LoginType.Equals(LoginTypeValue.Account.ToString().ToLower()))
+                // 否则使用账户密码
+                return await service.LoginByUsername(dto.Username,dto.TenancyId, dto.Password, ip);
+            return Result<AccessToken>.ReFailure(ResultCodes.AccountExistTypeError);
         }
 
         /// <summary>

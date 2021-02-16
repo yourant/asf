@@ -109,10 +109,11 @@ namespace ASF.EntityFramework.Repository
 		/// 通过用户名获取账户信息
 		/// </summary>
 		/// <param name="username"></param>
+		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		public async Task<Account>  GetByUsernameAsync(string username)
+		public async Task<Account>  GetByUsernameAsync(string username,long tenancyId)
 		{
-			Account account = await base.GetDbContext().Account.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").OrderBy(f=> f.Id).AsSplitQuery().FirstOrDefaultAsync(f=>f.Username.Equals(username));
+			Account account = await base.GetDbContext().Account.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").OrderBy(f=> f.Id).AsSplitQuery().FirstOrDefaultAsync(f=>f.Username.Equals(username) && f.TenancyId == tenancyId);
 			
 			return await Task.FromResult<Account>(account);
 		}
@@ -120,20 +121,22 @@ namespace ASF.EntityFramework.Repository
 		/// 通过手机号码找到账号
 		/// </summary>
 		/// <param name="phone"></param>
+		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		public async Task<Account> GetByPhoneAsync(string phone)
+		public async Task<Account> GetByPhoneAsync(string phone,long tenancyId)
 		{
-			Account account = await base.GetDbContext().Account.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").OrderBy(f=> f.Id).AsSplitQuery().FirstOrDefaultAsync(f=>f.Telephone.Equals(phone));
+			Account account = await base.GetDbContext().Account.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").OrderBy(f=> f.Id).AsSplitQuery().FirstOrDefaultAsync(f=>f.Telephone.Equals(phone) && f.TenancyId == tenancyId);
 			return await Task.FromResult<Account>(account);
 		}
 		/// <summary>
 		/// 通过邮箱找到账号
 		/// </summary>
 		/// <param name="email"></param>
+		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		public async Task<Account> GetByEamilAsync(string email)
+		public async Task<Account> GetByEamilAsync(string email,long tenancyId)
 		{
-			Account account = await base.GetDbContext().Account.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").OrderBy(f=> f.Id).AsSplitQuery().FirstOrDefaultAsync(f=>f.Email.Equals(email));
+			Account account = await base.GetDbContext().Account.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").OrderBy(f=> f.Id).AsSplitQuery().FirstOrDefaultAsync(f=>f.Email.Equals(email) && f.TenancyId == tenancyId);
 			return await Task.FromResult<Account>(account);
 		}
 	}
