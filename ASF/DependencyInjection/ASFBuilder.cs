@@ -61,7 +61,7 @@ namespace ASF.DependencyInjection
             }).AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtBearerOptions =>
                 {
-                    jwtBearerOptions.SaveToken = true;
+                    // jwtBearerOptions.SaveToken = true;
                     jwtBearerOptions.RequireHttpsMetadata = false;
                     jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
                     {
