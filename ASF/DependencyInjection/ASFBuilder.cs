@@ -59,27 +59,21 @@ namespace ASF.DependencyInjection
                     .Build());
                 // opt.DefaultPolicy = new AuthorizationPolicyBuilder().AddRequirements(new OperationAuthorizationRequirement()).Build();
             }).AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(jwtBearerOptions =>
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtBearerOptions =>
                 {
+                    jwtBearerOptions.SaveToken = true;
+                    jwtBearerOptions.RequireHttpsMetadata = false;
                     jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
                     {
-                        // 签收者用公钥对JWT进行认证，如果直接给一个私钥，则框架会生成相应的公钥去认证
-                        // 参考资料https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
-                        IssuerSigningKey = RSA.RSAPublicKey,
-                        ValidAudience = "asf",
-                        ValidIssuer = "asf",
-                        RoleClaimType = ClaimsIdentity.DefaultRoleClaimType,
-                        // When receiving a token, check that we've signed it.
                         ValidateIssuerSigningKey = true,
-
-                        // When receiving a token, check that it is still valid.
+                        IssuerSigningKey = RSA.RSAPublicKey,
+                        ValidateIssuer = true,
+                        ValidIssuer = "asf",
+                        ValidateAudience = true,
+                        ValidAudience = "asf",
                         ValidateLifetime = true,
-
-                        // This defines the maximum allowable clock skew - i.e. provides a tolerance on the token expiry time 
-                        // when validating the lifetime. As we're creating the tokens locally and validating them on the same 
-                        // machines which should have synchronised time, this can be set to zero. Where external tokens are
-                        // used, some leeway here could be useful.
-                        ClockSkew = TimeSpan.FromMinutes(0)
+                        ClockSkew = TimeSpan.Zero,
+                        RequireExpirationTime = true
                     };
                 });;
         }

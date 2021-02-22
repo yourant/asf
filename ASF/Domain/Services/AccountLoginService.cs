@@ -140,12 +140,10 @@ namespace ASF.Domain.Services
                 role.AddRange(account.Role.Select(f => f.Name));
             }
             var identity = new ClaimsIdentity(new GenericIdentity(HttpUtility.UrlEncode(account.Name), "AccessToken"));
-            //生成访问Token
-            List<Claim> claims = new List<Claim>();
             //去重复之后添加多角色
-            claims.AddRange(role.Distinct().Select(s => new Claim(ClaimsIdentity.DefaultRoleClaimType,s)));
+            identity.AddClaims(role.Distinct().Select(s => new Claim(ClaimTypes.Role,s)));
             // 添加账户信息
-            claims.AddRange(new[] {
+            identity.AddClaims(new[] {
                 // new Claim(ClaimTypes.Role, role.Count > 0 ? string.Join(",",role.Distinct()) : "user"),
                 new Claim("name", account.Username),
                 // new Claim("nickname", HttpUtility.UrlEncode(account.Name)),
@@ -153,8 +151,7 @@ namespace ASF.Domain.Services
                 new Claim("auth_mode", _loginType),
                 new Claim("tenancy_id", ((long)account.TenancyId).ToString())
             });
-            identity.AddClaims(claims);
-            
+
             AccessToken accessToken =  new AccessToken()
             {
                 Token = await GenerateTokenAsync(identity,86400),
