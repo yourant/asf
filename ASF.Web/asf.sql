@@ -20,20 +20,20 @@ INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALU
 --  插入公共权限
 INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_openapi',1,'公共权限',3,1);
 -- 插入权限菜单数据
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`description`) VALUES ('控制面板','控制面板菜单',1,'anticon-table','控制面板菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('账户管理','账户管理',2,'anticon-user','/control/account','账户管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('权限管理','权限管理',3,'anticon-unlock','/control/permission','权限管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('菜单管理','菜单管理',4,'anticon-unordered-list','/control/menu','菜单管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('授权api管理','api管理',5,'anticon-compass','/control/api','授权api菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('角色管理','角色管理',6,'anticon-team','/control/role','角色管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`description`) VALUES ('审计管理','审计管理',7,'anticon-exception','审计管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('错误日志','错误日志',8,'anticon-field-number','/control/audio-error','错误日志菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('操作日志','操作日志',9,'anticon-field-string','/control/audio-oper','操作日志菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('调度任务','调度任务',10,'anticon-field-time','/control/scheduled_task','调度任务菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('租户管理','租户管理',11,'anticon-user-switch','/control/tenancy','租户管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('部门管理','部门管理',12,'anticon-hdd','/control/department','部门管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('岗位管理','岗位管理',13,'anticon-radar-chart','/control/post','岗位管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('多语言管理','多语言管理',14,'anticon-translate','/control/translate','多语言管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`description`) VALUES ('控制面板','控制面板菜单',1,'icon-dash_board','控制面板菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('账户管理','账户管理',2,'icon--proxyaccount','/control/account','账户管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('权限管理','权限管理',3,'icon-icon-authority','/control/permission','权限管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('菜单管理','菜单管理',4,'icon-caidan','/control/menu','菜单管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('授权api管理','api管理',5,'icon-api','/control/api','授权api菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('角色管理','角色管理',6,'icon-role','/control/role','角色管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`description`) VALUES ('审计管理','审计管理',7,'icon-audio','审计管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('错误日志','错误日志',8,'icon-errorcorrection_default','/control/audio-error','错误日志菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('操作日志','操作日志',9,'icon-errorcorrection_default','/control/audio-oper','操作日志菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('调度任务','调度任务',10,'icon-schedule_date','/control/scheduled_task','调度任务菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('租户管理','租户管理',11,'icon-tenancy','/control/tenancy','租户管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('部门管理','部门管理',12,'icon-bumen','/control/department','部门管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('岗位管理','岗位管理',13,'icon-gangwei','/control/post','岗位管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('多语言管理','多语言管理',14,'icon-EA','/control/translate','多语言管理菜单');
 -- 插入api 权限数据
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`) VALUES (2, '获取账户列表',2,'/api/asf/account/getlist','get',1,'获取账户信息列表权限');
 INSERT INTO `asf_apis` (`permission_id`, `name`,`type`,`path`,`http_methods`,`is_system`,`description`,`is_logger`) VALUES (2, '添加账户',2,'/api/asf/account/create','post',1,'添加账户信息权限',1);

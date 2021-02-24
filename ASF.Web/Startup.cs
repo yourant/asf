@@ -34,7 +34,17 @@ namespace ASF.Web
             // });
             //automapper
             services.AddAutoMapper(typeof(LoggerMapper).Assembly);
-            
+            // 跨域处理中间件
+            services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
+            {
+                // string[] urls = Configuration.GetSection("AllowedCores").Value.Split(',');
+                builder
+                    .WithOrigins()
+                    .SetIsOriginAllowed(orig => true)
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials();
+            }));
             services.AddASF(build =>
             {
                 var asfOptions = Configuration.GetSection("ASF").Get<ASFOptions>();
@@ -80,6 +90,7 @@ namespace ASF.Web
             }
 
             app.UseStaticFiles();
+            app.UseCors("CorsPolicy");
             // app.ASFInitDatabase();
             app.UseASF();
             
