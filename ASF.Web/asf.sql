@@ -22,13 +22,13 @@ INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALU
 INSERT INTO `asf_permission` (`code`,`parent_id`,`name`,`type`,`is_system`) VALUES ('asf_openapi',2,'公共权限',3,1);
 -- 插入权限菜单数据
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('控制台','控制台菜单',1,'icon-dash_board','/','控制台菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`description`) VALUES ('控制面板','控制面板菜单',2,'icon-dash_board','控制面板菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('控制面板','控制面板菜单',2,'icon-dash_board','/control','控制面板菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('账户管理','账户管理',3,'icon--proxyaccount','/control/account','账户管理菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('权限管理','权限管理',4,'icon-icon-authority','/control/permission','权限管理菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('菜单管理','菜单管理',5,'icon-caidan','/control/menu','菜单管理菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('授权api管理','api管理',6,'icon-api','/control/api','授权api菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('角色管理','角色管理',7,'icon-role','/control/role','角色管理菜单');
-INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`description`) VALUES ('审计管理','审计管理',8,'icon-audio','审计管理菜单');
+INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('审计管理','审计管理',8,'icon-audio','/audio','审计管理菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('错误日志','错误日志',9,'icon-errorcorrection_default','/control/audio-error','错误日志菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('操作日志','操作日志',10,'icon-errorcorrection_default','/control/audio-oper','操作日志菜单');
 INSERT INTO `asf_permission_menu` (`title`,`subtitle`,`permission_id`,`icon`,`menu_url`,`description`) VALUES ('调度任务','调度任务',11,'icon-schedule_date','/control/scheduled_task','调度任务菜单');

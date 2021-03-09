@@ -2,16 +2,27 @@
   "Routes": [
     {
       "UpstreamPathTemplate": "/api/{url}",
-      "UpstreamHttpMethod": [ "Post", "Get" ],
+      "UpstreamHttpMethod": [ 
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ],
       "DownstreamPathTemplate": "/{url}",
       "DownstreamScheme": "http",
        "AuthenticationOptions": {
          "AuthenticationProviderKey": "Bearer"
        },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
       "DownstreamHostAndPorts": [
         {
           "Host": "127.0.0.1",// 本地连接地址
           "Port": 5001 //本地连接端口
+        },{
+          "Host": "127.0.0.1",// 本地连接地址
+          "Port": 5002 //本地连接端口
         }
       ]
     }

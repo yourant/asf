@@ -31,7 +31,7 @@ namespace ASF
             var serviceProvider = httpContext.RequestServices;
             var logger = serviceProvider.GetRequiredService<ILogger<ASFPermissionAuthorizationMiddleware>>();
             var requestPath = httpContext.Request.PathBase + httpContext.Request.Path;
-            if (requestPath.Value != null && requestPath.Value.Equals("/swagger/v1/swagger.json"))
+            if (requestPath.Value != null && (requestPath.Value.Equals("/swagger/v1/swagger.json") || requestPath.Value.Contains("assets")))
             {
                 await _next(httpContext);
             }
