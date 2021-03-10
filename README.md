@@ -7,10 +7,10 @@
 - 利用consul服务发现与治理支持分布式微服务，对服务是否正常运作检查，例如empi作为服务如果部署了两个实例，当其中某一个发生错误崩溃了，就把请求到另外一个上面去，(有两种方式，一种轮询法，一种空闲优先法);
 - 集成支持对服务熔断,降级，鉴权，限流,
 - 支持对租户部门，岗位以及定时任务管理
-- 支持用户 rbac 权限管理
+- 集成用户服务,用户 rbac 权限管理
 - jwt token 方式验证api
 - 支持单点登录(同一个用户只能在一个地方登录)
-
+- 支持对外开放查询接口
 # 如何部署
 一. 安装docker 环境。在docker 里面执行 `docker run -d -p 8500:8500 -p 8600:8600 -p 8600:8600/udp -p 8300:8300 -p 8301:8301 -p 8301:8301/udp -p 8302:8302 -p 8302:8302/udp consul agent -server -bootstrap -ui -client=0.0.0.0` 命令安装consul开启服务发现与治理。
 二. 打开项目 Scheduling， 配置 `appsettings.json` 里面的 `HealthServices` 填入你需要接入api服务的 地址以及端口，同一服务多个实例要端口或地址不一样， name要一致；配置好之后运行项目；
@@ -23,7 +23,7 @@
   // 服务路由配置
   "Routes": [
     {
-      "UseServiceDiscovery": true, //服务是否开启负载均和
+      "UseServiceDiscovery": true, //服务是否开启负载均衡
       "UpstreamPathTemplate": "/api/{url}", // postman 或ajax 请求到服务地址
 	  // 允许请求的方式
       "UpstreamHttpMethod": [ 
