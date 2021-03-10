@@ -11,6 +11,7 @@ using ASF.Application.DtoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
+using Ocelot.Provider.Consul;
 
 namespace ASF.Web
 {
@@ -71,9 +72,8 @@ namespace ASF.Web
                 });
 
             });
-
             //网关服务
-            services.AddOcelot();
+            services.AddOcelot().AddConsul();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

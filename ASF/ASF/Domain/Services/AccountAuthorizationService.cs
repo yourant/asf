@@ -50,7 +50,7 @@ namespace ASF.Domain.Services
 
 
       //根据请求地址获取权限
-      Api api = await this.MatchApiPermission(requestPath);
+      Api api = await this.MatchApiPermission(requestPath.Trim());
       if (api == null)
       {
         this._logger.LogWarning($"Did not find the corresponding permissions of {requestPath}");

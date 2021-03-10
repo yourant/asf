@@ -1,6 +1,7 @@
 {
   "Routes": [
     {
+      "UseServiceDiscovery": true,
       "UpstreamPathTemplate": "/api/{url}",
       "UpstreamHttpMethod": [ 
         "Get",
@@ -10,11 +11,12 @@
       ],
       "DownstreamPathTemplate": "/{url}",
       "DownstreamScheme": "http",
-       "AuthenticationOptions": {
-         "AuthenticationProviderKey": "Bearer"
-       },
+//       "AuthenticationOptions": {
+//         "AuthenticationProviderKey": "Bearer"
+//       },
       "LoadBalancerOptions": {
-        "Type": "RoundRobin"
+//        "Type": "RoundRobin" //轮询法
+        "Type": "LeastConnection"
       },
       "DownstreamHostAndPorts": [
         {
@@ -26,5 +28,14 @@
         }
       ]
     }
-  ]
+  ],
+  "GlobalConfiguration": {
+    //"BaseUrl": "https://api.mybusiness.com"
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "127.0.0.1",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
 }
