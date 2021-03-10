@@ -9,6 +9,7 @@
         "Put",
         "Delete"
       ],
+      "ServiceName": "TestService",
       "DownstreamPathTemplate": "/{url}",
       "DownstreamScheme": "http",
 //       "AuthenticationOptions": {
