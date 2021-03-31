@@ -79,7 +79,7 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 性别
         /// </summary>
-        public int? Sex { get; set; }
+        public uint? Sex { get; set; }
         /// <summary>
         /// 创建用户
         /// </summary>

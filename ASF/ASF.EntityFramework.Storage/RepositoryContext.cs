@@ -22,7 +22,7 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("账户表");
                 
                 e.HasKey(x => x.Id);
-                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 // 账户索引
                 // e.HasIndex(x => x.Username).IsUnique();
                 // 手机索引
@@ -30,10 +30,10 @@ namespace ASF.EntityFramework.Repository
                 //
                 // e.HasIndex(x => x.Email).IsUnique();
                 
-                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint(20)").HasComment("租户id");
+                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint").HasComment("租户id");
 
                 e.Property(x => x.DepartmentId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("department_id")
                     .HasComment("部门id");
                 
@@ -68,7 +68,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.Status)
                     .HasColumnName("status")
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasDefaultValueSql("1")
                     .HasComment("账户状态, 1允许登录， 0禁止登录");
                 
@@ -84,29 +84,29 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.CreateId)
                     .HasColumnName("create_id")
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasDefaultValueSql("0")
                     .HasComment("创建用户id");
                 
                 e.Property(x => x.IsDeleted)
-                    .HasColumnType("int unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("is_deleted")
                     .HasDefaultValueSql("0")
                     .HasComment("是否删除, 0 否, 1是");
                 
                 e.Property(x => x.Sex)
                     .HasColumnName("sex")
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasComment("性别 0 未知，1，男，2，女");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 e.Property(x => x.LoginTime)
                     .HasColumnName("login_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasComment("最后登录时间");
                 
                 e.Property(x => x.LoginIp)
@@ -131,7 +131,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.Expired)
                     .HasColumnName("expired")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasComment("过期时间");
                 
                 
@@ -151,10 +151,10 @@ namespace ASF.EntityFramework.Repository
                 
                 e.HasKey(x => x.Id);
                 
-                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 
                 e.Property(x => x.AccountId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("account_id")
                     .HasComment("账户id");
                 
@@ -165,7 +165,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.Type)
                     .HasColumnName("type")
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .IsRequired()
                     .HasComment("日志类型，1： 登录日志， 2:操作日志,3 错误日志");
                 
@@ -186,13 +186,13 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("客户端位置");
                 
                 e.Property(x => x.PermissionId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("permission_id")
                     .HasComment("权限id");
                 
                 e.Property(x => x.AddTime)
                     .HasColumnName("add_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 e.Property(x => x.ApiAddress)
@@ -201,12 +201,12 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("api请求地址");
                 
                 e.Property(x => x.ApiRequest)
-                    .HasColumnType("longtext")
+                    .HasColumnType("text")
                     .HasColumnName("api_request")
                     .HasComment("api请求数据");
                 
                 e.Property(x => x.ApiResponse)
-                    .HasColumnType("longtext")
+                    .HasColumnType("text")
                     .HasColumnName("api_response")
                     .HasComment("api响应数据");
                 
@@ -223,10 +223,10 @@ namespace ASF.EntityFramework.Repository
                 
                 e.HasKey(x => x.Id);
                 
-                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 
                 e.Property(x => x.AccountId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("account_id")
                     .HasComment("账户id");
                 
@@ -238,13 +238,13 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("黑名单token");
                 
                 e.Property(x => x.TokenExpired)
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasColumnName("token_expired")
                     .HasComment("黑名单token过期时间");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
             });
             
@@ -252,7 +252,7 @@ namespace ASF.EntityFramework.Repository
             {
                 e.ToTable("asf_permission").HasComment("权限表");
                 e.HasKey(x => x.Id);
-                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 // 权限名称
                 e.HasIndex(x => x.Name);
 
@@ -262,7 +262,7 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("权限代码");
                 
                 e.Property(x => x.ParentId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("parent_id")
                     .HasDefaultValueSql("0")
                     .HasComment("上级id");
@@ -274,25 +274,25 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("权限名");
                 
                 e.Property(x => x.Type)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("type")
                     .HasComment("权限类型 1. 菜单条目权限， 2, 菜单目录,3 功能");
                 
                 e.Property(x => x.IsSystem)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("is_system")
                     .HasDefaultValueSql("0")
                     .HasComment("是否为系统权限 0 否， 1是");
                 
                 
                 e.Property(x => x.Sort)
-                    .HasColumnType("int unsigned")
+                    .HasColumnType("int")
                     .HasColumnName("sort")
                     .HasDefaultValueSql("0")
                     .HasComment("排序");
                 
                 e.Property(x => x.Enable)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasDefaultValueSql("1")
                     .HasColumnName("enable")
                     .HasComment("是否启用");
@@ -300,7 +300,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 e.Property(x => x.Description)
@@ -314,14 +314,14 @@ namespace ASF.EntityFramework.Repository
             {
                 e.ToTable("asf_apis").HasComment("api表");
                 e.HasKey(x => x.Id);
-                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 // api名称索引
                 e.HasIndex(x => x.Name);
                 // api路径索引
                 e.HasIndex(x => x.Path).IsUnique();
                 
                 e.Property(x => x.PermissionId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("permission_id")
                     .HasComment("权限id");
                 
@@ -332,12 +332,12 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("api");
                 
                 e.Property(x => x.Type)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("type")
                     .HasComment("api类型 1. openapi， 2, authapi");
                 
                 e.Property(x => x.IsSystem)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("is_system")
                     .HasDefaultValueSql("0")
                     .HasComment("是否为系统权限 0 否， 1是");
@@ -348,14 +348,14 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("api地址");
                 
                 e.Property(x => x.IsLogger)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("is_logger")
                     .HasDefaultValueSql("0")
                     .HasComment("是否记录日志");
                 
                 
                 e.Property(x => x.Status)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("status")
                     .HasDefaultValueSql("1")
                     .HasComment("api状态");
@@ -369,7 +369,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 e.Property(x => x.Description)
@@ -387,9 +387,9 @@ namespace ASF.EntityFramework.Repository
                 e.ToTable("asf_role").HasComment("角色表");
                 e.HasKey(x => x.Id);
                 
-                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 
-                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint(20)").HasComment("租户id");
+                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint").HasComment("租户id");
                 
                 e.Property(x => x.Name)
                     .HasColumnType("varchar(20)")
@@ -403,20 +403,20 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("备注");
                 
                 e.Property(x => x.Enable)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("enable")
                     .HasDefaultValueSql("1")
                     .HasComment("是否启用");
                 
                 e.Property(x => x.CreateId)
                     .HasColumnName("create_id")
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasDefaultValueSql("0")
                     .HasComment("创建用户id");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
             });
             //调度任务
@@ -424,7 +424,7 @@ namespace ASF.EntityFramework.Repository
                 e.ToTable("asf_scheduled_task").HasComment("任务调度表");
                 e.HasKey(x => x.Id);
                 
-                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 
                 e.Property(x => x.Name)
                     .HasColumnName("name")
@@ -464,13 +464,13 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.FailStop)
                     .HasColumnName("fail_stop")
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasDefaultValueSql("0")
                     .HasComment("失败后暂停执行, 0:失败后不停止，1,失败后停止");
                 
                 e.Property(x => x.TaskStatus)
                     .HasColumnName("task_status")
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasDefaultValueSql("0")
                     .HasComment("任务状态， 0:停止,1:启动");
                 
@@ -481,7 +481,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
             });
@@ -492,11 +492,11 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id)
                     .HasColumnName("id")
-                    .HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                    .HasColumnType("bigint").ValueGeneratedOnAdd();
                 
-                e.Property(x => x.Pid).HasColumnName("pid").HasColumnType("bigint(20)").HasDefaultValueSql("0").HasComment("父id");
+                e.Property(x => x.Pid).HasColumnName("pid").HasColumnType("bigint").HasDefaultValueSql("0").HasComment("父id");
                 
-                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint(20)").HasComment("租户id");
+                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint").HasComment("租户id");
                 
                 e.Property(x => x.Name)
                     .HasColumnName("name")
@@ -506,19 +506,19 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.Enabled)
                     .HasColumnName("enabled")
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasDefaultValueSql("1")
                     .HasComment("是否启用");
                 
                 e.Property(x => x.Sort)
                     .HasColumnName("sort")
-                    .HasColumnType("int unsigned")
+                    .HasColumnType("int")
                     .HasDefaultValueSql("0")
                     .HasComment("排序");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
             });
             // 岗位表
@@ -529,9 +529,9 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id)
                     .HasColumnName("id")
-                    .HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                    .HasColumnType("bigint").ValueGeneratedOnAdd();
                 
-                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint(20)").HasComment("租户id");
+                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint").HasComment("租户id");
 
                 e.Property(x => x.Name)
                     .HasColumnName("name")
@@ -541,19 +541,19 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.Enabled)
                     .HasColumnName("enabled")
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasDefaultValueSql("1")
                     .HasComment("是否启用, 0 禁用 1 启用");
                 
                 e.Property(x => x.Sort)
-                    .HasColumnType("int unsigned")
+                    .HasColumnType("int")
                     .HasColumnName("sort")
                     .HasDefaultValueSql("0")
                     .HasComment("排序");
                     
                 e.Property(x => x.CreateId)
                     .HasColumnName("create_id")
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasDefaultValueSql("0")
                     .HasComment("创建者id");
                 
@@ -564,7 +564,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 
@@ -578,7 +578,7 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id)
                     .HasColumnName("id")
-                    .HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                    .HasColumnType("bigint").ValueGeneratedOnAdd();
                 
                 
                 e.Property(x => x.Name)
@@ -588,39 +588,39 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("租户名称");
                 
                 e.Property(x => x.Level)
-                    .HasColumnType("int unsigned")
+                    .HasColumnType("int")
                     .HasColumnName("level")
                     .HasDefaultValueSql("0")
                     .HasComment("等级");
                 
                 e.Property(x => x.Sort)
-                    .HasColumnType("int unsigned")
+                    .HasColumnType("int")
                     .HasColumnName("sort")
                     .HasDefaultValueSql("0")
                     .HasComment("排序");
                 
                 e.Property(x => x.Status)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("status")
                     .HasDefaultValueSql("1")
                     .HasComment("租户状态 0禁用， 1启用");
                 
                 
                 e.Property(x => x.IsDeleted)
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasColumnName("is_deleted")
                     .HasDefaultValueSql("0")
                     .HasComment("是否删除, 0 否, 1是");
                 
                 e.Property(x => x.CreateId)
                     .HasColumnName("create_id")
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasDefaultValueSql("0")
                     .HasComment("创建者id");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
             });
@@ -632,21 +632,21 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id)
                     .HasColumnName("id")
-                    .HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                    .HasColumnType("bigint").ValueGeneratedOnAdd();
 
                 e.Property(x => x.AccountId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("account_id")
                     .HasComment("账户id");
 
                 e.Property(x => x.RoleId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("role_id")
                     .HasComment("角色id");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 e.HasOne(d => d.Role)
@@ -667,21 +667,21 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id)
                     .HasColumnName("id")
-                    .HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                    .HasColumnType("bigint").ValueGeneratedOnAdd();
 
                 e.Property(x => x.AccountId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("account_id")
                     .HasComment("账户id");
 
                 e.Property(x => x.PostId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("post_id")
                     .HasComment("岗位id");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 e.HasOne(d => d.Post)
@@ -702,21 +702,21 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id)
                     .HasColumnName("id")
-                    .HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                    .HasColumnType("bigint").ValueGeneratedOnAdd();
                 
                 e.Property(x => x.PermissionId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("permission_id")
                     .HasComment("权限id");
 
                 e.Property(x => x.RoleId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("role_id")
                     .HasComment("角色id");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 e.HasOne(d => d.Role)
@@ -738,21 +738,21 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id)
                     .HasColumnName("id")
-                    .HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                    .HasColumnType("bigint").ValueGeneratedOnAdd();
                 
                 e.Property(x => x.RoleId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("role_id")
                     .HasComment("角色id");
 
                 e.Property(x => x.DepartmentId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("department_id")
                     .HasComment("部门id");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 
                 e.HasOne(d => d.Role)
@@ -771,7 +771,7 @@ namespace ASF.EntityFramework.Repository
             {
                 e.ToTable("asf_permission_menu").HasComment("菜单表");
                 e.HasKey(x => x.Id);
-                e.Property(x => x.Id).HasComment("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasComment("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 // 标题索引
                 e.HasIndex(x => x.Title).IsUnique();
                 // 菜单地址索引
@@ -794,7 +794,7 @@ namespace ASF.EntityFramework.Repository
                 
                 e.Property(x => x.MenuHidden)
                     .HasColumnName("menu_hidden")
-                    .HasColumnType("tinyint unsigned")
+                    .HasColumnType("tinyint")
                     .HasDefaultValueSql("0")
                     .HasComment("是否隐藏, 0 否 1 是");
                 
@@ -825,13 +825,13 @@ namespace ASF.EntityFramework.Repository
                     .HasComment("菜单多语言");
                 
                 e.Property(x => x.PermissionId)
-                    .HasColumnType("bigint(20)")
+                    .HasColumnType("bigint")
                     .HasColumnName("permission_id")
                     .HasComment("权限id");
                 
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    .HasColumnType("timestamp")
+                    .HasColumnType("datetime")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
                 // 一个权限关联一个菜单
                 e.HasOne(l => l.Permissions).WithOne(w => w.PermissionMenus)
@@ -843,12 +843,12 @@ namespace ASF.EntityFramework.Repository
                 e.ToTable("asf_translate").HasComment("多语言表");
                 e.HasKey(x => x.Id);
                 
-                e.Property(x=> x.Id).HasComment("id").HasColumnType("bigint(20)").ValueGeneratedOnAdd();
+                e.Property(x=> x.Id).HasComment("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 
                 //名称索引
                 e.HasIndex(x => x.Name).IsUnique();
                 
-                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint(20)").HasComment("租户id");
+                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint").HasComment("租户id");
                 e.Property(x => x.Name)
                     .HasColumnName("name")
                     .HasColumnType("varchar(250)")

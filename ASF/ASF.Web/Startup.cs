@@ -54,7 +54,10 @@ namespace ASF.Web
                     switch (asfOptions.DBType.ToLower())
                     {
                         case "sqlite":
-                            b.UseSqlite(asfOptions.DBConnectionString);
+                            b.UseSqlite(asfOptions.DBConnectionString, opt =>
+                            {
+                                opt.MigrationsAssembly("ASF.Web");
+                            });
                             break;
                         case "mysql":
                             b.UseMySql(asfOptions.DBConnectionString, ServerVersion.AutoDetect(asfOptions.DBConnectionString),
@@ -66,7 +69,10 @@ namespace ASF.Web
                             b.EnableDetailedErrors();
                             break;
                         case "sqlserver":
-                            b.UseSqlServer(asfOptions.DBConnectionString);
+                            b.UseSqlServer(asfOptions.DBConnectionString, opt =>
+                            {
+                                opt.MigrationsAssembly("ASF.Web");
+                            });
                             break;
                     }
                 });

@@ -21,7 +21,7 @@ namespace ASF.Web
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    string port = "5900";
+                    string port = "5000";
                     string realPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location)?.FullName;
                     webBuilder.ConfigureAppConfiguration((hostingContext, config) => 
                     {
