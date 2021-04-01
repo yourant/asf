@@ -83,6 +83,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IRoleRepositories,RoleRepositories>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<ISecurityTokenRepository, SecurityTokenRepository>();
+            services.AddScoped<IAsfDictionaryRepository, AsfDictionaryRepository>();
         }
         /// <summary>
         /// 注入缓存仓储层

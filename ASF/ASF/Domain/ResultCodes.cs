@@ -88,6 +88,12 @@ namespace ASF.Domain
         public static ValueTuple<int, string> PostCreateError = (17002, "岗位添加失败");
         public static ValueTuple<int, string> PostModifyError = (17003, "岗位修改失败");
         public static ValueTuple<int, string> PostDeleteError = (17004, "岗位删除失败");
-        public static ValueTuple<int, string> PostUnavailable= (16004, "部门已被禁用");
+        public static ValueTuple<int, string> PostUnavailable= (17004, "部门已被禁用");
+        //字典
+        public static ValueTuple<int, string> DictionaryNotExist = (18000, "字典不存在");
+        public static ValueTuple<int, string> DictionaryKeyExist = (18001, "字典key已经存在");
+        public static ValueTuple<int, string> DictionaryCreateError = (18002, "字典创建失败");
+        public static ValueTuple<int, string> DictionaryUpdateError = (18003, "字典修改失败");
+        public static ValueTuple<int, string> DictionaryDeleteError = (18004, "字典删除失败");
     }
 }

@@ -26,7 +26,6 @@
     <Folder Include="DependencyInjection\" />
     <Folder Include="Domain\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="Infrastructure\Repositories\Caching" />
     <Folder Include="Internal\" />
   </ItemGroup>
 

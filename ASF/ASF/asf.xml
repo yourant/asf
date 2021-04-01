@@ -295,6 +295,57 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Application.DictionaryController">
+            <summary>
+            字典控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DictionaryController.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
+            <summary>
+            字典控制器
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DictionaryController.GetList(ASF.Application.DTO.AsfDictionary.AsfDictionaryListRequestDto)">
+            <summary>
+            获取字典分页
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DictionaryController.GetLists">
+            <summary>
+            获取字典列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DictionaryController.Details(System.Int64)">
+            <summary>
+            获取字典详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DictionaryController.Create(ASF.Application.DTO.AsfDictionary.AsfDictionaryCreateRequestDto)">
+            <summary>
+            创建字典
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DictionaryController.Modify(ASF.Application.DTO.AsfDictionary.AsfDictionaryModifyRequestDto)">
+            <summary>
+            修改字典
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.DictionaryController.Delete(System.Int64)">
+            <summary>
+            删除字典
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.DtoMapper.AccountMapper">
             <summary>
             账户映射
@@ -303,6 +354,16 @@
         <member name="M:ASF.Application.DtoMapper.AccountMapper.#ctor">
             <summary>
             账户映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.AsfDictionaryMapper">
+            <summary>
+            字典映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.AsfDictionaryMapper.#ctor">
+            <summary>
+            字典映射
             </summary>
         </member>
         <member name="T:ASF.Application.DtoMapper.AudioMapper">
@@ -703,6 +764,66 @@
         <member name="P:ASF.Application.DTO.AuthoriseByUsernameRequestDto.Password">
             <summary>
             登录密码
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AsfDictionary.AsfDictionaryCreateRequestDto">
+            <summary>
+            创建字典请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AsfDictionary.AsfDictionaryCreateRequestDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AsfDictionary.AsfDictionaryCreateRequestDto.Code">
+            <summary>
+            字典编码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AsfDictionary.AsfDictionaryCreateRequestDto.Key">
+            <summary>
+            字典Key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AsfDictionary.AsfDictionaryCreateRequestDto.Value">
+            <summary>
+            字典值
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AsfDictionary.AsfDictionaryCreateRequestDto.Options">
+            <summary>
+            字典扩充字段
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AsfDictionary.AsfDictionaryListRequestDto">
+            <summary>
+            字典列表请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AsfDictionary.AsfDictionaryListRequestDto.Key">
+            <summary>
+            字典Key
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AsfDictionary.AsfDictionaryModifyRequestDto">
+            <summary>
+            修改字典
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AsfDictionary.AsfDictionaryModifyRequestDto.Id">
+            <summary>
+            字典ID
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.AsfDictionary.AsfDictionaryResponseDto">
+            <summary>
+            字典响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AsfDictionary.AsfDictionaryResponseDto.CreateTime">
+            <summary>
+            创建时间
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.AssignIdArrayRequestDto`1">
@@ -2549,6 +2670,46 @@
             对应权限
             </summary>
         </member>
+        <member name="T:ASF.Domain.Entities.AsfDictionary">
+            <summary>
+            字典表
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.AsfDictionary.Id">
+            <summary>
+            字典ID
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.AsfDictionary.Code">
+            <summary>
+            字典编码
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.AsfDictionary.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.AsfDictionary.Key">
+            <summary>
+            字典Key
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.AsfDictionary.Value">
+            <summary>
+            字典值
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.AsfDictionary.Options">
+            <summary>
+            字典扩充字段
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.AsfDictionary.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
         <member name="T:ASF.Domain.Entities.Department">
             <summary>
             部门
@@ -3535,6 +3696,62 @@
             <param name="department"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Domain.Services.DictionaryService">
+            <summary>
+            字典领域服务
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.DictionaryService.#ctor(ASF.Infrastructure.Repositories.IAsfDictionaryRepository)">
+            <summary>
+            字典领域服务
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.DictionaryService.Get(System.Int64,System.Nullable{System.Int64})">
+            <summary>
+            获取字典
+            </summary>
+            <param name="id"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.DictionaryService.GetList(System.Int32,System.Int32,System.String,System.Nullable{System.Int64})">
+            <summary>
+            获取字典分页列表
+            </summary>
+            <param name="pageNo"></param>
+            <param name="pageSize"></param>
+            <param name="key"></param>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.DictionaryService.GetList(System.Nullable{System.Int64})">
+            <summary>
+            获取字典列表
+            </summary>
+            <param name="tenancyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.DictionaryService.Create(ASF.Domain.Entities.AsfDictionary)">
+            <summary>
+            添加字典
+            </summary>
+            <param name="asfDictionary"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.DictionaryService.Modify(ASF.Domain.Entities.AsfDictionary)">
+            <summary>
+            修改字典
+            </summary>
+            <param name="asfDictionary"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.DictionaryService.Delete(ASF.Domain.Entities.AsfDictionary)">
+            <summary>
+            硬 删除字典
+            </summary>
+            <param name="asfDictionary"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Domain.Services.IAccountLoginService">
             <summary>
             账户登录服务
@@ -4247,6 +4464,11 @@
             </summary>
             <param name="list"></param>
             <returns></returns>
+        </member>
+        <member name="T:ASF.Infrastructure.Repositories.IAsfDictionaryRepository">
+            <summary>
+            字典仓储
+            </summary>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.IDepartmentRepositories">
             <summary>

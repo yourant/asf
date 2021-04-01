@@ -24,11 +24,11 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).HasColumnName("id").HasColumnType("bigint").ValueGeneratedOnAdd();
                 // 账户索引
-                // e.HasIndex(x => x.Username).IsUnique();
+                e.HasIndex(x => x.Username);
                 // 手机索引
-                // e.HasIndex(x => x.Username).IsUnique();
-                //
-                // e.HasIndex(x => x.Email).IsUnique();
+                e.HasIndex(x => x.Username);
+                //邮箱索引
+                e.HasIndex(x => x.Email);
                 
                 e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint").HasComment("租户id");
 
@@ -863,6 +863,23 @@ namespace ASF.EntityFramework.Repository
                     .HasColumnName("value")
                     .HasColumnType("varchar(500)")
                     .HasComment("多语言值");
+            });
+            modelBuilder.Entity<AsfDictionary>(e =>
+            {
+                e.ToTable("asf_dictionary").HasComment("字典表");
+                e.HasKey(x => x.Id);
+                //字典 key 索引
+                e.HasIndex(x => x.Key).IsUnique();
+                
+                e.Property(x=> x.Id).HasComment("id").HasColumnType("bigint").ValueGeneratedOnAdd();
+                e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasColumnType("bigint").HasComment("租户id");
+                e.Property(x => x.Code).HasColumnName("code").HasColumnType("varchar(255)").HasComment("字典编码");
+                e.Property(x => x.Key).HasColumnName("key").HasColumnType("varchar(255)").HasComment("字典键");
+                e.Property(x => x.Options).HasColumnName("options").HasColumnType("varchar(255)").HasComment("字典额外配置");
+                e.Property(x => x.CreateTime)
+                    .HasColumnName("create_time")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
             });
             base.OnModelCreating(modelBuilder);
@@ -898,6 +915,8 @@ namespace ASF.EntityFramework.Repository
         public virtual DbSet<PermissionMenu> PermissionMenu { get; set; }
         // 多语言表
         public virtual DbSet<Translate> Translate { get; set; }
+        //字典表
+        public virtual DbSet<AsfDictionary> AsfDictionary { get; set; }
 
     }
 }
