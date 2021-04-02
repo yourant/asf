@@ -267,6 +267,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.DepartmentController.TreeSortMultiLevelFormat(System.Collections.Generic.IEnumerable{ASF.Application.DTO.Department.DepartmentResponseDto},System.Int64)">
+            <summary>
+            无限分级权限菜单
+            </summary>
+            <param name="list"></param>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
         <member name="M:ASF.Application.DepartmentController.Details(System.Int64)">
             <summary>
             获取部门详情
@@ -999,6 +1007,26 @@
         <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.Accounts">
             <summary>
             部门所属用户
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Department.DepartmentTreeItem`1">
+            <summary>
+            部分分级
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentTreeItem`1.Label">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentTreeItem`1.Value">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentTreeItem`1.Children">
+            <summary>
+            部门子集
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.IdArrayRequestDto`1">

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
 using ASF.Application.DTO.Department;
@@ -51,13 +52,33 @@ namespace ASF.Application
 		/// </summary>
 		/// <returns></returns>
 		[HttpGet]
-		public async Task<ResultList<DepartmentResponseDto>> GetLists()
+		public async Task<ResultList<DepartmentTreeItem<object>>> GetLists()
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
 			var data = await _serviceProvider.GetRequiredService<DepartmentService>().GetList(tenancyId);
 			if (!data.Success)
-				return ResultList<DepartmentResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultList<DepartmentResponseDto>.ReSuccess(_mapper.Map<List<DepartmentResponseDto>>(data.Data));
+				return ResultList<DepartmentTreeItem<object>>.ReFailure(data.Message, data.Status);
+			List<DepartmentTreeItem<object>> list = TreeSortMultiLevelFormat(_mapper.Map<List<DepartmentResponseDto>>(data.Data)).ToList();
+			return ResultList<DepartmentTreeItem<object>>.ReSuccess(list);
+		}
+		/// <summary>
+		/// 无限分级权限菜单
+		/// </summary>
+		/// <param name="list"></param>
+		/// <param name="pid"></param>
+		/// <returns></returns>
+		private IEnumerable<DepartmentTreeItem<object>> TreeSortMultiLevelFormat(
+			IEnumerable<DepartmentResponseDto> list, long pid = 0)
+		{
+			foreach (var item in list.Where(x => x.Pid == pid))
+			{
+				yield return new DepartmentTreeItem<object>
+				{
+					Value = item.Id,
+					Label = item.Name,
+					Children = TreeSortMultiLevelFormat(list, item.Id)
+				};
+			}
 		}
 		/// <summary>
 		/// 获取部门详情
