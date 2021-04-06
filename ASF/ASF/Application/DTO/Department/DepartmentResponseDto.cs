@@ -10,6 +10,11 @@ namespace ASF.Application.DTO.Department
 	public class DepartmentResponseDto: DepartmentModifyRequestDto
 	{
 		/// <summary>
+		/// key
+		/// </summary>
+		public long Key { get; set; }
+
+		/// <summary>
 		/// 创建时间
 		/// </summary>
 		public DateTime CreateTime { get; set; }

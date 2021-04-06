@@ -89,15 +89,15 @@ namespace ASF.Domain.Services
         /// <summary>
         /// 使用手机登录账户
         /// </summary>
-        /// <param name="telephone">手机号码</param>
+        /// <param name="telphone">手机号码</param>
         /// <param name="tenancyId">租户id</param>
         /// <param name="password">账户密码</param>
         /// <param name="ip">登录IP</param>
         /// <returns></returns>
-        public async Task<Result<AccessToken>> LoginByTelephone(PhoneNumber telephone, long tenancyId, string password, string ip)
+        public async Task<Result<AccessToken>> LoginByTelephone(PhoneNumber telphone, long tenancyId, string password, string ip)
         {
             //获取用户数据
-            var account = await _accountsRepository.GetByPhoneAsync(telephone.ToString(),tenancyId);
+            var account = await _accountsRepository.GetByPhoneAsync(telphone.ToString(),tenancyId);
             if (account == null)
                 return Result<AccessToken>.ReFailure(ResultCodes.AccountNotExist);
 

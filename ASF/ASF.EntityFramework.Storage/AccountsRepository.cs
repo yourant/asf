@@ -125,7 +125,7 @@ namespace ASF.EntityFramework.Repository
 		/// <returns></returns>
 		public async Task<Account> GetByPhoneAsync(string phone,long tenancyId)
 		{
-			Account account = await base.GetDbContext().Account.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").OrderBy(f=> f.Id).AsSplitQuery().FirstOrDefaultAsync(f=>f.Telephone.Equals(phone) && f.TenancyId == tenancyId);
+			Account account = await base.GetDbContext().Account.Include("Department.DepartmentRole.Role").Include("AccountRole.Role").OrderBy(f=> f.Id).AsSplitQuery().FirstOrDefaultAsync(f=>f.TelPhone.Equals(phone) && f.TenancyId == tenancyId);
 			return await Task.FromResult<Account>(account);
 		}
 		/// <summary>

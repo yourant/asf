@@ -30,7 +30,7 @@ namespace ASF.Application.DTO
 		/// <summary>
 		/// 手机号码
 		/// </summary>
-		public string Telephone { get; set; }
+		public string TelPhone { get; set; }
 		/// <summary>
 		/// 邮箱地址
 		/// </summary>

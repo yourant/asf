@@ -61,7 +61,7 @@ namespace ASF.EntityFramework.Repository
                     .HasColumnType("varchar(255)")
                     .HasComment("密码加盐");
                 
-                e.Property(x => x.Telephone)
+                e.Property(x => x.TelPhone)
                     .HasColumnName("telphone")
                     .HasColumnType("varchar(20)")
                     .HasComment("账户手机号码");

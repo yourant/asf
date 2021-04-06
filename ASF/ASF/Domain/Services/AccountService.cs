@@ -133,7 +133,7 @@ namespace ASF.Domain.Services
 				    sex != null || status != null)
 				{
 					var (list, total) =
-						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId && (f.Username.Equals(username) || f.Telephone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status));
+						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId && (f.Username.Equals(username) || f.TelPhone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status));
 					return ResultPagedList<Account>.ReSuccess(list,total);
 				}
 				else
@@ -149,7 +149,7 @@ namespace ASF.Domain.Services
 				    sex != null || status != null)
 				{
 					var (list, total) =
-						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Username.Equals(username) || f.Telephone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status);
+						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Username.Equals(username) || f.TelPhone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status);
 					return ResultPagedList<Account>.ReSuccess(list,total);
 				}
 				else
@@ -167,7 +167,7 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(Account account)
 		{
-			if (await _accountsRepository.GetEntity(f => f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.Telephone.Equals(account.Telephone))) != null)
+			if (await _accountsRepository.GetEntity(f => f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.TelPhone.Equals(account.TelPhone))) != null)
 				return Result.ReFailure(ResultCodes.AccountExist);
 			bool isAdd = await _accountsRepository.Add(account);
 			if(!isAdd)
@@ -182,10 +182,10 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Modify(Account account,string dic = "default")
 		{
-			if (dic.Equals("default") && await _accountsRepository.GetEntity(f => f.Id != account.Id && f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.Telephone.Equals(account.Telephone))) != null)
+			if (dic.Equals("default") && await _accountsRepository.GetEntity(f => f.Id != account.Id && f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.TelPhone.Equals(account.TelPhone))) != null)
 				return Result.ReFailure(ResultCodes.AccountExist);
 			if (dic.Equals("telphone") && await _accountsRepository.GetEntity(f =>
-				f.Id != account.Id && f.TenancyId == account.TenancyId && f.Telephone.Equals(account.Telephone)) != null)
+				f.Id != account.Id && f.TenancyId == account.TenancyId && f.TelPhone.Equals(account.TelPhone)) != null)
 				return Result.ReFailure(ResultCodes.AccountExistTelPhoneError);
 			if (dic.Equals("email") && await _accountsRepository.GetEntity(f =>
 				f.Id != account.Id && f.TenancyId == account.TenancyId && f.Email.Equals(account.Email)) != null)

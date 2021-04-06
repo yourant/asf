@@ -564,7 +564,7 @@
             用户名
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.AccountInfoResponseDto.Telephone">
+        <member name="P:ASF.Application.DTO.AccountInfoResponseDto.TelPhone">
             <summary>
             手机号码
             </summary>
@@ -609,7 +609,7 @@
             用户名
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.AccountListRequestDto.Telephone">
+        <member name="P:ASF.Application.DTO.AccountListRequestDto.TelPhone">
             <summary>
             手机号码
             </summary>
@@ -724,9 +724,99 @@
             账户响应数据
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.AccountResponseDto.Accounts">
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Key">
             <summary>
-            账户集合
+            账户key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.TenancyId">
+            <summary>
+            租户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Name">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.TelPhone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Email">
+            <summary>
+            邮箱地址
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.CreateId">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.LoginIp">
+            <summary>
+            最后登录IP
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.LoginTime">
+            <summary>
+            最后登录时间
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.LoginLocation">
+            <summary>
+            最近登录位置
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.RefreshToken">
+            <summary>
+            刷新令牌
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountResponseDto.Expired">
+            <summary>
+            过期时间
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.AccountResponseDto.Roles">
@@ -992,6 +1082,11 @@
         <member name="T:ASF.Application.DTO.Department.DepartmentResponseDto">
             <summary>
             部门响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.Key">
+            <summary>
+            key
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.Department.DepartmentResponseDto.CreateTime">
@@ -2430,7 +2525,7 @@
             密码加盐
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Account.Telephone">
+        <member name="P:ASF.Domain.Entities.Account.TelPhone">
             <summary>
             手机号码
             </summary>
@@ -3497,7 +3592,7 @@
             <summary>
             使用手机登录账户
             </summary>
-            <param name="telephone">手机号码</param>
+            <param name="telphone">手机号码</param>
             <param name="tenancyId">租户id</param>
             <param name="password">账户密码</param>
             <param name="ip">登录IP</param>
@@ -3809,7 +3904,7 @@
             <summary>
             使用手机登录账户
             </summary>
-            <param name="telephone">手机号码</param>
+            <param name="telphone">手机号码</param>
             <param name="tenancyId">租户id</param>
             <param name="password">账户密码</param>
             <param name="ip">登录IP</param>

@@ -80,21 +80,6 @@ namespace ASF.Application
 			AccountInfoResponseDto accountInfo = _mapper.Map<AccountInfoResponseDto>(account.Data);
 			accountInfo.RoleName = string.Join(",", role);
 			accountInfo.PermissionMenu = permissionMenuTreeItems;
-			// AccountInfoResponseDto accountInfo = new AccountInfoResponseDto()
-			// {
-			// 	Id = account.Data.Id,
-			// 	TenancyId = account.Data.TenancyId,
-			// 	DepartmentId = account.Data.DepartmentId,
-			// 	Name = account.Data.Name,
-			// 	Username = account.Data.Username,
-			// 	Telephone = account.Data.Telephone,
-			// 	Email = account.Data.Email,
-			// 	Sex = account.Data.Sex,
-			// 	Avatar = account.Data.Avatar,
-			// 	Status = account.Data.Status,
-			// 	RoleName = string.Join(",",role),
-			// 	PermissionMenu = permissionMenuTreeItems
-			// };
 			return Result<AccountInfoResponseDto>.ReSuccess(accountInfo);
 		}
 		/// <summary>
@@ -143,7 +128,7 @@ namespace ASF.Application
 		public async Task<ResultPagedList<AccountResponseDto>> GetList([FromQuery] AccountListRequestDto dto)
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var data = await _serviceProvider.GetRequiredService<AccountService>().GetList(dto.PageNo,dto.PageSize,dto.Username,dto.Telephone,dto.Email,dto.Sex,dto.Status,tenancyId);
+			var data = await _serviceProvider.GetRequiredService<AccountService>().GetList(dto.PageNo,dto.PageSize,dto.Username,dto.TelPhone,dto.Email,dto.Sex,dto.Status,tenancyId);
 			if (!data.Success)
 				return ResultPagedList<AccountResponseDto>.ReFailure(data.Message, data.Status);
 			return ResultPagedList<AccountResponseDto>.ReSuccess(_mapper.Map<List<AccountResponseDto>>(data.Data),
@@ -378,7 +363,7 @@ namespace ASF.Application
 			// 除总超级管理员之外其他不允许操作其他租户信息
 			if (tenancyId != null && result.Data.TenancyId != tenancyId)
 				return Result.ReFailure(ResultCodes.TenancyMatchExist);
-			if (!result.Data.Telephone.Equals(new PhoneNumber(dto.OldTelPhone,dto.Area).ToString()))
+			if (!result.Data.TelPhone.Equals(new PhoneNumber(dto.OldTelPhone,dto.Area).ToString()))
 				return Result.ReFailure(ResultCodes.AccountOldTelPhoneError);
 			result.Data.SetPhone(dto.NewTelPhone,dto.Area);
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());

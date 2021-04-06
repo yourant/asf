@@ -16,7 +16,7 @@ namespace ASF.Application.DTO
 		/// 手机号码
 		/// </summary>
 		[RegularExpression(@"^1[0-9]{10}$",ErrorMessage = "手机号码不正确")]
-		public string Telephone { get;set; }
+		public string TelPhone { get;set; }
 		/// <summary>
 		/// 邮箱地址
 		/// </summary>

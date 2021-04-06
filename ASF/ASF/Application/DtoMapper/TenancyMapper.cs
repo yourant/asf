@@ -27,7 +27,7 @@ namespace ASF.Application.DtoMapper
 					DepartmentId = a.DepartmentId,
 					Name = a.Name,
 					Username = a.Username,
-					Telephone = a.Telephone,
+					TelPhone = a.TelPhone,
 					Email = a.Email,
 					Avatar = a.Avatar,
 					Status = a.Status,

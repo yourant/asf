@@ -59,7 +59,7 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 手机号码
         /// </summary>
-        public string Telephone { get; private set; }
+        public string TelPhone { get; private set; }
         /// <summary>
         /// 邮箱地址
         /// </summary>
@@ -164,7 +164,7 @@ namespace ASF.Domain.Entities
         /// </summary>
         public void SetPhone(string phone, int area)
         {
-            this.Telephone = new PhoneNumber(phone,area).ToString();
+            this.TelPhone = new PhoneNumber(phone,area).ToString();
         }
         /// <summary>
         /// 设置用户邮箱
