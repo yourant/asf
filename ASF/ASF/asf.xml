@@ -354,106 +354,6 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="T:ASF.Application.DtoMapper.AccountMapper">
-            <summary>
-            账户映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.AccountMapper.#ctor">
-            <summary>
-            账户映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.AsfDictionaryMapper">
-            <summary>
-            字典映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.AsfDictionaryMapper.#ctor">
-            <summary>
-            字典映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.AudioMapper">
-            <summary>
-            审计日志映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.AudioMapper.#ctor">
-            <summary>
-            审计日志映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.DepartmentMapper">
-            <summary>
-            部门映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.DepartmentMapper.#ctor">
-            <summary>
-            部门映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.LoggerMapper">
-            <summary>
-            日志映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.LoggerMapper.#ctor">
-            <summary>
-            日志映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.PermissionMapper">
-            <summary>
-            权限映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.PermissionMapper.#ctor">
-            <summary>
-            权限映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.PostMapper">
-            <summary>
-            岗位映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.PostMapper.#ctor">
-            <summary>
-            岗位映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.RoleMapper">
-            <summary>
-            角色映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.RoleMapper.#ctor">
-            <summary>
-            角色映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.TenancyMapper">
-            <summary>
-            租户映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.TenancyMapper.#ctor">
-            <summary>
-            租户映射
-            </summary>
-        </member>
-        <member name="T:ASF.Application.DtoMapper.TranslateMapper">
-            <summary>
-            多语言映射
-            </summary>
-        </member>
-        <member name="M:ASF.Application.DtoMapper.TranslateMapper.#ctor">
-            <summary>
-            多语言映射
-            </summary>
-        </member>
         <member name="T:ASF.Application.DTO.AccountAssignDepartmentRequestDto">
             <summary>
             账户分配部门
@@ -2002,6 +1902,106 @@
         <member name="P:ASF.Application.DTO.ListPagedRequestDto.SkipPage">
             <summary>
             跳过页
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.AccountMapper">
+            <summary>
+            账户映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.AccountMapper.#ctor">
+            <summary>
+            账户映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.AsfDictionaryMapper">
+            <summary>
+            字典映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.AsfDictionaryMapper.#ctor">
+            <summary>
+            字典映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.AudioMapper">
+            <summary>
+            审计日志映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.AudioMapper.#ctor">
+            <summary>
+            审计日志映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.DepartmentMapper">
+            <summary>
+            部门映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.DepartmentMapper.#ctor">
+            <summary>
+            部门映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.LoggerMapper">
+            <summary>
+            日志映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.LoggerMapper.#ctor">
+            <summary>
+            日志映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.PermissionMapper">
+            <summary>
+            权限映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.PermissionMapper.#ctor">
+            <summary>
+            权限映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.PostMapper">
+            <summary>
+            岗位映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.PostMapper.#ctor">
+            <summary>
+            岗位映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.RoleMapper">
+            <summary>
+            角色映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.RoleMapper.#ctor">
+            <summary>
+            角色映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.TenancyMapper">
+            <summary>
+            租户映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.TenancyMapper.#ctor">
+            <summary>
+            租户映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.TranslateMapper">
+            <summary>
+            多语言映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.TranslateMapper.#ctor">
+            <summary>
+            多语言映射
             </summary>
         </member>
         <member name="T:ASF.Application.MenuController">
