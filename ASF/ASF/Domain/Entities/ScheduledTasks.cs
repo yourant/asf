@@ -45,11 +45,11 @@ namespace ASF.Domain.Entities
         /// <summary>
         /// 失败后暂停执行
         /// </summary>
-        public bool? FailStop { get; set; }
+        public int? FailStop { get; set; }
         /// <summary>
         /// 任务状态
         /// </summary>
-        public bool? TaskStatus { get; set; }
+        public int? TaskStatus { get; set; }
         /// <summary>
         /// 参数内容
         /// </summary>

@@ -74,6 +74,12 @@ namespace ASF.Web
                                 opt.MigrationsAssembly("ASF.Web");
                             });
                             break;
+                        case "postgre":
+                            b.UseNpgsql(asfOptions.DBConnectionString, opt =>
+                            {
+                                opt.MigrationsAssembly("ASF.Web");
+                            });
+                            break;
                     }
                 });
 
