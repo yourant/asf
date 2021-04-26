@@ -19,7 +19,7 @@ INSERT INTO asf_permission (code,parent_id,name,type,is_system) VALUES ('asf_pos
 INSERT INTO asf_permission (code,parent_id,name,type,is_system) VALUES ('asf_translate',2,'多语言管理权限',2,0);
 
 --  插入公共权限
-INSERT INTO asf_permission (code,parent_id,name,type,is_system) VALUES ('asf_openapi',2,'公共权限',3,1);
+INSERT INTO asf_permission (code,name,type,is_system) VALUES ('asf_openapi','公共权限',3,1);
 -- 插入权限菜单数据
 INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,description) VALUES ('控制台','控制台菜单',1,'icon-dash_board','/','控制台菜单');
 INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,description) VALUES ('控制面板','控制面板菜单',2,'icon-dash_board','/control','控制面板菜单');
@@ -36,6 +36,7 @@ INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,desc
 INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,description) VALUES ('部门管理','部门管理',13,'icon-bumen','/control/department','部门管理菜单');
 INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,description) VALUES ('岗位管理','岗位管理',14,'icon-gangwei','/control/post','岗位管理菜单');
 INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,description) VALUES ('多语言管理','多语言管理',15,'icon-EA','/control/translate','多语言管理菜单');
+INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,description) VALUES ('tiny富文本','tiny富文本',16,'icon-EA','/editor','富文本编辑器');
 -- 插入api 权限数据
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description) VALUES (1, '获取账户列表',2,'/api/asf/dash/getdetails','get',1,'获取控制台信息权限');
 

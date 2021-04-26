@@ -8,6 +8,11 @@ namespace ASF.Application.DTO
 	public class PermissionMenuResponseDto: PermissionMenuModifyRequestDto
 	{
 		/// <summary>
+		/// key
+		/// </summary>
+		public long Key { get; set; }
+
+		/// <summary>
 		/// 添加时间
 		/// </summary>
 		public DateTime CreateTime { get; set; }

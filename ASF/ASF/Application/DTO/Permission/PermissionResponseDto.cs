@@ -9,6 +9,11 @@ namespace ASF.Application.DTO
 	public class PermissionResponseDto: PermissionModifyRequestDto
 	{
 		/// <summary>
+		/// key
+		/// </summary>
+		public long Key { get; set; }
+
+		/// <summary>
 		/// 创建时间
 		/// </summary>
 		public DateTime CreateTime { get; set; }

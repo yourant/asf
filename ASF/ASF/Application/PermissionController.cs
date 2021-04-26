@@ -125,6 +125,7 @@ namespace ASF.Application
 			{
 				yield return new PermissionResponseDto
 				{
+					Key = item.Id,
 					Id = item.Id,
 					Name = item.Name,
 					Code = item.Code,

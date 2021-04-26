@@ -1400,6 +1400,11 @@
             权限菜单响应
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.PermissionMenuResponseDto.Key">
+            <summary>
+            key
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.PermissionMenuResponseDto.CreateTime">
             <summary>
             添加时间
@@ -1529,6 +1534,11 @@
         <member name="T:ASF.Application.DTO.PermissionResponseDto">
             <summary>
             权限响应数据
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.PermissionResponseDto.Key">
+            <summary>
+            key
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.PermissionResponseDto.CreateTime">
