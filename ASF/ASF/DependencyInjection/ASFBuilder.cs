@@ -94,6 +94,7 @@ namespace ASF.DependencyInjection
             Services.AddTransient<DepartmentService>();
             Services.AddTransient<RoleService>();
             Services.AddTransient<PostService>();
+            Services.AddTransient<EditorService>();
         }
         // /// <summary>
         // /// 添加账户仓储缓存

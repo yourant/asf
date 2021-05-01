@@ -128,7 +128,7 @@ INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,descr
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '登出',1,'/api/asf/authorise/logout','post',1,'登出账户权限',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取登录账户信息',1,'/api/asf/account/accountinfo','get',1,'登出账户权限',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取租户列表集合',1,'/api/asf/tenancy/getlists','get',1,'获取租户列表集合',0);
-INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取富文本内容',1,'/api/asf/editor/get','get',1,'获取富文本内容',0);
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取富文本内容',1,'/api/asf/editor/getlists','get',1,'获取富文本内容',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '修改富文本内容',1,'/api/asf/editor/modify','put',1,'修改富文本内容',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '重置富文本内容',1,'/api/asf/editor/reset','put',1,'重置富文本内容',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '提交咨询内容',1,'/api/asf/editor/concat','post',1,'提交咨询内容',0);

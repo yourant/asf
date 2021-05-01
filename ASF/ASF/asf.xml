@@ -3970,6 +3970,53 @@
             <param name="asfDictionary"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Domain.Services.EditorService">
+            <summary>
+            富文本编辑服务
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.EditorService.#ctor(ASF.Infrastructure.Repositories.IEditorRepository,ASF.Infrastructure.Repositories.IConcatRepositories)">
+            <summary>
+            富文本编辑服务
+            </summary>
+            <param name="editorRepository"></param>
+            <param name="concatRepositories"></param>
+        </member>
+        <member name="M:ASF.Domain.Services.EditorService.GetEditor(System.Int64)">
+            <summary>
+            获取富文本内容
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.EditorService.GetLists">
+            <summary>
+            获取富文本列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.EditorService.Modify(ASF.Domain.Entities.Editor)">
+            <summary>
+            修改富文本内容
+            </summary>
+            <param name="editor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.EditorService.GetConcatList(System.Int32,System.Int32)">
+            <summary>
+            获取咨询列表
+            </summary>
+            <param name="pageNo"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.EditorService.Concat(ASF.Domain.Entities.Concat)">
+            <summary>
+            提交咨询内容
+            </summary>
+            <param name="concat"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Domain.Services.IAccountLoginService">
             <summary>
             账户登录服务
@@ -4688,6 +4735,11 @@
             字典仓储
             </summary>
         </member>
+        <member name="T:ASF.Infrastructure.Repositories.IConcatRepositories">
+            <summary>
+            咨询内容
+            </summary>
+        </member>
         <member name="T:ASF.Infrastructure.Repositories.IDepartmentRepositories">
             <summary>
             部门仓储
@@ -4700,6 +4752,11 @@
             <param name="id"></param>
             <param name="tenancyId"/>
             <returns></returns>
+        </member>
+        <member name="T:ASF.Infrastructure.Repositories.IEditorRepository">
+            <summary>
+            富文本仓储
+            </summary>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.ILoggingsRepository">
             <summary>
