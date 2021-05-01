@@ -771,7 +771,7 @@ namespace ASF.EntityFramework.Repository
             {
                 e.ToTable("asf_permission_menu").HasComment("菜单表");
                 e.HasKey(x => x.Id);
-                e.Property(x => x.Id).HasComment("id").ValueGeneratedOnAdd();
+                e.Property(x => x.Id).HasColumnName("id").ValueGeneratedOnAdd();
                 // 标题索引
                 e.HasIndex(x => x.Title).IsUnique();
                 // 菜单地址索引
@@ -843,7 +843,7 @@ namespace ASF.EntityFramework.Repository
                 e.ToTable("asf_translate").HasComment("多语言表");
                 e.HasKey(x => x.Id);
                 
-                e.Property(x=> x.Id).HasComment("id").ValueGeneratedOnAdd();
+                e.Property(x=> x.Id).HasColumnName("id").ValueGeneratedOnAdd();
                 
                 //名称索引
                 e.HasIndex(x => x.Name).IsUnique();
@@ -871,7 +871,7 @@ namespace ASF.EntityFramework.Repository
                 //字典 key 索引
                 e.HasIndex(x => x.Key).IsUnique();
                 
-                e.Property(x=> x.Id).HasComment("id").ValueGeneratedOnAdd();
+                e.Property(x=> x.Id).HasColumnName("id").ValueGeneratedOnAdd();
                 e.Property(x => x.TenancyId).HasColumnName("tenancy_id").HasComment("租户id");
                 e.Property(x => x.Code).HasColumnName("code").HasColumnType("varchar(255)").HasComment("字典编码");
                 e.Property(x => x.Key).HasColumnName("key").HasColumnType("varchar(255)").HasComment("字典键");
