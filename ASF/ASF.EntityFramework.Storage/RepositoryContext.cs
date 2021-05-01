@@ -878,9 +878,42 @@ namespace ASF.EntityFramework.Repository
                 e.Property(x => x.Options).HasColumnName("options").HasColumnType("varchar(255)").HasComment("字典额外配置");
                 e.Property(x => x.CreateTime)
                     .HasColumnName("create_time")
-                    
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
+            });
+            // 富文本内容
+            modelBuilder.Entity<Editor>(e =>
+            {
+                e.ToTable("asf_editor").HasComment("富文本内容");
+                e.HasKey(x => x.Id);
+                
+                e.Property(x=> x.Id).HasColumnName("id").ValueGeneratedOnAdd();
+                
+                e.Property(x => x.Name).HasColumnName("name").HasComment("名称");
+                e.Property(x => x.Path).HasColumnName("path").HasComment("生成html路径");
+                e.Property(x => x.Banner).HasColumnName("banner").HasComment("轮播图");
+                e.Property(x => x.Type).HasColumnName("type").HasComment("类型");
+                e.Property(x => x.OldContent).HasColumnName("ocd_content").HasComment("旧网页");
+                e.Property(x => x.NewContent).HasColumnName("new_content").HasComment("新网页");
+                e.Property(x => x.CreateTime)
+                    .HasColumnName("create_time")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            });
+            // 联系方式
+            modelBuilder.Entity<Concat>(e =>
+            {
+                e.ToTable("asf_concat").HasComment("富文本内容");
+                e.HasKey(x => x.Id);
+                
+                e.Property(x=> x.Id).HasColumnName("id").ValueGeneratedOnAdd();
+                e.Property(x => x.TelPhone).HasColumnName("tel_phone").HasComment("手机号码");
+                e.Property(x => x.Name).HasColumnName("name").HasComment("姓名");
+                e.Property(x => x.Email).HasColumnName("email").HasComment("邮件");
+                e.Property(x => x.Area).HasColumnName("area").HasComment("面积");
+                e.Property(x => x.Content).HasColumnName("content").HasComment("内容");
+                e.Property(x => x.CreateTime)
+                    .HasColumnName("create_time")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
             });
             base.OnModelCreating(modelBuilder);
         }

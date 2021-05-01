@@ -38,7 +38,7 @@ INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,desc
 INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,description) VALUES ('多语言管理','多语言管理',15,'icon-EA','/control/translate','多语言管理菜单');
 INSERT INTO asf_permission_menu (title,subtitle,permission_id,icon,menu_url,description) VALUES ('tiny富文本','tiny富文本',16,'icon-EA','/editor','富文本编辑器');
 -- 插入api 权限数据
-INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description) VALUES (1, '获取账户列表',2,'/api/asf/dash/getdetails','get',1,'获取控制台信息权限');
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description) VALUES (1, '获取控制台信息权限',2,'/api/asf/dash/getdetails','get',1,'获取控制台信息权限');
 
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description) VALUES (3, '获取账户列表',2,'/api/asf/account/getlist','get',1,'获取账户信息列表权限');
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (3, '添加账户',2,'/api/asf/account/create','post',1,'添加账户信息权限',1);
@@ -128,6 +128,11 @@ INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,descr
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '登出',1,'/api/asf/authorise/logout','post',1,'登出账户权限',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取登录账户信息',1,'/api/asf/account/accountinfo','get',1,'登出账户权限',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取租户列表集合',1,'/api/asf/tenancy/getlists','get',1,'获取租户列表集合',0);
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取富文本内容',1,'/api/asf/editor/get','get',1,'获取富文本内容',0);
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '修改富文本内容',1,'/api/asf/editor/modify','put',1,'修改富文本内容',0);
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '重置富文本内容',1,'/api/asf/editor/reset','put',1,'重置富文本内容',0);
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '提交咨询内容',1,'/api/asf/editor/concat','post',1,'提交咨询内容',0);
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '咨询内容列表',1,'/api/asf/editor/getConcatList','get',1,'咨询内容列表',0);
 -- 插入角色数据
 INSERT INTO asf_role (tenancy_id,name,description,create_id) VALUES (1, 'superadmin', '总超级管理员拥有下属租户所有权限',1);
 INSERT INTO asf_role (tenancy_id,name,description,create_id) VALUES (1, 'admin', '普通管理员，拥有部分权限',1);

@@ -2843,6 +2843,46 @@
             创建时间
             </summary>
         </member>
+        <member name="T:ASF.Domain.Entities.Concat">
+            <summary>
+            联系方式
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Concat.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Concat.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Concat.TelPhone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Concat.Email">
+            <summary>
+            邮箱地址
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Concat.Area">
+            <summary>
+            面积
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Concat.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Concat.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
         <member name="T:ASF.Domain.Entities.Department">
             <summary>
             部门
@@ -2936,6 +2976,51 @@
         <member name="P:ASF.Domain.Entities.DepartmentRole.Department">
             <summary>
             关联部门
+            </summary>
+        </member>
+        <member name="T:ASF.Domain.Entities.Editor">
+            <summary>
+            富文本内容
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.Name">
+            <summary>
+            富文本名称
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.Type">
+            <summary>
+            富文本类型
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.Path">
+            <summary>
+            生成html路径
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.Banner">
+            <summary>
+            轮播图集合
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.OldContent">
+            <summary>
+            原始网页
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.NewContent">
+            <summary>
+            新网页
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.CreateTime">
+            <summary>
+            创建时间
             </summary>
         </member>
         <member name="T:ASF.Domain.Entities.LogInfo">
