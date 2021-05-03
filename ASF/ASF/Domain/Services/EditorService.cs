@@ -29,12 +29,25 @@ namespace ASF.Domain.Services
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public async Task<Result> GetEditor(long id)
+		public async Task<Result<Editor>> GetEditor(long id)
 		{
 			Editor editor = await _editorRepository.GetEntity(f => f.Id == id);
 			if (editor == null)
-				return Result.ReFailure("没有这个富文本内容", 2002);
-			return Result.ReSuccess();
+				return Result<Editor>.ReFailure("没有这个富文本内容", 2002);
+			return Result<Editor>.ReSuccess(editor);
+		}
+		
+		/// <summary>
+		/// 根据type 类型获取富文本banner
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		public async Task<Result<string>> GetBanner(uint type)
+		{
+			Editor editor = await _editorRepository.GetEntity(f => f.Type == type);
+			if (editor == null)
+				return Result<string>.ReFailure("没有这个轮播", 2003);
+			return Result<string>.ReSuccess(editor.Banner ?? "");
 		}
 
 		/// <summary>

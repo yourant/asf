@@ -2152,7 +2152,6 @@ CREATE TABLE "public"."asf_concat" (
                                        "id" bigint NOT NULL,
                                        "name" character varying(100) NOT NULL,
                                        "tel_phone" character varying(100) NOT NULL,
-                                       "email"  character varying(100) NOT NULL,
                                        "area"  character varying(100) DEFAULT NULL,
                                        "content" text DEFAULT NULL,
                                        "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
@@ -2165,8 +2164,6 @@ COMMENT ON TABLE "public"."asf_concat" IS '联系方式表';
 COMMENT ON COLUMN "public"."asf_concat"."name" IS '姓名';
 
 COMMENT ON COLUMN "public"."asf_concat"."tel_phone" IS '手机号码';
-
-COMMENT ON COLUMN "public"."asf_concat"."email" IS '邮箱地址';
 
 COMMENT ON COLUMN "public"."asf_concat"."area" IS '面积';
 
