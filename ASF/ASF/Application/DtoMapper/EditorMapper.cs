@@ -16,7 +16,8 @@ namespace ASF.Application.DtoMapper
 			// 咨询联系响应
 			this.CreateMap<Concat, ConcatResponseDto>();
 			// 富文本响应
-			this.CreateMap<Editor, EditorResponseDto>();
+			this.CreateMap<Editor, EditorResponseDto>()
+				.ForMember(f=> f.NewContent, s=>s.MapFrom(o=>!string.IsNullOrEmpty(o.NewContent) ? o.NewContent : null));
 		}
 	}
 }
