@@ -9,6 +9,9 @@ namespace ASF.Application.DtoMapper
 	/// </summary>
 	public class EditorMapper: Profile
 	{
+		/// <summary>
+		/// 富文本映射
+		/// </summary>	
 		public EditorMapper()
 		{
 			// 添加咨询
