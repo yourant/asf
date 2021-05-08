@@ -2059,6 +2059,11 @@
             富文本映射
             </summary>
         </member>
+        <member name="M:ASF.Application.DtoMapper.EditorMapper.#ctor">
+            <summary>
+            富文本映射
+            </summary>	
+        </member>
         <member name="T:ASF.Application.DtoMapper.LoggerMapper">
             <summary>
             日志映射
