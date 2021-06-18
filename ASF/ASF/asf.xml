@@ -4478,6 +4478,22 @@
             <param name="role"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Domain.Services.SendPhoneService">
+            <summary>
+            发送短信
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.SendPhoneService.#ctor(System.Net.Http.IHttpClientFactory)">
+            <summary>
+            发送短信服务
+            </summary>
+            <param name="clientFactory"></param>
+        </member>
+        <member name="M:ASF.Domain.Services.SendPhoneService.Invoke">
+            <summary>
+            触发定时任务
+            </summary>
+        </member>
         <member name="T:ASF.Domain.Services.TenancyService">
             <summary>
             租户服务

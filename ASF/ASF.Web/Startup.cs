@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AutoMapper;
 using ASF.Application.DtoMapper;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using ASF.Domain.Services;
+using Coravel;
 using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
 using Ocelot.Provider.Consul;
@@ -33,6 +33,9 @@ namespace ASF.Web
             // {
             //     opt.SecurityType = SecurityType.RsaSha512;
             // });
+            services.AddHttpClient();
+            services.AddTransient<SendPhoneService>();
+            services.AddScheduler();
             //automapper
             services.AddAutoMapper(typeof(LoggerMapper).Assembly);
             // 跨域处理中间件
@@ -100,9 +103,15 @@ namespace ASF.Web
                     //c.RoutePrefix = "";
                 });
             }
-
+            var provider = app.ApplicationServices;
+            provider.UseScheduler(scheduler =>
+            {
+                scheduler.Schedule<SendPhoneService>()
+                    .Hourly();
+            });
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
+            
             // app.ASFInitDatabase();
             app.UseASF();
             
