@@ -33,7 +33,11 @@ namespace ASF.Web
             // {
             //     opt.SecurityType = SecurityType.RsaSha512;
             // });
+            //添加日志
+            services.AddLogging();
+            // httpclient 
             services.AddHttpClient();
+            //定时任务
             services.AddTransient<SendPhoneService>();
             services.AddScheduler();
             //automapper

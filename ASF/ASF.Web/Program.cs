@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NLog.Web;
 
 namespace ASF.Web
 {
@@ -39,6 +40,6 @@ namespace ASF.Web
                         logging.AddDebug();
                     });
                     webBuilder.UseUrls($"http://*:{port}").UseStartup<Startup>();
-                });
+                }).UseNLog();
     }
 }
