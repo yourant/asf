@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using ASF.Domain.Values;
 
 namespace ASF.Application.DTO.Center
 {
@@ -7,6 +9,15 @@ namespace ASF.Application.DTO.Center
 	/// </summary>
 	public class CenterAccountResponseDto
 	{
+		/// <summary>
+		/// 表格需要的键
+		/// </summary>
+		public long Key {
+			get
+			{
+				return AccountId;
+			}
+		}
 		/// <summary>
 		/// 账户id
 		/// </summary>
@@ -139,9 +150,10 @@ namespace ASF.Application.DTO.Center
 		/// 备注
 		/// </summary>
 		public string Remarks { get; set; }
+
 		/// <summary>
-		/// 行版本
+		/// 商户类型枚举类别
 		/// </summary>
-		public long RowVersion { get; set; }
+		public Dictionary<int, string> AllowShopTypeValue { get; set; } = EnumValue.AllowShopTypeValue;
 	}
 }

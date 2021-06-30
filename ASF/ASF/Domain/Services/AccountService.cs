@@ -125,22 +125,18 @@ namespace ASF.Domain.Services
 		/// <param name="status"></param>
 		/// <param name="tenancyId"></param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<Account>> GetList(int pageNo, int pageSize, string username,string telPhone,string email,int? sex,uint? status,long? tenancyId = null)
+		public async Task<(IList<Account> list,int total)> GetList(int pageNo, int pageSize, string username,string telPhone,string email,int? sex,uint? status,long? tenancyId = null)
 		{
 			if (tenancyId != null)
 			{
 				if (!string.IsNullOrEmpty(username) || !string.IsNullOrEmpty(telPhone) || !string.IsNullOrEmpty(email) ||
 				    sex != null || status != null)
 				{
-					var (list, total) =
-						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId && (f.Username.Equals(username) || f.TelPhone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status));
-					return ResultPagedList<Account>.ReSuccess(list,total);
+					return await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId && (f.Username.Equals(username) || f.TelPhone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status));
 				}
 				else
 				{
-					var (list, total) =
-						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId);
-					return ResultPagedList<Account>.ReSuccess(list,total);
+					return await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId);
 				}
 			}
 			else
@@ -148,15 +144,11 @@ namespace ASF.Domain.Services
 				if (!string.IsNullOrEmpty(username) || !string.IsNullOrEmpty(telPhone) || !string.IsNullOrEmpty(email) ||
 				    sex != null || status != null)
 				{
-					var (list, total) =
-						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Username.Equals(username) || f.TelPhone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status);
-					return ResultPagedList<Account>.ReSuccess(list,total);
+					return await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Username.Equals(username) || f.TelPhone.Equals(telPhone) || f.Email.Equals(email) || f.Sex == sex || f.Status == status);
 				}
 				else
 				{
-					var (list, total) =
-						await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
-					return ResultPagedList<Account>.ReSuccess(list,total);
+					return await _accountsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
 				}
 			}
 		}
@@ -165,14 +157,11 @@ namespace ASF.Domain.Services
 		/// </summary>
 		/// <param name="account"></param>
 		/// <returns></returns>
-		public async Task<Result> Create(Account account)
+		public async Task<bool> Create(Account account)
 		{
 			if (await _accountsRepository.GetEntity(f => f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.TelPhone.Equals(account.TelPhone))) != null)
-				return Result.ReFailure(ResultCodes.AccountExist);
-			bool isAdd = await _accountsRepository.Add(account);
-			if(!isAdd)
-				return Result.ReFailure(ResultCodes.AccountCreate);
-			return Result.ReSuccess();
+				return false;
+			return await _accountsRepository.Add(account);
 		}
 		/// <summary>
 		/// 修改账户

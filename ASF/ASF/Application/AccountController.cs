@@ -128,11 +128,9 @@ namespace ASF.Application
 		public async Task<ResultPagedList<AccountResponseDto>> GetList([FromQuery] AccountListRequestDto dto)
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var data = await _serviceProvider.GetRequiredService<AccountService>().GetList(dto.PageNo,dto.PageSize,dto.Username,dto.TelPhone,dto.Email,dto.Sex,dto.Status,tenancyId);
-			if (!data.Success)
-				return ResultPagedList<AccountResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultPagedList<AccountResponseDto>.ReSuccess(_mapper.Map<List<AccountResponseDto>>(data.Data),
-				data.TotalCount);
+			var (list,total)= await _serviceProvider.GetRequiredService<AccountService>().GetList(dto.PageNo,dto.PageSize,dto.Username,dto.TelPhone,dto.Email,dto.Sex,dto.Status,tenancyId);
+			return ResultPagedList<AccountResponseDto>.ReSuccess(_mapper.Map<List<AccountResponseDto>>(list),
+				total);
 		}
 		/// <summary>
 		/// 获取账户详情
@@ -211,7 +209,11 @@ namespace ASF.Application
 					});
 				}
 			}
-			return await _serviceProvider.GetRequiredService<AccountService>().Create(data);
+			
+			bool isAdd = await _serviceProvider.GetRequiredService<AccountService>().Create(data);
+			if(!isAdd)
+				return Result.ReFailure(ResultCodes.AccountCreate);
+			return Result.ReSuccess();
 		}
 		/// <summary>
 		/// 修改账户

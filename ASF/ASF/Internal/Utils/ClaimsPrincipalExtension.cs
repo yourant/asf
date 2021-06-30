@@ -66,10 +66,9 @@ namespace Microsoft.AspNetCore.Mvc
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public  static string ConvertToTimeSpanString(this byte[] b)
+        public  static DateTime ConvertToTimeSpanString(this byte[] b)
         {
-            string strTimeSpan = System.Text.Encoding.UTF8.GetString(b);
-            return strTimeSpan;
+            return DateTime.FromBinary(BitConverter.ToInt64(b, 0)); ;
         }
     }
 }

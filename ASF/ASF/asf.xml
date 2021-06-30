@@ -951,6 +951,11 @@
             账户响应
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.Key">
+            <summary>
+            表格需要的键
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AccountId">
             <summary>
             账户id
@@ -1116,9 +1121,9 @@
             备注
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.RowVersion">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AllowShopTypeValue">
             <summary>
-            行版本
+            商户类型枚举类别
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Department.DepartmentCreateRequestDto">
@@ -4674,15 +4679,25 @@
             center 领域服务
             </summary>
         </member>
-        <member name="M:ASF.Domain.Services.CenterService.#ctor(ASF.Infrastructure.Repositories.ICenterAccountsRepository)">
+        <member name="M:ASF.Domain.Services.CenterService.#ctor(ASF.Infrastructure.Repositories.ICenterAccountsRepository,ASF.Infrastructure.Repositories.ICenterShopRepository)">
             <summary>
             center 领域服务
             </summary>
             <param name="centerAccountsRepository"></param>
+            <param name="centerShopRepository"></param>
         </member>
         <member name="M:ASF.Domain.Services.CenterService.GetAccountList(System.Int32,System.Int32,System.String)">
             <summary>
             获取账户列表
+            </summary>
+            <param name="pageNo"></param>
+            <param name="pageSize"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.CenterService.GetShopList(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取商铺列表
             </summary>
             <param name="pageNo"></param>
             <param name="pageSize"></param>
@@ -5315,6 +5330,16 @@
             启用
             </summary>
         </member>
+        <member name="T:ASF.Domain.Values.EnumValue">
+            <summary>
+            枚举类型字典
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EnumValue.AllowShopTypeValue">
+            <summary>
+            商户类型
+            </summary>
+        </member>
         <member name="T:ASF.Domain.Values.LoggingType">
             <summary>
             管理日志类型
@@ -5486,6 +5511,11 @@
         <member name="T:ASF.Infrastructure.Repositories.ICenterAccountsRepository">
             <summary>
             账户仓储
+            </summary>
+        </member>
+        <member name="T:ASF.Infrastructure.Repositories.ICenterShopRepository">
+            <summary>
+            商户仓储
             </summary>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.IAccountsRepository">

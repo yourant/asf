@@ -67,6 +67,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IConcatRepositories, ConcatRepositories>();
             // 自定义扩展db仓储
             services.AddScoped<ICenterAccountsRepository, CenterAccountsRepository>();
+            services.AddScoped<ICenterShopRepository, CenterShopRepository>();
         }
     }
 }

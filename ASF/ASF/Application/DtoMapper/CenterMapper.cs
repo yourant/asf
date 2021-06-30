@@ -16,8 +16,7 @@ namespace ASF.Application.DtoMapper
 		public CenterMapper()
 		{
 			//账户响应
-			this.CreateMap<CenterAccount, CenterAccountResponseDto>()
-				.ForMember(f=>f.RowVersion,s=>s.MapFrom(o=>o.RowVersion));
+			this.CreateMap<CenterAccount, CenterAccountResponseDto>();
 		}
 	}
 }
