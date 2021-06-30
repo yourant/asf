@@ -111,7 +111,10 @@ namespace ASF.Web
                             b.EnableDetailedErrors();
                             break;
                         case "sqlserver":
-                            b.UseSqlServer(asfOptions.CenterDBConnectionString);
+                            b.UseSqlServer(asfOptions.CenterDBConnectionString, opt =>
+                            {
+                                opt.MigrationsAssembly("ASF.Web");
+                            });
                             break;
                         case "postgre":
                             b.UseNpgsql(asfOptions.CenterDBConnectionString, opt =>

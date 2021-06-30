@@ -1,11 +1,11 @@
 using System;
 
-namespace ASF.Domain.Entities.Center
+namespace ASF.Application.DTO.Center
 {
 	/// <summary>
-	/// 应用
+	/// 应用响应
 	/// </summary>
-	public class CenterProgram
+	public class CenterProgramResponseDto
 	{
 		/// <summary>
 		/// 应用id
@@ -95,5 +95,5 @@ namespace ASF.Domain.Entities.Center
 		/// 应用logo
 		/// </summary>
 		public string Logo { get; set; }
-	}	
+	}
 }

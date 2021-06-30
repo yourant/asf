@@ -13,15 +13,19 @@ namespace ASF.Domain.Services
 	{
 		private readonly ICenterAccountsRepository _centerAccountsRepository;
 		private readonly ICenterShopRepository _centerShopRepository;
+		private readonly ICenterProgramsRepository _centerProgramsRepository;
 		/// <summary>
 		/// center 领域服务
 		/// </summary>
 		/// <param name="centerAccountsRepository"></param>
 		/// <param name="centerShopRepository"></param>
-		public CenterService(ICenterAccountsRepository centerAccountsRepository,ICenterShopRepository centerShopRepository)
+		/// <param name="centerProgramsRepository"></param>
+		public CenterService(ICenterAccountsRepository centerAccountsRepository,ICenterShopRepository centerShopRepository,ICenterProgramsRepository centerProgramsRepository)
 		{
 			_centerAccountsRepository = centerAccountsRepository;
 			_centerShopRepository = centerShopRepository;
+			_centerProgramsRepository = centerProgramsRepository;
+
 		}
 		/// <summary>
 		/// 获取账户列表
@@ -57,6 +61,24 @@ namespace ASF.Domain.Services
 			else
 			{
 				return await _centerShopRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.ShopId != 0);
+			}
+		}
+		/// <summary>
+		/// 获取应用列表
+		/// </summary>
+		/// <param name="pageNo"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		public async Task<(IList<CenterProgram> list, int total)> GetProgramList(int pageNo, int pageSize, string name)
+		{
+			if (!string.IsNullOrEmpty(name))
+			{
+				return await _centerProgramsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name));
+			}
+			else
+			{
+				return await _centerProgramsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.ProgramId != 0);
 			}
 		}
 	}

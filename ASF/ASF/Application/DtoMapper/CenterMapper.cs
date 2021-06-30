@@ -17,6 +17,8 @@ namespace ASF.Application.DtoMapper
 		{
 			//账户响应
 			this.CreateMap<CenterAccount, CenterAccountResponseDto>();
+			this.CreateMap<CenterShop, CenterShopResponseDto>();
+			this.CreateMap<CenterProgram, CenterProgramResponseDto>();
 		}
 	}
 }

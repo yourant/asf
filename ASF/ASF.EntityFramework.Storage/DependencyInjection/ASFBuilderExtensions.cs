@@ -68,6 +68,7 @@ namespace Microsoft.Extensions.DependencyInjection
             // 自定义扩展db仓储
             services.AddScoped<ICenterAccountsRepository, CenterAccountsRepository>();
             services.AddScoped<ICenterShopRepository, CenterShopRepository>();
+            services.AddScoped<ICenterProgramsRepository, CenterProgramsRepository>();
         }
     }
 }

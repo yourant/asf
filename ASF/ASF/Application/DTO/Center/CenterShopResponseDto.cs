@@ -1,11 +1,11 @@
 using System;
 
-namespace ASF.Domain.Entities.Center
+namespace ASF.Application.DTO.Center
 {
 	/// <summary>
-	/// 商户
+	/// 中心端商户响应
 	/// </summary>
-	public class CenterShop
+	public class CenterShopResponseDto
 	{
 		/// <summary>
 		/// 商户id
@@ -51,7 +51,7 @@ namespace ASF.Domain.Entities.Center
 		/// 商户简介
 		/// </summary>
 		public string BusinessContacter { get; set; }
-		// /// <summary>
+		/// <summary>
 		/// 商品电话
 		/// </summary>
 		public string BusinessPhone { get; set; }
@@ -115,10 +115,6 @@ namespace ASF.Domain.Entities.Center
 		/// 版本类型
 		/// </summary>
 		public int EditionType { get; set; }
-		/// <summary>
-		/// 版本
-		/// </summary>
-		public byte[] RowVersion { get; set; }
 		/// <summary>
 		/// 更新商铺名称时间
 		/// </summary>

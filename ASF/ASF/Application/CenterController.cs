@@ -38,5 +38,28 @@ namespace ASF.Application
 			var (list, total) = await _serviceProvider.GetRequiredService<CenterService>().GetAccountList(dto.PageNo,dto.PageSize,dto.Name);
 			return ResultPagedList<CenterAccountResponseDto>.ReSuccess(_mapper.Map<List<CenterAccountResponseDto>>(list),total);
 		}
+		/// <summary>
+		/// 获取商户列表
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		public async Task<ResultPagedList<CenterShopResponseDto>> GetShopList([FromQuery] CenterShopListRequestDto dto)
+		{
+			var (list, total) = await _serviceProvider.GetRequiredService<CenterService>()
+				.GetShopList(dto.PageNo, dto.PageSize, dto.Name);
+			return ResultPagedList<CenterShopResponseDto>.ReSuccess(_mapper.Map<List<CenterShopResponseDto>>(list),total);
+		}
+		/// <summary>
+		/// 获取应用列表
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		public async Task<ResultPagedList<CenterProgramResponseDto>> GetProgramList(
+			[FromQuery] CenterProgramListRequestDto dto)
+		{
+			var (list, total) = await _serviceProvider.GetRequiredService<CenterService>()
+				.GetShopList(dto.PageNo, dto.PageSize, dto.Name);
+			return ResultPagedList<CenterProgramResponseDto>.ReSuccess(_mapper.Map<List<CenterProgramResponseDto>>(list),total);
+		}
 	}
 }

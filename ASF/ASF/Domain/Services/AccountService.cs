@@ -157,11 +157,14 @@ namespace ASF.Domain.Services
 		/// </summary>
 		/// <param name="account"></param>
 		/// <returns></returns>
-		public async Task<bool> Create(Account account)
+		public async Task<Result> Create(Account account)
 		{
 			if (await _accountsRepository.GetEntity(f => f.TenancyId == account.TenancyId && (f.Username.Equals(account.Username) || f.Email.Equals(account.Email) || f.TelPhone.Equals(account.TelPhone))) != null)
-				return false;
-			return await _accountsRepository.Add(account);
+				return Result.ReFailure(ResultCodes.AccountExist);
+			bool isAdd = await _accountsRepository.Add(account);
+			if(!isAdd)
+				return Result.ReFailure(ResultCodes.AccountCreate);
+			return Result.ReSuccess();
 		}
 		/// <summary>
 		/// 修改账户

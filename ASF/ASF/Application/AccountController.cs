@@ -210,10 +210,7 @@ namespace ASF.Application
 				}
 			}
 			
-			bool isAdd = await _serviceProvider.GetRequiredService<AccountService>().Create(data);
-			if(!isAdd)
-				return Result.ReFailure(ResultCodes.AccountCreate);
-			return Result.ReSuccess();
+			return await _serviceProvider.GetRequiredService<AccountService>().Create(data);
 		}
 		/// <summary>
 		/// 修改账户

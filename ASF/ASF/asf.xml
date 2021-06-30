@@ -261,6 +261,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.CenterController.GetShopList(ASF.Application.DTO.Center.CenterShopListRequestDto)">
+            <summary>
+            获取商户列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.CenterController.GetProgramList(ASF.Application.DTO.Center.CenterProgramListRequestDto)">
+            <summary>
+            获取应用列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.DepartmentController">
             <summary>
             部门控制器
@@ -1124,6 +1138,286 @@
         <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AllowShopTypeValue">
             <summary>
             商户类型枚举类别
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Center.CenterProgramListRequestDto">
+            <summary>
+            应用列表请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramListRequestDto.Name">
+            <summary>
+            商户名称
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Center.CenterProgramResponseDto">
+            <summary>
+            应用响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ProgramId">
+            <summary>
+            应用id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ProgramKey">
+            <summary>
+            应用key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ProgramGroupId">
+            <summary>
+            应用组id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.GroupShopId">
+            <summary>
+            商户组id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.AccountId">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.PayChannelKey">
+            <summary>
+            支付渠道key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Name">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.CloudAppKey">
+            <summary>
+            云app key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.WxAppId">
+            <summary>
+            微信appid
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Type">
+            <summary>
+            应用类型
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Way">
+            <summary>
+            方式
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Mode">
+            <summary>
+            模式
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.MerchantId">
+            <summary>
+            商户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.MerchantKey">
+            <summary>
+            商户key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ChainId">
+            <summary>
+            供应链ID
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ChainKey">
+            <summary>
+            供应链key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.SubmitTime">
+            <summary>
+            创建时间s
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.TrialVersion">
+            <summary>
+            使用版本号
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.TrialMerchantKey">
+            <summary>
+            使用商户key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.HasLiveBroadcast">
+            <summary>
+            是否有直播
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Copyright">
+            <summary>
+            版权
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Logo">
+            <summary>
+            应用logo
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Center.CenterShopListRequestDto">
+            <summary>
+            商户列表请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopListRequestDto.Name">
+            <summary>
+            商户名称
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Center.CenterShopResponseDto">
+            <summary>
+            中心端商户响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.ShopId">
+            <summary>
+            商户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.ShopKey">
+            <summary>
+            商户key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.ShopType">
+            <summary>
+            商户类型
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.ChainId">
+            <summary>
+            供应链id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Name">
+            <summary>
+            商户名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.NickName">
+            <summary>
+            商户昵称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Logo">
+            <summary>
+            商户logo
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Principal">
+            <summary>
+            商户图片
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Mobile">
+            <summary>
+            商户手机
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Phone">
+            <summary>
+            商铺电话
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.BusinessContacter">
+            <summary>
+            商户简介
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.BusinessPhone">
+            <summary>
+            商品电话
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Address">
+            <summary>
+            商户地址
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.RegionId">
+            <summary>
+            商户区域id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.RegionPath">
+            <summary>
+            商户区域路径
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.CertState">
+            <summary>
+            商户证书状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.SubmitTime">
+            <summary>
+            商户创建时间
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.ShopIndustryId">
+            <summary>
+            商户行业id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.AuthenticationState">
+            <summary>
+            商户认证状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Remarks">
+            <summary>
+            商户备注
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.UpdateTime">
+            <summary>
+            商户更新时间
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Longitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Latitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.VendorId">
+            <summary>
+            供应商id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.VendorName">
+            <summary>
+            供应商名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.EditionType">
+            <summary>
+            版本类型
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.UpdateNameTime">
+            <summary>
+            更新商铺名称时间
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Department.DepartmentCreateRequestDto">
@@ -3569,11 +3863,7 @@
             商户简介
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterShop.BusinessPhone">
-            <summary>
-            商品电话
-            </summary>
-        </member>
+        <!-- Badly formed XML comment ignored for member "P:ASF.Domain.Entities.Center.CenterShop.BusinessPhone" -->
         <member name="P:ASF.Domain.Entities.Center.CenterShop.Address">
             <summary>
             商户地址
@@ -3646,7 +3936,7 @@
         </member>
         <member name="P:ASF.Domain.Entities.Center.CenterShop.EditionType">
             <summary>
-            编辑类型
+            版本类型
             </summary>
         </member>
         <member name="P:ASF.Domain.Entities.Center.CenterShop.RowVersion">
@@ -4679,12 +4969,13 @@
             center 领域服务
             </summary>
         </member>
-        <member name="M:ASF.Domain.Services.CenterService.#ctor(ASF.Infrastructure.Repositories.ICenterAccountsRepository,ASF.Infrastructure.Repositories.ICenterShopRepository)">
+        <member name="M:ASF.Domain.Services.CenterService.#ctor(ASF.Infrastructure.Repositories.ICenterAccountsRepository,ASF.Infrastructure.Repositories.ICenterShopRepository,ASF.Infrastructure.Repositories.ICenterProgramsRepository)">
             <summary>
             center 领域服务
             </summary>
             <param name="centerAccountsRepository"></param>
             <param name="centerShopRepository"></param>
+            <param name="centerProgramsRepository"></param>
         </member>
         <member name="M:ASF.Domain.Services.CenterService.GetAccountList(System.Int32,System.Int32,System.String)">
             <summary>
@@ -4698,6 +4989,15 @@
         <member name="M:ASF.Domain.Services.CenterService.GetShopList(System.Int32,System.Int32,System.String)">
             <summary>
             获取商铺列表
+            </summary>
+            <param name="pageNo"></param>
+            <param name="pageSize"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.CenterService.GetProgramList(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取应用列表
             </summary>
             <param name="pageNo"></param>
             <param name="pageSize"></param>
@@ -5511,6 +5811,11 @@
         <member name="T:ASF.Infrastructure.Repositories.ICenterAccountsRepository">
             <summary>
             账户仓储
+            </summary>
+        </member>
+        <member name="T:ASF.Infrastructure.Repositories.ICenterProgramsRepository">
+            <summary>
+            应用仓储
             </summary>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.ICenterShopRepository">
