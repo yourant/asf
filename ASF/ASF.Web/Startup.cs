@@ -37,8 +37,7 @@ namespace ASF.Web
             services.AddLogging();
             // httpclient 
             services.AddHttpClient();
-            //定时任务
-            services.AddTransient<SendPhoneService>();
+            
             services.AddScheduler();
             //automapper
             services.AddAutoMapper(typeof(LoggerMapper).Assembly);
@@ -107,12 +106,6 @@ namespace ASF.Web
                     //c.RoutePrefix = "";
                 });
             }
-            var provider = app.ApplicationServices;
-            provider.UseScheduler(scheduler =>
-            {
-                scheduler.Schedule<SendPhoneService>()
-                    .Hourly();
-            });
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
             
