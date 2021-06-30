@@ -18,11 +18,15 @@ namespace ASF.DependencyInjection
         /// 数据库类型
         /// </summary>
         public string DBType { get; set; }
-
         /// <summary>
-        /// 是否允许缓存
+        /// 第二个数据db连接字符串
         /// </summary>
-        public bool AllowCache { get; set; }
+        public string CenterDBConnectionString { get; set; }
+        /// <summary>
+        /// 第二个数据db 类型
+        /// </summary>
+        public string CenterDBType { get; set; }
+        
 
     }
 }

@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ASF.Application.DtoMapper;
-using ASF.Domain.Services;
 using Coravel;
 using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
@@ -37,7 +36,7 @@ namespace ASF.Web
             services.AddLogging();
             // httpclient 
             services.AddHttpClient();
-            
+            // 添加定时调度任务
             services.AddScheduler();
             //automapper
             services.AddAutoMapper(typeof(LoggerMapper).Assembly);
@@ -52,11 +51,13 @@ namespace ASF.Web
                     .AllowAnyMethod()
                     .AllowCredentials();
             }));
+            // 添加asf 服务
             services.AddASF(build =>
             {
                 var asfOptions = Configuration.GetSection("ASF").Get<ASFOptions>();
                 build.AddDbContext(b =>
                 {
+                    //处理各种db
                     switch (asfOptions.DBType.ToLower())
                     {
                         case "sqlite":
@@ -88,7 +89,41 @@ namespace ASF.Web
                             break;
                     }
                 });
-
+                //使用第二个db
+                build.AddDbContext(b =>
+                {
+                    //处理各种db
+                    switch (asfOptions.CenterDBType.ToLower())
+                    {
+                        case "sqlite":
+                            b.UseSqlite(asfOptions.CenterDBConnectionString, opt =>
+                            {
+                                opt.MigrationsAssembly("ASF.Web");
+                            });
+                            break;
+                        case "mysql":
+                            b.UseMySql(asfOptions.CenterDBConnectionString, ServerVersion.AutoDetect(asfOptions.DBConnectionString),
+                                builder =>
+                                {
+                                    builder.MigrationsAssembly("ASF.Web");
+                                });
+                            b.EnableSensitiveDataLogging();
+                            b.EnableDetailedErrors();
+                            break;
+                        case "sqlserver":
+                            b.UseSqlServer(asfOptions.CenterDBConnectionString, opt =>
+                            {
+                                opt.MigrationsAssembly("ASF.Web");
+                            });
+                            break;
+                        case "postgre":
+                            b.UseNpgsql(asfOptions.CenterDBConnectionString, opt =>
+                            {
+                                opt.MigrationsAssembly("ASF.Web");
+                            });
+                            break;
+                    }
+                },true);
             });
             //网关服务
             services.AddOcelot().AddConsul();

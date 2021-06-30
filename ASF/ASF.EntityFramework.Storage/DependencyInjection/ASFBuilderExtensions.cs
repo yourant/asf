@@ -19,11 +19,12 @@ namespace Microsoft.Extensions.DependencyInjection
             return builder;
         }
 
-        public static ASFBuilder AddDbContext(this ASFBuilder builder, Action<DbContextOptionsBuilder> configureDbContext, bool allowCache)
+        public static ASFBuilder AddDbContext(this ASFBuilder builder, Action<DbContextOptionsBuilder> configureDbContext, bool allowCenter)
         {
-            if (allowCache)
+            // 是否使用第二个库
+            if (allowCenter)
             {
-                builder.AddDbContextCache(configureDbContext);
+                builder.AddDbContextCenter(configureDbContext);
             }
             else
             {
@@ -31,10 +32,15 @@ namespace Microsoft.Extensions.DependencyInjection
             }
             return builder;
         }
-        public static ASFBuilder AddDbContextCache(this ASFBuilder builder, Action<DbContextOptionsBuilder> configureDbContext)
+        /// <summary>
+        /// 第二个数据库
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="configureDbContext"></param>
+        /// <returns></returns>
+        public static ASFBuilder AddDbContextCenter(this ASFBuilder builder, Action<DbContextOptionsBuilder> configureDbContext)
         {
-            builder.Services.AddDbContext<RepositoryContext>(configureDbContext);
-            builder.AddRepositoriesCache();
+            builder.Services.AddDbContext<CenterRepositoryContext>(configureDbContext);
             return builder;
         }
         // /// <summary>
@@ -86,14 +92,6 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IAsfDictionaryRepository, AsfDictionaryRepository>();
             services.AddScoped<IEditorRepository, EditorRepository>();
             services.AddScoped<IConcatRepositories, ConcatRepositories>();
-        }
-        /// <summary>
-        /// 注入缓存仓储层
-        /// </summary>
-        /// <param name="builder"></param>
-        private static void AddRepositoriesCache(this ASFBuilder builder)
-        {
-            // builder.AddAccountRepositoryCache<AccountRepository>();
         }
     }
 }
