@@ -61,5 +61,15 @@ namespace Microsoft.AspNetCore.Mvc
                 return false;
             return role.Contains("superadmin");
         }
+        /// <summary>
+        /// byte转16进
+        /// </summary>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public  static string ConvertToTimeSpanString(this byte[] b)
+        {
+            string strTimeSpan = System.Text.Encoding.UTF8.GetString(b);
+            return strTimeSpan;
+        }
     }
 }

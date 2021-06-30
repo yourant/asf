@@ -142,6 +142,6 @@ namespace ASF.Domain.Entities.Center
 		/// <summary>
 		/// 行版本
 		/// </summary>
-		public byte[] RowVersion { get; set; }
+		public long RowVersion { get; set; }
 	}
 }

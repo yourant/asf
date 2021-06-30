@@ -1,3 +1,5 @@
+using System;
+
 namespace ASF.Application.DTO.Center
 {
 	/// <summary>
@@ -12,7 +14,7 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 商户组 id
 		/// </summary>
-		public long GroupShopId { get; set; }
+		public int? GroupShopId { get; set; }
 		/// <summary>
 		/// 账户姓名
 		/// </summary>
@@ -28,35 +30,35 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 是否启用
 		/// </summary>
-		public uint IsEnable { get; set; }
+		public bool IsEnable { get; set; }
 		/// <summary>
 		/// 是否为平台账户
 		/// </summary>
-		public uint IsPlatform { get; set; }
+		public bool IsPlatform { get; set; }
 		/// <summary>
 		/// 是否为虚拟账户
 		/// </summary>
-		public uint IsVisual { get; set; }
+		public bool IsVisual { get; set; }
 		/// <summary>
 		/// 是否允许提款
 		/// </summary>
-		public uint AllowCashOut { get; set; }
+		public bool AllowCashOut { get; set; }
 		/// <summary>
 		/// 是否允许收款
 		/// </summary>
-		public uint AllowCashIn { get; set; }
+		public bool AllowCashIn { get; set; }
 		/// <summary>
 		/// 是否允许自动提款
 		/// </summary>
-		public uint AutoCashOut { get; set; }
+		public bool AutoCashOut { get; set; }
 		/// <summary>
 		/// 最小提款
 		/// </summary>
-		public decimal MinCashOut { get; set; }
+		public decimal? MinCashOut { get; set; }
 		/// <summary>
 		/// 开始提款金额
 		/// </summary>
-		public decimal SeedCashOut { get; set; }
+		public decimal? SeedCashOut { get; set; }
 		/// <summary>
 		/// 云支付账户名
 		/// </summary>
@@ -72,7 +74,7 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 易极支付key
 		/// </summary>
-		public string YiJiChannelKey { get; set; }
+		public string YijiChannelKey { get; set; }
 		/// <summary>
 		/// 提款手续费率
 		/// </summary>
@@ -84,51 +86,51 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 默认支付宝账户
 		/// </summary>
-		public string DefaultAlipayMerNo { get; set; }
+		public string DefaultAlipayMerNO { get; set; }
 		/// <summary>
 		/// 默认微信账户
 		/// </summary>
-		public string DefaultWePayMerNo { get; set; }
+		public string DefaultWepayMerNO { get; set; }
 		/// <summary>
 		/// 默认和包支付账户
 		/// </summary>
-		public string DefaultCmPayMerNo { get; set; }
+		public string DefaultCmPayMerNO { get; set; }
 		/// <summary>
 		///	 默认翼支付账户
 		/// </summary>
-		public string DefaultBestPayMerNo { get; set; }
+		public string DefaultBestpayMerNO { get; set; }
 		/// <summary>
 		/// 默认银联支付账户
 		/// </summary>
-		public string DefaultUnionPayMerNo { get; set; }
+		public string DefaultUnionPayMerNO { get; set; }
 		/// <summary>
 		/// 默认沃钱包支付账户
 		/// </summary>
-		public string DefaultUnicomPayMerNo { get; set; }
+		public string DefaultUnicompayMerNO { get; set; }
 		/// <summary>
 		/// 支付宝账户默认费率
 		/// </summary>
-		public decimal DefaultAliPayRate { get; set; }
+		public decimal? DefaultAliPayRate { get; set; }
 		/// <summary>
 		/// 微信账户费率
 		/// </summary>
-		public decimal DefaultWePayRate { get; set; }
+		public decimal? DefaultWePayRate { get; set; }
 		/// <summary>
 		/// 和钱包费率
 		/// </summary>
-		public decimal DefaultCmPayRate { get; set; }
+		public decimal? DefaultCmPayRate { get; set; }
 		/// <summary>
 		/// 翼支付费率
 		/// </summary>
-		public decimal DefaultBestpayRate { get; set; }
+		public decimal? DefaultBestpayRate { get; set; }
 		/// <summary>
 		/// 银联账户费率
 		/// </summary>
-		public decimal DefaultUnionPayRate { get; set; }
+		public decimal? DefaultUnionPayRate { get; set; }
 		/// <summary>
 		/// 沃钱包费率
 		/// </summary>
-		public decimal DefaultUnicomPayRate { get; set; }
+		public decimal? DefaultUnicompayRate { get; set; }
 		/// <summary>
 		/// 支付类型启用
 		/// </summary>
@@ -140,6 +142,6 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 行版本
 		/// </summary>
-		public byte[] RowVersion { get; set; }
+		public long RowVersion { get; set; }
 	}
 }

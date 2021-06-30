@@ -1031,7 +1031,7 @@
             支付宝支付渠道key
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.YiJiChannelKey">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.YijiChannelKey">
             <summary>
             易极支付key
             </summary>
@@ -1046,32 +1046,32 @@
             默认手续费率
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultAlipayMerNo">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultAlipayMerNO">
             <summary>
             默认支付宝账户
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultWePayMerNo">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultWepayMerNO">
             <summary>
             默认微信账户
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultCmPayMerNo">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultCmPayMerNO">
             <summary>
             默认和包支付账户
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultBestPayMerNo">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultBestpayMerNO">
             <summary>
              默认翼支付账户
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnionPayMerNo">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnionPayMerNO">
             <summary>
             默认银联支付账户
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnicomPayMerNo">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnicompayMerNO">
             <summary>
             默认沃钱包支付账户
             </summary>
@@ -1101,7 +1101,7 @@
             银联账户费率
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnicomPayRate">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnicompayRate">
             <summary>
             沃钱包费率
             </summary>
@@ -2244,6 +2244,16 @@
         <member name="M:ASF.Application.DtoMapper.AudioMapper.#ctor">
             <summary>
             审计日志映射
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DtoMapper.CenterMapper">
+            <summary>
+            中心端对象映射
+            </summary>
+        </member>
+        <member name="M:ASF.Application.DtoMapper.CenterMapper.#ctor">
+            <summary>
+            中心端对象映射
             </summary>
         </member>
         <member name="T:ASF.Application.DtoMapper.DepartmentMapper">
@@ -6465,6 +6475,13 @@
             是否为超级管理员角色
             </summary>
             <param name="principal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.ConvertToTimeSpanString(System.Byte[])">
+            <summary>
+            byte转16进
+            </summary>
+            <param name="b"></param>
             <returns></returns>
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ASFMiddlewareExtentions">
