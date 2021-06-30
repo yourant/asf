@@ -244,6 +244,23 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:ASF.Application.CenterController">
+            <summary>
+            center 管理
+            </summary>
+        </member>
+        <member name="M:ASF.Application.CenterController.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
+            <summary>
+            center 管理
+            </summary>
+        </member>
+        <member name="M:ASF.Application.CenterController.GetAccountList(ASF.Application.DTO.Center.CenterAccountListRequestDto)">
+            <summary>
+            获取账户列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.DepartmentController">
             <summary>
             部门控制器
@@ -917,6 +934,191 @@
         <member name="P:ASF.Application.DTO.Audio.AudioResponseDto.Remark">
             <summary>
             备注
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Center.CenterAccountListRequestDto">
+            <summary>
+            center 账户列表请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountListRequestDto.Name">
+            <summary>
+            账户名称
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Center.CenterAccountResponseDto">
+            <summary>
+            账户响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AccountId">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.GroupShopId">
+            <summary>
+            商户组 id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.Name">
+            <summary>
+            账户姓名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AllowShopType">
+            <summary>
+            所有商户类型
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.Balance">
+            <summary>
+            账户抵消金额
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.IsPlatform">
+            <summary>
+            是否为平台账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.IsVisual">
+            <summary>
+            是否为虚拟账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AllowCashOut">
+            <summary>
+            是否允许提款
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AllowCashIn">
+            <summary>
+            是否允许收款
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AutoCashOut">
+            <summary>
+            是否允许自动提款
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.MinCashOut">
+            <summary>
+            最小提款
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.SeedCashOut">
+            <summary>
+            开始提款金额
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.CloudPayAccountName">
+            <summary>
+            云支付账户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.PosWxChannelKey">
+            <summary>
+            微信支付渠道key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.PosAliChannelKey">
+            <summary>
+            支付宝支付渠道key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.YiJiChannelKey">
+            <summary>
+            易极支付key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.CashOutRate">
+            <summary>
+            提款手续费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultRate">
+            <summary>
+            默认手续费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultAlipayMerNo">
+            <summary>
+            默认支付宝账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultWePayMerNo">
+            <summary>
+            默认微信账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultCmPayMerNo">
+            <summary>
+            默认和包支付账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultBestPayMerNo">
+            <summary>
+             默认翼支付账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnionPayMerNo">
+            <summary>
+            默认银联支付账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnicomPayMerNo">
+            <summary>
+            默认沃钱包支付账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultAliPayRate">
+            <summary>
+            支付宝账户默认费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultWePayRate">
+            <summary>
+            微信账户费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultCmPayRate">
+            <summary>
+            和钱包费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultBestpayRate">
+            <summary>
+            翼支付费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnionPayRate">
+            <summary>
+            银联账户费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.DefaultUnicomPayRate">
+            <summary>
+            沃钱包费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.PayTypeEnable">
+            <summary>
+            支付类型启用
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.RowVersion">
+            <summary>
+            行版本
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Department.DepartmentCreateRequestDto">
@@ -2632,11 +2834,6 @@
             第二个数据db 类型
             </summary>
         </member>
-        <member name="P:ASF.DependencyInjection.ASFOptions.AllowCenter">
-            <summary>
-            是否使用第二个自定义数据db
-            </summary>
-        </member>
         <member name="T:ASF.DependencyInjection.ErrorHandlingMiddleware">
             <summary>
             统一全局错误拦截
@@ -3092,7 +3289,7 @@
             支付宝支付渠道key
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.YiJiChannelKey">
+        <member name="P:ASF.Domain.Entities.Center.CenterAccount.YijiChannelKey">
             <summary>
             易极支付key
             </summary>
@@ -3107,32 +3304,32 @@
             默认手续费率
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultAlipayMerNo">
+        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultAlipayMerNO">
             <summary>
             默认支付宝账户
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultWePayMerNo">
+        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultWepayMerNO">
             <summary>
             默认微信账户
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultCmPayMerNo">
+        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultCmPayMerNO">
             <summary>
             默认和包支付账户
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultBestPayMerNo">
+        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultBestpayMerNO">
             <summary>
              默认翼支付账户
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultUnionPayMerNo">
+        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultUnionPayMerNO">
             <summary>
             默认银联支付账户
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultUnicomPayMerNo">
+        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultUnicompayMerNO">
             <summary>
             默认沃钱包支付账户
             </summary>
@@ -3162,7 +3359,7 @@
             银联账户费率
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultUnicomPayRate">
+        <member name="P:ASF.Domain.Entities.Center.CenterAccount.DefaultUnicompayRate">
             <summary>
             沃钱包费率
             </summary>
@@ -3180,6 +3377,121 @@
         <member name="P:ASF.Domain.Entities.Center.CenterAccount.RowVersion">
             <summary>
             行版本
+            </summary>
+        </member>
+        <member name="T:ASF.Domain.Entities.Center.CenterProgram">
+            <summary>
+            应用
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.ProgramId">
+            <summary>
+            应用id
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.ProgramKey">
+            <summary>
+            应用key
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.ProgramGroupId">
+            <summary>
+            应用组id
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.GroupShopId">
+            <summary>
+            商户组id
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.AccountId">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.PayChannelKey">
+            <summary>
+            支付渠道key
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.Name">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.CloudAppKey">
+            <summary>
+            云app key
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.WxAppId">
+            <summary>
+            微信appid
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.Type">
+            <summary>
+            应用类型
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.Way">
+            <summary>
+            方式
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.Mode">
+            <summary>
+            模式
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.MerchantId">
+            <summary>
+            商户id
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.MerchantKey">
+            <summary>
+            商户key
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.ChainId">
+            <summary>
+            供应链ID
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.ChainKey">
+            <summary>
+            供应链key
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.SubmitTime">
+            <summary>
+            创建时间s
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.TrialVersion">
+            <summary>
+            使用版本号
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.TrialMerchantKey">
+            <summary>
+            使用商户key
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.HasLiveBroadcast">
+            <summary>
+            是否有直播
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.Copyright">
+            <summary>
+            版权
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Center.CenterProgram.Logo">
+            <summary>
+            应用logo
             </summary>
         </member>
         <member name="T:ASF.Domain.Entities.Center.CenterShop">
@@ -3330,121 +3642,6 @@
         <member name="P:ASF.Domain.Entities.Center.CenterShop.UpdateNameTime">
             <summary>
             更新商铺名称时间
-            </summary>
-        </member>
-        <member name="T:ASF.Domain.Entities.Center.Program">
-            <summary>
-            应用
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.ProgramId">
-            <summary>
-            应用id
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.ProgramKey">
-            <summary>
-            应用key
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.ProgramGroupId">
-            <summary>
-            应用组id
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.GroupShopId">
-            <summary>
-            商户组id
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.AccountId">
-            <summary>
-            账户id
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.PayChannelKey">
-            <summary>
-            支付渠道key
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.Name">
-            <summary>
-            应用名称
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.CloudAppKey">
-            <summary>
-            云app key
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.WxAppId">
-            <summary>
-            微信appid
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.Type">
-            <summary>
-            应用类型
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.Way">
-            <summary>
-            方式
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.Mode">
-            <summary>
-            模式
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.MerchantId">
-            <summary>
-            商户id
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.MerchantKey">
-            <summary>
-            商户key
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.ChainId">
-            <summary>
-            供应链ID
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.ChainKey">
-            <summary>
-            供应链key
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.SubmitTime">
-            <summary>
-            创建时间s
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.TrialVersion">
-            <summary>
-            使用版本号
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.TrialMerchantKey">
-            <summary>
-            使用商户key
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.HasLiveBroadcast">
-            <summary>
-            是否有直播
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.Copyright">
-            <summary>
-            版权
-            </summary>
-        </member>
-        <member name="P:ASF.Domain.Entities.Center.Program.Logo">
-            <summary>
-            应用logo
             </summary>
         </member>
         <member name="T:ASF.Domain.Entities.Concat">
@@ -4462,6 +4659,26 @@
             <param name="list"></param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Domain.Services.CenterService">
+            <summary>
+            center 领域服务
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.CenterService.#ctor(ASF.Infrastructure.Repositories.ICenterAccountsRepository)">
+            <summary>
+            center 领域服务
+            </summary>
+            <param name="centerAccountsRepository"></param>
+        </member>
+        <member name="M:ASF.Domain.Services.CenterService.GetAccountList(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取账户列表
+            </summary>
+            <param name="pageNo"></param>
+            <param name="pageSize"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Domain.Services.DepartmentService">
             <summary>
             部门领域服务
@@ -5254,6 +5471,11 @@
         <member name="T:ASF.Domain.Values.IValueObject">
             <summary>
             值对象接口
+            </summary>
+        </member>
+        <member name="T:ASF.Infrastructure.Repositories.ICenterAccountsRepository">
+            <summary>
+            账户仓储
             </summary>
         </member>
         <member name="T:ASF.Infrastructure.Repositories.IAccountsRepository">

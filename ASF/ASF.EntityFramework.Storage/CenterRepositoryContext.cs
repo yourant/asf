@@ -18,11 +18,12 @@ namespace ASF.EntityFramework.Repository
         {
             modelBuilder.Entity<CenterAccount>(e =>
             {
-                e.ToTable("Account")
+                e.ToTable("Accounts")
                     .HasComment("账户表");
                 
                 e.HasKey(x => x.AccountId);
-                e.Property(x => x.AccountId).HasColumnName("id").ValueGeneratedOnAdd();
+                e.Property(x => x.AccountId).HasColumnName("AccountID").ValueGeneratedOnAdd();
+                e.Property(x => x.GroupShopId).HasColumnName("GroupShopID");
                 e.Property(x => x.RowVersion).HasColumnType("timestamp").HasMaxLength(8).HasComment("版本");
             });
             

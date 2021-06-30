@@ -90,7 +90,7 @@ namespace ASF.Web
                     }
                 });
                 //使用第二个db
-                build.AddDbContext(b =>
+                build.AddDbContextCenter(b =>
                 {
                     //处理各种db
                     switch (asfOptions.CenterDBType.ToLower())
@@ -111,10 +111,7 @@ namespace ASF.Web
                             b.EnableDetailedErrors();
                             break;
                         case "sqlserver":
-                            b.UseSqlServer(asfOptions.CenterDBConnectionString, opt =>
-                            {
-                                opt.MigrationsAssembly("ASF.Web");
-                            });
+                            b.UseSqlServer(asfOptions.CenterDBConnectionString);
                             break;
                         case "postgre":
                             b.UseNpgsql(asfOptions.CenterDBConnectionString, opt =>
@@ -123,7 +120,7 @@ namespace ASF.Web
                             });
                             break;
                     }
-                },true);
+                });
             });
             //网关服务
             services.AddOcelot().AddConsul();

@@ -14,7 +14,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static ASFBuilder AddDbContext(this ASFBuilder builder, Action<DbContextOptionsBuilder> configureDbContext)
         {
-            builder.Services.AddDbContext<RepositoryContext>(configureDbContext);
+            builder.Services.AddDbContext<RepositoryContext>(configureDbContext,ServiceLifetime.Transient);
             builder.Services.AddRepositories();
             return builder;
         }
@@ -40,44 +40,17 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns></returns>
         public static ASFBuilder AddDbContextCenter(this ASFBuilder builder, Action<DbContextOptionsBuilder> configureDbContext)
         {
-            builder.Services.AddDbContext<CenterRepositoryContext>(configureDbContext);
+            builder.Services.AddDbContext<CenterRepositoryContext>(configureDbContext,ServiceLifetime.Transient);
             return builder;
         }
-        // /// <summary>
-        // /// 初始化 Database 方法
-        // /// </summary>
-        // /// <typeparam name="TContext"></typeparam>
-        // /// <param name="build">ocelot config</param>
-        // /// <param name="sedder"></param>
-        // /// <returns></returns>
-        // public static IApplicationBuilder ASFInitDatabase(this IApplicationBuilder build)
-        // {
-        //     //创建数据库实例在本区域有效
-        //     using (var scope = build.ApplicationServices.CreateScope())
-        //     {
-        //         var services = scope.ServiceProvider;
-        //         var logger = services.GetRequiredService<ILogger<RepositoryContext>>();
-        //         var context = services.GetService<RepositoryContext>();
-        //         try
-        //         {
-        //             new InitializeMigrationData( services, context).Migration();
-        //             logger.LogInformation($"执行初始化 Database 数据 {typeof(RepositoryContext).Name} seed 成功");
-        //         }
-        //         catch (Exception ex)
-        //         {
-        //             logger.LogError(ex, $"执行初始化 Database 数据 {typeof(RepositoryContext).Name}  seed失败");
-        //         }
-        //     }
-        //     return build;
-        // }
 
         /// <summary>
         /// 注入仓储层
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="services"></param>
         private static void AddRepositories(this IServiceCollection services)
         {
-            // 新仓储
+            // 基础仓储
             services.AddScoped<IAccountsRepository, AccountsRepository>();
             services.AddScoped<ITenancyRepository, TenancyRepository>();
             services.AddScoped<IPermissionsRepository,PermissionsRepository>();
@@ -92,6 +65,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IAsfDictionaryRepository, AsfDictionaryRepository>();
             services.AddScoped<IEditorRepository, EditorRepository>();
             services.AddScoped<IConcatRepositories, ConcatRepositories>();
+            // 自定义扩展db仓储
+            services.AddScoped<ICenterAccountsRepository, CenterAccountsRepository>();
         }
     }
 }
