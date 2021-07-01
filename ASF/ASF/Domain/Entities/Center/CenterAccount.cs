@@ -139,9 +139,5 @@ namespace ASF.Domain.Entities.Center
 		/// 备注
 		/// </summary>
 		public string Remarks { get; set; }
-		/// <summary>
-		/// 行版本
-		/// </summary>
-		public byte[] RowVersion { get; set; }
 	}
 }

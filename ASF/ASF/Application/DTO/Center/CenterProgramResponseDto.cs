@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using ASF.Domain.Values;
 
 namespace ASF.Application.DTO.Center
 {
@@ -55,15 +57,15 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 应用类型
 		/// </summary>
-		public int Type { get; set; }
+		public string ProgramTypeStr { get; set; }
 		/// <summary>
 		/// 方式
 		/// </summary>
-		public int Way { get; set; }
+		public string ProgramWayTypeStr { get; set; }
 		/// <summary>
 		/// 模式
 		/// </summary>
-		public int Mode { get; set; }
+		public string ProgramModeTypeStr { get; set; }
 		/// <summary>
 		/// 商户id
 		/// </summary>

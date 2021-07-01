@@ -31,9 +31,9 @@ namespace ASF.Application.DTO.Center
 		/// </summary>
 		public string Name { get; set; }
 		/// <summary>
-		/// 所有商户类型
+		/// 商户类型
 		/// </summary>
-		public int AllowShopType { get; set; }
+		public string ShopTypeStr { get; set; }
 		/// <summary>
 		/// 账户抵消金额
 		/// </summary>

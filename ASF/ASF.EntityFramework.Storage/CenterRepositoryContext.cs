@@ -25,7 +25,6 @@ namespace ASF.EntityFramework.Repository
                 e.HasKey(x => x.AccountId);
                 e.Property(x => x.AccountId).HasColumnName("AccountID").ValueGeneratedOnAdd();
                 e.Property(x => x.GroupShopId).HasColumnName("GroupShopID");
-                e.Property(x => x.RowVersion).HasColumnType("timestamp").HasMaxLength(8).HasComment("版本");
             });
             //商户
             modelBuilder.Entity<CenterShop>(e =>

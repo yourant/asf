@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ASF.Domain.Values;
 
 namespace ASF.Application.DTO.Center
@@ -29,7 +30,8 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 商户类型
 		/// </summary>
-		public int ShopType { get; set; }
+		public string ShopTypeStr { get; set; }
+
 		/// <summary>
 		/// 供应链id
 		/// </summary>
@@ -125,18 +127,11 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 版本类型
 		/// </summary>
-		public int EditionType { get; set; }
+		public string EditionTypeStr { get; set; }
+
 		/// <summary>
 		/// 更新商铺名称时间
 		/// </summary>
 		public DateTime? UpdateNameTime { get;set; }
-		/// <summary>
-		/// 商户类型枚举类别
-		/// </summary>
-		public Dictionary<int, string> AllowShopTypeValue { get; set; } = EnumValue.AllowShopTypeValue;
-		/// <summary>
-		/// 版本类型枚举值
-		/// </summary>
-		public Dictionary<int, string> EditionTypeValue { get; set; } = EnumValue.EditionTypeValue;
 	}
 }

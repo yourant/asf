@@ -81,5 +81,29 @@ namespace ASF.Domain.Services
 				return await _centerProgramsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.ProgramId != 0);
 			}
 		}
+		/// <summary>
+		/// 查找账户
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public async Task<Result<CenterAccount>> GetAccount(long id)
+		{
+			CenterAccount centerAccount = await _centerAccountsRepository.GetEntity(f => f.AccountId == id);
+			if(centerAccount == null)
+				return Result<CenterAccount>.ReFailure(ResultCodes.AccountNotExist);
+			return Result<CenterAccount>.ReSuccess(centerAccount);
+		}
+		/// <summary>
+		/// 修改账户状态
+		/// </summary>
+		/// <param name="account"></param>
+		/// <returns></returns>
+		public async Task<Result> ModifyStatus(CenterAccount account)
+		{
+			bool isUpdate = await _centerAccountsRepository.Update(account);
+			if(!isUpdate)
+				return Result.ReFailure(ResultCodes.NotAcceptable);
+			return Result.ReSuccess();
+		}
 	}
 }

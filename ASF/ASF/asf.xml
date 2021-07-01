@@ -275,6 +275,13 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.CenterController.ModifyStatus(ASF.Application.DTO.Center.ModifyStatusRequestDto)">
+            <summary>
+            修改账户状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.DepartmentController">
             <summary>
             部门控制器
@@ -985,9 +992,9 @@
             账户姓名
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AllowShopType">
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.ShopTypeStr">
             <summary>
-            所有商户类型
+            商户类型
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.Balance">
@@ -1205,17 +1212,17 @@
             微信appid
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Type">
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ProgramTypeStr">
             <summary>
             应用类型
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Way">
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ProgramWayTypeStr">
             <summary>
             方式
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Mode">
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ProgramModeTypeStr">
             <summary>
             模式
             </summary>
@@ -1300,7 +1307,7 @@
             商户key
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.ShopType">
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.ShopTypeStr">
             <summary>
             商户类型
             </summary>
@@ -1420,7 +1427,7 @@
             供应商名称
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.EditionType">
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.EditionTypeStr">
             <summary>
             版本类型
             </summary>
@@ -1430,14 +1437,24 @@
             更新商铺名称时间
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.AllowShopTypeValue">
+        <member name="T:ASF.Application.DTO.Center.ModifyStatusRequestDto">
             <summary>
-            商户类型枚举类别
+            修改状态
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.EditionTypeValue">
+        <member name="P:ASF.Application.DTO.Center.ModifyStatusRequestDto.Id">
             <summary>
-            版本类型枚举值
+            id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.ModifyStatusRequestDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.ModifyStatusRequestDto.Type">
+            <summary>
+            要修改的种类
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Department.DepartmentCreateRequestDto">
@@ -3703,11 +3720,6 @@
             备注
             </summary>
         </member>
-        <member name="P:ASF.Domain.Entities.Center.CenterAccount.RowVersion">
-            <summary>
-            行版本
-            </summary>
-        </member>
         <member name="T:ASF.Domain.Entities.Center.CenterProgram">
             <summary>
             应用
@@ -5028,6 +5040,20 @@
             <param name="name"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Domain.Services.CenterService.GetAccount(System.Int64)">
+            <summary>
+            查找账户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.CenterService.ModifyStatus(ASF.Domain.Entities.Center.CenterAccount)">
+            <summary>
+            修改账户状态
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Domain.Services.DepartmentService">
             <summary>
             部门领域服务
@@ -5654,6 +5680,324 @@
             启用
             </summary>
         </member>
+        <member name="T:ASF.Domain.Values.ShopType">
+            <summary>
+            商户类型枚举
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.None">
+            <summary>
+            空
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JPOS">
+            <summary>
+            JPOS门店
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JWMS">
+            <summary>
+            仓库
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JMart">
+            <summary>
+            JMart
+            订小易注册的商户
+            允许JPOS门店登陆
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JCRM">
+            <summary>
+            JCRM
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JOA">
+            <summary>
+            JOA（内部管理）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JMall">
+            <summary>
+            小易商城
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JMarket">
+            <summary>
+            小易商圈
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JISV">
+            <summary>
+            服务商（暂指JWMS服务商，未来可考虑JPOS服务商）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JGroup">
+            <summary>
+            集团型/总部管理（可以创建门店或仓库账号，统一查看其订单客户等信息）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.JPMS">
+            <summary>
+            JPMS
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.GPOS">
+            <summary>
+            新版门店收银系统
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.GAMS">
+            <summary>
+            券小易平台账户
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.GEmporium">
+            <summary>
+            团购平台
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.EmporiumAgent">
+            <summary>
+            团购团长
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ShopType.GTMS">
+            <summary>
+            物流运输系统
+            </summary>
+        </member>
+        <member name="T:ASF.Domain.Values.EditionType">
+            <summary>
+            版本枚举
+            </summary>
+            <summary>
+            系统版本类型
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.None">
+            <summary>
+            空
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.Major">
+            <summary>
+            专业版（批发）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.Basics">
+            <summary>
+            基础版（批发）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.Mall">
+            <summary>
+            商城版（批发）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.Clique">
+            <summary>
+            大客户版（批发）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.POS">
+            <summary>
+            门店版（零售）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.Emporium">
+            <summary>
+            零售版（零售）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.Groupon">
+            <summary>
+            团购版（零售）
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EditionType.Agent">
+            <summary>
+            团长版（零售）
+            </summary>
+        </member>
+        <member name="T:ASF.Domain.Values.ProgramType">
+            <summary>
+            应用类型枚举
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.None">
+            <summary>
+            空
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.JMart">
+            <summary>
+            批发订货系统
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.JWMS">
+            <summary>
+            批发订货系统
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.JSeller">
+            <summary>
+            零售订货系统
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.GPOS">
+            <summary>
+            零售管理
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.JMarket">
+            <summary>
+            商圈
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.JMall">
+            <summary>
+            商城管理
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.JISV">
+            <summary>
+            服务商
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.GAMS">
+            <summary>
+            优惠券平台
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.GeData">
+            <summary>
+            大数据系统
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.GTuan">
+            <summary>
+            团购系统
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramType.GTMS">
+            <summary>
+            运输系统
+            </summary>
+        </member>
+        <member name="T:ASF.Domain.Values.ProgramModeType">
+            <summary>
+            程序的形式
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramModeType.None">
+            <summary>
+            空
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramModeType.Platform">
+            <summary>
+            平台版
+            众多商户共存的聚合平台
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramModeType.Single">
+            <summary>
+            专业版
+            只限于单一商户的专业形式
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramModeType.Chain">
+            <summary>
+            连锁版
+            当前连锁客户的多商户版
+            </summary>
+        </member>
+        <member name="T:ASF.Domain.Values.ProgramWayType">
+            <summary>
+            程序的途径
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramWayType.None">
+            <summary>
+            空
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramWayType.Client">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramWayType.Web">
+            <summary>
+            Web
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramWayType.Android">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramWayType.IOS">
+            <summary>
+            IOS APP
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramWayType.MiniApp">
+            <summary>
+            小程序
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramWayType.WechatMedia">
+            <summary>
+            微信公众号
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ProgramWayType.WeixinOpen">
+            <summary>
+            微信开放平台
+            </summary>
+        </member>
+        <member name="T:ASF.Domain.Values.ModifyAccountType">
+            <summary>
+            修改账户的类型
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ModifyAccountType.Enable">
+            <summary>
+            是否启用账户
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ModifyAccountType.IsPlatform">
+            <summary>
+            是否为平台账户
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ModifyAccountType.IsVisual">
+            <summary>
+            是否为虚拟账户
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ModifyAccountType.AllowCashOut">
+            <summary>
+            是否允许提款
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ModifyAccountType.AllowCashIn">
+            <summary>
+            是否允许收款
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ModifyAccountType.AutoCashOut">
+            <summary>
+            是否允许自动提款
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.ModifyAccountType.PayTypeEnable">
+            <summary>
+            启用支付类型
+            </summary>
+        </member>
         <member name="T:ASF.Domain.Values.EnumValue">
             <summary>
             枚举类型字典
@@ -5662,11 +6006,6 @@
         <member name="F:ASF.Domain.Values.EnumValue.AllowShopTypeValue">
             <summary>
             商户类型值对象
-            </summary>
-        </member>
-        <member name="F:ASF.Domain.Values.EnumValue.EditionTypeValue">
-            <summary>
-            版本类型枚举值对象
             </summary>
         </member>
         <member name="T:ASF.Domain.Values.LoggingType">
@@ -6754,6 +7093,66 @@
             2048
             </summary>
         </member>
+        <member name="T:ASF.Internal.Utils.ClaimsPrincipalExtension">
+            <summary>
+            ClaimsPrincipal 扩展类
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.ClaimsPrincipalExtension.UserId(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            账户Id
+            </summary>
+            <param name="principal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Internal.Utils.ClaimsPrincipalExtension.Name(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            名称
+            </summary>
+            <param name="principal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Internal.Utils.ClaimsPrincipalExtension.NickName(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            昵称
+            </summary>
+            <param name="principal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Internal.Utils.ClaimsPrincipalExtension.TenancyId(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            租户id
+            </summary>
+            <param name="principal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Internal.Utils.ClaimsPrincipalExtension.IsSuperRole(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            是否为超级管理员角色
+            </summary>
+            <param name="principal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Internal.Utils.ClaimsPrincipalExtension.SplitFlags``1(``0)">
+            <summary>
+            拆分标记
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Internal.Utils.ClaimsPrincipalExtension.GetEnumDescription(System.Enum)">
+            <summary>
+            状态枚举的转换拓展
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.ClaimsPrincipalExtension.GetEnumDescription(System.Object)">
+            <summary>
+            获取枚举备注
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Internal.MemoryWrappedHttpResponseStream">
             <summary>
             缓存http 响应
@@ -6799,53 +7198,6 @@
             asf 中间件
             </summary>
             <param name="app"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension">
-            <summary>
-            ClaimsPrincipal 扩展类
-            </summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.UserId(System.Security.Claims.ClaimsPrincipal)">
-            <summary>
-            账户Id
-            </summary>
-            <param name="principal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.Name(System.Security.Claims.ClaimsPrincipal)">
-            <summary>
-            名称
-            </summary>
-            <param name="principal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.NickName(System.Security.Claims.ClaimsPrincipal)">
-            <summary>
-            昵称
-            </summary>
-            <param name="principal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.TenancyId(System.Security.Claims.ClaimsPrincipal)">
-            <summary>
-            租户id
-            </summary>
-            <param name="principal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.IsSuperRole(System.Security.Claims.ClaimsPrincipal)">
-            <summary>
-            是否为超级管理员角色
-            </summary>
-            <param name="principal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Mvc.ClaimsPrincipalExtension.ConvertToTimeSpanString(System.Byte[])">
-            <summary>
-            byte转16进
-            </summary>
-            <param name="b"></param>
             <returns></returns>
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ASFMiddlewareExtentions">
