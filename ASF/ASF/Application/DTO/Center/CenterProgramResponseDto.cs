@@ -8,6 +8,15 @@ namespace ASF.Application.DTO.Center
 	public class CenterProgramResponseDto
 	{
 		/// <summary>
+		/// 表格需要的键
+		/// </summary>
+		public long Key {
+			get
+			{
+				return ProgramId;
+			}
+		}
+		/// <summary>
 		/// 应用id
 		/// </summary>
 		public long ProgramId { get; set; }
@@ -22,7 +31,7 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 商户组id
 		/// </summary>
-		public long? GroupShopId { get; set; }
+		public int? GroupShopId { get; set; }
 		/// <summary>
 		/// 账户id
 		/// </summary>
@@ -58,7 +67,7 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 商户id
 		/// </summary>
-		public long? MerchantId { get; set; }
+		public int? MerchantId { get; set; }
 		/// <summary>
 		/// 商户key
 		/// </summary>

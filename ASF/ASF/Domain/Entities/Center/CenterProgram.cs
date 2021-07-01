@@ -22,7 +22,7 @@ namespace ASF.Domain.Entities.Center
 		/// <summary>
 		/// 商户组id
 		/// </summary>
-		public long? GroupShopId { get; set; }
+		public int? GroupShopId { get; set; }
 		/// <summary>
 		/// 账户id
 		/// </summary>
@@ -58,7 +58,7 @@ namespace ASF.Domain.Entities.Center
 		/// <summary>
 		/// 商户id
 		/// </summary>
-		public long? MerchantId { get; set; }
+		public int? MerchantId { get; set; }
 		/// <summary>
 		/// 商户key
 		/// </summary>

@@ -58,7 +58,7 @@ namespace ASF.Application
 			[FromQuery] CenterProgramListRequestDto dto)
 		{
 			var (list, total) = await _serviceProvider.GetRequiredService<CenterService>()
-				.GetShopList(dto.PageNo, dto.PageSize, dto.Name);
+				.GetProgramList(dto.PageNo, dto.PageSize, dto.Name);
 			return ResultPagedList<CenterProgramResponseDto>.ReSuccess(_mapper.Map<List<CenterProgramResponseDto>>(list),total);
 		}
 	}

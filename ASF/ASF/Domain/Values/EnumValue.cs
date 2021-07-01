@@ -8,7 +8,7 @@ namespace ASF.Domain.Values
 	public static class EnumValue
 	{
 		/// <summary>
-		/// 商户类型
+		/// 商户类型值对象
 		/// </summary>
 		public static Dictionary<int, string> AllowShopTypeValue = new Dictionary<int, string>()
 		{
@@ -28,6 +28,22 @@ namespace ASF.Domain.Values
 			[4094] = "GEmporium",
 			[8192] = "EmporiumAgent",
 			[16384] = "GTMS"
+		};
+
+		/// <summary>
+		/// 版本类型枚举值对象
+		/// </summary>
+		public static Dictionary<int, string> EditionTypeValue = new Dictionary<int, string>()
+		{
+			[0] = "空",
+			[1] = "Major",
+			[2] = "Basics",
+			[4] = "Mall",
+			[8] = "POS",
+			[16] = "Emporium",
+			[32] = "Groupon",
+			[64] = "Agent",
+			[128] = "Clique"
 		};
 	}
 }

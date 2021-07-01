@@ -36,7 +36,7 @@ namespace ASF.Domain.Entities.Center
 		/// </summary>
 		public string Logo { get; set; }
 		/// <summary>
-		/// 商户图片
+		/// 商户负责人
 		/// </summary>
 		public string Principal { get; set; }
 		/// <summary>
@@ -51,7 +51,7 @@ namespace ASF.Domain.Entities.Center
 		/// 商户简介
 		/// </summary>
 		public string BusinessContacter { get; set; }
-		// /// <summary>
+		/// <summary>
 		/// 商品电话
 		/// </summary>
 		public string BusinessPhone { get; set; }

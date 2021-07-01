@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using ASF.Domain.Values;
 
 namespace ASF.Application.DTO.Center
 {
@@ -7,6 +9,15 @@ namespace ASF.Application.DTO.Center
 	/// </summary>
 	public class CenterShopResponseDto
 	{
+		/// <summary>
+		/// 表格需要的键
+		/// </summary>
+		public long Key {
+			get
+			{
+				return ShopId;
+			}
+		}
 		/// <summary>
 		/// 商户id
 		/// </summary>
@@ -36,7 +47,7 @@ namespace ASF.Application.DTO.Center
 		/// </summary>
 		public string Logo { get; set; }
 		/// <summary>
-		/// 商户图片
+		/// 商户负责人
 		/// </summary>
 		public string Principal { get; set; }
 		/// <summary>
@@ -119,5 +130,13 @@ namespace ASF.Application.DTO.Center
 		/// 更新商铺名称时间
 		/// </summary>
 		public DateTime? UpdateNameTime { get;set; }
+		/// <summary>
+		/// 商户类型枚举类别
+		/// </summary>
+		public Dictionary<int, string> AllowShopTypeValue { get; set; } = EnumValue.AllowShopTypeValue;
+		/// <summary>
+		/// 版本类型枚举值
+		/// </summary>
+		public Dictionary<int, string> EditionTypeValue { get; set; } = EnumValue.EditionTypeValue;
 	}
 }

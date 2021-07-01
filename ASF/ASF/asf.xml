@@ -1155,6 +1155,11 @@
             应用响应
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.Key">
+            <summary>
+            表格需要的键
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.Center.CenterProgramResponseDto.ProgramId">
             <summary>
             应用id
@@ -1280,6 +1285,11 @@
             中心端商户响应
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Key">
+            <summary>
+            表格需要的键
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.ShopId">
             <summary>
             商户id
@@ -1317,7 +1327,7 @@
         </member>
         <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Principal">
             <summary>
-            商户图片
+            商户负责人
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.Mobile">
@@ -1418,6 +1428,16 @@
         <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.UpdateNameTime">
             <summary>
             更新商铺名称时间
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.AllowShopTypeValue">
+            <summary>
+            商户类型枚举类别
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.EditionTypeValue">
+            <summary>
+            版本类型枚举值
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Department.DepartmentCreateRequestDto">
@@ -3845,7 +3865,7 @@
         </member>
         <member name="P:ASF.Domain.Entities.Center.CenterShop.Principal">
             <summary>
-            商户图片
+            商户负责人
             </summary>
         </member>
         <member name="P:ASF.Domain.Entities.Center.CenterShop.Mobile">
@@ -3863,7 +3883,11 @@
             商户简介
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:ASF.Domain.Entities.Center.CenterShop.BusinessPhone" -->
+        <member name="P:ASF.Domain.Entities.Center.CenterShop.BusinessPhone">
+            <summary>
+            商品电话
+            </summary>
+        </member>
         <member name="P:ASF.Domain.Entities.Center.CenterShop.Address">
             <summary>
             商户地址
@@ -5637,7 +5661,12 @@
         </member>
         <member name="F:ASF.Domain.Values.EnumValue.AllowShopTypeValue">
             <summary>
-            商户类型
+            商户类型值对象
+            </summary>
+        </member>
+        <member name="F:ASF.Domain.Values.EnumValue.EditionTypeValue">
+            <summary>
+            版本类型枚举值对象
             </summary>
         </member>
         <member name="T:ASF.Domain.Values.LoggingType">
