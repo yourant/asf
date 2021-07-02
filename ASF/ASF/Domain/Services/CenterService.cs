@@ -94,6 +94,31 @@ namespace ASF.Domain.Services
 			return Result<CenterAccount>.ReSuccess(centerAccount);
 		}
 		/// <summary>
+		/// 添加账户
+		/// </summary>
+		/// <param name="account"></param>
+		/// <returns></returns>
+		public async Task<Result> AddAccount(CenterAccount account)
+		{
+			bool isAdd = await _centerAccountsRepository.Add(account);
+			if (!isAdd)
+				return Result.ReFailure(ResultCodes.AccountCreate);
+			return Result.ReSuccess();
+		}
+		/// <summary>
+		/// 修改账户
+		/// </summary>
+		/// <param name="account"></param>
+		/// <returns></returns>
+		public async Task<Result> ModifyAccount(CenterAccount account)
+		{
+			bool isUpdate = await _centerAccountsRepository.Update(account);
+			if (!isUpdate)
+				return Result.ReFailure(ResultCodes.AccountUpdateError);
+			return Result.ReSuccess();
+		}
+
+		/// <summary>
 		/// 修改账户状态
 		/// </summary>
 		/// <param name="account"></param>

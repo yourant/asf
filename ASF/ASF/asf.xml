@@ -86,6 +86,13 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.AccountController.ModifyUserName(ASF.Application.DTO.AccountModifyUserNameRequestDto)">
+            <summary>
+            修改账户名
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="M:ASF.Application.AccountController.ModifyTelPhone(ASF.Application.DTO.AccountModifyTelPhoneRequestDto)">
             <summary>
             修改账户手机
@@ -257,6 +264,20 @@
         <member name="M:ASF.Application.CenterController.GetAccountList(ASF.Application.DTO.Center.CenterAccountListRequestDto)">
             <summary>
             获取账户列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.CenterController.AddAccount(ASF.Application.DTO.Center.AddCenterAccountRequestDto)">
+            <summary>
+            添加账户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.CenterController.ModifyAccount(ASF.Application.DTO.Center.ModifyCenterAccountRequestDto)">
+            <summary>
+            修改账户
             </summary>
             <param name="dto"></param>
             <returns></returns>
@@ -657,6 +678,21 @@
             新手机号码
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.AccountModifyUserNameRequestDto">
+            <summary>
+            修改账户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyUserNameRequestDto.Id">
+            <summary>
+            账户id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.AccountModifyUserNameRequestDto.UserName">
+            <summary>
+            账户名
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.AccountResponseDto">
             <summary>
             账户响应数据
@@ -957,6 +993,166 @@
             备注
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.Center.AddCenterAccountRequestDto">
+            <summary>
+            添加账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.Name">
+            <summary>
+            账户姓名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.AllowShopType">
+            <summary>
+            所有商户类型
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.Balance">
+            <summary>
+            账户抵消金额
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.IsPlatform">
+            <summary>
+            是否为平台账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.IsVisual">
+            <summary>
+            是否为虚拟账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.AllowCashOut">
+            <summary>
+            是否允许提款
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.AllowCashIn">
+            <summary>
+            是否允许收款
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.AutoCashOut">
+            <summary>
+            是否允许自动提款
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.MinCashOut">
+            <summary>
+            最小提款
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.SeedCashOut">
+            <summary>
+            开始提款金额
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.CloudPayAccountName">
+            <summary>
+            云支付账户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.PosWxChannelKey">
+            <summary>
+            微信支付渠道key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.PosAliChannelKey">
+            <summary>
+            支付宝支付渠道key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.YijiChannelKey">
+            <summary>
+            易极支付key
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.CashOutRate">
+            <summary>
+            提款手续费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultRate">
+            <summary>
+            默认手续费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultAlipayMerNO">
+            <summary>
+            默认支付宝账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultWepayMerNO">
+            <summary>
+            默认微信账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultCmPayMerNO">
+            <summary>
+            默认和包支付账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultBestpayMerNO">
+            <summary>
+             默认翼支付账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultUnionPayMerNO">
+            <summary>
+            默认银联支付账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultUnicompayMerNO">
+            <summary>
+            默认沃钱包支付账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultAliPayRate">
+            <summary>
+            支付宝账户默认费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultWePayRate">
+            <summary>
+            微信账户费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultCmPayRate">
+            <summary>
+            和钱包费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultBestpayRate">
+            <summary>
+            翼支付费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultUnionPayRate">
+            <summary>
+            银联账户费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.DefaultUnicompayRate">
+            <summary>
+            沃钱包费率
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.PayTypeEnable">
+            <summary>
+            支付类型启用
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.AddCenterAccountRequestDto.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.Center.CenterAccountListRequestDto">
             <summary>
             center 账户列表请求
@@ -995,6 +1191,11 @@
         <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.ShopTypeStr">
             <summary>
             商户类型
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AllowShopType">
+            <summary>
+            商户类型枚举值
             </summary>
         </member>
         <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.Balance">
@@ -1140,11 +1341,6 @@
         <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.Remarks">
             <summary>
             备注
-            </summary>
-        </member>
-        <member name="P:ASF.Application.DTO.Center.CenterAccountResponseDto.AllowShopTypeValue">
-            <summary>
-            商户类型枚举类别
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Center.CenterProgramListRequestDto">
@@ -1435,6 +1631,16 @@
         <member name="P:ASF.Application.DTO.Center.CenterShopResponseDto.UpdateNameTime">
             <summary>
             更新商铺名称时间
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Center.ModifyCenterAccountRequestDto">
+            <summary>
+            修改账户
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Center.ModifyCenterAccountRequestDto.AccountId">
+            <summary>
+            账户id
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Center.ModifyStatusRequestDto">
@@ -3357,6 +3563,12 @@
             设置用户邮箱
             </summary>
         </member>
+        <member name="M:ASF.Domain.Entities.Account.SetUserName(System.String)">
+            <summary>
+            设置用户名
+            </summary>
+            <param name="username"></param>
+        </member>
         <member name="M:ASF.Domain.Entities.Account.IsAllowLogin">
             <summary>
             是否允许登录
@@ -5045,6 +5257,20 @@
             查找账户
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.CenterService.AddAccount(ASF.Domain.Entities.Center.CenterAccount)">
+            <summary>
+            添加账户
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.CenterService.ModifyAccount(ASF.Domain.Entities.Center.CenterAccount)">
+            <summary>
+            修改账户
+            </summary>
+            <param name="account"></param>
             <returns></returns>
         </member>
         <member name="M:ASF.Domain.Services.CenterService.ModifyStatus(ASF.Domain.Entities.Center.CenterAccount)">

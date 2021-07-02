@@ -345,7 +345,27 @@ namespace ASF.Application
 				return Result.ReFailure(ResultCodes.AccountOldEmailError);
 			result.Data.SetEmail(dto.NewEmail);
 			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
-			return await server.Modify(result.Data);
+			return await server.Modify(result.Data,"email");
+		}
+		/// <summary>
+		/// 修改账户名
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public async Task<Result> ModifyUserName([FromBody] AccountModifyUserNameRequestDto dto)
+		{
+			var server = _serviceProvider.GetRequiredService<AccountService>();
+			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
+			var result = await server.Get(dto.Id,tenancyId);
+			if(!result.Success)
+				return Result.ReFailure(result.Message,result.Status);
+			// 除总超级管理员之外其他不允许操作其他租户信息
+			if (tenancyId != null && result.Data.TenancyId != tenancyId)
+				return Result.ReFailure(ResultCodes.TenancyMatchExist);
+			result.Data.SetUserName(dto.UserName);
+			result.Data.CreateId = Convert.ToInt64(HttpContext.User.UserId());
+			return await server.Modify(result.Data,"username");
 		}
 		/// <summary>
 		/// 修改账户手机

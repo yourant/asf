@@ -35,6 +35,7 @@ namespace ASF.Domain
         public static ValueTuple<int, string> AccountExistEmailError = (11015, "邮箱已经存在");
         public static ValueTuple<int, string> AccountExistUserNameError = (11015, "账户名已经存在");
         public static ValueTuple<int, string> AccountExistTypeError = (11016, "账户登录类型错误");
+        public static ValueTuple<int, string> AccountNameExistTypeError = (11017, "账户名已经存在");
         //角色错误码
         public static ValueTuple<int, string> RoleNotExist = (12000, "角色不存在");
         public static ValueTuple<int, string> RoleUnavailable = (12001, "{0}角色已禁止使用");

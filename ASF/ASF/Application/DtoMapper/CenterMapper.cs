@@ -20,10 +20,15 @@ namespace ASF.Application.DtoMapper
 		{
 			//账户响应
 			this.CreateMap<CenterAccount, CenterAccountResponseDto>()
-				.ForMember(f => f.ShopTypeStr,s=>s.MapFrom(o=>string.Join(",",((ShopType)o.AllowShopType).SplitFlags().Select(a=>a.ToString()))));
+				.ForMember(f => f.ShopTypeStr,s=>s.MapFrom(o=>string.Join(",",((ShopType)o.AllowShopType).SplitFlags().Select(a=>a.ToString()))))
+				.ForMember(f => f.AllowShopType,s=>s.MapFrom(o=>((ShopType)o.AllowShopType).SplitFlags().Select(a=>(int)a)));
+			//添加账户
+			this.CreateMap<AddCenterAccountRequestDto, CenterAccount>();
+			//商户响应
 			this.CreateMap<CenterShop, CenterShopResponseDto>()
 				.ForMember(f => f.ShopTypeStr,s=>s.MapFrom(o=>string.Join(",",((ShopType)o.ShopType).SplitFlags().Select(a=>a.ToString()))))
 				.ForMember(f=>f.EditionTypeStr,s=>s.MapFrom(o=> string.Join(",", ((EditionType)o.EditionType).SplitFlags().Select(a => a.ToString()))));
+			// 应用响应
 			this.CreateMap<CenterProgram, CenterProgramResponseDto>()
 				.ForMember(f => f.ProgramTypeStr, s => s.MapFrom(o => string.Join(",",((ProgramType) o.Type).SplitFlags().Select(a =>a.ToString()))))
 				.ForMember(f => f.ProgramModeTypeStr, s => s.MapFrom(o => string.Join(",", ((ProgramModeType) o.Mode).SplitFlags().Select(a =>a.ToString()))))

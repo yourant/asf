@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ASF.Application.DTO.Center;
+using ASF.Domain.Entities.Center;
 using ASF.Domain.Services;
 using ASF.Domain.Values;
 using ASF.Internal.Results;
@@ -40,6 +41,32 @@ namespace ASF.Application
 			var (list, total) = await _serviceProvider.GetRequiredService<CenterService>().GetAccountList(dto.PageNo,dto.PageSize,dto.Name);
 			return ResultPagedList<CenterAccountResponseDto>.ReSuccess(_mapper.Map<List<CenterAccountResponseDto>>(list),total);
 		}
+		/// <summary>
+		/// 添加账户
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public async Task<Result> AddAccount([FromBody] AddCenterAccountRequestDto dto)
+		{
+			var service = _serviceProvider.GetRequiredService<CenterService>();
+			return await service.AddAccount(_mapper.Map<CenterAccount>(dto));
+		}
+		/// <summary>
+		/// 修改账户
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public async Task<Result> ModifyAccount([FromBody] ModifyCenterAccountRequestDto dto)
+		{
+			var service = _serviceProvider.GetRequiredService<CenterService>();
+			var result = await service.GetAccount((long)dto.AccountId);
+			if (!result.Success)
+				return Result.ReFailure(result.Message, result.Status);
+			return await service.ModifyAccount(_mapper.Map(dto,result.Data));
+		}
+
 		/// <summary>
 		/// 获取商户列表
 		/// </summary>

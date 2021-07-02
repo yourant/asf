@@ -1,79 +1,63 @@
-using System;
-using System.Collections.Generic;
-using ASF.Domain.Values;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASF.Application.DTO.Center
 {
 	/// <summary>
-	/// 账户响应
+	/// 添加账户
 	/// </summary>
-	public class CenterAccountResponseDto
+	public class AddCenterAccountRequestDto
 	{
-		/// <summary>
-		/// 表格需要的键
-		/// </summary>
-		public long Key {
-			get
-			{
-				return AccountId;
-			}
-		}
-		/// <summary>
-		/// 账户id
-		/// </summary>
-		public long AccountId { get; set; }
-		/// <summary>
-		/// 商户组 id
-		/// </summary>
-		public int? GroupShopId { get; set; }
 		/// <summary>
 		/// 账户姓名
 		/// </summary>
+		[Required(ErrorMessage = "账户名不能为空")]
+		[MinLength(2,ErrorMessage = "最少输入两个字符的账户名"),MaxLength(100,ErrorMessage = "最多输入100个字符的账户名")]
 		public string Name { get; set; }
 		/// <summary>
-		/// 商户类型
+		/// 所有商户类型
 		/// </summary>
-		public string ShopTypeStr { get; set; }
-		/// <summary>
-		/// 商户类型枚举值
-		/// </summary>
-		public IEnumerable<int> AllowShopType { get; set; }
-
+		[Required(ErrorMessage = "商户类型不能为空")]
+		public int? AllowShopType { get; set; }
 		/// <summary>
 		/// 账户抵消金额
 		/// </summary>
+		[Range(0.01,10000,ErrorMessage = "请输入0.01-10000之间的数值")]
 		public decimal Balance { get; set; }
 		/// <summary>
 		/// 是否启用
 		/// </summary>
-		public bool IsEnable { get; set; }
+		public bool IsEnable { get; set; } = true;
 		/// <summary>
 		/// 是否为平台账户
 		/// </summary>
-		public bool IsPlatform { get; set; }
+		public bool IsPlatform { get; set; } = false;
 		/// <summary>
 		/// 是否为虚拟账户
 		/// </summary>
-		public bool IsVisual { get; set; }
+		public bool IsVisual { get; set; } = false;
 		/// <summary>
 		/// 是否允许提款
 		/// </summary>
-		public bool AllowCashOut { get; set; }
+		public bool AllowCashOut { get; set; } = false;
+
 		/// <summary>
 		/// 是否允许收款
 		/// </summary>
-		public bool AllowCashIn { get; set; }
+		public bool AllowCashIn { get; set; } = false;
+
 		/// <summary>
 		/// 是否允许自动提款
 		/// </summary>
-		public bool AutoCashOut { get; set; }
+		public bool AutoCashOut { get; set; } = false;
 		/// <summary>
 		/// 最小提款
 		/// </summary>
+		[Range(0.01,10000,ErrorMessage = "请输入0.01-10000之间的数值")]
 		public decimal? MinCashOut { get; set; }
 		/// <summary>
 		/// 开始提款金额
 		/// </summary>
+		[Range(0.01,10000,ErrorMessage = "请输入0.01-10000之间的数值")]
 		public decimal? SeedCashOut { get; set; }
 		/// <summary>
 		/// 云支付账户名
@@ -94,11 +78,15 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 提款手续费率
 		/// </summary>
-		public decimal CashOutRate { get; set; }
+		[Required(ErrorMessage = "提款手续费不能为空")]
+		[Range(0.01,10000,ErrorMessage = "请输入0.01-10000之间的数值")]
+		public decimal? CashOutRate { get; set; }
 		/// <summary>
 		/// 默认手续费率
 		/// </summary>
-		public decimal DefaultRate { get; set; }
+		[Range(0.01,10000,ErrorMessage = "请输入0.01-10000之间的数值")]
+		[Required(ErrorMessage = "默认手续费率不能为空")]
+		public decimal? DefaultRate { get; set; }
 		/// <summary>
 		/// 默认支付宝账户
 		/// </summary>
@@ -150,15 +138,11 @@ namespace ASF.Application.DTO.Center
 		/// <summary>
 		/// 支付类型启用
 		/// </summary>
-		public int PayTypeEnable { get; set; }
+		[Required(ErrorMessage = "支付类型是否启用不能为空")]
+		public int? PayTypeEnable { get; set; }
 		/// <summary>
 		/// 备注
 		/// </summary>
 		public string Remarks { get; set; }
-
-		// /// <summary>
-		// /// 商户类型枚举类别
-		// /// </summary>
-		// public Dictionary<int, string> AllowShopTypeValue { get; set; } = EnumValue.AllowShopTypeValue;
 	}
 }

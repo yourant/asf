@@ -174,6 +174,15 @@ namespace ASF.Domain.Entities
             this.Email = email;
         }
         /// <summary>
+        /// 设置用户名
+        /// </summary>
+        /// <param name="username"></param>
+        public void SetUserName(string username)
+        {
+            this.Username = username;
+        }
+
+        /// <summary>
         /// 是否允许登录
         /// </summary>
         /// <returns></returns>
