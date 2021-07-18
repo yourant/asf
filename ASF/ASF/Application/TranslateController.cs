@@ -40,11 +40,9 @@ namespace ASF.Application
 		public async Task<ResultPagedList<TranslateResponseDto>> GetList([FromQuery] TranslateListRequestDto dto)
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var data = await _serviceProvider.GetRequiredService<TranslateService>().GetList(dto.PageNo,dto.PageSize,dto.Name,tenancyId);
-			if (!data.Success)
-				return ResultPagedList<TranslateResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultPagedList<TranslateResponseDto>.ReSuccess(_mapper.Map<List<TranslateResponseDto>>(data.Data),
-				data.TotalCount);
+			var (list,total) = await _serviceProvider.GetRequiredService<TranslateService>().GetList(dto.PageNo,dto.PageSize,dto.Name,tenancyId);
+			return ResultPagedList<TranslateResponseDto>.ReSuccess(_mapper.Map<List<TranslateResponseDto>>(list),
+				total);
 		}
 		/// <summary>
 		/// 获取多语言列表

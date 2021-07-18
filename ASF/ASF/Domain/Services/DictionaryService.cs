@@ -49,27 +49,27 @@ namespace ASF.Domain.Services
         /// <param name="key"></param>
         /// <param name="tenancyId"></param>
         /// <returns></returns>
-        public async Task<ResultPagedList<AsfDictionary>> GetList(int pageNo, int pageSize, string key,
+        public async Task<(IList<AsfDictionary> list, int total)> GetList(int pageNo, int pageSize, string key,
             long? tenancyId = null)
         {
             if (!string.IsNullOrEmpty(key) && tenancyId != null)
             {
                 var (list,total) = await _asfDictionaryRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Key.Equals(key) && f.TenancyId == tenancyId);
-                return  ResultPagedList<AsfDictionary>.ReSuccess(list,total);
+                return (list,total);
             }
             if (tenancyId != null)
             {
                 var (list,total) = await _asfDictionaryRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId);
-                return  ResultPagedList<AsfDictionary>.ReSuccess(list,total);
+                return (list,total);
             }
             if (!string.IsNullOrEmpty(key))
             {
                 var (list,total) = await _asfDictionaryRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Key.Equals(key));
-                return  ResultPagedList<AsfDictionary>.ReSuccess(list,total);
+                return  (list,total);
             }
 
             var (data,totalCount) = await _asfDictionaryRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
-            return ResultPagedList<AsfDictionary>.ReSuccess(data,totalCount);
+            return (data,totalCount);
         }
         /// <summary>
         /// 获取字典列表

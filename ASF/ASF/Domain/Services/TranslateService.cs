@@ -50,26 +50,26 @@ namespace ASF.Domain.Services
 		/// <param name="name"></param>
 		/// <param name="tenancyId">租户id</param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<Translate>> GetList(int pageNo, int pageSize, string name,long? tenancyId = null )
+		public async Task<(IList<Translate> list,int total)> GetList(int pageNo, int pageSize, string name,long? tenancyId = null )
 		{
 			if (!string.IsNullOrEmpty(name) && tenancyId != null)
 			{
 				var (list,total) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name) && f.TenancyId == tenancyId);
-				return  ResultPagedList<Translate>.ReSuccess(list,total);
+				return  (list,total);
 			}
 			if (tenancyId != null)
 			{
 				var (list,total) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.TenancyId == tenancyId);
-				return  ResultPagedList<Translate>.ReSuccess(list,total);
+				return (list,total);
 			}
 			if (!string.IsNullOrEmpty(name))
 			{
 				var (list,total) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name));
-				return  ResultPagedList<Translate>.ReSuccess(list,total);
+				return (list,total);
 			}
 
 			var (data,totalCount) = await _translateRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
-			return ResultPagedList<Translate>.ReSuccess(data,totalCount);
+			return (data,totalCount);
 		}
 		/// <summary>
 		/// 获取多语言列表

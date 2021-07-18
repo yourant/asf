@@ -49,29 +49,29 @@ namespace ASF.Domain.Services
 		/// <param name="name"></param>
 		/// <param name="status">租户状态</param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<Tenancy>> GetList(int pageNo, int pageSize, string name = "", uint? status = null)
+		public async Task<(IList<Tenancy> list, int total)> GetList(int pageNo, int pageSize, string name = "", uint? status = null)
 		{
 
 			if (!string.IsNullOrEmpty(name) && status != null)
 			{
 				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name) && f.Status == status && (Status)f.IsDeleted == Status.No);
-				return  ResultPagedList<Tenancy>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			if (!string.IsNullOrEmpty(name))
 			{
 				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name)&& (Status)f.IsDeleted == Status.No);
-				return  ResultPagedList<Tenancy>.ReSuccess(list,total);
+				return (list,total);
 			}
 
 			if (status != null)
 			{
 				var (list,total) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Status == status&& (Status)f.IsDeleted == Status.No);
-				return  ResultPagedList<Tenancy>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			var (data,totalCount) = await _repository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0&& (Status)f.IsDeleted == Status.No);
-			return ResultPagedList<Tenancy>.ReSuccess(data,totalCount);
+			return (data,totalCount);
 		}
 		/// <summary>
 		/// 获取租户列表集合

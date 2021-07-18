@@ -42,11 +42,9 @@ namespace ASF.Application
             [FromQuery] AsfDictionaryListRequestDto dto)
         {
             long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-            var data = await _serviceProvider.GetRequiredService<DictionaryService>().GetList(dto.PageNo,dto.PageSize,dto.Key,tenancyId);
-            if (!data.Success)
-                return ResultPagedList<AsfDictionaryResponseDto>.ReFailure(data.Message, data.Status);
-            return ResultPagedList<AsfDictionaryResponseDto>.ReSuccess(_mapper.Map<List<AsfDictionaryResponseDto>>(data.Data),
-                data.TotalCount);
+            var (list,total) = await _serviceProvider.GetRequiredService<DictionaryService>().GetList(dto.PageNo,dto.PageSize,dto.Key,tenancyId);
+            return ResultPagedList<AsfDictionaryResponseDto>.ReSuccess(_mapper.Map<List<AsfDictionaryResponseDto>>(list),
+                total);
         }
         /// <summary>
         /// 获取字典列表

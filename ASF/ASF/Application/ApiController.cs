@@ -44,11 +44,9 @@ namespace ASF.Application
     {
       if(!HttpContext.User.IsSuperRole())
         return ResultPagedList<PermissionApiResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
-      var data = await _serviceProvider.GetRequiredService<ApiService>().GetList(dto.PageNo, dto.PageSize, dto.PermissionId,
+      var (list,total) = await _serviceProvider.GetRequiredService<ApiService>().GetList(dto.PageNo, dto.PageSize, dto.PermissionId,
         dto.Type, dto.Status, dto.Name, dto.HttpMethod, dto.Path);
-      if (!data.Success)
-        return ResultPagedList<PermissionApiResponseDto>.ReFailure(data.Message, data.Status);
-      return ResultPagedList<PermissionApiResponseDto>.ReSuccess(_mapper.Map<List<PermissionApiResponseDto>>(data.Data),data.TotalCount);
+      return ResultPagedList<PermissionApiResponseDto>.ReSuccess(_mapper.Map<List<PermissionApiResponseDto>>(list),total);
     }
     /// <summary>
     /// 获取权限功能api详情

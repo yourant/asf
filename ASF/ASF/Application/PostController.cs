@@ -40,11 +40,9 @@ namespace ASF.Application
 		public async Task<ResultPagedList<PostResponseDto>> GetList([FromQuery] PostListRequestDto dto)
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var data = await _serviceProvider.GetRequiredService<PostService>().GetList(dto.PageNo,dto.PageSize,dto.Name,tenancyId);
-			if (!data.Success)
-				return ResultPagedList<PostResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultPagedList<PostResponseDto>.ReSuccess(_mapper.Map<List<PostResponseDto>>(data.Data),
-				data.TotalCount);
+			var (list,total) = await _serviceProvider.GetRequiredService<PostService>().GetList(dto.PageNo,dto.PageSize,dto.Name,tenancyId);
+			return ResultPagedList<PostResponseDto>.ReSuccess(_mapper.Map<List<PostResponseDto>>(list),
+				total);
 		}
 		/// <summary>
 		/// 获取岗位列表

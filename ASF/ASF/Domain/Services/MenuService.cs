@@ -53,7 +53,7 @@ namespace ASF.Domain.Services
 		/// <param name="title"></param>
 		/// <param name="menuUrl"></param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<PermissionMenu>> GetList(int pageNo, int pageSize, long? permissionId = null,
+		public async Task<(IList<PermissionMenu> list,int total)> GetList(int pageNo, int pageSize, long? permissionId = null,
 			string title = "", string menuUrl = "")
 		{
 			// 查找对应权限菜单标题
@@ -61,40 +61,40 @@ namespace ASF.Domain.Services
 			{
 				var (list, total) = await _menuRepositories.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId && f.Title.Equals(title));
-				return ResultPagedList<PermissionMenu>.ReSuccess(list,total);
+				return (list,total);
 			}
 			// 查找对应权限菜单地址
 			if (permissionId != null && !string.IsNullOrEmpty(menuUrl))
 			{
 				var (list, total) = await _menuRepositories.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId && f.MenuUrl.Equals(menuUrl));
-				return ResultPagedList<PermissionMenu>.ReSuccess(list,total);
+				return (list,total);
 			}
 			// 查找对应权限
 			if (permissionId != null)
 			{
 				var (list, total) = await _menuRepositories.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId);
-				return ResultPagedList<PermissionMenu>.ReSuccess(list,total);
+				return (list,total);
 			}
 			// 查找权限菜单标题
 			if (!string.IsNullOrEmpty(title))
 			{
 				var (list, total) = await _menuRepositories.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.Title.Equals(title));
-				return ResultPagedList<PermissionMenu>.ReSuccess(list,total);
+				return (list,total);
 			}
 			// 查找权限菜单地址
 			if ( !string.IsNullOrEmpty(menuUrl))
 			{
 				var (list, total) = await _menuRepositories.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.MenuUrl.Equals(menuUrl));
-				return ResultPagedList<PermissionMenu>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			var (data, totalCount) = await _menuRepositories.GetEntitiesForPaging(pageNo, pageSize,
 				f => f.Id != 0);
-			return ResultPagedList<PermissionMenu>.ReSuccess(data,totalCount);
+			return (data,totalCount);
 		}
 		/// <summary>
 		/// 创建权限菜单

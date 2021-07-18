@@ -46,12 +46,10 @@ namespace ASF.Application
 		{
 			if(!HttpContext.User.IsSuperRole())
 				return ResultPagedList<PermissionResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
-			var result = await _serviceProvider.GetRequiredService<PermissionService>().GetList(dto.PageNo, dto.PageSize, dto.Code,
+			var (data,total) = await _serviceProvider.GetRequiredService<PermissionService>().GetList(dto.PageNo, dto.PageSize, dto.Code,
 				dto.Name, dto.Type, dto.IsSys, dto.Status);
-			if (!result.Success)
-				return ResultPagedList<PermissionResponseDto>.ReFailure(result.Message, result.Status);
-			IEnumerable<PermissionResponseDto> list = _mapper.Map<IEnumerable<PermissionResponseDto>>(result.Data);
-			return ResultPagedList<PermissionResponseDto>.ReSuccess(TreeSortMultiLevelFormat(list).ToList(),result.TotalCount);
+			IEnumerable<PermissionResponseDto> list = _mapper.Map<IEnumerable<PermissionResponseDto>>(data);
+			return ResultPagedList<PermissionResponseDto>.ReSuccess(TreeSortMultiLevelFormat(list).ToList(),total);
 		}
 		/// <summary>
 		/// 获取权限详情

@@ -44,11 +44,9 @@ namespace ASF.Application
 		{
 			if(!HttpContext.User.IsSuperRole())
 				return ResultPagedList<PermissionMenuResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
-			var result = await _serviceProvider.GetRequiredService<MenuService>()
+			var (list,total) = await _serviceProvider.GetRequiredService<MenuService>()
 				.GetList(dto.PageNo, dto.PageSize, dto.PermissionId, dto.Title, dto.MenuUrl);
-			if(!result.Success)
-				return ResultPagedList<PermissionMenuResponseDto>.ReFailure(result.Message,result.Status);
-			return ResultPagedList<PermissionMenuResponseDto>.ReSuccess(_mapper.Map<List<PermissionMenuResponseDto>>(result.Data),result.TotalCount);
+			return ResultPagedList<PermissionMenuResponseDto>.ReSuccess(_mapper.Map<List<PermissionMenuResponseDto>>(list),total);
 		}
 		/// <summary>
 		/// 获取权限菜单详情

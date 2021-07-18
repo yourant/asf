@@ -69,45 +69,45 @@ namespace ASF.Domain.Services
 		/// <param name="isSys"></param>
 		/// <param name="status"></param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<Permission>> GetList(int pageNo, int pageSize,string code="",string name = "",uint? type = null,uint? isSys = null,uint? status = null )
+		public async Task<(IList<Permission> list, int total)> GetList(int pageNo, int pageSize,string code="",string name = "",uint? type = null,uint? isSys = null,uint? status = null )
 		{
 			if (!string.IsNullOrEmpty(code))
 			{
 				var (list, total) =
 					await _permissionsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Code.Equals(code));
-				return ResultPagedList<Permission>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			if (!string.IsNullOrEmpty(name))
 			{
 				var (list, total) =
 					await _permissionsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(code));
-				return ResultPagedList<Permission>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			if (type != null)
 			{
 				var (list, total) =
 					await _permissionsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Type == type);
-				return ResultPagedList<Permission>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			if (isSys != null)
 			{
 				var (list, total) =
 					await _permissionsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.IsSystem == isSys);
-				return ResultPagedList<Permission>.ReSuccess(list,total);
+				return (list,total);
 			}
 			if (status != null)
 			{
 				var (list, total) =
 					await _permissionsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Enable == status);
-				return ResultPagedList<Permission>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			var (data, totalCount) =
 				await _permissionsRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
-			return ResultPagedList<Permission>.ReSuccess(data,totalCount);
+			return (data,totalCount);
 		}
 		/// <summary>
 		/// 添加权限

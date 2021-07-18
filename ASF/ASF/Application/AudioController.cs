@@ -38,11 +38,9 @@ namespace ASF.Application
 		[HttpGet]
 		public async Task<ResultPagedList<AudioResponseDto>> GetErrorList([FromBody] AudioListRequestDto dto)
 		{
-			var data = await _serviceProvider.GetRequiredService<LoggerService>().GetList(dto.PageNo,dto.PageSize,(uint)LoggingType.Error,dto.AccountName);
-			if (!data.Success)
-				return ResultPagedList<AudioResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultPagedList<AudioResponseDto>.ReSuccess(_mapper.Map<List<AudioResponseDto>>(data.Data),
-				data.TotalCount);
+			var (list,total) = await _serviceProvider.GetRequiredService<LoggerService>().GetList(dto.PageNo,dto.PageSize,(uint)LoggingType.Error,dto.AccountName);
+			return ResultPagedList<AudioResponseDto>.ReSuccess(_mapper.Map<List<AudioResponseDto>>(list),
+				total);
 		}
 		/// <summary>
 		/// 删除错误日志
@@ -67,11 +65,9 @@ namespace ASF.Application
 		[HttpGet]
 		public async Task<ResultPagedList<AudioResponseDto>> GetLogList([FromBody] AudioListRequestDto dto)
 		{
-			var data = await _serviceProvider.GetRequiredService<LoggerService>().GetList(dto.PageNo,dto.PageSize,(uint)LoggingType.Operate,dto.AccountName);
-			if (!data.Success)
-				return ResultPagedList<AudioResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultPagedList<AudioResponseDto>.ReSuccess(_mapper.Map<List<AudioResponseDto>>(data.Data),
-				data.TotalCount);
+			var (list,total) = await _serviceProvider.GetRequiredService<LoggerService>().GetList(dto.PageNo,dto.PageSize,(uint)LoggingType.Operate,dto.AccountName);
+			return ResultPagedList<AudioResponseDto>.ReSuccess(_mapper.Map<List<AudioResponseDto>>(list),
+				total);
 		}
 		/// <summary>
 		/// 删除操作日志

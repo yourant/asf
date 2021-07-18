@@ -42,11 +42,9 @@ namespace ASF.Application
 		{
 			if(!HttpContext.User.IsSuperRole())
 				return ResultPagedList<TenancyResponseDto>.ReFailure(ResultCodes.RoleNotSuperFailed);
-			var data = await _serviceProvider.GetRequiredService<TenancyService>().GetList(dto.PageNo,dto.PageSize,dto.Name,dto.Status);
-			if (!data.Success)
-				return ResultPagedList<TenancyResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultPagedList<TenancyResponseDto>.ReSuccess(_mapper.Map<List<TenancyResponseDto>>(data.Data),
-				data.TotalCount);
+			var (list,total) = await _serviceProvider.GetRequiredService<TenancyService>().GetList(dto.PageNo,dto.PageSize,dto.Name,dto.Status);
+			return ResultPagedList<TenancyResponseDto>.ReSuccess(_mapper.Map<List<TenancyResponseDto>>(list),
+				total);
 		}
 		/// <summary>
 		/// 获取租户列表集合

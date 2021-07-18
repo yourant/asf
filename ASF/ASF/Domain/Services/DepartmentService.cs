@@ -46,7 +46,7 @@ namespace ASF.Domain.Services
 		/// <param name="status"></param>
 		/// <param name="tenancyId">租户id</param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<Department>> GetList(int pageNo, int pageSize, string name = "",
+		public async Task<(IList<Department> list,int total)> GetList(int pageNo, int pageSize, string name = "",
 			uint? status = null, long? tenancyId = null)
 		{
 			
@@ -55,7 +55,7 @@ namespace ASF.Domain.Services
 				var (list, total) =
 					await _departmentRepositories.GetEntitiesForPaging(pageNo, pageSize,
 						f => f.Name.Equals(name) && f.Enabled == status && f.TenancyId == tenancyId);
-				return ResultPagedList<Department>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			if (!string.IsNullOrEmpty(name) && tenancyId != null)
@@ -63,7 +63,7 @@ namespace ASF.Domain.Services
 				var (list, total) =
 					await _departmentRepositories.GetEntitiesForPaging(pageNo, pageSize,
 						f => f.Name.Equals(name) && f.TenancyId == tenancyId);
-				return ResultPagedList<Department>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			if (status != null && tenancyId != null)
@@ -71,7 +71,7 @@ namespace ASF.Domain.Services
 				var (list, total) =
 					await _departmentRepositories.GetEntitiesForPaging(pageNo, pageSize,
 						f => f.Enabled == status && f.TenancyId == tenancyId);
-				return ResultPagedList<Department>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			if (tenancyId != null)
@@ -79,7 +79,7 @@ namespace ASF.Domain.Services
 				var (list, total) =
 					await _departmentRepositories.GetEntitiesForPaging(pageNo, pageSize,
 						f => f.TenancyId == tenancyId);
-				return ResultPagedList<Department>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			if (!string.IsNullOrEmpty(name))
@@ -87,7 +87,7 @@ namespace ASF.Domain.Services
 				var (list, total) =
 					await _departmentRepositories.GetEntitiesForPaging(pageNo, pageSize,
 						f => f.Name.Equals(name));
-				return ResultPagedList<Department>.ReSuccess(list,total);
+				return (list,total);
 			}
 
 			if (status != null)
@@ -95,13 +95,13 @@ namespace ASF.Domain.Services
 				var (list, total) =
 					await _departmentRepositories.GetEntitiesForPaging(pageNo, pageSize,
 						f => f.Enabled == status);
-				return ResultPagedList<Department>.ReSuccess(list,total);
+				return (list,total);
 			}
 			
 			var (data, totalCount) =
 				await _departmentRepositories.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.Id != 0);
-			return ResultPagedList<Department>.ReSuccess(data,totalCount);
+			return (data,totalCount);
 		}
 		/// <summary>
 		/// 获取部门列表集合

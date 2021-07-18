@@ -42,11 +42,9 @@ namespace ASF.Application
 		public async Task<ResultPagedList<DepartmentResponseDto>> GetList(DepartmentListRequestDto dto)
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var data = await _serviceProvider.GetRequiredService<DepartmentService>().GetList(dto.PageNo,dto.PageSize,dto.Name,dto.Status,tenancyId);
-			if (!data.Success)
-				return ResultPagedList<DepartmentResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultPagedList<DepartmentResponseDto>.ReSuccess(_mapper.Map<List<DepartmentResponseDto>>(data.Data),
-				data.TotalCount);
+			var (list,total) = await _serviceProvider.GetRequiredService<DepartmentService>().GetList(dto.PageNo,dto.PageSize,dto.Name,dto.Status,tenancyId);
+			return ResultPagedList<DepartmentResponseDto>.ReSuccess(_mapper.Map<List<DepartmentResponseDto>>(list),
+				total);
 		}
 		/// <summary>
 		/// 获取部门列表

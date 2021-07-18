@@ -44,11 +44,9 @@ namespace ASF.Application
 		public async Task<ResultPagedList<RoleResponseDto>> GetList([FromQuery] RoleListRequestDto dto)
 		{
 			long? tenancyId = HttpContext.User.IsSuperRole() ? null : Convert.ToInt64(HttpContext.User.TenancyId());
-			var data = await _serviceProvider.GetRequiredService<RoleService>().GetList(dto.PageNo,dto.PageSize,dto.Name,dto.Enable,tenancyId);
-			if (!data.Success)
-				return ResultPagedList<RoleResponseDto>.ReFailure(data.Message, data.Status);
-			return ResultPagedList<RoleResponseDto>.ReSuccess(_mapper.Map<List<RoleResponseDto>>(data.Data),
-				data.TotalCount);
+			var (list,total) = await _serviceProvider.GetRequiredService<RoleService>().GetList(dto.PageNo,dto.PageSize,dto.Name,dto.Enable,tenancyId);
+			return ResultPagedList<RoleResponseDto>.ReSuccess(_mapper.Map<List<RoleResponseDto>>(list),
+				total);
 		}
 		/// <summary>
 		/// 获取角色详情

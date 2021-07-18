@@ -67,7 +67,7 @@ namespace ASF.Domain.Services
 		/// <param name="httpMethod"></param>
 		/// <param name="path"></param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<Api>> GetList(int pageNo, int pageSize, long? permissionId = null,
+		public async Task<(IList<Api> list, int total)> GetList(int pageNo, int pageSize, long? permissionId = null,
 			uint? type = null, uint? status = null, string name = "", string httpMethod = "",string path = "")
 		{ 
 			// 搜索对应类型的权限api
@@ -75,35 +75,35 @@ namespace ASF.Domain.Services
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId && f.Type == type);
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			// 搜索对应状态的权限api
 			if (permissionId != null && status != null)
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId && f.Status == status);
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			// 搜索对应api名权限api
 			if (permissionId != null && !string.IsNullOrEmpty(name))
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId && f.Name.Equals(name));
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			// 搜索对应请求权限api
 			if (permissionId != null && !string.IsNullOrEmpty(httpMethod))
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId && f.HttpMethods.Contains(name));
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			// 搜索对应路径地址权限api
 			if (permissionId != null && !string.IsNullOrEmpty(path))
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId && f.Path.Equals(path));
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			
 			// 搜索对权限api
@@ -111,7 +111,7 @@ namespace ASF.Domain.Services
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId);
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			
 			// 搜索类型
@@ -119,40 +119,40 @@ namespace ASF.Domain.Services
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.Type == type);
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			// 搜索状态
 			if (status != null)
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f =>f.Status == status);
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			// 搜索api名称
 			if (!string.IsNullOrEmpty(name))
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f =>f.Name.Equals(name));
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			// 搜索请求方法
 			if (!string.IsNullOrEmpty(httpMethod))
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.HttpMethods.Contains(name));
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			//搜索请求路径
 			if (!string.IsNullOrEmpty(path))
 			{
 				var (list, count) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 					f => f.PermissionId == permissionId && f.Path.Equals(path));
-				return ResultPagedList<Api>.ReSuccess(list, count);
+				return (list, count);
 			}
 			
 			var (data, apiCount) = await _apiRepository.GetEntitiesForPaging(pageNo, pageSize,
 				f => f.Id != 0);
-			return ResultPagedList<Api>.ReSuccess(data, apiCount);
+			return (data, apiCount);
 		}
 		/// <summary>
 		/// 添加功能api
