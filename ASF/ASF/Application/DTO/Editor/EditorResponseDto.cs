@@ -5,16 +5,8 @@ namespace ASF.Application.DTO.Editor
 	/// <summary>
 	/// 富文本列表响应
 	/// </summary>
-	public class EditorResponseDto
+	public class EditorResponseDto: EditorTitleListResponseDto
 	{
-		/// <summary>
-		/// id
-		/// </summary>
-		public long Id { get; set; }
-		/// <summary>
-		/// 富文本名称
-		/// </summary>
-		public string Name { get; set; }
 		/// <summary>
 		/// 富文本类型
 		/// </summary>
@@ -26,7 +18,7 @@ namespace ASF.Application.DTO.Editor
 		/// <summary>
 		/// 轮播图集合
 		/// </summary>
-		public string Banner { get; set; }
+		public Banner Banner { get; set; }
 		/// <summary>
 		/// 原始网页
 		/// </summary>
@@ -39,5 +31,23 @@ namespace ASF.Application.DTO.Editor
 		/// 创建时间
 		/// </summary>
 		public DateTime CreateTime { get; set; }
+	}
+	/// <summary>
+	/// 轮播图
+	/// </summary>
+	public class Banner
+	{
+		/// <summary>
+		/// 首页轮播图
+		/// </summary>
+		public string IndexBanner { get; set; }
+		/// <summary>
+		/// 资质证书
+		/// </summary>
+		public string DeviceBanner { get; set; }
+		/// <summary>
+		/// 合作伙伴
+		/// </summary>
+		public string Hezuo { get; set; }
 	}
 }

@@ -949,6 +949,8 @@ namespace ASF.EntityFramework.Repository
         public virtual DbSet<Translate> Translate { get; set; }
         //字典表
         public virtual DbSet<AsfDictionary> AsfDictionary { get; set; }
+        //富文本
+        public virtual DbSet<Editor> Editors { get; set; }
 
     }
 }

@@ -2108,7 +2108,7 @@ CREATE TABLE "public"."asf_editor" (
                                      "name" character varying(100) NOT NULL,
                                      "type" bigint,
                                      "path"  character varying(100) NOT NULL,
-                                     "banner"  character varying(1000) DEFAULT NULL,
+                                     "banner"  character varying(10000) DEFAULT NULL,
                                      "old_content" text DEFAULT NULL,
                                      "new_content" text DEFAULT NULL,
                                      "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL

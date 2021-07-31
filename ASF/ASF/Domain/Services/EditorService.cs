@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASF.Application.DTO.Editor;
 using ASF.Domain.Entities;
 using ASF.Infrastructure.Repositories;
 using ASF.Internal.Results;
@@ -29,12 +31,12 @@ namespace ASF.Domain.Services
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public async Task<Result<Editor>> GetEditor(long id)
+		public async Task<Editor> GetEditor(long id)
 		{
 			Editor editor = await _editorRepository.GetEntity(f => f.Id == id);
 			if (editor == null)
-				return Result<Editor>.ReFailure("没有这个富文本内容", 2002);
-			return Result<Editor>.ReSuccess(editor);
+				throw new Exception("没有这个富文本");
+			return editor;
 		}
 		
 		/// <summary>
@@ -54,12 +56,12 @@ namespace ASF.Domain.Services
 		/// 获取富文本列表
 		/// </summary>
 		/// <returns></returns>
-		public async Task<ResultList<Editor>> GetLists()
+		public async Task<List<Editor>> GetLists()
 		{
 			IEnumerable<Editor> list = await _editorRepository.GetEntities(f => f.Id != 0);
 			if (list == null)
-				return ResultList<Editor>.ReFailure("没有富文本内容", 2000);
-			return ResultList<Editor>.ReSuccess(list.ToList());
+				return new List<Editor>();
+			return list.ToList();
 		}
 		/// <summary>
 		/// 修改富文本内容

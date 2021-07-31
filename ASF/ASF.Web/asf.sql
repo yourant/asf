@@ -128,9 +128,9 @@ INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,descr
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '登出',1,'/api/asf/authorise/logout','post',1,'登出账户权限',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取登录账户信息',1,'/api/asf/account/accountinfo','get',1,'登出账户权限',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取租户列表集合',1,'/api/asf/tenancy/getlists','get',1,'获取租户列表集合',0);
-INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取富文本内容',1,'/api/asf/editor/getlists','get',1,'获取富文本内容',0);
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取富文本目录',1,'/api/asf/editor/getlists','get',1,'获取富文本目录',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '修改富文本内容',1,'/api/asf/editor/modify','put',1,'修改富文本内容',0);
-INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取轮播图',1,'/api/asf/editor/getbanner','get',1,'获取轮播图',0);
+INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '获取富文本内容',1,'/api/asf/editor/geteditor','get',1,'获取富文本内容',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '提交咨询内容',1,'/api/asf/editor/concat','get',1,'提交咨询内容',0);
 INSERT INTO asf_apis (permission_id, name,type,path,http_methods,is_system,description,is_logger) VALUES (16, '咨询内容列表',1,'/api/asf/editor/getConcatList','get',1,'咨询内容列表',0);
 -- 插入角色数据
@@ -270,7 +270,7 @@ INSERT INTO asf_department_role (department_id,role_id) VALUES (32,3);
 INSERT INTO asf_account_post (account_id,post_id) VALUES (1,3);
 INSERT INTO asf_account_post (account_id,post_id) VALUES (1,7);
 -- 插入默认富文本内容
-INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES  ('首页',1,'/var/www/html/441/index.html','{"indexBanner":"https://s1.imagehub.cc/images/2021/07/10/_20210710094116b65d7190215c67be.jpg,https://s1.imagehub.cc/images/2021/07/10/_2021071009442886dbe32710da6040.jpg,https://s1.imagehub.cc/images/2021/07/10/_2021071009443888c5c4f50f2284c0.jpg"}','');
+INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES  ('首页',1,'/var/www/html/441/index.html','{"indexBanner":"https://s1.imagehub.cc/images/2021/07/10/_20210710094116b65d7190215c67be.jpg,https://s1.imagehub.cc/images/2021/07/24/_20210724103549f62b639c54f9cdf7.jpg,https://s1.imagehub.cc/images/2021/07/24/_202107182002481e6bf86d8d126fd3.jpg","deviceBanner":"https://s1.imagehub.cc/images/2021/07/24/9aa715dde679c724cb.png,https://s1.imagehub.cc/images/2021/07/24/8a260ed2e490ab2a82.png,https://s1.imagehub.cc/images/2021/07/24/7a2e5f518a3cf28316.png,https://s1.imagehub.cc/images/2021/07/24/5a688b333bb515fb20.png,https://s1.imagehub.cc/images/2021/07/24/4af49b28e9fafcc2fd.png","hezuo":"https://s1.imagehub.cc/images/2021/07/31/b47830aa7fbdd0d66fb01697506e000c2ad27a749c252cf4.jpg,https://s1.imagehub.cc/images/2021/07/31/79b0d85096f8086a75cfd1bac5835d599f3bb2fe04443f27.jpg,https://s1.imagehub.cc/images/2021/07/31/eb9fdb921920817012c23be66fc71cf344feed4b25210a40.webp,https://s1.imagehub.cc/images/2021/07/31/287447ab31d536f2855fe297ba4a442e1ea8730dba44b3ef.jpg,https://s1.imagehub.cc/images/2021/07/31/d082f788d014331146dddbb798a90b7efc7bd4cc600c00d4.jpg,https://s1.imagehub.cc/images/2021/07/31/857ee91b356d0364da0deac3f339b179ae793462ea6a2bef.webp,https://s1.imagehub.cc/images/2021/07/31/857ee91b356d0364da0deac3f339b179ae793462ea6a2bef.webp"}','');
 INSERT INTO asf_editor (name,type,path,old_content) VALUES ('公司概况',2,'/var/www/html/441/a/gongsigaikuang/index.html','');
 INSERT INTO asf_editor (name,type,path,old_content) VALUES ('公司概念',3,'/var/www/html/441/a/gongsigainian/index.html','');
 INSERT INTO asf_editor (name,type,path,old_content) VALUES ('公司网络',4,'/var/www/html/441/a/gongsiwangluo/index.html','');

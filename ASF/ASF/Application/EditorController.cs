@@ -10,6 +10,7 @@ using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
+using ASF.Internal.Security;
 using AutoMapper;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Authorization;
@@ -56,12 +57,10 @@ namespace ASF.Application
         /// <returns></returns>
         [HttpGet]
         [Authorize]
-        public async Task<ResultList<EditorResponseDto>> GetLists()
+        public async Task<ResultList<EditorTitleListResponseDto>> GetLists()
         {
 	        var data = await _serviceProvider.GetRequiredService<EditorService>().GetLists();
-            if(!data.Success)
-                return ResultList<EditorResponseDto>.ReFailure(data.Message,data.Status);
-            return ResultList<EditorResponseDto>.ReSuccess(_mapper.Map<List<EditorResponseDto>>(data.Data));
+	        return ResultList<EditorTitleListResponseDto>.ReSuccess(_mapper.Map<List<EditorTitleListResponseDto>>(data));
         } 
         /// <summary>
 				/// 修改富文本内容
@@ -73,26 +72,24 @@ namespace ASF.Application
 				public async Task<Result> Modify([FromBody] ModifyEditorRequestDto dto)
 				{
 					var data = await _serviceProvider.GetRequiredService<EditorService>().GetEditor(dto.Id);
-					if (!data.Success)
-						return Result.ReFailure(data.Message, data.Status);
 					if (!string.IsNullOrEmpty(dto.NewContent))
 					{
-						data.Data.NewContent = dto.NewContent;
-						var result = await _serviceProvider.GetRequiredService<EditorService>().Modify(data.Data);
+						data.NewContent = dto.NewContent;
+						var result = await _serviceProvider.GetRequiredService<EditorService>().Modify(data);
 						if (result.Success)
 						{
 							var htmlDoc = new HtmlDocument();
 							htmlDoc.LoadHtml(dto.NewContent);
 		
-							TextWriter tw = System.IO.File.CreateText(data.Data.Path);
+							TextWriter tw = System.IO.File.CreateText(data.Path);
 
 							htmlDoc.Save(tw);
 						}
 						return result;
-					}else if (!string.IsNullOrEmpty(dto.Banner))
+					}else if (dto.Banner != null)
 					{
-						data.Data.Banner = dto.Banner;
-						return await _serviceProvider.GetRequiredService<EditorService>().Modify(data.Data);
+						data.Banner = dto.Banner.WriteFromObject<Banner>();
+						return await _serviceProvider.GetRequiredService<EditorService>().Modify(data);
 					}
 					else
 					{
@@ -115,12 +112,13 @@ namespace ASF.Application
 				/// <summary>
 				/// 根据type获取banner
 				/// </summary>
-				/// <param name="type"></param>
+				/// <param name="id"></param>
 				/// <returns></returns>
 				[HttpGet]
-				public async Task<Result<string>> GetBanner([FromQuery] uint type)
+				public async Task<Result<EditorResponseDto>> GetEditor([FromQuery] long id)
 				{
-					return await _serviceProvider.GetRequiredService<EditorService>().GetBanner(type);
+					Editor editor = await _serviceProvider.GetRequiredService<EditorService>().GetEditor(id);
+					return Result<EditorResponseDto>.ReSuccess(_mapper.Map<EditorResponseDto>(editor));
 				}
     }
 }

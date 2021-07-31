@@ -18,6 +18,6 @@ namespace ASF.Application.DTO.Editor
 		/// <summary>
 		/// 轮播图
 		/// </summary>
-		public string Banner { get; set; }
+		public Banner Banner { get; set; }
 	}
 }

@@ -1808,16 +1808,6 @@
             富文本列表响应
             </summary>
         </member>
-        <member name="P:ASF.Application.DTO.Editor.EditorResponseDto.Id">
-            <summary>
-            id
-            </summary>
-        </member>
-        <member name="P:ASF.Application.DTO.Editor.EditorResponseDto.Name">
-            <summary>
-            富文本名称
-            </summary>
-        </member>
         <member name="P:ASF.Application.DTO.Editor.EditorResponseDto.Type">
             <summary>
             富文本类型
@@ -1846,6 +1836,41 @@
         <member name="P:ASF.Application.DTO.Editor.EditorResponseDto.CreateTime">
             <summary>
             创建时间
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Editor.Banner">
+            <summary>
+            轮播图
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Editor.Banner.IndexBanner">
+            <summary>
+            首页轮播图
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Editor.Banner.DeviceBanner">
+            <summary>
+            资质证书
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Editor.Banner.Hezuo">
+            <summary>
+            合作伙伴
+            </summary>
+        </member>
+        <member name="T:ASF.Application.DTO.Editor.EditorTitleListResponseDto">
+            <summary>
+            富文本标题
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Editor.EditorTitleListResponseDto.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.Editor.EditorTitleListResponseDto.Name">
+            <summary>
+            富文本名称
             </summary>
         </member>
         <member name="T:ASF.Application.DTO.Editor.ModifyEditorRequestDto">
@@ -2915,11 +2940,11 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Application.EditorController.GetBanner(System.UInt32)">
+        <member name="M:ASF.Application.EditorController.GetEditor(System.Int64)">
             <summary>
             根据type获取banner
             </summary>
-            <param name="type"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.Application.MenuController">

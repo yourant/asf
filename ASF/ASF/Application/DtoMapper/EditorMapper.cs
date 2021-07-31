@@ -1,5 +1,6 @@
 using ASF.Application.DTO.Editor;
 using ASF.Domain.Entities;
+using ASF.Internal.Security;
 using AutoMapper;
 
 namespace ASF.Application.DtoMapper
@@ -18,9 +19,10 @@ namespace ASF.Application.DtoMapper
 			this.CreateMap<AddConcatRequestDto, Concat>();
 			// 咨询联系响应
 			this.CreateMap<Concat, ConcatResponseDto>();
+			this.CreateMap<Editor, EditorTitleListResponseDto>();
 			// 富文本响应
 			this.CreateMap<Editor, EditorResponseDto>()
-				.ForMember(f=> f.NewContent, s=>s.MapFrom(o=>!string.IsNullOrEmpty(o.NewContent) ? o.NewContent : null));
+				.ForMember(f=>f.Banner,s=>s.MapFrom(o=>o.Banner.ReadToObject<Banner>()));
 		}
 	}
 }

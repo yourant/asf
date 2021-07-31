@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using ASF.Application.DTO.Editor;
 using ASF.Domain.Entities;
 
 namespace ASF.Infrastructure.Repositories
@@ -8,6 +10,5 @@ namespace ASF.Infrastructure.Repositories
 	/// </summary>
 	public interface IEditorRepository: IRepositories<Editor>
 	{
-
 	}
 }
