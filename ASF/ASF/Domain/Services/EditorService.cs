@@ -38,19 +38,6 @@ namespace ASF.Domain.Services
 				throw new Exception("没有这个富文本");
 			return editor;
 		}
-		
-		/// <summary>
-		/// 根据type 类型获取富文本banner
-		/// </summary>
-		/// <param name="type"></param>
-		/// <returns></returns>
-		public async Task<Result<string>> GetBanner(uint type)
-		{
-			Editor editor = await _editorRepository.GetEntity(f => f.Type == type);
-			if (editor == null)
-				return Result<string>.ReFailure("没有这个轮播", 2003);
-			return Result<string>.ReSuccess(editor.Banner ?? "");
-		}
 
 		/// <summary>
 		/// 获取富文本列表

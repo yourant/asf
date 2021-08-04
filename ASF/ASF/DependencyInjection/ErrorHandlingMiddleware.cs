@@ -42,7 +42,7 @@ namespace ASF.DependencyInjection
         }
         _logger.LogError($"统一拦截异常处理: {ex.Message}, StackTrace:{ex.StackTrace}");
         // await HandleExceptionAsync(context, statusCode, ex.Message);
-        await HandleExceptionAsync(context, statusCode, "服务器错误");
+        await HandleExceptionAsync(context, statusCode, ex.Message);
       }
       finally
       {

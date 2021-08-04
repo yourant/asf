@@ -54,25 +54,25 @@ namespace ASF.Domain.Services
       Api api = await this.MatchApiPermission(requestPath.Trim());
       if (api == null)
       {
-        this._logger.LogWarning($"Did not find the corresponding permissions of {requestPath}");
+        this._logger.LogWarning($"没有这个权限 {requestPath}");
         return Result<Api>.ReFailure(ResultCodes.NotAcceptable);
       }
-      this._logger.LogDebug($"[{ request.Method}]{requestPath} matches to Permission with {api.Id}");
+      this._logger.LogDebug($"[{ request.Method}]{requestPath} 匹配权限id {api.Id}");
       // 判断请求方法
       if (!api.HttpMethods.Contains(request.Method.ToLower()))
       {
-        this._logger.LogWarning($"Request method is incorrect : [{ request.Method}]{requestPath}");
+        this._logger.LogWarning($"请求方法不匹配 : [{ request.Method}]{requestPath}");
         return Result<Api>.ReFailure(ResultCodes.NotAcceptable);
       }
       if (api.Status == 0)
       {
-        this._logger.LogWarning($"{api.Id} permissions are not available");
+        this._logger.LogWarning($"{api.Id} api被禁用");
         return Result<Api>.ReFailure(ResultCodes.NotAcceptable);
       }
       //如果是开放性权限，只要登录就可以访问
       if ((PermissionType)api.Type == Values.PermissionType.OpenApi)
       {
-        this._logger.LogDebug($"{api.Id} Open API authorization succeeded");
+        this._logger.LogDebug($"{api.Id} 公开api授权成功");
         return Result<Api>.ReSuccess(api);
       }
 
@@ -82,13 +82,13 @@ namespace ASF.Domain.Services
       Account account = await this._serviceProvider.GetRequiredService<IAccountsRepository>().GetAccountAndRoleAndPermissionAsync(uid);
       if (account == null)
       {
-        this._logger.LogWarning($"{ uid } Account does not exist");
+        this._logger.LogWarning($"{ uid } 账户不存在");
         return Result<Api>.ReFailure(ResultCodes.NotAcceptable);
       }
       // 判断角色是否为空
       if (account.Role.Count == 0 && (account.Department != null && account.Department.Role.Count == 0))
       {
-        this._logger.LogDebug("Access to Tokan needs to include roles");
+        this._logger.LogDebug("账户不包含角色");
         return Result<Api>.ReFailure(ResultCodes.NotAcceptable);
       }
       // 账户角色是否被禁用以及对应的权限是否被禁用与否匹配
@@ -96,7 +96,7 @@ namespace ASF.Domain.Services
           && 
           (account.Role.Count != 0 && account.Role.Any(f => (f.Enable != null && (EnabledType)f.Enable == EnabledType.Disabled) || f.Permission.Count(x => (x.Enable != null && (EnabledType)x.Enable == EnabledType.Enabled) && x.Id == api.PermissionId) == 0)))
       {
-        _logger.LogWarning($"Role {string.Join(",", account.Department.Role.Select(s => s.Name))} Is Disabled ");
+        _logger.LogWarning($"角色 {string.Join(",", account.Department.Role.Select(s => s.Name))} 被禁用");
         return Result<Api>.ReFailure(ResultCodes.NotAcceptable);
       }
 
@@ -106,7 +106,7 @@ namespace ASF.Domain.Services
       //     this._logger.LogWarning($"Authorized users are not assigned {api.Name} permissions ");
       //     return Result<Api>.ReFailure(ResultCodes.NotAcceptable);
       // }
-      this._logger.LogDebug($"authorization successful");
+      this._logger.LogDebug($"认证成功");
       return Result<Api>.ReSuccess(api);
     }
 
