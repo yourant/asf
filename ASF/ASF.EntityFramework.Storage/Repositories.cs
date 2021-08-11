@@ -27,6 +27,17 @@ namespace ASF.EntityFramework.Repository
           return await _context.SaveChangesAsync() > 0;
         }
         /// <summary>
+        /// 批量添加
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<bool> AddRange(List<T> entity)
+        {
+          await _context.Set<T>().AddRangeAsync(entity);
+          return await _context.SaveChangesAsync() > 0;
+        }
+
+        /// <summary>
         /// 删除
         /// </summary>
         /// <param name="entity"></param>
@@ -46,7 +57,17 @@ namespace ASF.EntityFramework.Repository
           _context.Set<T>().Update(entity);
           return await _context.SaveChangesAsync() > 0;
         }
-        
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<bool> UpdateRange(List<T> entity)
+        {
+          _context.Set<T>().UpdateRange(entity);
+          return await _context.SaveChangesAsync() > 0;
+        }
+
         public async Task<IEnumerable<T>> GetEntities(Expression<Func<T, bool>> exp)
         {
           return await Task.FromResult<IEnumerable<T>>(CompileQuery(exp));

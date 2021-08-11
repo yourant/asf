@@ -18,6 +18,12 @@ namespace ASF
         /// <returns></returns>
         Task<bool> Add(T entity);
         /// <summary>
+        /// 批量添加
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<bool> AddRange(List<T> entity);
+        /// <summary>
         /// 删除
         /// </summary>
         /// <param name="entity"></param>
@@ -29,6 +35,12 @@ namespace ASF
         /// <param name="entity"></param>
         /// <returns></returns>
         Task<bool> Update(T entity);
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<bool> UpdateRange(List<T> entity);
         /// <summary>
         /// 获取列表
         /// </summary>

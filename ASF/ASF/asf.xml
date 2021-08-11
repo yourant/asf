@@ -5431,13 +5431,6 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.EditorService.GetBanner(System.UInt32)">
-            <summary>
-            根据type 类型获取富文本banner
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
         <member name="M:ASF.Domain.Services.EditorService.GetLists">
             <summary>
             获取富文本列表
@@ -6649,6 +6642,13 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.IRepositories`1.AddRange(System.Collections.Generic.List{`0})">
+            <summary>
+            批量添加
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:ASF.IRepositories`1.Delete(`0)">
             <summary>
             删除
@@ -6659,6 +6659,13 @@
         <member name="M:ASF.IRepositories`1.Update(`0)">
             <summary>
             修改
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.IRepositories`1.UpdateRange(System.Collections.Generic.List{`0})">
+            <summary>
+            批量修改
             </summary>
             <param name="entity"></param>
             <returns></returns>
