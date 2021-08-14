@@ -76,7 +76,7 @@ namespace ASF.EntityFramework.Repository
         public async Task<(IList<T> list, int total)> GetEntitiesForPaging(int page, int pageSize, Expression<Func<T, bool>> exp)
         {
           IList<T> query = CompileQuery(exp).ToList();
-          int count = query.Count() == 0 ? 1 : query.Count();
+          int count = query.Count();
           int p = page == 0 ? 1 : page;
           int c = pageSize == 0 ? count : pageSize;
           int totalPages = (int)Math.Ceiling(((decimal)count / c));

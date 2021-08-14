@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
-using ASF.Application.DTO.AsfDictionary;
 using ASF.Application.DTO.Editor;
-using ASF.Application.DTO.Translate;
-using ASF.Domain;
 using ASF.Domain.Entities;
 using ASF.Domain.Services;
 using ASF.Internal.Results;
-using ASF.Internal.Security;
 using AutoMapper;
-using HtmlAgilityPack;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -59,8 +53,7 @@ namespace ASF.Application
         [Authorize]
         public async Task<ResultList<EditorTitleListResponseDto>> GetLists()
         {
-	        var data = await _serviceProvider.GetRequiredService<EditorService>().GetLists();
-	        return ResultList<EditorTitleListResponseDto>.ReSuccess(_mapper.Map<List<EditorTitleListResponseDto>>(data));
+	        return  await _serviceProvider.GetRequiredService<EditorService>().GetLists();
         } 
         /// <summary>
 				/// 修改富文本内容
@@ -71,31 +64,7 @@ namespace ASF.Application
         [Authorize]
 				public async Task<Result> Modify([FromBody] ModifyEditorRequestDto dto)
 				{
-					var data = await _serviceProvider.GetRequiredService<EditorService>().GetEditor(dto.Id);
-					if (!string.IsNullOrEmpty(dto.NewContent))
-					{
-						data.NewContent = dto.NewContent;
-						var result = await _serviceProvider.GetRequiredService<EditorService>().Modify(data);
-						if (result.Success)
-						{
-							var htmlDoc = new HtmlDocument();
-							htmlDoc.LoadHtml(dto.NewContent);
-		
-							TextWriter tw = System.IO.File.CreateText(data.Path);
-
-							htmlDoc.Save(tw);
-						}
-						return result;
-					}else if (dto.Banner != null)
-					{
-						data.Banner = dto.Banner.WriteFromObject<Banner>();
-						return await _serviceProvider.GetRequiredService<EditorService>().Modify(data);
-					}
-					else
-					{
-						return Result.ReFailure("内容不能为空", 2004);
-					}
-
+					return await _serviceProvider.GetRequiredService<EditorService>().Modify(dto);
 				}
 
 				/// <summary>
@@ -117,8 +86,7 @@ namespace ASF.Application
 				[HttpGet]
 				public async Task<Result<EditorResponseDto>> GetEditor([FromQuery] long id)
 				{
-					Editor editor = await _serviceProvider.GetRequiredService<EditorService>().GetEditor(id);
-					return Result<EditorResponseDto>.ReSuccess(_mapper.Map<EditorResponseDto>(editor));
+					return await _serviceProvider.GetRequiredService<EditorService>().GetEditor(id);
 				}
     }
 }
