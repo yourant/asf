@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ASF.Application.DtoMapper;
+using ASF.Domain.Services;
 using Coravel;
 using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
@@ -144,11 +145,16 @@ namespace ASF.Web
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
             
+            var provider = app.ApplicationServices;
+            provider.UseScheduler(scheduler =>
+            {
+                scheduler.Schedule<RunSendPhoneTasks>()
+                    .EveryMinute();
+            });
             // app.ASFInitDatabase();
             app.UseASF();
             
             app.UseOcelot().Wait();
-
 
         }
     }

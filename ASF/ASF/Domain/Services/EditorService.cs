@@ -8,6 +8,7 @@ using ASF.Internal.Results;
 using ASF.Internal.Security;
 using AutoMapper;
 using HtmlAgilityPack;
+using Microsoft.Extensions.Logging;
 
 namespace ASF.Domain.Services
 {
@@ -19,16 +20,20 @@ namespace ASF.Domain.Services
 		private readonly IEditorRepository _editorRepository;
 		private readonly IConcatRepositories _concatRepositories;
 		private readonly IMapper _mapper;
+		private readonly ILogger<EditorService> _logger;
 		/// <summary>
 		/// 富文本编辑服务
 		/// </summary>
 		/// <param name="editorRepository"></param>
+		/// <param name="mapper"></param>
+		/// <param name="logger"></param>
 		/// <param name="concatRepositories"></param>
-		public EditorService(IEditorRepository editorRepository, IConcatRepositories concatRepositories,IMapper mapper)
+		public EditorService(IEditorRepository editorRepository, IConcatRepositories concatRepositories,IMapper mapper,ILogger<EditorService> logger)
 		{
 			_editorRepository = editorRepository;
 			_concatRepositories = concatRepositories;
 			_mapper = mapper;
+			_logger = logger;
 		}
 		/// <summary>
 		/// 获取富文本内容
@@ -57,7 +62,7 @@ namespace ASF.Domain.Services
 		/// <summary>
 		/// 修改富文本内容
 		/// </summary>
-		/// <param name="editor"></param>
+		/// <param name="dto"></param>
 		/// <returns></returns>
 		public async Task<Result> Modify(ModifyEditorRequestDto dto)
 		{
@@ -98,10 +103,10 @@ namespace ASF.Domain.Services
 		/// <param name="pageNo"></param>
 		/// <param name="pageSize"></param>
 		/// <returns></returns>
-		public async Task<ResultPagedList<Concat>> GetConcatList(int pageNo, int pageSize)
+		public async Task<ResultPagedList<ConcatResponseDto>> GetConcatList(int pageNo, int pageSize)
 		{
 			var (data,totalCount) = await _concatRepositories.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
-			return ResultPagedList<Concat>.ReSuccess(data,totalCount);
+			return ResultPagedList<ConcatResponseDto>.ReSuccess(_mapper.Map<List<ConcatResponseDto>>(data),totalCount);
 		}
 		/// <summary>
 		/// 提交咨询内容
@@ -115,5 +120,54 @@ namespace ASF.Domain.Services
 				return Result.ReFailure("提交失败", 2004);
 			return Result.ReSuccess();
 		}
+		// /// <summary>
+		// /// 发送短信
+		// /// </summary>
+		// public async Task SendPhone()
+		// {
+		// 	var generatorId = new Random().Next(0,1023);
+		// 	// Let's say we take april 1st 2015 as our epoch
+		// 	var epoch = new DateTime(2020, 4, 1, 0, 0, 0, DateTimeKind.Utc);
+		// 	// Create a mask configuration of 45 bits for timestamp, 2 for generator-id 
+		// 	// and 16 for sequence
+		// 	var mc = new IdStructure(41, 10, 12);
+		// 	// Create an IdGenerator with it's generator-id set to 0, our custom epoch 
+		// 	// and mask configuration
+		// 	IdGeneratorOptions options = new IdGeneratorOptions(mc,new DefaultTimeSource(epoch));
+		// 	var generator = new IdGenerator(generatorId, options);
+		// 	//地址
+		// 	string sendUrl = "https://erp.gerpgo.com/api/oauth/anno/registerCaptcha";
+		// 	//随机的手机号码
+		// 	string[] phoneList = new string[]
+		// 	{
+		// 		"130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "151", "152", "153", "153", "154", "155",
+		// 		"156", "157", "158", "159"
+		// 	};
+		// 	for (int i = 0; i < phoneList.Length; i++)
+		// 	{
+		// 		long genid = generator.CreateId();
+		// 		string[] phone = new[] { genid.ToString().Substring(0, 8),genid.ToString().Substring(8, 8) };
+		// 		for (int j = 0; j < phone.Length; j++)
+		// 		{
+		// 			string data = phoneList[i] + phone[j];
+		// 			using (var http = new HttpClient())
+		// 			{
+		// 				StringContent httpContent = new StringContent(JsonSerializer.Serialize(new { mobile = data }),
+		// 					Encoding.UTF8, "application/json");
+		// 				HttpResponseMessage response = await http.PostAsync(new Uri(sendUrl), httpContent);
+		// 				if (response.IsSuccessStatusCode)
+		// 				{
+		// 					Task<string> t = response.Content.ReadAsStringAsync();
+		// 					string s = t.Result;
+		// 					_logger.LogInformation(s);
+		// 				}
+		// 				else
+		// 				{
+		// 					_logger.LogError("发送失败");
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 }

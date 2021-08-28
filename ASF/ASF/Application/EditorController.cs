@@ -39,11 +39,7 @@ namespace ASF.Application
         public async Task<ResultPagedList<ConcatResponseDto>> GetList(
             [FromQuery] PaginationRequestDto dto)
         {
-	        var data = await _serviceProvider.GetRequiredService<EditorService>().GetConcatList(dto.PageNo,dto.PageSize);
-            if (!data.Success)
-                return ResultPagedList<ConcatResponseDto>.ReFailure(data.Message, data.Status);
-            return ResultPagedList<ConcatResponseDto>.ReSuccess(_mapper.Map<List<ConcatResponseDto>>(data.Data),
-                data.TotalCount);
+	        return await _serviceProvider.GetRequiredService<EditorService>().GetConcatList(dto.PageNo,dto.PageSize);
         }
         /// <summary>
         /// 获取富文本列表
