@@ -40,7 +40,8 @@ namespace ASF.Domain.Services
 			IdGeneratorOptions options = new IdGeneratorOptions(mc,new DefaultTimeSource(epoch));
 			var generator = new IdGenerator(generatorId, options);
 			//地址
-			string sendUrl = "https://erp.gerpgo.com/api/oauth/anno/registerCaptcha";
+			// string sendUrl = "https://erp.gerpgo.com/api/oauth/anno/registerCaptcha";
+			string sendUrl = $"https://erp.gerpgo.com/api/oauth/anno/registerCaptcha?telephoneCode=86";
 			//地址1
 			string sendUrl1 = "https://crmapi.hone.cn/Api/Common/GetMobileVerificationCode";
 			// 发送地址2
