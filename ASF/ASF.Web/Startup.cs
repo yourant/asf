@@ -145,12 +145,12 @@ namespace ASF.Web
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
             
-            var provider = app.ApplicationServices;
-            provider.UseScheduler(scheduler =>
-            {
-                scheduler.Schedule<RunSendPhoneTasks>()
-                    .EveryMinute();
-            });
+            // var provider = app.ApplicationServices;
+            // provider.UseScheduler(scheduler =>
+            // {
+            //     scheduler.Schedule<RunSendPhoneTasks>()
+            //         .Hourly();
+            // });
             // app.ASFInitDatabase();
             app.UseASF();
             
