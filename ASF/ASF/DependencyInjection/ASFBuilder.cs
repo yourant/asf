@@ -43,7 +43,7 @@ namespace ASF.DependencyInjection
 
             this.AddDomainServices();
             this.AddAuthorization();
-            // this.AddScheduledTasks();
+            this.AddScheduledTasks();
         }
 
         /// <summary>

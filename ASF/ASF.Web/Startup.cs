@@ -27,12 +27,7 @@ namespace ASF.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddRazorPages();
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer((AccessTokenOptions opt) =>
-            // {
-            //     opt.SecurityType = SecurityType.RsaSha512;
-            // });
             //添加日志
             services.AddLogging();
             // httpclient 
@@ -145,13 +140,12 @@ namespace ASF.Web
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
             
-            // var provider = app.ApplicationServices;
-            // provider.UseScheduler(scheduler =>
-            // {
-            //     scheduler.Schedule<RunSendPhoneTasks>()
-            //         .Hourly();
-            // });
-            // app.ASFInitDatabase();
+            var provider = app.ApplicationServices;
+            provider.UseScheduler(scheduler =>
+            {
+                scheduler.Schedule<RunSendPhoneTasks>()
+                    .Daily();
+            });
             app.UseASF();
             
             app.UseOcelot().Wait();
