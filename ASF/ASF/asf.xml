@@ -3292,16 +3292,20 @@
             处理日志请求
             </summary>
         </member>
-        <member name="M:ASF.ASFRequestLogger.GetInstance(Microsoft.AspNetCore.Http.HttpContext,ASF.Domain.Entities.Api,Microsoft.AspNetCore.Http.RequestDelegate)">
+        <member name="M:ASF.ASFRequestLogger.GetInstance(Microsoft.AspNetCore.Http.HttpContext,Microsoft.AspNetCore.Http.RequestDelegate)">
             <summary>
             日志请求安全单例模式
             </summary>
             <param name="context"></param>
-            <param name="api"></param>
             <param name="next"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.ASFRequestLogger.Record">
+        <member name="M:ASF.ASFRequestLogger.Record(ASF.Domain.Entities.Api)">
+            <summary>
+            记录日志
+            </summary>
+        </member>
+        <member name="M:ASF.ASFRequestLogger.Record(System.String,System.String)">
             <summary>
             记录日志
             </summary>

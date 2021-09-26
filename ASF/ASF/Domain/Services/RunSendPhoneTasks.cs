@@ -43,7 +43,7 @@ namespace ASF.Domain.Services
 			// string sendUrl = "https://erp.gerpgo.com/api/oauth/anno/registerCaptcha";
 			string sendUrl = $"https://erp.gerpgo.com/api/oauth/anno/registerCaptcha?telephoneCode=86";
 			//地址1
-			string sendUrl1 = "https://crmapi.hone.cn/Api/Common/GetMobileVerificationCode";
+			// string sendUrl1 = "https://crmapi.hone.cn/Api/Common/GetMobileVerificationCode";
 			// 发送地址2
 			string sendUrl2 =
 				"https://newapplet.crd.cn/Api/Member/Member/SendNewMobileCode?mobile={0}&source=MP-WEIXIN&openid={1}";

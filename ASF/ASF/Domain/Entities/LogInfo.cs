@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ASF.Internal.Security;
 
 namespace ASF.Domain.Entities
 {
@@ -109,7 +110,17 @@ namespace ASF.Domain.Entities
             if(!string.IsNullOrEmpty(response))
                 this.ApiResponse = response;
             if (!string.IsNullOrEmpty(ip))
+            {
                 this.ClientIp = ip;
+                if (ip.Equals("127.0.0.1"))
+                {
+                    this.ClientLocation = "本地";
+                }
+                else
+                {
+                    this.ClientLocation = Helper.GetIpCitys(ip);
+                }
+            }
         }
 
         #endregion

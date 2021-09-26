@@ -54,7 +54,7 @@ namespace ASF
                         {
                             //判断是否需要记录日志
                             if (api.IsLogger != null && (Status)api.IsLogger == Status.Yes)                            
-                                await ASFRequestLogger.GetInstance(context, api,this._next).Record();
+                                await ASFRequestLogger.GetInstance(context, this._next).Record(api);
                             else 
                                 await _next(context);
                         }

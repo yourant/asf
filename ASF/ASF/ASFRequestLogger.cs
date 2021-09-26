@@ -17,13 +17,12 @@ namespace ASF
     public class ASFRequestLogger
     {
         private readonly RequestDelegate _next;
-        private readonly Api _api;
+        
         private readonly HttpContext httpContext;
         
         private readonly IServiceProvider serviceProvider;
-        private ASFRequestLogger(HttpContext context, Api api, RequestDelegate next)
+        private ASFRequestLogger(HttpContext context, RequestDelegate next)
         {
-            _api = api;
             this.httpContext = context;
             this.serviceProvider = httpContext.RequestServices;
             this._next = next;
@@ -32,18 +31,17 @@ namespace ASF
         /// 日志请求安全单例模式
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="api"></param>
         /// <param name="next"></param>
         /// <returns></returns>
-        public static ASFRequestLogger  GetInstance(HttpContext context, Api api, RequestDelegate next)
+        public static ASFRequestLogger  GetInstance(HttpContext context, RequestDelegate next)
         {
-            return new ASFRequestLogger(context, api, next);
+            return new ASFRequestLogger(context, next);
         }
        
         /// <summary>
         /// 记录日志
         /// </summary>
-        public async Task Record()
+        public async Task Record(Api api)
         {
             HttpRequest request = httpContext.Request;
             string requestContent = "";
@@ -87,15 +85,54 @@ namespace ASF
             {
                 Remark = "操作记录"
             };
-            logInfo.SetOperate(httpContext.User.UserId(),httpContext.User.Name(),_api.Name,LoggingType.Operate,_api.PermissionId,httpContext.Request.Path.Value,requestContent, httpContext.Connection.RemoteIpAddress?.ToString() ?? "127.0.0.1",responseContent);
-           await serviceProvider.GetRequiredService<LoggerService>().Create(logInfo);
+            logInfo.SetOperate(httpContext.User.UserId(),httpContext.User.Name(),api.Name,LoggingType.Operate,api.PermissionId,httpContext.Request.Path.Value,requestContent, httpContext.Connection.RemoteIpAddress?.ToString() ?? "127.0.0.1",responseContent);
+            await serviceProvider.GetRequiredService<LoggerService>().Create(logInfo);
             //
             // _recordLogService.Record(permission, requestContent, responseContent);
             // await _unitOfWork.CommitAsync(autoRollback: true);
             // return;
             await Task.CompletedTask;
         }
-
+        /// <summary>
+        /// 记录日志
+        /// </summary>
+        public async Task Record(string title,string errorMsg)
+        {
+            HttpRequest request = httpContext.Request;
+            string requestContent = "";
+            //
+            // // 获取请求body内容
+            if (request.Method.ToLower().Equals("post"))
+            {
+                // 启用倒带功能，就可以让 Request.Body 可以再次读取
+                //request.EnableRewind();//2.0版使用这个
+                request.EnableBuffering();//3.1版使用这个方法
+            
+                Stream stream = request.Body;
+                byte[] buffer = new byte[request.ContentLength.Value];
+                await stream.ReadAsync(buffer, 0, buffer.Length);
+                requestContent= Encoding.UTF8.GetString(buffer);
+                request.Body.Position = 0;
+            
+            }
+            else if (request.Method.ToLower().Equals("get"))
+            {
+                requestContent = request.QueryString.Value;
+            }
+            
+            // var _unitOfWork = serviceProvider.GetRequiredService<IUnitOfWork>();
+            LogInfo logInfo = new LogInfo()
+            {
+                Remark = "操作记录"
+            };
+            logInfo.SetOperate(httpContext.User.UserId(),httpContext.User.Name(),title,LoggingType.Error,null,httpContext.Request.Path.Value,requestContent, httpContext.Connection.RemoteIpAddress?.ToString() ?? "127.0.0.1",errorMsg);
+            await serviceProvider.GetRequiredService<LoggerService>().Create(logInfo);
+            //
+            // _recordLogService.Record(permission, requestContent, responseContent);
+            // await _unitOfWork.CommitAsync(autoRollback: true);
+            // return;
+            await Task.CompletedTask;
+        }
         /// <summary>
         /// 获取响应内容
         /// </summary>

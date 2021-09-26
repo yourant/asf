@@ -11,14 +11,14 @@ namespace ASF.DependencyInjection
   /// </summary>
   public class ErrorHandlingMiddleware
   {
-    private readonly RequestDelegate next;
+    private readonly RequestDelegate _next;
     private readonly ILogger<ErrorHandlingMiddleware> _logger;
     /// <summary>
     /// 统一错误处理中间件
     /// </summary>
     public ErrorHandlingMiddleware(RequestDelegate next,ILogger<ErrorHandlingMiddleware> logger)
     {
-      this.next = next;
+      _next = next;
       this._logger = logger;
     }
     /// <summary>
@@ -30,7 +30,7 @@ namespace ASF.DependencyInjection
     {
       try
       {
-        await next(context);
+        await _next(context);
       }
       catch (Exception ex)
       {
@@ -40,7 +40,9 @@ namespace ASF.DependencyInjection
         {
           statusCode = 200;
         }
+        
         _logger.LogError($"统一拦截异常处理: {ex.Message}, StackTrace:{ex.StackTrace}");
+        await ASFRequestLogger.GetInstance(context, _next).Record("异常消息",ex.Message);
         // await HandleExceptionAsync(context, statusCode, ex.Message);
         await HandleExceptionAsync(context, statusCode, ex.Message);
       }
