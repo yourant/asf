@@ -2106,7 +2106,7 @@ ALTER TABLE ONLY "public"."asf_account_post"
 CREATE TABLE "public"."asf_editor" (
                                      "id" bigint NOT NULL,
                                      "name" character varying(100) NOT NULL,
-                                     "type" bigint DEFAULT 1,
+                                     "type" bigint NOT NULL DEFAULT 1,
                                      "path"  character varying(100) NOT NULL,
                                      "banner"  character varying(10000) DEFAULT NULL,
                                      "old_content" text DEFAULT NULL,

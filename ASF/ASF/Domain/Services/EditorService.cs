@@ -79,6 +79,27 @@ namespace ASF.Domain.Services
 			return ResultList<EditorTitleListResponseDto>.ReSuccess(_mapper.Map<List<EditorTitleListResponseDto>>(list));
 		}
 		/// <summary>
+		/// 添加富文本网站内容
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
+		public async Task<Result> Create(AddEditorRequestDto dto)
+		{
+			if (await _editorRepository.GetEntity(f => f.Path.Equals(dto.Path)) != null)
+				return Result.ReFailure("不能存在相同的页面路径,否则会覆盖原始模版页面,请修改页面路径", 3006);
+			Editor editor = _mapper.Map<Editor>(dto);
+			bool isAdd = await _editorRepository.Add(editor);
+			if(!isAdd)
+				return Result.ReFailure("添加内容失败", 1004);
+			
+			var htmlDoc = new HtmlDocument();
+			htmlDoc.LoadHtml(editor.OldContent);
+			TextWriter tw = System.IO.File.CreateText(editor.Path);
+			htmlDoc.Save(tw);
+			return Result.ReSuccess();
+		}
+
+		/// <summary>
 		/// 修改富文本内容
 		/// </summary>
 		/// <param name="dto"></param>
@@ -91,6 +112,9 @@ namespace ASF.Domain.Services
 			if (!string.IsNullOrEmpty(dto.NewContent))
 			{
 				editor.NewContent = dto.NewContent;
+				editor.Path = dto.Path;
+				editor.Name = dto.Name;
+				editor.Banner = dto.Banner.WriteFromObject<Banner>();
 				bool isUpdate = await _editorRepository.Update(editor);
 				if(!isUpdate)
 					return Result.ReFailure("修改内容失败",1002);
@@ -99,13 +123,6 @@ namespace ASF.Domain.Services
 		
 				TextWriter tw = System.IO.File.CreateText(editor.Path);
 				htmlDoc.Save(tw);
-				return Result.ReSuccess();
-			}else if (dto.Banner != null)
-			{
-				editor.Banner = dto.Banner.WriteFromObject<Banner>();
-				bool isUpdate = await _editorRepository.Update(editor);
-				if(!isUpdate)
-					return Result.ReFailure("修改内容失败",1002);
 				return Result.ReSuccess();
 			}else
 			{

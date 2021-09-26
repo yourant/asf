@@ -8,9 +8,14 @@ namespace ASF.Application.DTO.Editor
 	public class EditorResponseDto: EditorTitleListResponseDto
 	{
 		/// <summary>
+		/// key
+		/// </summary>
+		public long Key { get; set; }
+
+		/// <summary>
 		/// 富文本类型
 		/// </summary>
-		public uint Type { get; set; }
+		public int Type { get; set; }
 		/// <summary>
 		/// 生成html路径
 		/// </summary>

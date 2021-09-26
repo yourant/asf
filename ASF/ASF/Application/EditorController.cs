@@ -52,7 +52,7 @@ namespace ASF.Application
         /// <returns></returns>
         [HttpGet]
         [Authorize]
-        public async Task<ResultPagedList<ConcatResponseDto>> GetList(
+        public async Task<ResultPagedList<ConcatResponseDto>> GetConcatList(
             [FromQuery] PaginationRequestDto dto)
         {
 	        return await _serviceProvider.GetRequiredService<EditorService>().GetConcatList(dto.PageNo,dto.PageSize);
@@ -66,7 +66,19 @@ namespace ASF.Application
         public async Task<ResultList<EditorTitleListResponseDto>> GetLists()
         {
 	        return  await _serviceProvider.GetRequiredService<EditorService>().GetLists();
-        } 
+        }
+        /// <summary>
+        /// 添加富文本内容
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorize]
+        public async Task<Result> Create([FromBody] AddEditorRequestDto dto)
+        {
+	        return  await _serviceProvider.GetRequiredService<EditorService>().Create(dto);
+        }
+
         /// <summary>
 				/// 修改富文本内容
 				/// </summary>

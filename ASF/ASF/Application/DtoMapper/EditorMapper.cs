@@ -20,9 +20,13 @@ namespace ASF.Application.DtoMapper
 			// 咨询联系响应
 			this.CreateMap<Concat, ConcatResponseDto>();
 			this.CreateMap<Editor, EditorTitleListResponseDto>();
+			//添加富文本
+			this.CreateMap<AddEditorRequestDto, Editor>()
+				.ForMember(f=>f.Banner,s=>s.MapFrom(o=> o.Banner != null ? o.Banner.WriteFromObject<Banner>() : null));
 			// 富文本响应
 			this.CreateMap<Editor, EditorResponseDto>()
-				.ForMember(f=>f.Banner,s=>s.MapFrom(o=>o.Banner.ReadToObject<Banner>()));
+				.ForMember(f => f.Key, s => s.MapFrom(o => o.Id))
+				.ForMember(f=>f.Banner,s=>s.MapFrom(o=>!string.IsNullOrEmpty(o.Banner) ? o.Banner.ReadToObject<Banner>() : null));
 		}
 	}
 }

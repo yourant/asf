@@ -5,12 +5,8 @@ namespace ASF.Application.DTO.Editor
 	/// <summary>
 	/// 修改富文本内容
 	/// </summary>
-	public class ModifyEditorRequestDto
+	public class AddEditorRequestDto
 	{
-		/// <summary>
-		/// 富文本id
-		/// </summary>
-		public long Id { get; set; }
 		/// <summary>
 		/// 页面名称
 		/// </summary>
@@ -22,9 +18,10 @@ namespace ASF.Application.DTO.Editor
 		[Required(ErrorMessage = "页面路径不能为空")]
 		public string Path { get; set; }
 		/// <summary>
-		/// 新内容
+		/// 旧内容
 		/// </summary>
-		public string NewContent { get; set; }
+		[Required(ErrorMessage = "页面内容不能为空")]
+		public string OldContent { get; set; }
 		/// <summary>
 		/// 轮播图
 		/// </summary>
