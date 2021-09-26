@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ASF.Application.DTO;
 using ASF.Application.DTO.Editor;
@@ -28,6 +29,21 @@ namespace ASF.Application
         {
             _serviceProvider = serviceProvider;
             _mapper = mapper;
+        }
+        /// <summary>
+        /// 获取富文本分页列表
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize]
+        public async Task<ResultPagedList<EditorResponseDto>> GetList(
+	        [FromQuery] EditorListRequestDto dto)
+        {
+	        var (data,total) = await _serviceProvider.GetRequiredService<EditorService>().GetList(dto.PageNo, dto.PageSize,
+		        dto.Name, dto.Type);
+	        List<EditorResponseDto> list = _mapper.Map<List<EditorResponseDto>>(data);
+	        return ResultPagedList<EditorResponseDto>.ReSuccess(list,total);
         }
         /// <summary>
         /// 获取联系方式分页

@@ -2106,7 +2106,7 @@ ALTER TABLE ONLY "public"."asf_account_post"
 CREATE TABLE "public"."asf_editor" (
                                      "id" bigint NOT NULL,
                                      "name" character varying(100) NOT NULL,
-                                     "type" bigint,
+                                     "type" bigint DEFAULT 1,
                                      "path"  character varying(100) NOT NULL,
                                      "banner"  character varying(10000) DEFAULT NULL,
                                      "old_content" text DEFAULT NULL,
@@ -2118,7 +2118,7 @@ CREATE TABLE "public"."asf_editor" (
 
 COMMENT ON TABLE "public"."asf_editor" IS '富文本表';
 
-COMMENT ON COLUMN "public"."asf_editor"."type" IS '富文本类型';
+COMMENT ON COLUMN "public"."asf_editor"."type" IS '富文本类型 0->手机页面，1->网站页面';
 
 COMMENT ON COLUMN "public"."asf_editor"."name" IS '名称';
 

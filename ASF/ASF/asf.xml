@@ -1893,6 +1893,36 @@
             轮播图
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.EditorListRequestDto">
+            <summary>
+            富文本分页请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.EditorListRequestDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.EditorListRequestDto.TelPhone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.EditorListRequestDto.Email">
+            <summary>
+            邮箱地址
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.EditorListRequestDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.EditorListRequestDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.IdArrayRequestDto`1">
             <summary>
             id 集合请求 

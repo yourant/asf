@@ -36,6 +36,25 @@ namespace ASF.Domain.Services
 			_logger = logger;
 		}
 		/// <summary>
+		/// 获取富文本分页列表
+		/// </summary>
+		/// <param name="pageNo"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="name"></param>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		public async Task<(IList<Editor> list,int total)> GetList(int pageNo, int pageSize, string name,int? type)
+		{
+			if (!string.IsNullOrEmpty(name) || type != null)
+			{
+					return await _editorRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Name.Equals(name) || f.Type == type);
+			}
+			else
+			{
+					return await _editorRepository.GetEntitiesForPaging(pageNo, pageSize, f => f.Id != 0);
+			}
+		}
+		/// <summary>
 		/// 获取富文本内容
 		/// </summary>
 		/// <param name="id"></param>

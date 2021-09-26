@@ -18,7 +18,7 @@ namespace ASF.Domain.Entities
 		/// <summary>
 		/// 富文本类型
 		/// </summary>
-		public uint Type { get; set; }
+		public int? Type { get; set; }
 		/// <summary>
 		/// 生成html路径
 		/// </summary>
