@@ -318,7 +318,7 @@ namespace ASF.EntityFramework.Repository
                 // api名称索引
                 e.HasIndex(x => x.Name);
                 // api路径索引
-                e.HasIndex(x => x.Path).IsUnique();
+                e.HasIndex(x => x.Path);
                 
                 e.Property(x => x.PermissionId)
                     

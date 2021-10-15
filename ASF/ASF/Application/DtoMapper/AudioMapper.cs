@@ -1,3 +1,4 @@
+using ASF.Application.DTO.Audio;
 using ASF.Domain.Entities;
 using AutoMapper;
 
@@ -13,7 +14,8 @@ namespace ASF.Application.DtoMapper
 		/// </summary>
 		public AudioMapper()
 		{
-			this.CreateMap<LogInfo, AudioMapper>();
+			this.CreateMap<LogInfo, AudioResponseDto>()
+				.ForMember(f => f.Key, s => s.MapFrom(o => o.Id));
 		}
 	}
 }

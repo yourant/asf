@@ -35,7 +35,7 @@ namespace ASF.Web
             // 添加定时调度任务
             services.AddScheduler();
             //automapper
-            services.AddAutoMapper(typeof(LoggerMapper).Assembly);
+            services.AddAutoMapper(typeof(AudioMapper).Assembly);
             // 跨域处理中间件
             services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
             {
@@ -79,41 +79,6 @@ namespace ASF.Web
                             break;
                         case "postgre":
                             b.UseNpgsql(asfOptions.DBConnectionString, opt =>
-                            {
-                                opt.MigrationsAssembly("ASF.Web");
-                            });
-                            break;
-                    }
-                });
-                //使用第二个db
-                build.AddDbContextCenter(b =>
-                {
-                    //处理各种db
-                    switch (asfOptions.CenterDBType.ToLower())
-                    {
-                        case "sqlite":
-                            b.UseSqlite(asfOptions.CenterDBConnectionString, opt =>
-                            {
-                                opt.MigrationsAssembly("ASF.Web");
-                            });
-                            break;
-                        case "mysql":
-                            b.UseMySql(asfOptions.CenterDBConnectionString, ServerVersion.AutoDetect(asfOptions.DBConnectionString),
-                                builder =>
-                                {
-                                    builder.MigrationsAssembly("ASF.Web");
-                                });
-                            b.EnableSensitiveDataLogging();
-                            b.EnableDetailedErrors();
-                            break;
-                        case "sqlserver":
-                            b.UseSqlServer(asfOptions.CenterDBConnectionString, opt =>
-                            {
-                                opt.MigrationsAssembly("ASF.Web");
-                            });
-                            break;
-                        case "postgre":
-                            b.UseNpgsql(asfOptions.CenterDBConnectionString, opt =>
                             {
                                 opt.MigrationsAssembly("ASF.Web");
                             });

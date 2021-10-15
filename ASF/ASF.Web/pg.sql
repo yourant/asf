@@ -1927,7 +1927,7 @@ CREATE INDEX "IX_asf_apis_name" ON "public"."asf_apis" USING "btree" ("name");
 -- Name: IX_asf_apis_path; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX "IX_asf_apis_path" ON "public"."asf_apis" USING "btree" ("path");
+CREATE INDEX "IX_asf_apis_path" ON "public"."asf_apis" USING "btree" ("path");
 
 
 --

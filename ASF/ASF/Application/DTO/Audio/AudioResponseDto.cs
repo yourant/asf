@@ -8,6 +8,11 @@ namespace ASF.Application.DTO.Audio
   public class AudioResponseDto
   {
     /// <summary>
+    /// key
+    /// </summary>
+    public long Key { get; set; }
+
+    /// <summary>
     /// 日志编号
     /// </summary>
     public long Id { get; set; }

@@ -36,41 +36,14 @@ namespace ASF.Application
 		/// <param name="dto"></param>
 		/// <returns></returns>
 		[HttpGet]
-		public async Task<ResultPagedList<AudioResponseDto>> GetErrorList([FromBody] AudioListRequestDto dto)
+		public async Task<ResultPagedList<AudioResponseDto>> GetLogList([FromQuery] AudioListRequestDto dto)
 		{
-			var (list,total) = await _serviceProvider.GetRequiredService<LoggerService>().GetList(dto.PageNo,dto.PageSize,(uint)LoggingType.Error,dto.AccountName);
+			var (list,total) = await _serviceProvider.GetRequiredService<LoggerService>().GetList(dto.PageNo,dto.PageSize,(uint)dto.LogType,dto.AccountName);
 			return ResultPagedList<AudioResponseDto>.ReSuccess(_mapper.Map<List<AudioResponseDto>>(list),
 				total);
 		}
 		/// <summary>
 		/// 删除错误日志
-		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
-		[HttpPost("{id}")]
-		public async Task<Result> DeleteError([FromRoute] long id)
-		{
-			var server = _serviceProvider.GetRequiredService<LoggerService>();
-			var result = await server.Get(id);
-			if (!result.Success)
-				return Result.ReFailure(result.Message, result.Status);
-			return await server.Delete(result.Data);
-		}
-
-		/// <summary>
-		/// 获取操作日志列表
-		/// </summary>
-		/// <param name="dto"></param>
-		/// <returns></returns>
-		[HttpGet]
-		public async Task<ResultPagedList<AudioResponseDto>> GetLogList([FromBody] AudioListRequestDto dto)
-		{
-			var (list,total) = await _serviceProvider.GetRequiredService<LoggerService>().GetList(dto.PageNo,dto.PageSize,(uint)LoggingType.Operate,dto.AccountName);
-			return ResultPagedList<AudioResponseDto>.ReSuccess(_mapper.Map<List<AudioResponseDto>>(list),
-				total);
-		}
-		/// <summary>
-		/// 删除操作日志
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>

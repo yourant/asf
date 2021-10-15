@@ -24,23 +24,12 @@ namespace Microsoft.Extensions.DependencyInjection
             // 是否使用第二个库
             if (allowCenter)
             {
-                builder.AddDbContextCenter(configureDbContext);
+                builder.AddDbContext(configureDbContext); 
             }
             else
             {
                 builder.AddDbContext(configureDbContext);
             }
-            return builder;
-        }
-        /// <summary>
-        /// 第二个数据库
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="configureDbContext"></param>
-        /// <returns></returns>
-        public static ASFBuilder AddDbContextCenter(this ASFBuilder builder, Action<DbContextOptionsBuilder> configureDbContext)
-        {
-            builder.Services.AddDbContext<CenterRepositoryContext>(configureDbContext,ServiceLifetime.Transient);
             return builder;
         }
 
@@ -65,10 +54,6 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IAsfDictionaryRepository, AsfDictionaryRepository>();
             services.AddScoped<IEditorRepository, EditorRepository>();
             services.AddScoped<IConcatRepositories, ConcatRepositories>();
-            // 自定义扩展db仓储
-            services.AddScoped<ICenterAccountsRepository, CenterAccountsRepository>();
-            services.AddScoped<ICenterShopRepository, CenterShopRepository>();
-            services.AddScoped<ICenterProgramsRepository, CenterProgramsRepository>();
         }
     }
 }
