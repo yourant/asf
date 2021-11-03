@@ -85,15 +85,23 @@ namespace ASF.Domain.Services
 		/// <returns></returns>
 		public async Task<Result> Create(AddEditorRequestDto dto)
 		{
+			// var a = dto.OldContent.Replace($"<meta name=\"keywords\" content=\"\">", "").Replace($"<meta name=\"description\" content=\"\">", "");
 			if (await _editorRepository.GetEntity(f => f.Path.Equals(dto.Path)) != null)
 				return Result.ReFailure("不能存在相同的页面路径,否则会覆盖原始模版页面,请修改页面路径", 3006);
 			Editor editor = _mapper.Map<Editor>(dto);
 			bool isAdd = await _editorRepository.Add(editor);
 			if(!isAdd)
 				return Result.ReFailure("添加内容失败", 1004);
-			
 			var htmlDoc = new HtmlDocument();
 			htmlDoc.LoadHtml(editor.OldContent);
+			if (!string.IsNullOrEmpty(dto.Meta))
+			{
+				var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//head");
+				HtmlNode h2Node = HtmlNode.CreateNode(dto.Meta);
+				htmlBody.AppendChild(h2Node);
+			}
+			var htmlTitle = htmlDoc.DocumentNode.SelectSingleNode("//title");
+			htmlTitle.InnerHtml = editor.Name;
 			TextWriter tw = System.IO.File.CreateText(editor.Path);
 			htmlDoc.Save(tw);
 			return Result.ReSuccess();

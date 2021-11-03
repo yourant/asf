@@ -1092,6 +1092,11 @@
             轮播图
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Editor.AddEditorRequestDto.Meta">
+            <summary>
+            meta元数据
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.Editor.ConcatResponseDto">
             <summary>
             联系方式响应

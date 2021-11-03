@@ -22,6 +22,7 @@ namespace ASF.Application.DtoMapper
 			this.CreateMap<Editor, EditorTitleListResponseDto>();
 			//添加富文本
 			this.CreateMap<AddEditorRequestDto, Editor>()
+				.ForMember(f=>f.OldContent,s=>s.MapFrom(o=>o.OldContent.Replace($"<meta name=\"keywords\" content=\"\">", "").Replace($"<meta name=\"description\" content=\"\">", "")))
 				.ForMember(f=>f.Banner,s=>s.MapFrom(o=> o.Banner != null ? o.Banner.WriteFromObject<Banner>() : null));
 			// 富文本响应
 			this.CreateMap<Editor, EditorResponseDto>()

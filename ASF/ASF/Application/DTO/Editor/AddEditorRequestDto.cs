@@ -26,5 +26,9 @@ namespace ASF.Application.DTO.Editor
 		/// 轮播图
 		/// </summary>
 		public Banner Banner { get; set; }
+		/// <summary>
+		/// meta元数据
+		/// </summary>
+		public string Meta { get; set; }
 	}
 }
