@@ -1015,10 +1015,10 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
                       <div class="media-body">
                         <h3>强夯机是如何工作的</h3>
                         <div class="time">2021<span
-                            style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">/05/10</span>
+                            style="font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">/05/10</span>
                         </div>
                         <p class="desc"><span
-                            style="color: #454545; font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left; text-indent: 25px;">更换为饱和软粘土地基的固结强夯法。和强夯置换法的加固机理是不同的，它是一个高影响的锤高落差产生可以碎石，石材料，炉渣和其他性能强度到地面，形成聚集体墩逐个的基础上.......</span>
+                            style="color: #454545; font-family: "Microsoft Yahei"; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left; text-indent: 25px;">更换为饱和软粘土地基的固结强夯法。和强夯置换法的加固机理是不同的，它是一个高影响的锤高落差产生可以碎石，石材料，炉渣和其他性能强度到地面，形成聚集体墩逐个的基础上.......</span>
                         </p>
                         <p class="more">&nbsp;</p>
                       </div>
@@ -3165,7 +3165,7 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('公司新闻
                 <strong>点击:</strong></div>
               <div class="description">
                 <div><span
-                    style="color: #454545; font-family: ''Microsoft Yahei''; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-indent: 25px;">&nbsp;
+                    style="color: #454545; font-family: "Microsoft Yahei"; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-indent: 25px;">&nbsp;
                     &nbsp; &nbsp;
                     更换为饱和软粘土地基的固结强夯法。和强夯置换法的加固机理是不同的，它是一个高影响的锤高落差产生可以碎石，石材料，炉渣和其他性能强度到地面，形成聚集体墩逐个的基础上，对复合地基墩墩的形成，改善地基承载力，减少沉降。在强夯置换过程，土壤结构破坏，土体超孔隙水压力，但随着时间的增加，土壤结构的力量会恢复的。集料墩一般土壤透水性好，在过量的孔隙水压力的消散有利于产生的固体。</span>。
                 </div>
@@ -5526,7 +5526,7 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                       <h3><a title="汽车零部件知识的详细分析" href="33.html">盘点强夯机最全操作方法</a></h3>
                       <div class="time">时间:2018-01-31</div>
                       <p class="desc"><span
-                          style="color: #000000; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; font-size: 8pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">1.强夯法适用于碎石土、砂土、低饱和度粉土、粘性土、湿陷性黄土、高回填土、杂填土等地基加固工程；也可用于粉土及粉砂液化的地基加固工程...</span>
+                          style="color: #000000; font-family: "Microsoft Yahei", arial, tahoma, sans-serif; font-size: 8pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">1.强夯法适用于碎石土、砂土、低饱和度粉土、粘性土、湿陷性黄土、高回填土、杂填土等地基加固工程；也可用于粉土及粉砂液化的地基加固工程...</span>
                       </p>
                     </div>
                   </div>
@@ -5540,12 +5540,12 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                       <h3><a title="买几把洗水枪的小窍门" href="32.html">强夯及的工作原理及市场</a></h3>
                       <div class="time">时间:2018-01-25</div>
                       <div
-                        style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; color: #000000;">
+                        style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: "Microsoft Yahei", arial, tahoma, sans-serif; color: #000000;">
                         <div class="description"
-                          style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif;">
+                          style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: "Microsoft Yahei", arial, tahoma, sans-serif;">
                           1.动力密实</div>
                         <div class="description"
-                          style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif;">
+                          style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: "Microsoft Yahei", arial, tahoma, sans-serif;">
                           &nbsp; &nbsp; <span
                             style="font-size: 8pt;">使用强夯机加固多孔隙、粗颗粒、非饱和土是基于动力密实的机理，即用冲击型动力荷载使土中的孔隙体积减小，土体变得密实，从而提高地基土的强度，非饱和土的夯实过程，就是土中的气相被挤出的过程...</span>
                         </div>
@@ -5565,8 +5565,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                       <h3><a title="雨天镜看不到治疗方法" href="31.html">液压夯实机为什么又叫液压强夯及或轻型强夯机</a></h3>
                       <div class="time">时间:2018-01-25</div>
                       <p class="desc"><span
-                          style="color: #000000; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; font-size: 10.6667px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">这里所说的液压夯实机或轻型强夯机就是通常我们所说的液压夯实机的别名。许多常年做工程的朋友，一下子叫不出液压夯实机的学名，根据其工作原理，</span><span
-                          style="color: #000000; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; font-size: 10.6667px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">就称之为&ldquo;液压强夯机&rdquo;或&ldquo;轻型强夯机&rdquo;....</span>
+                          style="color: #000000; font-family: "Microsoft Yahei", arial, tahoma, sans-serif; font-size: 10.6667px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">这里所说的液压夯实机或轻型强夯机就是通常我们所说的液压夯实机的别名。许多常年做工程的朋友，一下子叫不出液压夯实机的学名，根据其工作原理，</span><span
+                          style="color: #000000; font-family: "Microsoft Yahei", arial, tahoma, sans-serif; font-size: 10.6667px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">就称之为&ldquo;液压强夯机&rdquo;或&ldquo;轻型强夯机&rdquo;....</span>
                       </p>
                     </div>
                   </div>
@@ -5580,7 +5580,7 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                       <h3><a title="你知道汽车备用轮胎最长的寿命吗？" href="30.html">强夯施工的优点是什么？正确的施工步骤有哪些？</a></h3>
                       <div class="time">时间:2018-01-25</div>
                       <p class="desc"><span
-                          style="color: #000000; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">现在的建筑工程的地基都需要对松土进行压实处理，也就都离不开打夯，小的建筑工程夯实地基用小的电动打夯机就能完成，较大的建筑工程通常对地基都有着硬性的指标...</span>
+                          style="color: #000000; font-family: "Microsoft Yahei", arial, tahoma, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">现在的建筑工程的地基都需要对松土进行压实处理，也就都离不开打夯，小的建筑工程夯实地基用小的电动打夯机就能完成，较大的建筑工程通常对地基都有着硬性的指标...</span>
                       </p>
                     </div>
                   </div>
@@ -5594,7 +5594,7 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                       <h3>履带式强夯机是怎么开展路基夯实的？</h3>
                       <div class="time">时间:2018-01-25</div>
                       <p class="desc"><span
-                          style="color: #333333; font-family: 'PingFang SC', 'Lantinghei SC', 'Microsoft YaHei', arial, 宋体, sans-serif, tahoma; font-size: 8pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">路基压实施工当前普遍采用了大吨位振动压路机甚至履带式强夯机，碾压效果有了明显的改善，对于提高路基土的压实度起了很好的作用。</span>
+                          style="color: #333333; font-family: "PingFang SC", "Lantinghei SC", "Microsoft YaHei", arial, 宋体, sans-serif, tahoma; font-size: 8pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">路基压实施工当前普遍采用了大吨位振动压路机甚至履带式强夯机，碾压效果有了明显的改善，对于提高路基土的压实度起了很好的作用。</span>
                       </p>
                     </div>
                   </div>
@@ -7407,14 +7407,14 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('联系我们
 		// 	},
 		// 	position: [113.0067555, 28.1187751]
 		// 	}).setMap(n)
-		map = new AMap.Map('content-map', {
+		map = new AMap.Map("content-map", {
 			resizeEnable: true,
 			rotateEnable: true,
 			pitchEnable: true,
 			zoom: 17,
 			pitch: 80,
 			rotation: -15,
-			viewMode: '3D',//开启3D视图,默认为关闭
+			viewMode: "3D",//开启3D视图,默认为关闭
 			buildingAnimation: true,//楼块出现是否带动画
 
 			expandZoomRange: true,
@@ -7426,8 +7426,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('联系我们
 			showZoomBar: false,
 			showControlButton: true,
 			position: {
-				right: '10px',
-				top: '10px'
+				right: "10px",
+				top: "10px"
 			}
 		}));
 		var a = new AMap.Marker({
