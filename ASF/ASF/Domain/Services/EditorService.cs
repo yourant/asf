@@ -9,7 +9,7 @@ using ASF.Internal.Security;
 using AutoMapper;
 using HtmlAgilityPack;
 using Microsoft.Extensions.Logging;
-
+using System;
 namespace ASF.Domain.Services
 {
   /// <summary>
@@ -97,8 +97,13 @@ namespace ASF.Domain.Services
       if (!string.IsNullOrEmpty(dto.Meta))
       {
         var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//head");
-        HtmlNode h2Node = HtmlNode.CreateNode(dto.Meta);
-        htmlBody.AppendChild(h2Node);
+        HtmlNodeCollection children = new HtmlNodeCollection(htmlBody);
+        foreach(var item in dto.Meta.Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries))
+        {
+          HtmlNode h2Node = HtmlNode.CreateNode(item);
+          children.Add(h2Node);
+        }
+        htmlBody.AppendChildren(children);
       }
       var htmlTitle = htmlDoc.DocumentNode.SelectSingleNode("//title");
       htmlTitle.InnerHtml = editor.Name;
@@ -128,8 +133,13 @@ namespace ASF.Domain.Services
       if (!string.IsNullOrEmpty(dto.Meta))
       {
         var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//head");
-        HtmlNode h2Node = HtmlNode.CreateNode(dto.Meta);
-        htmlBody.AppendChild(h2Node);
+        HtmlNodeCollection children = new HtmlNodeCollection(htmlBody);
+        foreach(var item in dto.Meta.Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries))
+        {
+          HtmlNode h2Node = HtmlNode.CreateNode(item);
+          children.Add(h2Node);
+        }
+        htmlBody.AppendChildren(children);
       }
       var htmlTitle = htmlDoc.DocumentNode.SelectSingleNode("//title");
       htmlTitle.InnerHtml = editor.Name;

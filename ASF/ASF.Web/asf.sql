@@ -277,8 +277,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('公司概况
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>关于我们 > 公司概况</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -457,9 +457,9 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('公司概念
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
-  <title>关于我们 > 公司概念</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  <title>【湖南荆首】荆首建设秉承坚持质量为先,打造放心工程,提供超预期的服务理念</title>
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -507,7 +507,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('公司概念
                     <li><a href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
                   </ul>
                 </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a></li>
+                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a>
+                </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
                   <ul class="drop-menu">
                     <li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
@@ -525,7 +526,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('公司概念
                   </ul>
                 </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a></li>
+                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a>
+                </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
               </ul>
             </div>
@@ -636,8 +638,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>湖南荆首建设工程有限公司</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <meta name="author" content="order by ">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/owl.carousel.css">
@@ -690,7 +692,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
                     <li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
                   </ul>
                 </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a></li>
+                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a>
+                </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
                   <ul class="drop-menu">
                     <li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
@@ -708,7 +711,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
                   </ul>
                 </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a></li>
+                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a>
+                </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
               </ul>
             </div>
@@ -717,7 +721,7 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
       </div>
     </div>
   </header><!-- header end-->
-  
+  <p>&nbsp;</p>
   <!-- picture begin-->
   <div id="fh5co-hero" class="layout">
     <div class="line">
@@ -782,7 +786,7 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
     </div>
   </div>
   <!--about end-->
-  
+  <p>&nbsp;</p>
   <!-- 我们的服务 -->
   <div class="layout footer-top" style="border-bottom: 1px solid #eee;">
     <div class="container">
@@ -971,8 +975,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
         </div>
         <form id="concat" class="form form-block" style="max-width: 500px; margin: 0px auto;">
           <div class="form-group">
-            <div class="field"><input id="name" class="input" name="name" size="50" type="text" placeholder="姓名"
-                data-validate="请输入您的姓名。"></div>
+            <div class="field"><input class="input" size="50" type="text" placeholder="姓名" data-validate="请输入您的姓名。">
+            </div>
           </div>
           <div class="form-group">
             <div class="field"><input id="tel" class="input" name="telPhone" size="50" type="text" placeholder="电话">
@@ -1011,10 +1015,10 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
                       <div class="media-body">
                         <h3>强夯机是如何工作的</h3>
                         <div class="time">2021<span
-                            style="font-family: -apple-system, BlinkMacSystemFont, ''Segoe UI'', Roboto, Oxygen, Ubuntu, Cantarell, ''Open Sans'', ''Helvetica Neue'', sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">/05/10</span>
+                            style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">/05/10</span>
                         </div>
                         <p class="desc"><span
-                            style="color: #454545; font-family: ''Microsoft Yahei''; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left; text-indent: 25px;">更换为饱和软粘土地基的固结强夯法。和强夯置换法的加固机理是不同的，它是一个高影响的锤高落差产生可以碎石，石材料，炉渣和其他性能强度到地面，形成聚集体墩逐个的基础上.......</span>
+                            style="color: #454545; font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left; text-indent: 25px;">更换为饱和软粘土地基的固结强夯法。和强夯置换法的加固机理是不同的，它是一个高影响的锤高落差产生可以碎石，石材料，炉渣和其他性能强度到地面，形成聚集体墩逐个的基础上.......</span>
                         </p>
                         <p class="more">&nbsp;</p>
                       </div>
@@ -1063,8 +1067,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
                             </div>
                           </div>
                           <div class="media-body">
-                            <h4><a title="地基强夯施工要点" href="https://www.hnjingshou.com/a/gongsixinwen/15.html">地基强夯施工要点</a>
-                            </h4>
+                            <h4><a title="地基强夯施工要点"
+                                href="https://www.hnjingshou.com/a/gongsixinwen/15.html">地基强夯施工要点</a></h4>
                             <p class="desc"><span
                                 style="color: #454545; font-family: 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">强夯地基是用起重机械（起重机或起重机配三脚架、龙门架）将大吨位（一般8-30t）夯锤起吊到6-30m高度后，自由落下，给地基土以强大的冲击能量的夯击，使土中出.....</span>
                             </p>
@@ -1099,8 +1103,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
                             </div>
                           </div>
                           <div class="media-body">
-                            <h4><a title="浅谈强夯试夯施工" href="https://www.hnjingshou.com/a/gongsixinwen/13.html">浅谈强夯试夯施工</a>
-                            </h4>
+                            <h4><a title="浅谈强夯试夯施工"
+                                href="https://www.hnjingshou.com/a/gongsixinwen/13.html">浅谈强夯试夯施工</a></h4>
                             <p class="desc"><span
                                 style="color: #454545; font-family: 微软雅黑; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">目前，应用强夯法处理地基的工程范围越来越广，实用性和加固方法具有广泛性和有效性，结合山平高速公路工程中的软土地基强夯处理，简要的分析了强夯试夯施工参数的选取、修正设计及试夯施工对正式施工的指导作用</span>...
                             </p>
@@ -1119,9 +1123,9 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
     </div>
   </div>
   <!--News end-->
-  
+  <p>&nbsp;</p>
   <!--Partner begin-->
-  
+  <p>&nbsp;</p>
   <!-- <div id="fh5co-partner-list" class="layout">
     <div class="bg-partner">
       <div class="container">
@@ -1145,9 +1149,9 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
       </div>
     </div>
   </div> -->
-  
+  <p>&nbsp;</p>
   <!--Partner end-->
-  
+  <p>&nbsp;</p>
   <!--footer-->
   <footer>
     <div class="layout footer-top hidden-l">
@@ -1220,8 +1224,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('公司网络
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>关于我们 > 公司概况</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -1393,8 +1397,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('设备展示
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>设备展示</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -1614,8 +1618,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('工程案例
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>工程案例</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -1850,8 +1854,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('工程案例
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>工程案例</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -2088,8 +2092,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('工程案例
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>工程案例</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -2328,8 +2332,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('工程案例
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>工程案例</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -2569,8 +2573,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('新闻中心
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>新闻中心</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -4128,8 +4132,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('行业新闻
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>新闻中心 / 行业新闻</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -5411,8 +5415,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>新闻中心 / 技术展示</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -5461,7 +5465,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                     <li><a href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
                   </ul>
                 </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a></li>
+                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a>
+                </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
                   <ul class="drop-menu">
                     <li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
@@ -5479,7 +5484,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                   </ul>
                 </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a></li>
+                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a>
+                </li>
                 <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
               </ul>
             </div>
@@ -5517,9 +5523,11 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                           src="https://s1.imagehub.cc/images/2021/05/09/u38995889473729438566fm199app68fJPEGw750h750s3A2AD604CFEFCF4D560B04C90300E0BA.jpg"
                           alt="汽车零部件知识的详细分析" width="188" height="141"></a></div>
                     <div class="media-body">
-                      <h3><a title="汽车零部件知识的详细分析" href="33.html">汽车零部件知识的详细分析</a></h3>
+                      <h3><a title="汽车零部件知识的详细分析" href="33.html">盘点强夯机最全操作方法</a></h3>
                       <div class="time">时间:2018-01-31</div>
-                      <p class="desc">我们不需要准确地理解汽车的所有部分，但我们需要知道汽车的四个主要部分， 即：汽车发动机。 ；②汽车底盘；③车身；④汽车电器与电子设备。 1，发...</p>
+                      <p class="desc"><span
+                          style="color: #000000; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; font-size: 8pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">1.强夯法适用于碎石土、砂土、低饱和度粉土、粘性土、湿陷性黄土、高回填土、杂填土等地基加固工程；也可用于粉土及粉砂液化的地基加固工程...</span>
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -5529,11 +5537,24 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                           src="https://s1.imagehub.cc/images/2021/05/09/3ec0d920721cbe7cc766a27d8457a60.jpg"
                           alt="买几把洗水枪的小窍门" width="188" height="141"></a></div>
                     <div class="media-body">
-                      <h3><a title="买几把洗水枪的小窍门" href="32.html">买几把洗水枪的小窍门</a></h3>
+                      <h3><a title="买几把洗水枪的小窍门" href="32.html">强夯及的工作原理及市场</a></h3>
                       <div class="time">时间:2018-01-25</div>
-                      <p class="desc">有些车主选择自己动手洗车在家，因为它既经济又方便，有些洗车工具自然受到市民追捧，但购买水洗水枪除了看到水的状况外，还得考虑水枪的压力。只...</p>
+                      <div
+                        style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; color: #000000;">
+                        <div class="description"
+                          style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif;">
+                          1.动力密实</div>
+                        <div class="description"
+                          style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; font-size: 14px; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif;">
+                          &nbsp; &nbsp; <span
+                            style="font-size: 8pt;">使用强夯机加固多孔隙、粗颗粒、非饱和土是基于动力密实的机理，即用冲击型动力荷载使土中的孔隙体积减小，土体变得密实，从而提高地基土的强度，非饱和土的夯实过程，就是土中的气相被挤出的过程...</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </li>
+                <li>
+                  <h3>&nbsp;</h3>
                 </li>
                 <li>
                   <div class="media media-x">
@@ -5541,9 +5562,12 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                           src="https://s1.imagehub.cc/images/2021/05/09/1905131113444296003000696308.jpg"
                           alt="雨天镜看不到治疗方法" width="188" height="141"></a></div>
                     <div class="media-body">
-                      <h3><a title="雨天镜看不到治疗方法" href="31.html">雨天镜看不到治疗方法</a></h3>
+                      <h3><a title="雨天镜看不到治疗方法" href="31.html">液压夯实机为什么又叫液压强夯及或轻型强夯机</a></h3>
                       <div class="time">时间:2018-01-25</div>
-                      <p class="desc">下雨天不仅给我们的日常生活带来了许多不便，也给我们开车带来了许多不便。下雨天，我们经常发现左右两侧的后视镜覆盖水，无法清晰地看到汽车的左...</p>
+                      <p class="desc"><span
+                          style="color: #000000; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; font-size: 10.6667px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">这里所说的液压夯实机或轻型强夯机就是通常我们所说的液压夯实机的别名。许多常年做工程的朋友，一下子叫不出液压夯实机的学名，根据其工作原理，</span><span
+                          style="color: #000000; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; font-size: 10.6667px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">就称之为&ldquo;液压强夯机&rdquo;或&ldquo;轻型强夯机&rdquo;....</span>
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -5553,9 +5577,11 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                           src="https://s1.imagehub.cc/images/2021/05/07/_20210507221957.jpg" alt="你知道汽车备用轮胎最长的寿命吗？"
                           width="188" height="141"></a></div>
                     <div class="media-body">
-                      <h3><a title="你知道汽车备用轮胎最长的寿命吗？" href="30.html">你知道汽车备用轮胎最长的寿命吗？</a></h3>
+                      <h3><a title="你知道汽车备用轮胎最长的寿命吗？" href="30.html">强夯施工的优点是什么？正确的施工步骤有哪些？</a></h3>
                       <div class="time">时间:2018-01-25</div>
-                      <p class="desc">爆胎的车主会发现一个现象：汽车备胎比普通轮胎小，而且大部分颜色鲜艳，为什么这样做？人胎胎也是，主要目的是提醒车主及时更换备胎。有人说，轮...</p>
+                      <p class="desc"><span
+                          style="color: #000000; font-family: 'Microsoft Yahei', arial, tahoma, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">现在的建筑工程的地基都需要对松土进行压实处理，也就都离不开打夯，小的建筑工程夯实地基用小的电动打夯机就能完成，较大的建筑工程通常对地基都有着硬性的指标...</span>
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -5565,9 +5591,11 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('技术展示
                           src="https://s1.imagehub.cc/images/2021/05/09/b151f8198618367a89204b466e4af2d1b21ce5ba.jpg"
                           alt="简单实用的维修技术" width="188" height="141"></a></div>
                     <div class="media-body">
-                      <h3><a title="简单实用的维修技术" href="29.html">简单实用的维修技术</a></h3>
+                      <h3>履带式强夯机是怎么开展路基夯实的？</h3>
                       <div class="time">时间:2018-01-25</div>
-                      <p class="desc">汽车每天在不同的道路上行驶，难免会受到损坏。但有时车辆在行驶，村前不能开店怎么办，所以车主每天需要学习简单的维修技术，在紧急情况下使用。...</p>
+                      <p class="desc"><span
+                          style="color: #333333; font-family: 'PingFang SC', 'Lantinghei SC', 'Microsoft YaHei', arial, 宋体, sans-serif, tahoma; font-size: 8pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: start;">路基压实施工当前普遍采用了大吨位振动压路机甚至履带式强夯机，碾压效果有了明显的改善，对于提高路基土的压实度起了很好的作用。</span>
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -6763,8 +6791,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('资质证书
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>资质证书</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -7009,8 +7037,8 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('在线留言
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
   <title>在线留言</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  
+  
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
   <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
   <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
@@ -7181,178 +7209,181 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('联系我们
 <html lang="zh-cn">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="renderer" content="webkit">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
-  <title>联系我们</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
-  <link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
-  <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
-  <script type="text/javascript" src="https://www.hnjingshou.com/skin/js/pintuer.js"></script>
-  <script src="https://www.hnjingshou.com/skin/js/main.js"></script>
-  <script
-    src="https://webapi.amap.com/maps?v=1.4.15&amp;key=c93e1e293e5b1c3dc581f3ff633144d3&amp;plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Walking,AMap.Riding"></script>
-    <script language="javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c93e1e293e5b1c3dc581f3ff633144d3值&plugin=AMap.ControlBar"></script>
-    <!-- FOR IE9 below -->
-  <!--[if lt IE 9]>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)">
+	<title>联系我们</title>
+	
+	
+	<link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/pintuer.css">
+	<link rel="stylesheet" type="text/css" href="https://www.hnjingshou.com/skin/css/style.css">
+	<script type="text/javascript" src="https://www.hnjingshou.com/skin/js/jquery.min.js"></script>
+	<script type="text/javascript" src="https://www.hnjingshou.com/skin/js/pintuer.js"></script>
+	<script src="https://www.hnjingshou.com/skin/js/main.js"></script>
+	<script
+		src="https://webapi.amap.com/maps?v=1.4.15&amp;key=c93e1e293e5b1c3dc581f3ff633144d3&amp;plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Walking,AMap.Riding"></script>
+	<script language="javascript"
+		src="https://webapi.amap.com/maps?v=1.4.15&key=c93e1e293e5b1c3dc581f3ff633144d3值&plugin=AMap.ControlBar"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
 	<script src="/441/skin/js/respond.js"></script>
 <![endif]-->
 </head>
 
 <body class="inner-box-body">
-  <!-- header begin-->
-  <header id="fh5co-header">
-    <div class="layout head-middle  hidden-l">
-      <div class="container">
-        <div class="line">
-          <div class="xl12 xs6 xm5">&nbsp;</div>
-          <div class="xl12 xs6 xm7 head-info text-right">
-            <div class="hot-tel"><img style="vertical-align: middle;"
-                src="https://www.hnjingshou.com/skin/images/top_tel.jpg">电话:137-0749-9996</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="layout fixed header-box">
-      <div class="container">
-        <div class="line">
-          <div class="xl12 xs4 xm4 xb4">
-            <div class="logo">
-              <h1><a title="湖南荆首建设工程有限公司" href="https://www.hnjingshou.com/index.html"><img style="width: 80px;"
-                    src="https://www.hnjingshou.com/skin/images/logo.jpeg"><span
-                    class="logo-title">湖南荆首建设工程有限公司</span></a></h1>
-            </div>
-          </div>
-          <div class="xl12 xs8 xm8 xb8">
-            <div id="nav-main1" class="nav-navicon">
-              <ul class="nav  nav-inline  nav-menu nav-right">
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/index.html">首页</a></li>
-                <li class=""><a class="first-level"
-                    href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">关于我们</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index1.html">道路强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index2.html">机场码头强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index3.html">住宅强夯</a></li>
-                    <li><a>其他</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/news/index.html">新闻中心</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/gongsixinwen/index.html">公司新闻</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/xingyexinwen/index.html">行业新闻</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jishuzhanshi/index.html">技术展示</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a></li>
-                <li class="current"><a class="first-level"
-                    href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header><!-- header end-->
-  <div class="layout">
-    <div class="slideshow"><img style="height: 100%;"
-        src="https://s1.imagehub.cc/images/2021/07/10/_20210710094457c63e64d6d68cd269.jpg" width="1920"></div>
-  </div>
-  <!-- content begin-->
-  <div id="fh5co-content_show" class="layout">
-    <div class="container">
-      <div class="line-big" style="padding-bottom: 20px;">
-        <div class="hidden-l xs4 xm3 xb3">
-          <div class="leftbar" style="min-height: auto;">
-            <h3>联系我们</h3>
-            <ul id="subnav" class="nav submenu nav-navicon"></ul>
-          </div>
-        </div>
-        <div class="xl12 xs8 xm9">
-          <div class="content-boxs">
-            <div class="detail">
-              <p style="font-weight: bold; font-size: 14px; font-family: 微软雅黑;">地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期15栋1305号
-              </p>
-              <p style="font-weight: bold; font-size: 14px; font-family: 微软雅黑;">路线：地铁3号线星沙文体站3号出口100米</p>
-              <p>电话: 13707499996<br>电子信箱: 767970239@qq.com</p>
-            </div>
-          </div>
-        </div>
-        <div id="content-map" style="width: 100%; height: 400px; top: 40px;"></div>
-      </div>
-    </div>
-  </div>
-  <!-- content end-->
-  <footer>
-    <div class="layout footer-top hidden-l">
-      <div class="container">
-        <div class="line-big">
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>联系我们</h2>
-              <div class="contact-foot">
-                <p>地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号房</p>
-                <p>电话: 137-0749-9996</p>
-                <p>邮箱：767970239@qq.com</p>
-              </div>
-            </div>
-          </div>
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>关于我们</h2>
-              <ul>
-                <li><a title="公司概况" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-                <li><a title="公司概念" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-                <li><a title="公司网络" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>新闻中心</h2>
-              <ul>
-                <li><a title="公司新闻" href="https://www.hnjingshou.com/a/news/index.html">公司新闻</a></li>
-                <li><a title="行业新闻" href="https://www.hnjingshou.com/a/news/index.html">行业新闻</a></li>
-                <li><a title="技术展示" href="https://www.hnjingshou.com/a/news/index.html">技术展示</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="layout  footer-bot about">
-      <div class="container">
-        <div class="line-big">
-          <div class="xl12 xs12 xm4">
-            <div class="foot-flink">友情链接: <a target="_blank">湖南荆首建设工程有限公司</a></div>
-          </div>
-          <div class="xl12 xs12 xm8">
-            <div class="Copyright"><a href="https://beian.miit.gov.cn">Copyright @ 2021-2022 湖南荆首建设工程有限公司 版权所有</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <div id="toolbar" class="layout text-center">
+	<!-- header begin-->
+	<header id="fh5co-header">
+		<div class="layout head-middle  hidden-l">
+			<div class="container">
+				<div class="line">
+					<div class="xl12 xs6 xm5">&nbsp;</div>
+					<div class="xl12 xs6 xm7 head-info text-right">
+						<div class="hot-tel"><img style="vertical-align: middle;"
+								src="https://www.hnjingshou.com/skin/images/top_tel.jpg">电话:137-0749-9996</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layout fixed header-box">
+			<div class="container">
+				<div class="line">
+					<div class="xl12 xs4 xm4 xb4">
+						<div class="logo">
+							<h1><a title="湖南荆首建设工程有限公司" href="https://www.hnjingshou.com/index.html"><img style="width: 80px;"
+										src="https://www.hnjingshou.com/skin/images/logo.jpeg"><span
+										class="logo-title">湖南荆首建设工程有限公司</span></a></h1>
+						</div>
+					</div>
+					<div class="xl12 xs8 xm8 xb8">
+						<div id="nav-main1" class="nav-navicon">
+							<ul class="nav  nav-inline  nav-menu nav-right">
+								<li class=""><a class="first-level" href="https://www.hnjingshou.com/index.html">首页</a></li>
+								<li class=""><a class="first-level"
+										href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">关于我们</a>
+									<ul class="drop-menu">
+										<li><a href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+										<li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+									</ul>
+								</li>
+								<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a>
+								</li>
+								<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
+									<ul class="drop-menu">
+										<li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
+										<li><a href="https://www.hnjingshou.com/a/jingmi/index1.html">道路强夯</a></li>
+										<li><a href="https://www.hnjingshou.com/a/jingmi/index2.html">机场码头强夯</a></li>
+										<li><a href="https://www.hnjingshou.com/a/jingmi/index3.html">住宅强夯</a></li>
+										<li><a>其他</a></li>
+									</ul>
+								</li>
+								<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/news/index.html">新闻中心</a>
+									<ul class="drop-menu">
+										<li><a href="https://www.hnjingshou.com/a/gongsixinwen/index.html">公司新闻</a></li>
+										<li><a href="https://www.hnjingshou.com/a/xingyexinwen/index.html">行业新闻</a></li>
+										<li><a href="https://www.hnjingshou.com/a/jishuzhanshi/index.html">技术展示</a></li>
+									</ul>
+								</li>
+								<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
+								<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a>
+								</li>
+								<li class="current"><a class="first-level"
+										href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header><!-- header end-->
+	<div class="layout">
+		<div class="slideshow"><img style="height: 100%;"
+				src="https://s1.imagehub.cc/images/2021/07/10/_20210710094457c63e64d6d68cd269.jpg" width="1920"></div>
+	</div>
+	<!-- content begin-->
+	<div id="fh5co-content_show" class="layout">
+		<div class="container">
+			<div class="line-big" style="padding-bottom: 20px;">
+				<div class="hidden-l xs4 xm3 xb3">
+					<div class="leftbar" style="min-height: auto;">
+						<h3>联系我们</h3>
+						<ul id="subnav" class="nav submenu nav-navicon"></ul>
+					</div>
+				</div>
+				<div class="xl12 xs8 xm9">
+					<div class="content-boxs">
+						<div class="detail">
+							<p style="font-weight: bold; font-size: 14px; font-family: 微软雅黑;">地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期15栋1305号
+							</p>
+							<p style="font-weight: bold; font-size: 14px; font-family: 微软雅黑;">路线：地铁3号线星沙文体站4号出口100米</p>
+							<p>电话: 13707499996<br>电子信箱: 767970239@qq.com</p>
+						</div>
+					</div>
+				</div>
+				<div id="content-map" style="width: 100%; height: 400px; top: 40px;"></div>
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+	<footer>
+		<div class="layout footer-top hidden-l">
+			<div class="container">
+				<div class="line-big">
+					<div class="xl12 xs4 xm4 margin-large-bottom">
+						<div class="plist">
+							<h2>联系我们</h2>
+							<div class="contact-foot">
+								<p>地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号房</p>
+								<p>电话: 137-0749-9996</p>
+								<p>邮箱：767970239@qq.com</p>
+							</div>
+						</div>
+					</div>
+					<div class="xl12 xs4 xm4 margin-large-bottom">
+						<div class="plist">
+							<h2>关于我们</h2>
+							<ul>
+								<li><a title="公司概况" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+								<li><a title="公司概念" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+								<li><a title="公司网络" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="xl12 xs4 xm4 margin-large-bottom">
+						<div class="plist">
+							<h2>新闻中心</h2>
+							<ul>
+								<li><a title="公司新闻" href="https://www.hnjingshou.com/a/news/index.html">公司新闻</a></li>
+								<li><a title="行业新闻" href="https://www.hnjingshou.com/a/news/index.html">行业新闻</a></li>
+								<li><a title="技术展示" href="https://www.hnjingshou.com/a/news/index.html">技术展示</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layout  footer-bot about">
+			<div class="container">
+				<div class="line-big">
+					<div class="xl12 xs12 xm4">
+						<div class="foot-flink">友情链接: <a target="_blank">湖南荆首建设工程有限公司</a></div>
+					</div>
+					<div class="xl12 xs12 xm8">
+						<div class="Copyright"><a href="https://beian.miit.gov.cn">Copyright @ 2021-2022 湖南荆首建设工程有限公司 版权所有</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div id="toolbar" class="layout text-center">
     <div class="x4"><a href="https://www.hnjingshou.com/index.html"><span class="icon-home"></span>首页</a></div>
     <div class="x4"><a href="tel:13707499996"><span class="icon-phone"></span>电话</a></div>
     <div class="x4"><a href="https://www.hnjingshou.com/a/contact/index.html"><span class="icon-user"></span>联系我们</a></div>
   </div>
 </body>
 <script>
-  function initMap (){
+	function initMap() {
 		// new AMap.Map("map-content",{
 		// 	resizeEnable: true,
 		// 	center: [113.0067555, 28.1187751],
@@ -7376,49 +7407,50 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('联系我们
 		// 	},
 		// 	position: [113.0067555, 28.1187751]
 		// 	}).setMap(n)
-		map = new AMap.Map(''content-map'', {
+		map = new AMap.Map('content-map', {
 			resizeEnable: true,
-			rotateEnable:true,
-			pitchEnable:true,
+			rotateEnable: true,
+			pitchEnable: true,
 			zoom: 17,
-			pitch:80,
-			rotation:-15,
-			viewMode:''3D'',//开启3D视图,默认为关闭
-			buildingAnimation:true,//楼块出现是否带动画
-			
-			expandZoomRange:true,
-			zooms:[3,20],
-			center:[113.110011,28.246755]
+			pitch: 80,
+			rotation: -15,
+			viewMode: '3D',//开启3D视图,默认为关闭
+			buildingAnimation: true,//楼块出现是否带动画
+
+			expandZoomRange: true,
+			zooms: [3, 20],
+			center: [113.110011, 28.246755]
 		});
-		
+
 		map.addControl(new AMap.ControlBar({
-			showZoomBar:false,
-			showControlButton:true,
-			position:{
-				right:''10px'',
-				top:''10px''
+			showZoomBar: false,
+			showControlButton: true,
+			position: {
+				right: '10px',
+				top: '10px'
 			}
 		}));
-	var a = 	new AMap.Marker({
-				position: [113.110011,28.246755]
+		var a = new AMap.Marker({
+			position: [113.110011, 28.246755]
 		});
-	var b = new AMap.Text({
-				text: "湖南省长沙县星沙街道开元东路95号华润置地广场二期15栋1305号",
-				textAlign: "center",
-				verticalAlign: "top",
-				draggable: !0,
-				cursor: "pointer",
-				angle: 0,
-				style: {
-						"background-color": "#fff",
-						border: "solid 1px #eee",
-						padding: "10px 20px"
-				},
-				position: [113.110011,28.246755]
+		var b = new AMap.Text({
+			text: "湖南省长沙县星沙街道开元东路95号华润置地广场二期15栋1305号",
+			textAlign: "center",
+			verticalAlign: "top",
+			draggable: !0,
+			cursor: "pointer",
+			angle: 0,
+			style: {
+				"background-color": "#fff",
+				border: "solid 1px #eee",
+				padding: "10px 20px"
+			},
+			position: [113.110011, 28.246755]
 		});
 		map.add(a);
 		map.add(b);
 	}
 	initMap();
 </script>
+
 </html>');
