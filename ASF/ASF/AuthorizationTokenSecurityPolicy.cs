@@ -17,7 +17,7 @@ namespace ASF
   {
     private readonly RequestDelegate _next;
     private readonly IMemoryCache _cache;
-    private DateTime _refreshTime = DateTime.Now.AddYears(-5);
+    private DateTime _refreshTime = DateTime.UtcNow.AddYears(-5);
     // private int _isProcessing = 0;
     // private int tokenRefreshInterval = 1000;
     /// <summary>

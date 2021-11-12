@@ -29,7 +29,7 @@ namespace ASF.Domain.Values
         /// <summary>
         /// 最后一次登录时间
         /// </summary>
-        public DateTime LastLoginTime { get; private set; } = DateTime.Now;
+        public DateTime LastLoginTime { get; private set; } = DateTime.UtcNow;
 
         /// <summary>
         /// 累计失败次数

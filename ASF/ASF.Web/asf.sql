@@ -291,160 +291,148 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('公司概况
 </head>
 
 <body class="inner-box-body">
-  <!-- header begin-->
-  <header id="fh5co-header">
-    <div class="layout head-middle  hidden-l">
-      <div class="container">
-        <div class="line">
-          <div class="xl12 xs6 xm5">&nbsp;</div>
-          <div class="xl12 xs6 xm7 head-info text-right">
-            <div class="hot-tel"><img style="vertical-align: middle;"
-                src="https://www.hnjingshou.com/skin/images/top_tel.jpg">电话:137-0749-9996</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="layout fixed header-box">
-      <div class="container">
-        <div class="line">
-          <div class="xl12 xs4 xm4 xb4">
-            <div class="logo">
-              <h1><a title="湖南荆首建设工程有限公司" href="https://www.hnjingshou.com/index.html"><img style="width: 80px;"
-                    src="https://www.hnjingshou.com/skin/images/logo.jpeg"><span
-                    class="logo-title">湖南荆首建设工程有限公司</span></a></h1>
-            </div>
-          </div>
-          <div class="xl12 xs8 xm8 xb8">
-            <div id="nav-main1" class="nav-navicon">
-              <ul class="nav  nav-inline  nav-menu nav-right">
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/index.html">首页</a></li>
-                <li class="current"><a class="first-level"
-                    href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">关于我们</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index1.html">道路强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index2.html">机场码头强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index3.html">住宅强夯</a></li>
-                    <li><a>其他</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/news/index.html">新闻中心</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/gongsixinwen/index.html">公司新闻</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/xingyexinwen/index.html">行业新闻</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jishuzhanshi/index.html">技术展示</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header><!-- header end-->
-  <div class="layout">
-    <div class="slideshow"><img style="height: 100%;"
-        src="https://s1.imagehub.cc/images/2021/07/10/_2021071009450725cfea5884aa8efa.jpg" width="1920"></div>
-  </div>
-  <!-- content begin-->
-  <div id="fh5co-content_show" class="layout">
-    <div class="container">
-      <div class="line-big">
-        <div class="hidden-l xs4 xm3 xb3">
-          <div class="leftbar">
-            <h3>关于我们</h3>
-            <ul id="subnav" class="nav submenu nav-navicon">
-              <li class="active"><a class="thisclass"
-                  href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-              <li><a title="Technical" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-              <li><a title="Technical" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="xl12 xs8 xm9">
-          <div class="content-boxs">
-            <div class="detail">
-              <h2>湖南荆首建设工程有限公司</h2>
-              <div class="intro">
-                湖南荆首建设工程有限公司是湖北荆首全资子公司，公司从1996年开始从事强夯工程服务，主要承接全国范围内专业高速公路路基强夯、厂房及物流园等强夯、高层楼房地基强夯、机场地基强夯、港口及人工湖强夯等大型土地强夯工程及咨询服务。
-              </div>
-              <div class="intro">
-                湖南荆首坐落于美丽星城湖南省长沙市，公司位于湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号，公司拥有50多台设备、湖南荆首注册资金8000万元，拥有80余技术人员，中级职称占比50%。荆首自从业以来一直以服务客户为宗旨，专业团队、专业技术、精益求精的精神是我们荆首人一直的信念。
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- content end-->
-  <footer>
-    <div class="layout footer-top hidden-l">
-      <div class="container">
-        <div class="line-big">
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>联系我们</h2>
-              <div class="contact-foot">
-                <p>地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号房</p>
-                <p>电话: 137-0749-9996</p>
-                <p>分队：767970239@qq.com</p>
-              </div>
-            </div>
-          </div>
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>关于我们</h2>
-              <ul>
-                <li><a title="公司概况" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-                <li><a title="公司概念" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-                <li><a title="公司网络" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>新闻中心</h2>
-              <ul>
-                <li><a title="公司新闻" href="https://www.hnjingshou.com/a/news/index.html">公司新闻</a></li>
-                <li><a title="行业新闻" href="https://www.hnjingshou.com/a/news/index.html">行业新闻</a></li>
-                <li><a title="技术展示" href="https://www.hnjingshou.com/a/news/index.html">技术展示</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="layout  footer-bot">
-      <div class="container">
-        <div class="line-big">
-          <div class="xl12 xs12 xm4">
-            <div class="foot-flink">友情链接: <a target="_blank">湖南荆首建设工程有限公司</a></div>
-          </div>
-          <div class="xl12 xs12 xm8">
-            <div class="Copyright"><a href="https://beian.miit.gov.cn">Copyright @ 2021-2022 湖南荆首建设工程有限公司 版权所有</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <div class="blank55">&nbsp;</div>
-  <div id="toolbar" class="layout text-center">
-    <div class="x4"><a href="https://www.hnjingshou.com/index.html"><span class="icon-home"></span>首页</a></div>
-    <div class="x4"><a href="tel:13707499996"><span class="icon-phone"></span>电话</a></div>
-    <div class="x4"><a href="https://www.hnjingshou.com/a/contact/index.html"><span class="icon-user"></span>联系我们</a></div>
-  </div>
+<!-- header begin--><header id="fh5co-header">
+<div class="layout head-middle  hidden-l">
+<div class="container">
+<div class="line">
+<div class="xl12 xs6 xm5">&nbsp;</div>
+<div class="xl12 xs6 xm7 head-info text-right">
+<div class="hot-tel"><img style="vertical-align: middle;" src="https://www.hnjingshou.com/skin/images/top_tel.jpg" />电话:137-0749-9996</div>
+</div>
+</div>
+</div>
+</div>
+<div class="layout fixed header-box">
+<div class="container">
+<div class="line">
+<div class="xl12 xs4 xm4 xb4">
+<div class="logo">
+<h1><a title="湖南荆首建设工程有限公司" href="https://www.hnjingshou.com/index.html"><img style="width: 80px;" src="https://www.hnjingshou.com/skin/images/logo.jpeg" /><span class="logo-title">湖南荆首建设工程有限公司</span></a></h1>
+</div>
+</div>
+<div class="xl12 xs8 xm8 xb8">
+<div id="nav-main1" class="nav-navicon">
+<ul class="nav  nav-inline  nav-menu nav-right">
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/index.html">首页</a></li>
+<li class="current"><a class="first-level" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">关于我们</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+<li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+<li><a href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index1.html">道路强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index2.html">机场码头强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index3.html">住宅强夯</a></li>
+<li><a>其他</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/news/index.html">新闻中心</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/gongsixinwen/index.html">公司新闻</a></li>
+<li><a href="https://www.hnjingshou.com/a/xingyexinwen/index.html">行业新闻</a></li>
+<li><a href="https://www.hnjingshou.com/a/jishuzhanshi/index.html">技术展示</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header><!-- header end-->
+<div class="layout">
+<div class="slideshow"><img style="height: 100%;" src="https://s1.imagehub.cc/images/2021/07/10/_2021071009450725cfea5884aa8efa.jpg" width="1920" /></div>
+</div>
+<!-- content begin-->
+<div id="fh5co-content_show" class="layout">
+<div class="container">
+<div class="line-big">
+<div class="hidden-l xs4 xm3 xb3">
+<div class="leftbar">
+<h3>关于我们</h3>
+<ul id="subnav" class="nav submenu nav-navicon">
+<li class="active"><a class="thisclass" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+<li><a title="Technical" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+<li><a title="Technical" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
+</ul>
+</div>
+</div>
+<div class="xl12 xs8 xm9">
+<div class="content-boxs">
+<div class="detail">
+<h2>湖南荆首建设工程有限公司</h2>
+<div class="intro">湖南荆首建设工程有限公司是湖北荆首全资子公司，公司从1996年开始从事强夯工程服务，主要承接全国范围内专业高速公路路基强夯、厂房及物流园等强夯、高层楼房地基强夯、机场地基强夯、港口及人工湖强夯等大型土地强夯工程及咨询服务。</div>
+<div class="intro">湖南荆首坐落于美丽星城湖南省长沙市，公司位于湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号，公司拥有50多台设备、湖南荆首注册资金8000万元，拥有80余技术人员，中级职称占比50%。荆首自从业以来一直以服务客户为宗旨，专业团队、专业技术、精益求精的精神是我们荆首人一直的信念。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- content end--><footer>
+<div class="layout footer-top hidden-l">
+<div class="container">
+<div class="line-big">
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>联系我们</h2>
+<div class="contact-foot">
+<p>地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号房</p>
+<p>电话: 137-0749-9996</p>
+<p>分队：767970239@qq.com</p>
+</div>
+</div>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>关于我们</h2>
+<ul>
+<li><a title="公司概况" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+<li><a title="公司概念" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+<li><a title="公司网络" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
+</ul>
+</div>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>新闻中心</h2>
+<ul>
+<li><a title="公司新闻" href="https://www.hnjingshou.com/a/news/index.html">公司新闻</a></li>
+<li><a title="行业新闻" href="https://www.hnjingshou.com/a/news/index.html">行业新闻</a></li>
+<li><a title="技术展示" href="https://www.hnjingshou.com/a/news/index.html">技术展示</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="layout  footer-bot">
+<div class="container">
+<div class="line-big">
+<div class="xl12 xs12 xm4">
+<div class="foot-flink">友情链接: <a target="_blank">湖南荆首建设工程有限公司</a></div>
+</div>
+<div class="xl12 xs12 xm8">
+<div class="Copyright"><a href="https://beian.miit.gov.cn">Copyright @ 2021-2022 湖南荆首建设工程有限公司 版权所有</a></div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<div class="blank55">&nbsp;</div>
+<div id="toolbar" class="layout text-center">
+<div class="x4"><a href="https://www.hnjingshou.com/index.html">首页</a></div>
+<div class="x4"><a href="tel:13707499996">电话</a></div>
+<div class="x4"><a href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></div>
+</div>
 </body>
 
 </html>');
@@ -472,159 +460,146 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('公司概念
 </head>
 
 <body class="inner-box-body">
-  <!-- header begin-->
-  <header id="fh5co-header">
-    <div class="layout head-middle  hidden-l">
-      <div class="container">
-        <div class="line">
-          <div class="xl12 xs6 xm5">&nbsp;</div>
-          <div class="xl12 xs6 xm7 head-info text-right">
-            <div class="hot-tel"><img style="vertical-align: middle;"
-                src="https://www.hnjingshou.com/skin/images/top_tel.jpg">电话:137-0749-9996</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="layout fixed header-box">
-      <div class="container">
-        <div class="line">
-          <div class="xl12 xs4 xm4 xb4">
-            <div class="logo">
-              <h1><a title="湖南荆首建设工程有限公司" href="https://www.hnjingshou.com/index.html"><img style="width: 80px;"
-                    src="https://www.hnjingshou.com/skin/images/logo.jpeg"><span
-                    class="logo-title">湖南荆首建设工程有限公司</span></a></h1>
-            </div>
-          </div>
-          <div class="xl12 xs8 xm8 xb8">
-            <div id="nav-main1" class="nav-navicon">
-              <ul class="nav  nav-inline  nav-menu nav-right">
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/index.html">首页</a></li>
-                <li class="current"><a class="first-level"
-                    href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">关于我们</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index1.html">道路强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index2.html">机场码头强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index3.html">住宅强夯</a></li>
-                    <li><a>其他</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/news/index.html">新闻中心</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/gongsixinwen/index.html">公司新闻</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/xingyexinwen/index.html">行业新闻</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jishuzhanshi/index.html">技术展示</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header><!-- header end-->
-  <div class="layout">
-    <div class="slideshow"><img style="height: 100%;"
-        src="https://s1.imagehub.cc/images/2021/07/10/_2021071009450725cfea5884aa8efa.jpg" width="1920"></div>
-  </div>
-  <!-- content begin-->
-  <div id="fh5co-content_show" class="layout">
-    <div class="container">
-      <div class="line-big">
-        <div class="hidden-l xs4 xm3 xb3">
-          <div class="leftbar">
-            <h3>关于我们</h3>
-            <ul id="subnav" class="nav submenu nav-navicon">
-              <li><a title="Technical" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-              <li class="active"><a class="thisclass"
-                  href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-              <li><a title="Technical" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="xl12 xs8 xm9">
-          <div class="content-boxs">
-            <div class="detail">
-              <div>
-                公司秉承坚持质量为先、打造放心工程、提供超预期的服务理念，我们有专业的施工队伍,专业的设备，可处理复杂地基，经验丰富，质量可靠；为了更好地服务我们的客户，根据工地实况我们将制定一对一的工程方案，积极主动为客户提供最优质的服务，保证在工程质量、工程安全、工程效率以及各方面上精益求精。
-                公司始终坚持以&ldquo;质量促发展,管理见效益,服务立信誉&rdquo;的方针；本着&ldquo;专业，专心，诚心&rdquo;的原则，逐步发展为一家拥有较强实力的地基处理公司。欢迎广大客户前来洽谈业务,期待与您合作。
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- content end-->
-  <footer>
-    <div class="layout footer-top hidden-l">
-      <div class="container">
-        <div class="line-big">
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>联系我们</h2>
-              <div class="contact-foot">
-                <p>地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号房</p>
-                <p>电话: 137-0749-9996</p>
-                <p>分队：767970239@qq.com</p>
-              </div>
-            </div>
-          </div>
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>关于我们</h2>
-              <ul>
-                <li><a title="公司概况" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-                <li><a title="公司概念" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-                <li><a title="公司网络" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>新闻中心</h2>
-              <ul>
-                <li><a title="公司新闻" href="https://www.hnjingshou.com/a/news/index.html">公司新闻</a></li>
-                <li><a title="行业新闻" href="https://www.hnjingshou.com/a/news/index.html">行业新闻</a></li>
-                <li><a title="技术展示" href="https://www.hnjingshou.com/a/news/index.html">技术展示</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="layout  footer-bot">
-      <div class="container">
-        <div class="line-big">
-          <div class="xl12 xs12 xm4">
-            <div class="foot-flink">友情链接: <a target="_blank">湖南荆首建设工程有限公司</a></div>
-          </div>
-          <div class="xl12 xs12 xm8">
-            <div class="Copyright"><a href="https://beian.miit.gov.cn">Copyright @ 2021-2022 湖南荆首建设工程有限公司 版权所有</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <div class="blank55">&nbsp;</div>
-  <div id="toolbar" class="layout text-center">
-    <div class="x4"><a href="https://www.hnjingshou.com/index.html"><span class="icon-home"></span>首页</a></div>
-    <div class="x4"><a href="tel:13707499996"><span class="icon-phone"></span>电话</a></div>
-    <div class="x4"><a href="https://www.hnjingshou.com/a/contact/index.html"><span class="icon-user"></span>联系我们</a></div>
-  </div>
+<!-- header begin--><header id="fh5co-header">
+<div class="layout head-middle  hidden-l">
+<div class="container">
+<div class="line">
+<div class="xl12 xs6 xm5">&nbsp;</div>
+<div class="xl12 xs6 xm7 head-info text-right">
+<div class="hot-tel"><img style="vertical-align: middle;" src="https://www.hnjingshou.com/skin/images/top_tel.jpg" />电话:137-0749-9996</div>
+</div>
+</div>
+</div>
+</div>
+<div class="layout fixed header-box">
+<div class="container">
+<div class="line">
+<div class="xl12 xs4 xm4 xb4">
+<div class="logo">
+<h1><a title="湖南荆首建设工程有限公司" href="https://www.hnjingshou.com/index.html"><img style="width: 80px;" src="https://www.hnjingshou.com/skin/images/logo.jpeg" /><span class="logo-title">湖南荆首建设工程有限公司</span></a></h1>
+</div>
+</div>
+<div class="xl12 xs8 xm8 xb8">
+<div id="nav-main1" class="nav-navicon">
+<ul class="nav  nav-inline  nav-menu nav-right">
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/index.html">首页</a></li>
+<li class="current"><a class="first-level" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">关于我们</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+<li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+<li><a href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index1.html">道路强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index2.html">机场码头强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index3.html">住宅强夯</a></li>
+<li><a>其他</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/news/index.html">新闻中心</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/gongsixinwen/index.html">公司新闻</a></li>
+<li><a href="https://www.hnjingshou.com/a/xingyexinwen/index.html">行业新闻</a></li>
+<li><a href="https://www.hnjingshou.com/a/jishuzhanshi/index.html">技术展示</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header><!-- header end-->
+<div class="layout">
+<div class="slideshow"><img style="height: 100%;" src="https://s1.imagehub.cc/images/2021/07/10/_2021071009450725cfea5884aa8efa.jpg" width="1920" /></div>
+</div>
+<!-- content begin-->
+<div id="fh5co-content_show" class="layout">
+<div class="container">
+<div class="line-big">
+<div class="hidden-l xs4 xm3 xb3">
+<div class="leftbar">
+<h3>关于我们</h3>
+<ul id="subnav" class="nav submenu nav-navicon">
+<li><a title="Technical" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+<li class="active"><a class="thisclass" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+<li><a title="Technical" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
+</ul>
+</div>
+</div>
+<div class="xl12 xs8 xm9">
+<div class="content-boxs">
+<div class="detail">
+<div>公司秉承坚持质量为先、打造放心工程、提供超预期的服务理念，我们有专业的施工队伍,专业的设备，可处理复杂地基，经验丰富，质量可靠；为了更好地服务我们的客户，根据工地实况我们将制定一对一的工程方案，积极主动为客户提供最优质的服务，保证在工程质量、工程安全、工程效率以及各方面上精益求精。 公司始终坚持以&ldquo;质量促发展,管理见效益,服务立信誉&rdquo;的方针；本着&ldquo;专业，专心，诚心&rdquo;的原则，逐步发展为一家拥有较强实力的地基处理公司。欢迎广大客户前来洽谈业务,期待与您合作。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- content end--><footer>
+<div class="layout footer-top hidden-l">
+<div class="container">
+<div class="line-big">
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>联系我们</h2>
+<div class="contact-foot">
+<p>地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号房</p>
+<p>电话: 137-0749-9996</p>
+<p>分队：767970239@qq.com</p>
+</div>
+</div>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>关于我们</h2>
+<ul>
+<li><a title="公司概况" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+<li><a title="公司概念" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+<li><a title="公司网络" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
+</ul>
+</div>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>新闻中心</h2>
+<ul>
+<li><a title="公司新闻" href="https://www.hnjingshou.com/a/news/index.html">公司新闻</a></li>
+<li><a title="行业新闻" href="https://www.hnjingshou.com/a/news/index.html">行业新闻</a></li>
+<li><a title="技术展示" href="https://www.hnjingshou.com/a/news/index.html">技术展示</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="layout  footer-bot">
+<div class="container">
+<div class="line-big">
+<div class="xl12 xs12 xm4">
+<div class="foot-flink">友情链接: <a target="_blank">湖南荆首建设工程有限公司</a></div>
+</div>
+<div class="xl12 xs12 xm8">
+<div class="Copyright"><a href="https://beian.miit.gov.cn">Copyright @ 2021-2022 湖南荆首建设工程有限公司 版权所有</a></div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<div class="blank55">&nbsp;</div>
+<div id="toolbar" class="layout text-center">
+<div class="x4"><a href="https://www.hnjingshou.com/index.html">首页</a></div>
+<div class="x4"><a href="tel:13707499996">电话</a></div>
+<div class="x4"><a href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></div>
+</div>
 </body>
 
 </html>');
@@ -658,281 +633,218 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
 </head>
 
 <body id="index_box_id">
-  <!-- header begin-->
-  <header id="fh5co-header">
-    <div class="layout head-middle  hidden-l">
-      <div class="container">
-        <div class="line">
-          <div class="xl12 xs6 xm5">&nbsp;</div>
-          <div class="xl12 xs6 xm7 head-info text-right">
-            <div class="hot-tel"><img style="vertical-align: middle;"
-                src="https://www.hnjingshou.com/skin/images/top_tel.jpg">电话:137-0749-9996</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="layout fixed header-box">
-      <div class="container">
-        <div class="line">
-          <div class="xl12 xs4 xm4 xb4">
-            <div class="logo">
-              <h1><a title="湖南荆首建设工程有限公司" href="https://www.hnjingshou.com/index.html"><img style="width: 80px;"
-                    src="https://www.hnjingshou.com/skin/images/logo.jpeg"><span
-                    class="logo-title">湖南荆首建设工程有限公司</span></a></h1>
-            </div>
-          </div>
-          <div class="xl12 xs8 xm8 xb8">
-            <div id="nav-main1" class="nav-navicon">
-              <ul class="nav  nav-inline  nav-menu nav-right">
-                <li class="current"><a class="first-level" href="https://www.hnjingshou.com/index.html">首页</a></li>
-                <li class=""><a class="first-level"
-                    href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">关于我们</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index1.html">道路强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index2.html">机场码头强夯</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jingmi/index3.html">住宅强夯</a></li>
-                    <li><a>其他</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/news/index.html">新闻中心</a>
-                  <ul class="drop-menu">
-                    <li><a href="https://www.hnjingshou.com/a/gongsixinwen/index.html">公司新闻</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/xingyexinwen/index.html">行业新闻</a></li>
-                    <li><a href="https://www.hnjingshou.com/a/jishuzhanshi/index.html">技术展示</a></li>
-                  </ul>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a>
-                </li>
-                <li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header><!-- header end-->
-  <p>&nbsp;</p>
-  <!-- picture begin-->
-  <div id="fh5co-hero" class="layout">
-    <div class="line">
-      <div class="flexslider">
-        <ul class="slides">
-          <li
-            style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 1;">
-            <!-- <img src="uploads/allimg/180125/1-1P1252200450-L.jpg" alt="" style="height: 100%;width: 100%;"> -->
-            <img style="height: 100%; width: 100%;" src="https://s1.imagehub.cc/images/2021/05/05/_20210505195136.jpg"
-              alt="">
-          </li>
-          <li
-            style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 1;">
-            <!-- <img src="uploads/allimg/180125/1-1P1252201280-L.jpg" alt="" style="height: 100%;width: 100%;"> -->
-            <img style="height: 100%; width: 100%;" src="https://s1.imagehub.cc/images/2021/05/05/_20210505195210.jpg"
-              alt="">
-          </li>
-          <li
-            style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 1;">
-            <!-- <img src="uploads/allimg/180125/1-1P1252201070-L.jpg" alt="" style="height: 100%;width: 100%;"> -->
-            <img style="height: 100%; width: 100%;" src="https://s1.imagehub.cc/images/2021/05/07/_20210507225115.jpg"
-              alt="">
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!--about begin-->
-  <div id="fh5co-about-us" class="layout">
-    <div class="bg-about">
-      <div class="container">
-        <div class="inner"><span class="more"><a href="a/gongsigaikuang/index.html">更多&gt;&gt;</a></span>
-          <div class="line fh5co-heading text-center hove-bg">
-            <h2><span style="color: #4d96df; font-size: 18pt;"><strong>关于我们</strong></span></h2>
-            <!-- <p class="desc"><span style="color: #4d96df;font-size: 20px;">湖南荆首建设工程有限公司</span></p> -->
-          </div>
-          <div class="show-list line">
-            <div class="xl12 xs4 xm4 margin-large-bottom">
-              <div class="media-img">&nbsp;</div>
-              <div class="media-img">&nbsp;</div>
-              <div class="media-img">&nbsp;</div>
-              <div class="media-img">&nbsp;</div>
-              <div class="media-img">&nbsp;</div>
-              <div class="media-img"><img
-                  src="https://s1.imagehub.cc/images/2021/07/10/_20210710094444ac9870eb22cb0ff6.jpg" width="344"
-                  height="260"></div>
-            </div>
-            <div class="xl12 xs8 xm8 content margin-large-bottom">
-              <div class="desc">
-                <h2>湖南荆首建设工程有限公司</h2>
-                <div class="intro">
-                  湖南荆首建设工程有限公司是湖北荆首全资子公司，公司从1996年开始从事强夯工程服务，主要承接全国范围内专业高速公路路基强夯、厂房及物流园等强夯、高层楼房地基强夯、机场地基强夯、港口及人工湖强夯等大型土地强夯工程及咨询服务。
-                </div>
-                <div class="intro">
-                  湖南荆首坐落于美丽星城湖南省长沙市，公司位于湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号，公司拥有50多台设备、湖南荆首注册资金8000万元，拥有80余技术人员，中级职称占比50%。荆首自从业以来一直以服务客户为宗旨，专业团队、专业技术、精益求精的精神是我们荆首人一直的信念。
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--about end-->
-  <p>&nbsp;</p>
-  <!-- 我们的服务 -->
-  <div class="layout footer-top" style="border-bottom: 1px solid #eee;">
-    <div class="container">
-      <div class="line-big" style="text-align: center;">
-        <div class="hove-bg">
-          <h2 class="text-center" style="padding: 15px;"><strong style="font-size: 18pt; color: #4d96df;">我们的服务</strong>
-          </h2>
-          <p class="desc" style="margin-bottom: 25px;"><span style="color: #000000; font-size: 20px;">高效施工：节省时间 快速优化
-              改良基础</span></p>
-        </div>
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center " style="position: relative;"><img class="click-zoom"
-            style="height: 801px; width: 1200px; min-height: 310px; max-height: 310px;"
-            src="https://s1.imagehub.cc/images/2021/06/15/0e2442a7d933c8957c729ff4da1373f082020034877ec1ccf289e57d.jpg">
-          <p class="service-image">人工湖强夯</p>
-        </div>
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center " style="position: relative;"><img class="click-zoom"
-            style="height: 533px; width: 800px; min-height: 310px; max-height: 310px;"
-            src="https://s1.imagehub.cc/images/2021/06/19/srchttp___www.njzh56.com_uploads_allimg_190301_113P31X8_0.jpgreferhttp___www.njzh560f526a9809e5dcb3.jpg">
-          <p class="service-image">厂房及物流园强夯</p>
-        </div>
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center" style="position: relative;"><img class="click-zoom"
-            style="height: 296px; width: 500px; min-height: 310px; max-height: 310px;"
-            src="https://s1.imagehub.cc/images/2021/06/19/srchttp___upload.ccidnet.com_2017_0614_1497404047163.jpgreferhttp___upload.ccidnet3592de9b48243a29.jpg">
-          <p class="service-image">机场强夯</p>
-        </div>
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center" style="position: relative;"><img class="click-zoom"
-            style="height: 381px; width: 640px; min-height: 310px; max-height: 310px;"
-            src="https://s1.imagehub.cc/images/2021/06/19/gs4fa856278707d3cd.jpg">
-          <p class="service-image">路基强夯</p>
-        </div>
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center" style="position: relative;"><img class="click-zoom"
-            style="height: 603px; width: 1072px; min-height: 310px; max-height: 310px;"
-            src="https://s1.imagehub.cc/images/2021/06/15/gk0c4e34f23fdc3e93.jpg">
-          <p class="service-image">港口强夯</p>
-        </div>
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center" style="position: relative;"><img class="click-zoom"
-            style="height: 420px; width: 560px; min-height: 310px; max-height: 310px;"
-            src="https://s1.imagehub.cc/images/2021/06/19/gtf2651978b35e792f6.jpg">
-          <p class="service-image">高填方强夯</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- 为了保障工程质量我们都有哪些 -->
-  <div class="layout footer-top" style="border-bottom: 1px solid #eee;">
-    <div class="container">
-      <div class="hove-bg">
-        <h2 class="text-center" style="padding: 15px;"><span style="font-size: 18pt;"><strong><span
-                style="color: hsl(210, 70%, 59%);">为了保障工程质量我们都有哪些</span></strong></span></h2>
-      </div>
-      <div class="line-big">
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center card-hove">
-          <div
-            style="padding: 70px 15px; border-radius: 15px; min-height: 260px; max-height: 270px; box-shadow: 0 0.375rem 1.1625rem 0.0875rem rgb(50 98 255 / 18%);">
-            <img style="padding-bottom: 20px; width: 70px; height: 70px;"
-              src="https://www.hnjingshou.com/skin/images/25yeash.svg">
-            <h3 style="font-size: 23px; color: red;"><strong>26年用心做地基处理</strong></h3>
-            <p style="font-size: 16px;">26年来荆首覆盖业务全国各城市，主要承接1000-25000kn .m强夯工程</p>
-          </div>
-        </div>
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center card-hove">
-          <div
-            style="padding: 70px 15px; border-radius: 15px; min-height: 260px; max-height: 270px; box-shadow: 0 0.375rem 1.1625rem 0.0875rem rgb(50 98 255 / 18%);">
-            <img style="padding-bottom: 20px; width: 70px; height: 70px;"
-              src="https://www.hnjingshou.com/skin/images/zy.svg">
-            <h3 style="font-size: 23px; color: red;"><strong>专业团队</strong></h3>
-            <p style="font-size: 16px;">自有设备50多台，高中职称技术人员占比50%，工程技术管理人员占比15%业界口碑领先</p>
-          </div>
-        </div>
-        <div class="xl12 xs4 xm4 margin-large-bottom text-center card-hove">
-          <div
-            style="padding: 70px 15px; border-radius: 15px; min-height: 260px; max-height: 270px; box-shadow: 0 0.375rem 1.1625rem 0.0875rem rgb(50 98 255 / 18%);">
-            <img style="padding-bottom: 20px; width: 70px; height: 70px;"
-              src="https://www.hnjingshou.com/skin/images/service.svg">
-            <h3 style="font-size: 23px; color: red;"><strong>用心服务</strong></h3>
-            <p style="font-size: 16px;">荆首每年施工上百万平米，全程可视化操作，好评率高达98%</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--products begin-->
-  <div id="fh5co-product-list" class="layout">
-    <div class="bg-product">
-      <div class="container">
-        <div class="line fh5co-heading text-center hove-bg">
-          <h2><span style="color: #4d96df; font-size: 18pt;"><strong>资质展示</strong></span></h2>
-          <p class="desc"><span style="color: #000000; font-size: 14pt;">卓越，创新，积极进取，持续改进，精益求精</span></p>
-        </div>
-        <div class="line show-list">
-          <div class="owl-carousel owl-carousel-carousel  zizhi">
-            <div class="item margin-large-bottom text-cente">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://s1.imagehub.cc/images/2021/05/07/_20210507220034.png"> </span></div>
-            </div>
-            <div class="item margin-large-bottom text-center">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://s1.imagehub.cc/images/2021/05/07/_20210507220042.png"> </span></div>
-            </div>
-            <div class="item margin-large-bottom text-center">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://s1.imagehub.cc/images/2021/05/07/_20210507220126.png"> </span></div>
-            </div>
-            <div class="item margin-large-bottom text-center  click-zoom">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://s1.imagehub.cc/images/2021/05/07/_20210507220222.png"> </span></div>
-            </div>
-            <div class="item margin-large-bottom text-center">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://s1.imagehub.cc/images/2021/05/07/_20210507215935.png"> </span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- 合作伙伴 -->
-  <div id="fh5co-partner-list" class="layout">
-    <div class="bg-partner">
-      <div class="container">
-        <div class="line fh5co-heading text-center">
-          <h2>合作伙伴</h2>
-        </div>
-        <div class="line show-list">
-          <div class="owl-carousel partner-carousel-carousel">
-            <div class="item margin-large-bottom text-cente">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P1252303460-L.png"> </span></div>
-            </div>
-            <div class="item margin-large-bottom text-center">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P1252305010-L.jpg"> </span></div>
-            </div>
-            <div class="item margin-large-bottom text-center">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P125230A10-L.jpg"> </span></div>
-            </div>
-            <div class="item margin-large-bottom text-center  click-zoom">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P125230J70-L.jpg"> </span></div>
-            </div>
-            <div class="item margin-large-bottom text-center">
-              <div class="media-img"><span class="zoomimgs"> <img class="click-zoom"
-                    src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P125230Q60-L.jpg"> </span></div>
-            </div>
-            <!-- <div class="owl-wrapper-outer">
+<!-- header begin--><header id="fh5co-header">
+<div class="layout head-middle  hidden-l">
+<div class="container">
+<div class="line">
+<div class="xl12 xs6 xm5">&nbsp;</div>
+<div class="xl12 xs6 xm7 head-info text-right">
+<div class="hot-tel"><img style="vertical-align: middle;" src="https://www.hnjingshou.com/skin/images/top_tel.jpg" />电话:137-0749-9996</div>
+</div>
+</div>
+</div>
+</div>
+<div class="layout fixed header-box">
+<div class="container">
+<div class="line">
+<div class="xl12 xs4 xm4 xb4">
+<div class="logo">
+<h1><a title="湖南荆首建设工程有限公司" href="https://www.hnjingshou.com/index.html"><img style="width: 80px;" src="https://www.hnjingshou.com/skin/images/logo.jpeg" /><span class="logo-title">湖南荆首建设工程有限公司</span></a></h1>
+</div>
+</div>
+<div class="xl12 xs8 xm8 xb8">
+<div id="nav-main1" class="nav-navicon">
+<ul class="nav  nav-inline  nav-menu nav-right">
+<li class="current"><a class="first-level" href="https://www.hnjingshou.com/index.html">首页</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">关于我们</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+<li><a href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/products/index.html">设备展示</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/jingmi/index.html">工程案例</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/jingmi/index.html">工业厂房强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index1.html">道路强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index2.html">机场码头强夯</a></li>
+<li><a href="https://www.hnjingshou.com/a/jingmi/index3.html">住宅强夯</a></li>
+<li><a>其他</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/news/index.html">新闻中心</a>
+<ul class="drop-menu">
+<li><a href="https://www.hnjingshou.com/a/gongsixinwen/index.html">公司新闻</a></li>
+<li><a href="https://www.hnjingshou.com/a/xingyexinwen/index.html">行业新闻</a></li>
+<li><a href="https://www.hnjingshou.com/a/jishuzhanshi/index.html">技术展示</a></li>
+</ul>
+</li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/service/index.html">资质证书</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/feedback/index.html">在线留言</a></li>
+<li class=""><a class="first-level" href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header><!-- header end-->
+<p>&nbsp;</p>
+<!-- picture begin-->
+<div id="fh5co-hero" class="layout">
+<div class="line">
+<div class="flexslider">
+<ul class="slides">
+<li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 1;"><!-- <img src="uploads/allimg/180125/1-1P1252200450-L.jpg" alt="" style="height: 100%;width: 100%;"> --> <img style="height: 100%; width: 100%;" src="https://s1.imagehub.cc/images/2021/05/05/_20210505195136.jpg" alt="" /></li>
+<li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 1;"><!-- <img src="uploads/allimg/180125/1-1P1252201280-L.jpg" alt="" style="height: 100%;width: 100%;"> --> <img style="height: 100%; width: 100%;" src="https://s1.imagehub.cc/images/2021/05/05/_20210505195210.jpg" alt="" /></li>
+<li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 1;"><!-- <img src="uploads/allimg/180125/1-1P1252201070-L.jpg" alt="" style="height: 100%;width: 100%;"> --> <img style="height: 100%; width: 100%;" src="https://s1.imagehub.cc/images/2021/05/07/_20210507225115.jpg" alt="" /></li>
+</ul>
+</div>
+</div>
+</div>
+<!--about begin-->
+<div id="fh5co-about-us" class="layout">
+<div class="bg-about">
+<div class="container">
+<div class="inner"><span class="more"><a href="a/gongsigaikuang/index.html">更多&gt;&gt;</a></span>
+<div class="line fh5co-heading text-center hove-bg">
+<h2><span style="color: #4d96df; font-size: 18pt;"><strong>关于我们</strong></span></h2>
+<!-- <p class="desc"><span style="color: #4d96df;font-size: 20px;">湖南荆首建设工程有限公司</span></p> --></div>
+<div class="show-list line">
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="media-img">&nbsp;</div>
+<div class="media-img">&nbsp;</div>
+<div class="media-img">&nbsp;</div>
+<div class="media-img">&nbsp;</div>
+<div class="media-img">&nbsp;</div>
+<div class="media-img"><img src="https://s1.imagehub.cc/images/2021/07/10/_20210710094444ac9870eb22cb0ff6.jpg" width="344" height="260" /></div>
+</div>
+<div class="xl12 xs8 xm8 content margin-large-bottom">
+<div class="desc">
+<h2>湖南荆首建设工程有限公司</h2>
+<div class="intro">湖南荆首建设工程有限公司是湖北荆首全资子公司，公司从1996年开始从事强夯工程服务，主要承接全国范围内专业高速公路路基强夯、厂房及物流园等强夯、高层楼房地基强夯、机场地基强夯、港口及人工湖强夯等大型土地强夯工程及咨询服务。</div>
+<div class="intro">湖南荆首坐落于美丽星城湖南省长沙市，公司位于湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号，公司拥有50多台设备、湖南荆首注册资金8000万元，拥有80余技术人员，中级职称占比50%。荆首自从业以来一直以服务客户为宗旨，专业团队、专业技术、精益求精的精神是我们荆首人一直的信念。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--about end-->
+<p>&nbsp;</p>
+<!-- 我们的服务 -->
+<div class="layout footer-top" style="border-bottom: 1px solid #eee;">
+<div class="container">
+<div class="line-big" style="text-align: center;">
+<div class="hove-bg">
+<h2 class="text-center" style="padding: 15px;"><strong style="font-size: 18pt; color: #4d96df;">我们的服务</strong></h2>
+<p class="desc" style="margin-bottom: 25px;"><span style="color: #000000; font-size: 20px;">高效施工：节省时间 快速优化 改良基础</span></p>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom text-center " style="position: relative;"><img class="click-zoom" style="height: 801px; width: 1200px; min-height: 310px; max-height: 310px;" src="https://s1.imagehub.cc/images/2021/06/15/0e2442a7d933c8957c729ff4da1373f082020034877ec1ccf289e57d.jpg" />
+<p class="service-image">人工湖强夯</p>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom text-center " style="position: relative;"><img class="click-zoom" style="height: 533px; width: 800px; min-height: 310px; max-height: 310px;" src="https://s1.imagehub.cc/images/2021/06/19/srchttp___www.njzh56.com_uploads_allimg_190301_113P31X8_0.jpgreferhttp___www.njzh560f526a9809e5dcb3.jpg" />
+<p class="service-image">厂房及物流园强夯</p>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom text-center" style="position: relative;"><img class="click-zoom" style="height: 296px; width: 500px; min-height: 310px; max-height: 310px;" src="https://s1.imagehub.cc/images/2021/06/19/srchttp___upload.ccidnet.com_2017_0614_1497404047163.jpgreferhttp___upload.ccidnet3592de9b48243a29.jpg" />
+<p class="service-image">机场强夯</p>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom text-center" style="position: relative;"><img class="click-zoom" style="height: 381px; width: 640px; min-height: 310px; max-height: 310px;" src="https://s1.imagehub.cc/images/2021/06/19/gs4fa856278707d3cd.jpg" />
+<p class="service-image">路基强夯</p>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom text-center" style="position: relative;"><img class="click-zoom" style="height: 603px; width: 1072px; min-height: 310px; max-height: 310px;" src="https://s1.imagehub.cc/images/2021/06/15/gk0c4e34f23fdc3e93.jpg" />
+<p class="service-image">港口强夯</p>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom text-center" style="position: relative;"><img class="click-zoom" style="height: 420px; width: 560px; min-height: 310px; max-height: 310px;" src="https://s1.imagehub.cc/images/2021/06/19/gtf2651978b35e792f6.jpg" />
+<p class="service-image">高填方强夯</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 为了保障工程质量我们都有哪些 -->
+<div class="layout footer-top" style="border-bottom: 1px solid #eee;">
+<div class="container">
+<div class="hove-bg">
+<h2 class="text-center" style="padding: 15px;"><span style="font-size: 18pt;"><strong><span style="color: hsl(210, 70%, 59%);">为了保障工程质量我们都有哪些</span></strong></span></h2>
+</div>
+<div class="line-big">
+<div class="xl12 xs4 xm4 margin-large-bottom text-center card-hove">
+<div style="padding: 70px 15px; border-radius: 15px; min-height: 260px; max-height: 270px; box-shadow: 0 0.375rem 1.1625rem 0.0875rem rgb(50 98 255 / 18%);"><img style="padding-bottom: 20px; width: 70px; height: 70px;" src="https://www.hnjingshou.com/skin/images/25yeash.svg" />
+<h3 style="font-size: 23px; color: red;"><strong>26年用心做地基处理</strong></h3>
+<p style="font-size: 16px;">26年来荆首覆盖业务全国各城市，主要承接1000-25000kn .m强夯工程</p>
+</div>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom text-center card-hove">
+<div style="padding: 70px 15px; border-radius: 15px; min-height: 260px; max-height: 270px; box-shadow: 0 0.375rem 1.1625rem 0.0875rem rgb(50 98 255 / 18%);"><img style="padding-bottom: 20px; width: 70px; height: 70px;" src="https://www.hnjingshou.com/skin/images/zy.svg" />
+<h3 style="font-size: 23px; color: red;"><strong>专业团队</strong></h3>
+<p style="font-size: 16px;">自有设备50多台，高中职称技术人员占比50%，工程技术管理人员占比15%业界口碑领先</p>
+</div>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom text-center card-hove">
+<div style="padding: 70px 15px; border-radius: 15px; min-height: 260px; max-height: 270px; box-shadow: 0 0.375rem 1.1625rem 0.0875rem rgb(50 98 255 / 18%);"><img style="padding-bottom: 20px; width: 70px; height: 70px;" src="https://www.hnjingshou.com/skin/images/service.svg" />
+<h3 style="font-size: 23px; color: red;"><strong>用心服务</strong></h3>
+<p style="font-size: 16px;">荆首每年施工上百万平米，全程可视化操作，好评率高达98%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--products begin-->
+<div id="fh5co-product-list" class="layout">
+<div class="bg-product">
+<div class="container">
+<div class="line fh5co-heading text-center hove-bg">
+<h2><span style="color: #4d96df; font-size: 18pt;"><strong>资质展示</strong></span></h2>
+<p class="desc"><span style="color: #000000; font-size: 14pt;">卓越，创新，积极进取，持续改进，精益求精</span></p>
+</div>
+<div class="line show-list">
+<div class="owl-carousel owl-carousel-carousel  zizhi">
+<div class="item margin-large-bottom text-cente">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://s1.imagehub.cc/images/2021/05/07/_20210507220034.png" /> </span></div>
+</div>
+<div class="item margin-large-bottom text-center">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://s1.imagehub.cc/images/2021/05/07/_20210507220042.png" /> </span></div>
+</div>
+<div class="item margin-large-bottom text-center">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://s1.imagehub.cc/images/2021/05/07/_20210507220126.png" /> </span></div>
+</div>
+<div class="item margin-large-bottom text-center  click-zoom">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://s1.imagehub.cc/images/2021/05/07/_20210507220222.png" /> </span></div>
+</div>
+<div class="item margin-large-bottom text-center">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://s1.imagehub.cc/images/2021/05/07/_20210507215935.png" /> </span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 合作伙伴 -->
+<div id="fh5co-partner-list" class="layout">
+<div class="bg-partner">
+<div class="container">
+<div class="line fh5co-heading text-center">
+<h2>合作伙伴</h2>
+</div>
+<div class="line show-list">
+<div class="owl-carousel partner-carousel-carousel">
+<div class="item margin-large-bottom text-cente">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P1252303460-L.png" /> </span></div>
+</div>
+<div class="item margin-large-bottom text-center">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P1252305010-L.jpg" /> </span></div>
+</div>
+<div class="item margin-large-bottom text-center">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P125230A10-L.jpg" /> </span></div>
+</div>
+<div class="item margin-large-bottom text-center  click-zoom">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P125230J70-L.jpg" /> </span></div>
+</div>
+<div class="item margin-large-bottom text-center">
+<div class="media-img"><span class="zoomimgs"> <img class="click-zoom" src="https://www.861ppt.com/441/uploads/allimg/180125/1-1P125230Q60-L.jpg" /> </span></div>
+</div>
+<!-- <div class="owl-wrapper-outer">
               <div class="owl-wrapper">
                 <div class="owl-item" >
                   <div class="item"> <a class="zoomimgs frizoomimgs"
@@ -959,174 +871,149 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
                       style="background-image:url(https://www.861ppt.com/441/uploads/allimg/180125/1-1P125230Q60-L.jpg)" title="百度"></a></div>
                 </div>
               </div>
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--products end-->
-  <div id="fh5co-keyword-list" class="layout">
-    <div class="bg-keyword">
-      <div class="container">
-        <div class="hove-bg">
-          <h1 class="show_content padding-large-bottom " style="text-align: center;"><span
-              style="color: #4d96df;"><strong>免费获得工程报价</strong></span></h1>
-        </div>
-        <form id="concat" class="form form-block" style="max-width: 500px; margin: 0px auto;">
-          <div class="form-group">
-            <div class="field"><input class="input" size="50" type="text" placeholder="姓名" data-validate="请输入您的姓名。">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="field"><input id="tel" class="input" name="telPhone" size="50" type="text" placeholder="电话">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="field"><input id="gcmj" class="input" name="area" size="50" type="text" placeholder="工程面积">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="field"><textarea id="content" class="input" name="content" placeholder="内容"
-                data-validate="请输入内容"></textarea></div>
-          </div>
-          <div class="form-button"><button class="button bg-main margin-small-right">提交</button></div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div id="fh5co-news-list" class="layout">
-    <div class="bg-news">
-      <div class="container">
-        <div class="line fh5co-heading text-center hove-bg">
-          <h2><span style="font-size: 18pt;"><strong><span style="color: #4d96df;">新闻中心</span></strong></span></h2>
-          <p class="desc"><span style="color: #000000; font-size: 14pt;">实时新闻，实时关注，最新进展</span></p>
-        </div>
-        <div class="line show-list">
-          <div class="tab" data-toggle="hover">
-            <div class="tab-body">
-              <div id="tab-art1" class="tab-panel active">
-                <div class="line-big">
-                  <div class="xl12 xs6 xm6 margin-large-bottom">
-                    <div class="media">
-                      <div class="media_img"><a class="zoomimgs" href="a/gongsixinwen/18.html"> <img
-                            src="https://s1.imagehub.cc/images/2021/05/09/u38995889473729438566fm199app68fJPEGw750h750s3A2AD604CFEFCF4D560B04C90300E0BA.jpg">
-                        </a></div>
-                      <div class="media-body">
-                        <h3>强夯机是如何工作的</h3>
-                        <div class="time">2021<span
-                            style="font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">/05/10</span>
-                        </div>
-                        <p class="desc"><span
-                            style="color: #454545; font-family: "Microsoft Yahei"; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left; text-indent: 25px;">更换为饱和软粘土地基的固结强夯法。和强夯置换法的加固机理是不同的，它是一个高影响的锤高落差产生可以碎石，石材料，炉渣和其他性能强度到地面，形成聚集体墩逐个的基础上.......</span>
-                        </p>
-                        <p class="more">&nbsp;</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="xl12 xs6 xm6 margin-large-bottom">
-                    <ul>
-                      <li>
-                        <div class="media media-x">
-                          <div class="caldata float-left">
-                            <div class="content text-center">
-                              <p class="day">10</p>
-                              <p class="mon-year">2021/03</p>
-                            </div>
-                          </div>
-                          <div class="media-body">
-                            <h4><a title="强夯施工如何选择强夯机"
-                                href="https://www.hnjingshou.com/a/gongsixinwen/17.html">强夯施工如何选择强夯机</a></h4>
-                            <p class="desc">
-                              想要做好强夯地基处理，首先需要选择一个好的设备，或者是租赁一个好的设备，如果是没有条件就找到一个靠谱的地基强夯施工公司。强夯机已经成为了建筑施工中的主流设备.......</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media media-x">
-                          <div class="caldata float-left">
-                            <div class="content text-center">
-                              <p class="day">18</p>
-                              <p class="mon-year">2021/02</p>
-                            </div>
-                          </div>
-                          <div class="media-body">
-                            <h4><a title="强夯机回填复杂地基施工的过程"
-                                href="https://www.hnjingshou.com/a/gongsixinwen/16.html">强夯机回填复杂地基施工的过程</a></h4>
-                            <p class="desc">强夯机在施工过程中，会出现填料不足的情况，这是需要人工的施工。强夯机的施工范围及原理......</p>
-                            <p class="more">&nbsp;</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media media-x">
-                          <div class="caldata float-left">
-                            <div class="content text-center">
-                              <p class="day">22</p>
-                              <p class="mon-year">2021/01</p>
-                            </div>
-                          </div>
-                          <div class="media-body">
-                            <h4><a title="地基强夯施工要点"
-                                href="https://www.hnjingshou.com/a/gongsixinwen/15.html">地基强夯施工要点</a></h4>
-                            <p class="desc"><span
-                                style="color: #454545; font-family: 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">强夯地基是用起重机械（起重机或起重机配三脚架、龙门架）将大吨位（一般8-30t）夯锤起吊到6-30m高度后，自由落下，给地基土以强大的冲击能量的夯击，使土中出.....</span>
-                            </p>
-                            <p class="more">&nbsp;</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media media-x">
-                          <div class="caldata float-left">
-                            <div class="content text-center">
-                              <p class="day">15</p>
-                              <p class="mon-year">2020/12</p>
-                            </div>
-                          </div>
-                          <div class="media-body">
-                            <h4><a title="强夯施工中表层土夯实的必要性"
-                                href="https://www.hnjingshou.com/a/gongsixinwen/14.html">强夯施工中表层土夯实的必要性</a></h4>
-                            <p class="desc"><span
-                                style="color: #454545; font-family: 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">在工程实践中，当进行夯后质量检测时，常发现表层土的密实程度要比底层土差，其原因首要是与选用的满夯方法与遍数不妥有关。由于强夯的加固顺序是先深后浅</span>...
-                            </p>
-                            <p class="more">&nbsp;</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media media-x">
-                          <div class="caldata float-left">
-                            <div class="content text-center">
-                              <p class="day">10</p>
-                              <p class="mon-year">2021/12</p>
-                            </div>
-                          </div>
-                          <div class="media-body">
-                            <h4><a title="浅谈强夯试夯施工"
-                                href="https://www.hnjingshou.com/a/gongsixinwen/13.html">浅谈强夯试夯施工</a></h4>
-                            <p class="desc"><span
-                                style="color: #454545; font-family: 微软雅黑; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">目前，应用强夯法处理地基的工程范围越来越广，实用性和加固方法具有广泛性和有效性，结合山平高速公路工程中的软土地基强夯处理，简要的分析了强夯试夯施工参数的选取、修正设计及试夯施工对正式施工的指导作用</span>...
-                            </p>
-                            <p class="more">&nbsp;</p>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--News end-->
-  <p>&nbsp;</p>
-  <!--Partner begin-->
-  <p>&nbsp;</p>
-  <!-- <div id="fh5co-partner-list" class="layout">
+            </div> --></div>
+</div>
+</div>
+</div>
+</div>
+<!--products end-->
+<div id="fh5co-keyword-list" class="layout">
+<div class="bg-keyword">
+<div class="container">
+<div class="hove-bg">
+<h1 class="show_content padding-large-bottom " style="text-align: center;"><span style="color: #4d96df;"><strong>免费获得工程报价</strong></span></h1>
+</div>
+<form id="concat" class="form form-block" style="max-width: 500px; margin: 0px auto;">
+<div class="form-group">
+<div class="field"><input class="input" size="50" type="text" placeholder="姓名" data-validate="请输入您的姓名。" /></div>
+</div>
+<div class="form-group">
+<div class="field"><input id="tel" class="input" name="telPhone" size="50" type="text" placeholder="电话" /></div>
+</div>
+<div class="form-group">
+<div class="field"><input id="gcmj" class="input" name="area" size="50" type="text" placeholder="工程面积" /></div>
+</div>
+<div class="form-group">
+<div class="field"><textarea id="content" class="input" name="content" placeholder="内容" data-validate="请输入内容"></textarea></div>
+</div>
+<div class="form-button"><button class="button bg-main margin-small-right">提交</button></div>
+</form></div>
+</div>
+</div>
+<div id="fh5co-news-list" class="layout">
+<div class="bg-news">
+<div class="container">
+<div class="line fh5co-heading text-center hove-bg">
+<h2><span style="font-size: 18pt;"><strong><span style="color: #4d96df;">新闻中心</span></strong></span></h2>
+<p class="desc"><span style="color: #000000; font-size: 14pt;">实时新闻，实时关注，最新进展</span></p>
+</div>
+<div class="line show-list">
+<div class="tab" data-toggle="hover">
+<div class="tab-body">
+<div id="tab-art1" class="tab-panel active">
+<div class="line-big">
+<div class="xl12 xs6 xm6 margin-large-bottom">
+<div class="media">
+<div class="media_img"><a class="zoomimgs" href="a/gongsixinwen/18.html"> <img src="https://s1.imagehub.cc/images/2021/05/09/u38995889473729438566fm199app68fJPEGw750h750s3A2AD604CFEFCF4D560B04C90300E0BA.jpg" /> </a></div>
+<div class="media-body">
+<h3>强夯机是如何工作的</h3>
+<div class="time">2021<span style="font-family: -apple-system, BlinkMacSystemFont,;">/05/10</span></div>
+<p class="desc"><span style="color: #454545;">更换为饱和软粘土地基的固结强夯法。和强夯置换法的加固机理是不同的，它是一个高影响的锤高落差产生可以碎石，石材料，炉渣和其他性能强度到地面，形成聚集体墩逐个的基础上.......</span></p>
+<p class="more">&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="xl12 xs6 xm6 margin-large-bottom">
+<ul>
+<li>
+<div class="media media-x">
+<div class="caldata float-left">
+<div class="content text-center">
+<p class="day">10</p>
+<p class="mon-year">2021/03</p>
+</div>
+</div>
+<div class="media-body">
+<h4><a title="强夯施工如何选择强夯机" href="https://www.hnjingshou.com/a/gongsixinwen/17.html">强夯施工如何选择强夯机</a></h4>
+<p class="desc">想要做好强夯地基处理，首先需要选择一个好的设备，或者是租赁一个好的设备，如果是没有条件就找到一个靠谱的地基强夯施工公司。强夯机已经成为了建筑施工中的主流设备.......</p>
+</div>
+</div>
+</li>
+<li>
+<div class="media media-x">
+<div class="caldata float-left">
+<div class="content text-center">
+<p class="day">18</p>
+<p class="mon-year">2021/02</p>
+</div>
+</div>
+<div class="media-body">
+<h4><a title="强夯机回填复杂地基施工的过程" href="https://www.hnjingshou.com/a/gongsixinwen/16.html">强夯机回填复杂地基施工的过程</a></h4>
+<p class="desc">强夯机在施工过程中，会出现填料不足的情况，这是需要人工的施工。强夯机的施工范围及原理......</p>
+<p class="more">&nbsp;</p>
+</div>
+</div>
+</li>
+<li>
+<div class="media media-x">
+<div class="caldata float-left">
+<div class="content text-center">
+<p class="day">22</p>
+<p class="mon-year">2021/01</p>
+</div>
+</div>
+<div class="media-body">
+<h4><a title="地基强夯施工要点" href="https://www.hnjingshou.com/a/gongsixinwen/15.html">地基强夯施工要点</a></h4>
+<p class="desc"><span style="color: #454545; font-family: 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;">强夯地基是用起重机械（起重机或起重机配三脚架、龙门架）将大吨位（一般8-30t）夯锤起吊到6-30m高度后，自由落下，给地基土以强大的冲击能量的夯击，使土中出.....</span></p>
+<p class="more">&nbsp;</p>
+</div>
+</div>
+</li>
+<li>
+<div class="media media-x">
+<div class="caldata float-left">
+<div class="content text-center">
+<p class="day">15</p>
+<p class="mon-year">2020/12</p>
+</div>
+</div>
+<div class="media-body">
+<h4><a title="强夯施工中表层土夯实的必要性" href="https://www.hnjingshou.com/a/gongsixinwen/14.html">强夯施工中表层土夯实的必要性</a></h4>
+<p class="desc"><span style="color: #454545; font-family: 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">在工程实践中，当进行夯后质量检测时，常发现表层土的密实程度要比底层土差，其原因首要是与选用的满夯方法与遍数不妥有关。由于强夯的加固顺序是先深后浅</span>...</p>
+<p class="more">&nbsp;</p>
+</div>
+</div>
+</li>
+<li>
+<div class="media media-x">
+<div class="caldata float-left">
+<div class="content text-center">
+<p class="day">10</p>
+<p class="mon-year">2021/12</p>
+</div>
+</div>
+<div class="media-body">
+<h4><a title="浅谈强夯试夯施工" href="https://www.hnjingshou.com/a/gongsixinwen/13.html">浅谈强夯试夯施工</a></h4>
+<p class="desc"><span style="color: #454545; font-family: 微软雅黑; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;">目前，应用强夯法处理地基的工程范围越来越广，实用性和加固方法具有广泛性和有效性，结合山平高速公路工程中的软土地基强夯处理，简要的分析了强夯试夯施工参数的选取、修正设计及试夯施工对正式施工的指导作用</span>...</p>
+<p class="more">&nbsp;</p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--News end-->
+<p>&nbsp;</p>
+<!--Partner begin-->
+<p>&nbsp;</p>
+<!-- <div id="fh5co-partner-list" class="layout">
     <div class="bg-partner">
       <div class="container">
         <div class="line fh5co-heading text-center">
@@ -1149,68 +1036,66 @@ INSERT INTO asf_editor (name,type,path,banner,old_content) VALUES ('首页', 1, 
       </div>
     </div>
   </div> -->
-  <p>&nbsp;</p>
-  <!--Partner end-->
-  <p>&nbsp;</p>
-  <!--footer-->
-  <footer>
-    <div class="layout footer-top hidden-l">
-      <div class="container">
-        <div class="line-big">
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>联系我们</h2>
-              <div class="contact-foot">
-                <p>地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号房</p>
-                <p>电话: 137-0749-9996</p>
-                <p>邮箱：767970239@qq.com</p>
-              </div>
-            </div>
-          </div>
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>关于我们</h2>
-              <ul>
-                <li><a title="公司概况" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
-                <li><a title="公司概念" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
-                <li><a title="公司网络" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="xl12 xs4 xm4 margin-large-bottom">
-            <div class="plist">
-              <h2>新闻中心</h2>
-              <ul>
-                <li><a title="公司新闻" href="https://www.hnjingshou.com/a/news/index.html">公司新闻</a></li>
-                <li><a title="行业新闻" href="https://www.hnjingshou.com/a/news/index.html">行业新闻</a></li>
-                <li><a title="技术展示" href="https://www.hnjingshou.com/a/news/index.html">技术展示</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="layout  footer-bot">
-      <div class="container">
-        <div class="line-big">
-          <div class="xl12 xs12 xm4">
-            <div class="foot-flink">友情链接: <a target="_blank">湖南荆首建设工程有限公司</a></div>
-          </div>
-          <div class="xl12 xs12 xm8">
-            <div class="Copyright"><a href="https://beian.miit.gov.cn">Copyright @ 2021-2022 湖南荆首建设工程有限公司 版权所有</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--footer-->
-  <div class="blank55">&nbsp;</div>
-  <div id="toolbar" class="layout text-center">
-    <div class="x4"><a href="https://www.hnjingshou.com/index.html"><span class="icon-home"></span>首页</a></div>
-    <div class="x4"><a href="tel:13707499996"><span class="icon-phone"></span>电话</a></div>
-    <div class="x4"><a href="https://www.hnjingshou.com/a/contact/index.html"><span class="icon-user"></span>联系我们</a></div>
-  </div>
-  <div class="zoom-img"><img style="max-width: 100%; max-height: 100%;" alt=""></div>
+<p>&nbsp;</p>
+<!--Partner end-->
+<p>&nbsp;</p>
+<!--footer--><footer>
+<div class="layout footer-top hidden-l">
+<div class="container">
+<div class="line-big">
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>联系我们</h2>
+<div class="contact-foot">
+<p>地址: 湖南省长沙县星沙街道开元东路95号华润置地广场二期第15栋13层1305号房</p>
+<p>电话: 137-0749-9996</p>
+<p>邮箱：767970239@qq.com</p>
+</div>
+</div>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>关于我们</h2>
+<ul>
+<li><a title="公司概况" href="https://www.hnjingshou.com/a/gongsigaikuang/index.html">公司概况</a></li>
+<li><a title="公司概念" href="https://www.hnjingshou.com/a/gongsigainian/index.html">公司概念</a></li>
+<li><a title="公司网络" href="https://www.hnjingshou.com/a/gongsiwangluo/index.html">公司网络</a></li>
+</ul>
+</div>
+</div>
+<div class="xl12 xs4 xm4 margin-large-bottom">
+<div class="plist">
+<h2>新闻中心</h2>
+<ul>
+<li><a title="公司新闻" href="https://www.hnjingshou.com/a/news/index.html">公司新闻</a></li>
+<li><a title="行业新闻" href="https://www.hnjingshou.com/a/news/index.html">行业新闻</a></li>
+<li><a title="技术展示" href="https://www.hnjingshou.com/a/news/index.html">技术展示</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="layout  footer-bot">
+<div class="container">
+<div class="line-big">
+<div class="xl12 xs12 xm4">
+<div class="foot-flink">友情链接: <a target="_blank">湖南荆首建设工程有限公司</a></div>
+</div>
+<div class="xl12 xs12 xm8">
+<div class="Copyright"><a href="https://beian.miit.gov.cn">Copyright @ 2021-2022 湖南荆首建设工程有限公司 版权所有</a></div>
+</div>
+</div>
+</div>
+</div>
+</footer><!--footer-->
+<div class="blank55">&nbsp;</div>
+<div id="toolbar" class="layout text-center">
+<div class="x4"><a href="https://www.hnjingshou.com/index.html">首页</a></div>
+<div class="x4"><a href="tel:13707499996">电话</a></div>
+<div class="x4"><a href="https://www.hnjingshou.com/a/contact/index.html">联系我们</a></div>
+</div>
+<div class="zoom-img"><img style="max-width: 100%; max-height: 100%;" alt="" /></div>
 </body>
 
 </html>');

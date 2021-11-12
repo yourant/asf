@@ -156,7 +156,7 @@ namespace ASF.Domain.Services
             {
                 Token = await GenerateTokenAsync(identity,86400),
                 RefreshToken = await GenerateTokenAsync(identity,129600),
-                Expired = DateTime.Now.AddSeconds(86400)
+                Expired = DateTime.UtcNow.AddSeconds(86400)
             };
             // 判断是否存在已经拉黑的授权token
             if (!string.IsNullOrEmpty(account.Token))
@@ -212,7 +212,7 @@ namespace ASF.Domain.Services
                 var handler = new JwtSecurityTokenHandler();
 
                 // 签发时间
-                DateTime issuedAt = DateTime.Now;
+                DateTime issuedAt = DateTime.UtcNow;
 
                 var securityToken = handler.CreateToken(new SecurityTokenDescriptor
                 {

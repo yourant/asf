@@ -207,7 +207,7 @@ namespace ASF.Domain.Entities
             if (!string.IsNullOrEmpty(token.RefreshToken))
                 this.RefreshToken = token.RefreshToken;
             this.Expired = token.Expired;
-            this.LoginTime = DateTime.Now;
+            this.LoginTime = DateTime.UtcNow;
             if (!string.IsNullOrEmpty(ip))
             {
                 this.LoginIp = ip;

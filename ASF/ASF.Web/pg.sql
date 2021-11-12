@@ -99,7 +99,7 @@ CREATE TABLE "public"."asf_account_post" (
     "id" bigint NOT NULL,
     "account_id" bigint NOT NULL,
     "post_id" bigint NOT NULL,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -146,7 +146,7 @@ CREATE TABLE "public"."asf_account_role" (
     "id" bigint NOT NULL,
     "account_id" bigint NOT NULL,
     "role_id" bigint NOT NULL,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -204,13 +204,13 @@ CREATE TABLE "public"."asf_accounts" (
     "is_deleted" bigint DEFAULT 0,
     "sex" bigint,
     "create_id" bigint DEFAULT 0,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "login_ip" character varying(20),
-    "login_time" timestamp without time zone,
+    "login_time" timestamp with time zone,
     "login_location" character varying(50),
     "token" character varying(1000),
     "refresh_token" character varying(1000),
-    "expired" timestamp without time zone
+    "expired" timestamp with time zone
 );
 
 
@@ -383,7 +383,7 @@ CREATE TABLE "public"."asf_apis" (
     "is_logger" bigint DEFAULT 0,
     "description" character varying(200),
     "is_system" bigint DEFAULT 0,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -482,7 +482,7 @@ CREATE TABLE "public"."asf_department" (
     "name" character varying(255) NOT NULL,
     "enabled" bigint DEFAULT 1,
     "sort" integer DEFAULT 0,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -550,7 +550,7 @@ CREATE TABLE "public"."asf_department_role" (
     "id" bigint NOT NULL,
     "role_id" bigint NOT NULL,
     "department_id" bigint NOT NULL,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -600,7 +600,7 @@ CREATE TABLE "public"."asf_dictionary" (
     "key" character varying(255),
     "Value" "text",
     "options" character varying(255),
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -673,7 +673,7 @@ CREATE TABLE "public"."asf_loginfos" (
     "client_ip" character varying(20),
     "client_location" character varying(50),
     "permission_id" bigint,
-    "add_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "add_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "api_address" character varying(500),
     "api_request" "text",
     "api_response" "text",
@@ -793,7 +793,7 @@ CREATE TABLE "public"."asf_permission" (
     "description" character varying(200),
     "sort" integer DEFAULT 0,
     "enable" bigint DEFAULT 1,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -890,7 +890,7 @@ CREATE TABLE "public"."asf_permission_menu" (
     "menu_redirect" character varying(250),
     "description" character varying(500),
     "translate" character varying(500),
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -1004,7 +1004,7 @@ CREATE TABLE "public"."asf_post" (
     "create_id" bigint DEFAULT 0,
     "description" character varying(255),
     "enabled" bigint DEFAULT 1,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -1082,7 +1082,7 @@ CREATE TABLE "public"."asf_role" (
     "description" character varying(200),
     "enable" bigint DEFAULT 1,
     "create_id" bigint DEFAULT 0 NOT NULL,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -1150,7 +1150,7 @@ CREATE TABLE "public"."asf_role_permission" (
     "id" bigint NOT NULL,
     "permission_id" bigint NOT NULL,
     "role_id" bigint NOT NULL,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -1205,7 +1205,7 @@ CREATE TABLE "public"."asf_scheduled_task" (
     "fail_stop" integer DEFAULT 0,
     "task_status" integer DEFAULT 0,
     "params_content" character varying(255),
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -1308,8 +1308,8 @@ CREATE TABLE "public"."asf_security_token" (
     "id" bigint NOT NULL,
     "account_id" bigint,
     "token" character varying(1000),
-    "token_expired" timestamp without time zone,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "token_expired" timestamp with time zone,
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -1367,7 +1367,7 @@ CREATE TABLE "public"."asf_tenancy" (
     "create_id" bigint DEFAULT 0,
     "status" bigint DEFAULT 1,
     "is_deleted" bigint DEFAULT 0,
-    "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -2111,7 +2111,7 @@ CREATE TABLE "public"."asf_editor" (
                                      "banner"  character varying(10000) DEFAULT NULL,
                                      "old_content" text DEFAULT NULL,
                                      "new_content" text DEFAULT NULL,
-                                     "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+                                     "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 
@@ -2154,7 +2154,7 @@ CREATE TABLE "public"."asf_concat" (
                                        "tel_phone" character varying(100) NOT NULL,
                                        "area"  character varying(100) DEFAULT NULL,
                                        "content" text DEFAULT NULL,
-                                       "create_time" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+                                       "create_time" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 

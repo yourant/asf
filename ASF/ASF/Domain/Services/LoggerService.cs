@@ -90,7 +90,7 @@ namespace ASF.Domain.Services
 		public async Task<Result> Delete(LogInfo logInfo)
 		{
 			// 判断如果日志时间不大于三个月不能删除
-			if(logInfo.AddTime.AddDays(90) < DateTime.Now)
+			if(logInfo.AddTime.AddDays(90) < DateTime.UtcNow)
 				return Result.ReFailure(ResultCodes.LogginDeletedCannoBeWithinThreeMonths);
 			bool isDelete = await _loggingsRepository.Delete(logInfo);
 			if (!isDelete)
