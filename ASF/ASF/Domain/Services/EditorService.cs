@@ -128,6 +128,8 @@ namespace ASF.Domain.Services
       editor.Name = dto.Name;
       editor.Banner = dto.Banner.WriteFromObject<Banner>();
       bool isUpdate = await _editorRepository.Update(editor);
+      if(!isUpdate)
+        return Result.ReFailure("修改失败",1006);
       var htmlDoc = new HtmlDocument();
       htmlDoc.LoadHtml(editor.NewContent);
       if (!string.IsNullOrEmpty(dto.Meta))
