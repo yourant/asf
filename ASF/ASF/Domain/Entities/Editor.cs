@@ -36,6 +36,11 @@ namespace ASF.Domain.Entities
 		/// </summary>
 		public string NewContent { get; set; }
 		/// <summary>
+		/// meta
+		/// </summary>
+		public string Meta { get; set; }
+
+		/// <summary>
 		/// 创建时间
 		/// </summary>
 		public DateTime CreateTime { get; set; }

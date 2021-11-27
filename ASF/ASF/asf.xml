@@ -1142,6 +1142,11 @@
             新网页
             </summary>
         </member>
+        <member name="P:ASF.Application.DTO.Editor.EditorResponseDto.Meta">
+            <summary>
+            meta 源数据
+            </summary>
+        </member>
         <member name="P:ASF.Application.DTO.Editor.EditorResponseDto.CreateTime">
             <summary>
             创建时间
@@ -3292,6 +3297,11 @@
         <member name="P:ASF.Domain.Entities.Editor.NewContent">
             <summary>
             新网页
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Entities.Editor.Meta">
+            <summary>
+            meta
             </summary>
         </member>
         <member name="P:ASF.Domain.Entities.Editor.CreateTime">

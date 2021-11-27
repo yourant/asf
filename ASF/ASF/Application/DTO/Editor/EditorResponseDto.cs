@@ -11,7 +11,6 @@ namespace ASF.Application.DTO.Editor
 		/// key
 		/// </summary>
 		public long Key { get; set; }
-
 		/// <summary>
 		/// 富文本类型
 		/// </summary>
@@ -32,6 +31,11 @@ namespace ASF.Application.DTO.Editor
 		/// 新网页
 		/// </summary>
 		public string NewContent { get; set; }
+		/// <summary>
+		/// meta 源数据
+		/// </summary>
+		public string Meta { get; set; }
+
 		/// <summary>
 		/// 创建时间
 		/// </summary>

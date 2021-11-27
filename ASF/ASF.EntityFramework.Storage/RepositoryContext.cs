@@ -892,6 +892,8 @@ namespace ASF.EntityFramework.Repository
                 e.Property(x => x.Name).HasColumnName("name").HasComment("名称");
                 e.Property(x => x.Path).HasColumnName("path").HasComment("生成html路径");
                 e.Property(x => x.Banner).HasColumnName("banner").HasComment("轮播图");
+                e.Property(x => x.Path).HasColumnName("path").HasComment("生成html路径");
+                e.Property(x => x.Meta).HasColumnName("meta").HasComment("meta源数据");
                 e.Property(x => x.Type).HasColumnName("type").HasDefaultValueSql("1").HasComment("类型");
                 e.Property(x => x.OldContent).HasColumnName("old_content").HasComment("旧网页");
                 e.Property(x => x.NewContent).HasColumnName("new_content").HasComment("新网页");

@@ -126,6 +126,7 @@ namespace ASF.Domain.Services
       editor.NewContent = dto.NewContent;
       editor.Path = dto.Path;
       editor.Name = dto.Name;
+      editor.Meta = dto.Meta;
       editor.Banner = dto.Banner.WriteFromObject<Banner>();
       bool isUpdate = await _editorRepository.Update(editor);
       if(!isUpdate)
