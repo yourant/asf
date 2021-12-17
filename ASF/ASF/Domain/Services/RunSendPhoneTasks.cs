@@ -47,6 +47,7 @@ namespace ASF.Domain.Services
 			// 发送地址2
 			// string sendUrl2 =
 			// 	"https://newapplet.crd.cn/Api/Member/Member/SendNewMobileCode?mobile={0}&source=MP-WEIXIN&openid={1}";
+			string sendUrl2 = "https://gw.syounggroup.com/sms/api/sms/sendVerifyCode";
 			//随机的手机号码
 			string[] phoneList = new string[]
 			{
@@ -76,7 +77,22 @@ namespace ASF.Domain.Services
 						{
 							_logger.LogError("发送失败");
 						}
-						
+						//短信4
+						StringContent httpContent3 = new StringContent(JsonConvert.SerializeObject(new {content="【御家微商城】，您收到的验证码为：{$verifyCode},请勿泄露给其他人", mobileSet = new string[]{data} }),
+							Encoding.UTF8, "application/json");
+						http.DefaultRequestHeaders.Add("x-tenant-id","newretail");
+						//短信发送
+						HttpResponseMessage response3 = await http.PostAsync(new Uri(sendUrl2), httpContent3);
+						if (response3.IsSuccessStatusCode)
+						{
+							Task<string> t = response3.Content.ReadAsStringAsync();
+							string s = t.Result;
+							_logger.LogInformation(s);
+						}
+						else
+						{
+							_logger.LogError("发送失败");
+						}
 						// //短信发送1
 						List<object> obj = new List<object>();
 						obj.Add(new

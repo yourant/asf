@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ASF.Application.DtoMapper;
 using ASF.Domain.Services;
+using ASF.Domain.Values;
 using Coravel;
 using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
@@ -30,6 +31,8 @@ namespace ASF.Web
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             //添加日志
             services.AddLogging();
+            //添加聚宽配置
+            services.AddOptions().Configure<JQData>(this.Configuration.GetSection("JQData"));
             // httpclient 
             services.AddHttpClient();
             // 添加定时调度任务
