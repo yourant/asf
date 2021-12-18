@@ -86,5 +86,14 @@ namespace ASF.Internal.Security
 			T dcjs = JsonConvert.DeserializeObject<T>(json);
 			return dcjs;
 		}
+		/// <summary>
+		/// 字符串转数组
+		/// </summary>
+		/// <param name="data"></param>
+		/// <returns></returns>
+		public static List<string> SpitArray(this string data)
+		{
+			return data.Split(new char[]{','}, StringSplitOptions.None).ToList();
+		}
 	}
 }

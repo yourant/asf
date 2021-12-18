@@ -1248,6 +1248,26 @@
             id 数组集合
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.JqData.GetFundamentalsRequestDto">
+            <summary>
+            股票收益数据请求
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.GetFundamentalsRequestDto.Table">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.GetFundamentalsRequestDto.Code">
+            <summary>
+            股票代码
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.GetFundamentalsRequestDto.Date">
+            <summary>
+            查询日期
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.ModifyStatusRequestDto">
             <summary>
             修改状态
@@ -2283,6 +2303,28 @@
             根据type获取banner
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ASF.Application.JqDataController">
+            <summary>
+            聚集宽api
+            </summary>
+        </member>
+        <member name="M:ASF.Application.JqDataController.#ctor(System.IServiceProvider)">
+            <summary>
+            聚集宽api
+            </summary>
+        </member>
+        <member name="M:ASF.Application.JqDataController.GetFundamentals(ASF.Application.DTO.JqData.GetFundamentalsRequestDto)">
+            <summary>
+            获取股票收益信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Application.JqDataController.GetAllSecurities">
+            <summary>
+            获取股票标的信息
+            </summary>
             <returns></returns>
         </member>
         <member name="T:ASF.Application.MenuController">
@@ -4357,6 +4399,41 @@
             <param name="ip">登录IP</param>
             <returns></returns>
         </member>
+        <member name="T:ASF.Domain.Services.JqDataService">
+            <summary>
+            聚宽领域服务
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.JqDataService.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,ASF.Internal.Utils.IHttpHelper,Microsoft.Extensions.Options.IOptions{ASF.Domain.Values.JQData})">
+            <summary>
+            聚宽领域服务
+            </summary>
+        </member>
+        <member name="M:ASF.Domain.Services.JqDataService.GetLoginToken">
+            <summary>
+            获取登录token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.JqDataService.GetData(System.String)">
+            <summary>
+            组合数据
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.JqDataService.GetAllSecurities">
+            <summary>
+            获取所有标的数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.JqDataService.GetFundamentals(ASF.Application.DTO.JqData.GetFundamentalsRequestDto)">
+            <summary>
+            获取股票收益数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Domain.Services.LoggerService">
             <summary>
             日志服务
@@ -5129,6 +5206,31 @@
         <member name="F:ASF.Domain.Values.EnumValue.AllowShopTypeValue">
             <summary>
             商户类型值对象
+            </summary>
+        </member>
+        <member name="T:ASF.Domain.Values.JQData">
+            <summary>
+            聚宽配置
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.JQData.Url">
+            <summary>
+            api地址
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.JQData.GetToken">
+            <summary>
+            获取token别名
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.JQData.Mobile">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.JQData.Password">
+            <summary>
+            密码 
             </summary>
         </member>
         <member name="T:ASF.Domain.Values.LoggingType">
@@ -6075,6 +6177,13 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:ASF.Internal.Security.Helper.SpitArray(System.String)">
+            <summary>
+            字符串转数组
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Internal.Security.PasswordHelper">
             <summary>
             哈希密码帮助类
@@ -6274,6 +6383,82 @@
             </summary>
             <param name="data"></param>
             <returns></returns>
+        </member>
+        <member name="T:ASF.Internal.Utils.HttpHelper">
+            <summary>
+            http请求接口辅助方法
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.HttpHelper.#ctor(System.Net.Http.IHttpClientFactory)">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.HttpHelper.PutResponse``1(System.String,System.String)">
+            <summary>
+            put泛型请求
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.HttpHelper.GetResponse``1(System.String)">
+            <summary>
+            get 泛型请求
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.HttpHelper.PostResponse``1(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            post泛型请求
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.HttpHelper.PostResponse``1(System.String,System.Object)">
+            <summary>
+            post泛型请求 传入json对象
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.HttpHelper.PostResponse(System.String,System.Object)">
+            <summary>
+            post请求 传入json对象
+            </summary>
+        </member>
+        <member name="T:ASF.Internal.Utils.IHttpHelper">
+            <summary>
+            http请求接口辅助方法
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.IHttpHelper.PutResponse``1(System.String,System.String)">
+            <summary>
+            put泛型请求
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.IHttpHelper.GetResponse``1(System.String)">
+            <summary>
+            get 泛型请求
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.IHttpHelper.PostResponse``1(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            post泛型请求
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.IHttpHelper.PostResponse``1(System.String,System.Object)">
+            <summary>
+            post泛型请求 传入json对象
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.IHttpHelper.PostResponse(System.String,System.Object)">
+            <summary>
+            post泛型请求 传入json对象
+            </summary>
+        </member>
+        <member name="T:ASF.Internal.Utils.JsonContent">
+            <summary>
+            http请求json序列化内容
+            </summary>
+        </member>
+        <member name="M:ASF.Internal.Utils.JsonContent.#ctor(System.Object)">
+            <summary>
+            http请求json序列化内容
+            </summary>
+            <param name="obj"></param>
         </member>
         <member name="T:ASF.Internal.MemoryWrappedHttpResponseStream">
             <summary>

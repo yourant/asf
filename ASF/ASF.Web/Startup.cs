@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using ASF.Application.DtoMapper;
 using ASF.Domain.Services;
 using ASF.Domain.Values;
+using ASF.Internal.Utils;
 using Coravel;
 using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
@@ -35,6 +36,7 @@ namespace ASF.Web
             services.AddOptions().Configure<JQData>(this.Configuration.GetSection("JQData"));
             // httpclient 
             services.AddHttpClient();
+            services.AddSingleton<IHttpHelper, HttpHelper>();
             // 添加定时调度任务
             services.AddScheduler();
             //automapper

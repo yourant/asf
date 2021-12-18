@@ -117,15 +117,16 @@ namespace ASF.Domain.Services
             //判断用户是否禁止登陆和密码匹配
             if (!account.IsAllowLogin())
                 return Result<AccessToken>.ReFailure(ResultCodes.AccountNotAllowedLogin);
+            //获取是否有登录失败信息
+            LoginFailed loginFailed = this.GetLoginFailedInfo(account.Username);
+            loginFailed.Accumulative();
+            if (loginFailed.FailedCount >= this.maxLoginFailedCount)
+            {
+                return Result<AccessToken>.ReFailure(ResultCodes.AccountPasswordNotSameOverrun);
+            }
+            
             if (!PasswordHelper.ValidatePassword(password,account.PasswordSalt,account.Password))
             {
-                //获取是否有登录失败信息
-                LoginFailed loginFailed = this.GetLoginFailedInfo(account.Username);
-                loginFailed.Accumulative();
-                if (loginFailed.FailedCount >= this.maxLoginFailedCount)
-                {
-                    return Result<AccessToken>.ReFailure(ResultCodes.AccountPasswordNotSameOverrun);
-                }
                 return Result<AccessToken>.ReFailure(ResultCodes.AccountPasswordNotSame2.ToFormat((this.maxLoginFailedCount - loginFailed.FailedCount).ToString()));
             }
 

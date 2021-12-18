@@ -96,6 +96,7 @@ namespace ASF.DependencyInjection
             Services.AddTransient<PostService>();
             Services.AddTransient<EditorService>();
             Services.AddTransient<RunSendPhoneTasks>();
+            Services.AddTransient<JqDataService>();
         }
         // /// <summary>
         // /// 添加账户仓储缓存
