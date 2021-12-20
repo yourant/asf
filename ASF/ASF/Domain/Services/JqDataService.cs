@@ -127,4 +127,32 @@ public class JqDataService
 		});
 		return await this.GetData(data);
 	}
+	/// <summary>
+	/// 模拟 jq data run query方法
+	/// </summary>
+	/// <param name="dto"></param>
+	/// <returns></returns>
+	public async Task<Result<object>> RunQuery(GetFundamentalsRequestDto dto)
+	{
+		//获取登录token
+		var res = await this.GetLoginToken();
+		if(!res.Success)
+			return Result<object>.ReFailure(res.Message,res.Status);
+		Dictionary<string, string> dic = new Dictionary<string, string>()
+		{
+			["finance.STK_XR_XD"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"report_date#=#{dto.Date}&code#=#{dto.Code}",
+			["finance.STK_INCOME_STATEMENT"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
+			["finance.STK_CASHFLOW_STATEMENT"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
+			["finance.STK_BALANCE_SHEET"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}"
+		};
+		var data = await _httpHelper.PostResponse(_jqData.Url, new
+		{
+			method = "run_query",
+			token = res.Data, //token
+			table = dto.Table,
+			conditions = dic[dto.Table],
+			count = 1000
+		});
+		return await this.GetData(data);
+	}
 }

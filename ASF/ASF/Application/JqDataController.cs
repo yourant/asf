@@ -44,4 +44,14 @@ public class JqDataController: ControllerBase
 	{
 		return await _serviceProvider.GetRequiredService<JqDataService>().GetAllSecurities();
 	}
+	/// <summary>
+	///  模拟 jq data run query方法
+	/// </summary>
+	/// <returns></returns>
+	[Authorize]
+	[HttpGet]
+	public async Task<Result<object>> RunQuery([FromQuery] GetFundamentalsRequestDto dto)
+	{
+		return await _serviceProvider.GetRequiredService<JqDataService>().RunQuery(dto);
+	}
 }

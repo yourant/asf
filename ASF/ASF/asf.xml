@@ -2327,6 +2327,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:ASF.Application.JqDataController.RunQuery(ASF.Application.DTO.JqData.GetFundamentalsRequestDto)">
+            <summary>
+             模拟 jq data run query方法
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Application.MenuController">
             <summary>
             权限菜单控制器
@@ -4432,6 +4438,13 @@
             <summary>
             获取股票收益数据
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.JqDataService.RunQuery(ASF.Application.DTO.JqData.GetFundamentalsRequestDto)">
+            <summary>
+            模拟 jq data run query方法
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="T:ASF.Domain.Services.LoggerService">
