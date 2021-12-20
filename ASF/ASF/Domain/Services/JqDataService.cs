@@ -68,13 +68,24 @@ public class JqDataService
 		for (int i = 1; i < arr.Length; i++)
 		{
 			Dictionary<string, string> dic = new Dictionary<string, string>();
+			dic.Add("key",i.ToString());
 			for(int j = 0;j<tableKey.Count;j++)
 			{
 				dic.Add(tableKey[j],arr[i].SpitArray()[j]);
 			}
 			list.Add(dic);
 		}
-		return Result<object>.ReSuccess(list).AsTask();
+		return Result<object>.ReSuccess(new
+		{
+			columns = tableKey.Select(s=>new
+			{
+				title = s,
+				dataIndex = s,
+				key = s,
+				width = "100px"
+			}),
+			list = list
+		}).AsTask();
 	}
 	/// <summary>
 	/// 获取所有标的数据
