@@ -2315,12 +2315,6 @@
             聚集宽api
             </summary>
         </member>
-        <member name="M:ASF.Application.JqDataController.GetFundamentals(ASF.Application.DTO.JqData.GetFundamentalsRequestDto)">
-            <summary>
-            获取股票收益信息
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:ASF.Application.JqDataController.GetAllSecurities">
             <summary>
             获取股票标的信息
@@ -4437,6 +4431,12 @@
         <member name="M:ASF.Domain.Services.JqDataService.GetFundamentals(ASF.Application.DTO.JqData.GetFundamentalsRequestDto)">
             <summary>
             获取股票收益数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ASF.Domain.Services.JqDataService.GetMtss(ASF.Application.DTO.JqData.GetFundamentalsRequestDto)">
+            <summary>
+            获取融资融券信息
             </summary>
             <returns></returns>
         </member>

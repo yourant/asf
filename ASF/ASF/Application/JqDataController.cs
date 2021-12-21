@@ -25,16 +25,6 @@ public class JqDataController: ControllerBase
 		_serviceProvider = serviceProvider;
 	}
 	/// <summary>
-	/// 获取股票收益信息
-	/// </summary>
-	/// <returns></returns>
-	[Authorize]
-	[HttpGet]
-	public async Task<Result<object>> GetFundamentals([FromQuery] GetFundamentalsRequestDto dto)
-	{
-		return await _serviceProvider.GetRequiredService<JqDataService>().GetFundamentals(dto);
-	}
-	/// <summary>
 	/// 获取股票标的信息
 	/// </summary>
 	/// <returns></returns>
@@ -54,4 +44,5 @@ public class JqDataController: ControllerBase
 	{
 		return await _serviceProvider.GetRequiredService<JqDataService>().RunQuery(dto);
 	}
+
 }

@@ -131,34 +131,66 @@ public class JqDataService
 		return await this.GetData(data);
 	}
 	/// <summary>
+	/// 获取融资融券信息
+	/// </summary>
+	/// <returns></returns>
+	public async Task<Result<object>> GetMtss(GetFundamentalsRequestDto dto)
+	{
+		//获取登录token
+		var res = await this.GetLoginToken();
+		if(!res.Success)
+			return Result<object>.ReFailure(res.Message,res.Status);
+		var data = await _httpHelper.PostResponse(_jqData.Url, new
+		{
+			method = "get_mtss",
+			token = res.Data, //token
+			table = dto.Table,
+			code = dto.Code,
+			date = dto.Date,
+			count = 1000
+		});
+		return await this.GetData(data);
+	}
+	/// <summary>
 	/// 模拟 jq data run query方法
 	/// </summary>
 	/// <param name="dto"></param>
 	/// <returns></returns>
 	public async Task<Result<object>> RunQuery(GetFundamentalsRequestDto dto)
 	{
-		//获取登录token
-		var res = await this.GetLoginToken();
-		if(!res.Success)
-			return Result<object>.ReFailure(res.Message,res.Status);
-		Dictionary<string, string> dic = new Dictionary<string, string>()
+		if (dto.Table.Contains("finance."))
 		{
-			["finance.STK_XR_XD"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"report_date#=#{dto.Date}&code#=#{dto.Code}",
-			["finance.STK_INCOME_STATEMENT"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
-			["finance.STK_CASHFLOW_STATEMENT"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
-			["finance.STK_BALANCE_SHEET"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
-			["finance.STK_COMPANY_INFO"] = $"code#=#{dto.Code}",
-			["finance.STK_STATUS_CHANGE"] = $"code#=#{dto.Code}",
-			["finance.STK_LIST"] = $"code#=#{dto.Code}"
-		};
-		var data = await _httpHelper.PostResponse(_jqData.Url, new
+			//获取登录token
+			var res = await this.GetLoginToken();
+			if(!res.Success)
+				return Result<object>.ReFailure(res.Message,res.Status);
+			Dictionary<string, string> dic = new Dictionary<string, string>()
+			{
+				["finance.STK_XR_XD"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"report_date#=#{dto.Date}&code#=#{dto.Code}",
+				["finance.STK_INCOME_STATEMENT"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
+				["finance.STK_CASHFLOW_STATEMENT"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
+				["finance.STK_BALANCE_SHEET"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
+				["finance.STK_COMPANY_INFO"] = $"code#=#{dto.Code}",
+				["finance.STK_STATUS_CHANGE"] = $"code#=#{dto.Code}",
+				["finance.STK_LIST"] = $"code#=#{dto.Code}",
+				["finance.STK_EXCHANGE_TRADE_INFO"] =  dto.Date.Contains("q") ? "" : $"date#=#{dto.Date}"
+			};
+			var data = await _httpHelper.PostResponse(_jqData.Url, new
+			{
+				method = "run_query",
+				token = res.Data, //token
+				table = dto.Table,
+				conditions = dic[dto.Table],
+				count = 1000
+			});
+			return await this.GetData(data);
+		}else if (dto.Table.Equals("getMtss"))
 		{
-			method = "run_query",
-			token = res.Data, //token
-			table = dto.Table,
-			conditions = dic[dto.Table],
-			count = 1000
-		});
-		return await this.GetData(data);
+			return await this.GetMtss(dto);
+		}
+		else
+		{
+			return await this.GetFundamentals(dto);
+		}
 	}
 }
