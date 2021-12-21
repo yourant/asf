@@ -82,7 +82,10 @@ public class JqDataService
 				title = s,
 				dataIndex = s,
 				key = s,
-				width = "100px"
+				width = "200px",
+				ellipsis = new {
+					showTitle = false,
+				}
 			}),
 			list = list
 		}).AsTask();
@@ -143,7 +146,10 @@ public class JqDataService
 			["finance.STK_XR_XD"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"report_date#=#{dto.Date}&code#=#{dto.Code}",
 			["finance.STK_INCOME_STATEMENT"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
 			["finance.STK_CASHFLOW_STATEMENT"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
-			["finance.STK_BALANCE_SHEET"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}"
+			["finance.STK_BALANCE_SHEET"] = dto.Date.Contains("q") ? $"code#=#{dto.Code}" : $"end_date#=#{dto.Date}&code#=#{dto.Code}",
+			["finance.STK_COMPANY_INFO"] = $"code#=#{dto.Code}",
+			["finance.STK_STATUS_CHANGE"] = $"code#=#{dto.Code}",
+			["finance.STK_LIST"] = $"code#=#{dto.Code}"
 		};
 		var data = await _httpHelper.PostResponse(_jqData.Url, new
 		{
