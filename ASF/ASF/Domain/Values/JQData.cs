@@ -20,4 +20,12 @@ public class JQData
 	/// 密码 
 	/// </summary>
 	public string Password { get; set; }
+	/// <summary>
+	/// to share url地址
+	/// </summary>
+	public string ToShareUrl { get; set; }
+	/// <summary>
+	/// to share 授权token
+	/// </summary>
+	public string ToShareToken { get; set; }
 }

@@ -4447,6 +4447,12 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:ASF.Domain.Services.JqDataService.RunToShareQuery(System.String)">
+            <summary>
+            查询to share
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ASF.Domain.Services.LoggerService">
             <summary>
             日志服务
@@ -5244,6 +5250,16 @@
         <member name="P:ASF.Domain.Values.JQData.Password">
             <summary>
             密码 
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.JQData.ToShareUrl">
+            <summary>
+            to share url地址
+            </summary>
+        </member>
+        <member name="P:ASF.Domain.Values.JQData.ToShareToken">
+            <summary>
+            to share 授权token
             </summary>
         </member>
         <member name="T:ASF.Domain.Values.LoggingType">

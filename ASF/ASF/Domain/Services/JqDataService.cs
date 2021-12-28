@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using ASF.Application.DTO.JqData;
 using ASF.Domain.Values;
@@ -9,6 +11,7 @@ using ASF.Internal.Security;
 using ASF.Internal.Utils;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace ASF.Domain.Services;
 /// <summary>
@@ -192,5 +195,23 @@ public class JqDataService
 		{
 			return await this.GetFundamentals(dto);
 		}
+	}
+	/// <summary>
+	/// 查询to share
+	/// </summary>
+	/// <returns></returns>
+	public async Task<object> RunToShareQuery(string code)
+	{
+		var obj = new
+		{
+			api_name = "stock_basic",
+			token = _jqData.ToShareToken,
+			@param = new
+			{
+				ts_code = code
+			}
+		};
+		var data = await _httpHelper.PostResponse<object>(_jqData.ToShareUrl,obj);
+		return Result<object>.ReSuccess(new object(){});
 	}
 }

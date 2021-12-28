@@ -42,7 +42,7 @@ public class JqDataController: ControllerBase
 	[HttpGet]
 	public async Task<Result<object>> RunQuery([FromQuery] GetFundamentalsRequestDto dto)
 	{
+		var a = _serviceProvider.GetRequiredService<JqDataService>().RunToShareQuery("000001.SZ");
 		return await _serviceProvider.GetRequiredService<JqDataService>().RunQuery(dto);
 	}
-
 }
