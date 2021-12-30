@@ -44,7 +44,7 @@ public class JqDataController: ControllerBase
 	{
 		// var a = DateTime.Now.ToString("yyyyMMdd").ToString();
 		// var b = DateTime.Now.ToString("yyyy").ToString();
-		return await _serviceProvider.GetRequiredService<JqDataService>().RunToShareQuery("000001.SZ");
+		return await _serviceProvider.GetRequiredService<JqDataService>().RunToShareQuery("stock_basic","");
 		// return await _serviceProvider.GetRequiredService<JqDataService>().RunQuery(dto);
 	}
 }

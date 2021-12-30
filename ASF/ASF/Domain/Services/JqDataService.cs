@@ -200,11 +200,11 @@ public class JqDataService
 	/// 查询to share
 	/// </summary>
 	/// <returns></returns>
-	public async Task<Result<object>> RunToShareQuery(string code)
+	public async Task<Result<object>> RunToShareQuery(string apiName,string code)
 	{
-		var obj = new
+		object obj = !string.IsNullOrEmpty(code) ?  new
 		{
-			api_name = "income",
+			api_name = apiName,
 			token = _jqData.ToShareToken,
 			@params = new
 			{
@@ -212,8 +212,26 @@ public class JqDataService
 				start_date = "20040101",
 				end_date = DateTime.Now.ToString("yyyyMMdd").ToString()
 			}
+		} : new
+		{
+			api_name = apiName,
+			token = _jqData.ToShareToken
 		};
-		var data = await _httpHelper.PostResponse<object>(_jqData.ToShareUrl,obj);
-		return Result<object>.ReSuccess(data);
+		var data = await _httpHelper.PostResponse<ToShareResponseDto>(_jqData.ToShareUrl,obj);
+		List<object> list = new List<object>();
+		for (int i = 1; i < data.Data.Items.Count; i++)
+		{
+			Dictionary<string, string> dic = new Dictionary<string, string>();
+			dic.Add("key",i.ToString());
+			for(int j = 0;j<data.Data.Fields.Count;j++)
+			{
+				dic.Add(data.Data.Fields[j],data.Data.Items[i][j]);
+			}
+			list.Add(dic);
+		}
+		return Result<object>.ReSuccess(new
+		{
+			list = list
+		});
 	}
 }

@@ -1268,6 +1268,41 @@
             查询日期
             </summary>
         </member>
+        <member name="T:ASF.Application.DTO.JqData.ToShareResponseDto">
+            <summary>
+            to share 响应
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.ToShareResponseDto.RequestId">
+            <summary>
+            请求id
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.ToShareResponseDto.Code">
+            <summary>
+            响应 code
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.ToShareResponseDto.Msg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.ToShareResponseDto.Data">
+            <summary>
+            响应数据
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.ResponseData.Fields">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="P:ASF.Application.DTO.JqData.ResponseData.Items">
+            <summary>
+            items
+            </summary>
+        </member>
         <member name="T:ASF.Application.DTO.ModifyStatusRequestDto">
             <summary>
             修改状态
@@ -4447,7 +4482,7 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:ASF.Domain.Services.JqDataService.RunToShareQuery(System.String)">
+        <member name="M:ASF.Domain.Services.JqDataService.RunToShareQuery(System.String,System.String)">
             <summary>
             查询to share
             </summary>
