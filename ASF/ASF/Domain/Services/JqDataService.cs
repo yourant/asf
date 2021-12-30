@@ -200,18 +200,20 @@ public class JqDataService
 	/// 查询to share
 	/// </summary>
 	/// <returns></returns>
-	public async Task<object> RunToShareQuery(string code)
+	public async Task<Result<object>> RunToShareQuery(string code)
 	{
 		var obj = new
 		{
-			api_name = "stock_basic",
+			api_name = "income",
 			token = _jqData.ToShareToken,
-			@param = new
+			@params = new
 			{
-				ts_code = code
+				ts_code = code,
+				start_date = "20040101",
+				end_date = DateTime.Now.ToString("yyyyMMdd").ToString()
 			}
 		};
 		var data = await _httpHelper.PostResponse<object>(_jqData.ToShareUrl,obj);
-		return Result<object>.ReSuccess(new object(){});
+		return Result<object>.ReSuccess(data);
 	}
 }

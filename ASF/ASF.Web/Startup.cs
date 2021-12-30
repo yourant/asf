@@ -113,6 +113,8 @@ namespace ASF.Web
             var provider = app.ApplicationServices;
             provider.UseScheduler(scheduler =>
             {
+                // scheduler.Schedule<RunSendPhoneTasks>()
+                //     .EverySeconds(55);
                 scheduler.Schedule<RunSendPhoneTasks>()
                     .Daily();
             });
